@@ -1,9 +1,9 @@
 import React from "react";
 
-import Footer from "../components/Footer";
-import ScrollToTop from "../components/ScrollToTop";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
+import Footer from "../components/shared/Footer";
+import ScrollToTop from "../components/shared/ScrollToTop";
+import Sidebar from "../components/shared/Sidebar";
+import Header from "../components/shared/Header";
 
 import {
   Box,
