@@ -8,7 +8,7 @@ export default function HomePage() {
   const [currentUrl, setCurrentUrl] = React.useState(router.asPath);
   const [site, setSite] = React.useState({
     author: `ilyas Bozdemir,bozdemir.ib70@gmail.com`,
-    title: `Anasayfa | domainname.com`,
+    title: `Anasayfa | appizsoftcom`,
     url: currentUrl,
     image: "",
     imageAlt: "site-logo-png",

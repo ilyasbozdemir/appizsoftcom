@@ -33,8 +33,6 @@ function UserLayout({ children }) {
         </Drawer>
 
         <>
-
-          <Banner />
           <Header onOpen={onOpen} />
           <Box p={2}>
             {children}
