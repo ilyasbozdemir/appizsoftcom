@@ -17,7 +17,7 @@ function UserLayout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box minH="100vh" zIndex="100">
+      <Box minH="100vh" zIndex="100" p={1}>
         <Drawer
           autoFocus={true}
           isOpen={isOpen}
@@ -34,7 +34,7 @@ function UserLayout({ children }) {
 
         <>
           <Header onOpen={onOpen} />
-          <Box p={2}>
+          <Box>
             {children}
           </Box>
           <ScrollToTop />

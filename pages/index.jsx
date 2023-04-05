@@ -1,32 +1,24 @@
-import React from 'react'
-import { Box, Stack } from '@chakra-ui/react'
-import MetaHead from '../components/shared/MetaHead'
-import { useRouter } from 'next/router'
+import React from "react";
+
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { detectBrowserLanguage } from "../lib/detectBrowserLanguage";
 
 export default function HomePage() {
-  const router = useRouter()
-  const [currentUrl, setCurrentUrl] = React.useState(router.asPath)
-  const [site, setSite] = React.useState({
-    author: ``,
-    title: `Appizsoft • Özel Yazılım & Dijital Pazarlama &#199;&#246;z&#252;mleri`,
-    url: currentUrl,
-    image: '',
-    imageAlt: 'site-logo-png',
-    description: ``,
-    name: ``,
-    keywords: '',
-  })
+  const router = useRouter();
 
-  return (
-    <>
-      <>
-        <MetaHead
-          pageTitle={site.title}
-          description={site.description}
-          keywords={site.keywords}
-        />
-      </>
-      <></>
-    </>
-  )
+  useEffect(() => {
+    // Tarayıcı dilini al
+    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
+
+    if (browserLanguage.startsWith("tr")) {
+      router.push(`/tr`);
+    }
+    if (browserLanguage.startsWith("en")) {
+      router.push(`/en`);
+    }
+  }, []);
+
+  router.push(lang);
+  return <></>;
 }

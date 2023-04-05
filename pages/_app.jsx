@@ -2,6 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../layouts/UserLayout";
 import theme from "../src/theme";
 import App from "next/app";
+import '../styles/globals.css'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
