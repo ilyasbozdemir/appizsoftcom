@@ -19,6 +19,5 @@ export default function HomePage() {
     }
   }, []);
 
-  router.push(lang);
   return <></>;
 }

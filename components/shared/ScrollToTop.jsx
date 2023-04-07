@@ -44,8 +44,8 @@ function ScrollToTop() {
             onClick={scrollToTop}
             borderRadius={"25px 25px 25px 25px"}
             color={"white"}
-            bgGradient="linear(to-l, #ac28ca, #ff1060)"
-            _hover={{ bgGradient: "linear(to-r, #ac28ca, #ff1060)" }}
+            bg="#54bec3"
+            _hover={{ bg: "#6ebec2" }}
             position={"fixed"}
             bottom={{ base: "80px", lg: "40px" }}
             right={"15px"}

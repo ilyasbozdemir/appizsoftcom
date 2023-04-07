@@ -2,41 +2,59 @@ import React, { useEffect, useState } from "react";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "../../../hooks/useLanguage";
+import Router from "next/router";
+import { detectBrowserLanguage } from "../../../lib/detectBrowserLanguage";
 function Header() {
-  const { lang } = useLanguage();
+  const [lang, setLang] = React.useState("");
+  const [menus, setMenus] = React.useState([]);
 
-  const [menus, setMenus] = React.useState([
-    {
-      title: "Yazılım Hizmetlerimiz",
-      href: "#hizmetlerimiz",
-    },
-    {
-      title: "Referanslarımız",
-      href: "#referanslarimiz",
-    },
-    {
-      title: "Teknolojilerimiz",
-      href: "#teknolojilerimiz",
-    },
-    {
-      title: "Hakkımızda",
-      href: "#hakkimizda",
-    },
-    {
-      title: "Blog",
-      href: "#blog",
-    },
-    {
-      title: "İletişim",
-      href: "#iletisim",
-    },
-  ]);
+  useEffect(() => {
+    // Tarayıcı dilini al
+    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
+
+    if (browserLanguage.startsWith("tr")) {
+      setLang(`/tr`);
+    }
+    if (browserLanguage.startsWith("en")) {
+      setLang(`/en`);
+    }
+
+    setMenus([
+      {
+        title: "Hizmetlerimiz",
+        href: lang + "/hizmetlerimiz",
+      },
+      {
+        title: "Referanslarımız",
+        href: lang + "/referanslarimiz",
+      },
+      {
+        title: "Teknolojilerimiz",
+        href: lang + "/teknolojilerimiz",
+      },
+      {
+        title: "Hakkımızda",
+        href: lang + "/hakkimizda",
+      },
+      {
+        title: "Blog",
+        href: lang + "/blog",
+      },
+      {
+        title: "İletişim",
+        href: lang + "/iletisim",
+      },
+    ]);
+  }, []);
 
   const MenuLink = ({ title, href }) => {
     return (
       <Link href={href} passHref>
-        <Text as="a" cursor="pointer" className={"text-sm font-medium"}>
+        <Text
+          cursor="pointer"
+          className={"text-sm font-medium"}
+          fontFamily={"Verdana"}
+        >
           {title}
         </Text>
       </Link>
@@ -45,7 +63,7 @@ function Header() {
 
   return (
     <>
-      <Box display={{ base: "none", md: "initial" }} p="4">
+      <Box display={{ base: "none", md: "initial" }}>
         <></>
         <Flex
           bg="black"
@@ -68,8 +86,18 @@ function Header() {
                   <MenuLink title={menu.title} href={menu.href} />
                 </React.Fragment>
               ))}
-              <Button colorScheme="blue" size="md">
-                <Text fontSize={"sm"}>Teklif Al</Text>
+              <Button
+                color="#fff"
+                bg={"#54bec3"}
+                _hover={{ bg: "#6ebec2" }}
+                size="md"
+                onClick={() => {
+                  Router.push(`${lang}/teklif-al`);
+                }}
+              >
+                <Text fontSize={"sm"} fontFamily={"Poppins"}>
+                  Teklif Al
+                </Text>
               </Button>
             </Flex>
           </Box>
@@ -83,7 +111,9 @@ function Header() {
         justifyContent="space-between"
         alignItems="center"
         px={1.5}
-      ></Box>
+      >
+        mobile
+      </Box>
     </>
   );
 }
