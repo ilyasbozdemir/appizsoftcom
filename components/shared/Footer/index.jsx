@@ -10,7 +10,7 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaYoutube, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const ListHeader = ({ children }) => {
   return (
@@ -45,12 +45,9 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function LargeWithAppLinksAndSocial() {
-  const date= new Date().getFullYear()
+  const date = new Date().getFullYear();
   return (
-    <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
-    >
+    <Box bg="black" color="#fff">
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
@@ -110,6 +107,9 @@ export default function LargeWithAppLinksAndSocial() {
             </SocialButton>
             <SocialButton label={"Instagram"} href={"#"}>
               <FaInstagram />
+            </SocialButton>
+            <SocialButton label={"Linkedin"} href={"#"}>
+              <FaLinkedin />
             </SocialButton>
           </Stack>
         </Container>

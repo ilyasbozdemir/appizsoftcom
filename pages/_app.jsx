@@ -2,7 +2,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../layouts/UserLayout";
 import theme from "../src/theme";
 import App from "next/app";
-import '../styles/globals.css'
+import "../styles/globals.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -21,16 +23,12 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    // Bu, hydration hatasını önlemek için gerekli kod parçasıdır.
-    // İlk önce bir bileşen dinamik olarak yüklendiyse, hydrate edilmeli ve işleyicileri atamalıyız.
-    // Bu kod, özellikle getStaticProps/getServerSideProps ile oluşturulmuş bileşenler için gereklidir.
-    if (typeof window !== "undefined") {
-      import("@chakra-ui/react").then(() => {
-        // Çoklu React render etme hatası önleme için:
-        // eslint-disable-next-line no-underscore-dangle
-        // window._REACT_DEVTOOLS_GLOBAL_HOOK_.inject = function () {};
-      });
-    }
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-in-out",
+    });
+    AOS.refresh();
   }
 
   render() {
@@ -39,14 +37,10 @@ class MyApp extends App {
     return (
       <>
         {pageProps.statusCode ? (
-          <>
-            {/* <Page404 statusCode={pageProps.statusCode} /> */}
-          </>
-
+          <>{/* <Page404 statusCode={pageProps.statusCode} /> */}</>
         ) : (
           <ChakraProvider theme={theme}>
             <Layout>
-            
               <Component {...pageProps} />
             </Layout>
           </ChakraProvider>

@@ -2,6 +2,7 @@ import { Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 
+
 export default function CallToActionWithIllustration() {
   const router = useRouter();
   return (
@@ -17,14 +18,16 @@ export default function CallToActionWithIllustration() {
           fontSize={{ base: "xl", md: "50px" }}
           textTransform={"uppercase"}
           fontFamily={"Montserrat"}
+          data-aos="fade-up"
         >
+
           Yaratıcılıkla{" "}
           <Text as={"span"} color={"#54bec3"} fontSize={"56xl"}>
             Teknolojiyi{" "}
           </Text>
-          Buluşturuyoruz
+          birleştirerek Markanızı Öne Çıkarıyoruz.
         </Heading>
-        <Text color={"gray.500"} maxW={"3xl"}>
+        <Text color={"gray.500"} maxW={"3xl"} data-aos="fade-up">
           Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
           hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
           araştırmalarımızla, müşterilerimizin sektöründe öne çıkarak rekabet
@@ -41,6 +44,7 @@ export default function CallToActionWithIllustration() {
               router.push("/#");
             }}
             fontFamily={"Verdana"}
+            data-aos="zoom-in"
           >
             Hemen Başlayalım
           </Button>
@@ -51,6 +55,7 @@ export default function CallToActionWithIllustration() {
               router.push("/#");
             }}
             fontFamily={"Verdana"}
+            data-aos="zoom-in"
           >
             Detaylı Bilgi Al
           </Button>

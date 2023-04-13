@@ -1,7 +1,6 @@
 import React from "react";
 import MetaHead from "../../components/shared/MetaHead";
 import Cta from "../../components/Cta";
-import OurSolutions from "../../components/OurSolutions";
 import OurServices from "../../components/OurServices";
 import OurTechnologies from "../../components/OurTechnologies";
 
@@ -31,18 +30,17 @@ function IndexPage() {
           keywords={site.keywords}
         />
       </>
-      <Flex as="main" direction={"column"} gap={2}>
+      <Flex as="main" direction={"column"} gap={5}>
         <Cta />
-        <Box>
-          <OurSolutions />
-        </Box>
         <Box>
           <OurServices />
         </Box>
         <Box>
           <OurTechnologies />
         </Box>
-        <></>
+        <>
+        
+        </>
       </Flex>
     </>
   )
