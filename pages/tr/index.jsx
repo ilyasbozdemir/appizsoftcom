@@ -29,6 +29,7 @@ function IndexPage() {
           description={site.description}
           keywords={site.keywords}
         />
+     
       </>
       <Flex as="main" direction={"column"} gap={5}>
         <Cta />
@@ -38,12 +39,10 @@ function IndexPage() {
         <Box>
           <OurTechnologies />
         </Box>
-        <>
-        
-        </>
+        <></>
       </Flex>
     </>
-  )
+  );
 }
 
-export default IndexPage
+export default IndexPage;

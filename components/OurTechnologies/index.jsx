@@ -21,7 +21,7 @@ const ServiceCard = ({ title, body }) => {
     </Box>
   );
 };
-
+ 
 const services = [
   {
     title: "Özel Yazılım Geliştirme",

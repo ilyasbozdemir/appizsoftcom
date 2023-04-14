@@ -63,7 +63,7 @@ function Header() {
 
   return (
     <>
-      <Box display={{ base: "none", md: "initial" }}>
+      <Box display={{ base: "none", md: "initial" }} >
         <></>
         <Flex
           bg="black"
@@ -71,11 +71,12 @@ function Header() {
           justifyContent="space-between"
           alignItems="center"
           px={1.5}
+          py={2}
         >
           <Box>
             <Link href={`/${lang}?ref=desktop-logo`}>
               <Text fontSize="xl" fontWeight="bold" cursor="pointer">
-                <Image src={"/logo.png"} width={200} height={35} />
+                <Image src={"/logo.svg"} width={200} height={35} />
               </Text>
             </Link>
           </Box>

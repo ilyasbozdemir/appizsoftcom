@@ -3,7 +3,6 @@ import {
   Text,
   Image,
   Heading,
-  Stack,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -42,12 +41,11 @@ const servicesData = [
 const Services = ({ icon, title, content }) => {
   return (
     <Flex direction={"column"} w={{ base: "100%", md: "100%" }} gap={5} mx={5} userSelect={'none'}>
-      <Flex justifyContent={"center"}>
+      <Flex justifyContent={"center"}  data-aos={"zoom-out"}>
         <Image
           height={70}
           width={70}
           src={"https://picsum.photos/70/70"}
-          data-aos={"zoom-out"}
           draggable={false}
         />
       </Flex>
