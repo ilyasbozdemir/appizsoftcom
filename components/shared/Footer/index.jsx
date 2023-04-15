@@ -48,7 +48,7 @@ export default function LargeWithAppLinksAndSocial() {
   const date = new Date().getFullYear();
   return (
     <Box bg="black" color="#fff">
-      <Container as={Stack} maxW={"6xl"} py={10}>
+      <Container as={Stack}   w={'100%'} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
             <ListHeader>Company</ListHeader>

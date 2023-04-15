@@ -29,6 +29,7 @@ const Header = ({ lang, menuItems }) => {
         align="center"
         zIndex={500}
         pos={'relative'}
+        w={'100%'}
       >
         <Box
           onClick={() => {
