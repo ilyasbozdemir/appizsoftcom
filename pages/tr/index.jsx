@@ -13,7 +13,7 @@ function IndexPage() {
   const [currentUrl, setCurrentUrl] = React.useState(router.asPath);
   const [site, setSite] = React.useState({
     author: ``,
-    title: `Appizsoft • Özel Yazılım & Dijital Pazarlama & `,
+    title: `Appizsoft • Özel Yazılım & Dijital Pazarlama`,
     url: currentUrl,
     image: "",
     imageAlt: "site-logo-png",

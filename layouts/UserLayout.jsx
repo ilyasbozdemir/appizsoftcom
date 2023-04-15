@@ -5,13 +5,7 @@ import ScrollToTop from "../components/shared/ScrollToTop";
 import Sidebar from "../components/shared/Sidebar";
 import Header from "../components/shared/Header";
 
-import {
-  Box,
-  Drawer,
-  DrawerContent,
-  useDisclosure
-} from "@chakra-ui/react";
-
+import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
 
 function UserLayout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -34,9 +28,7 @@ function UserLayout({ children }) {
 
         <>
           <Header onOpen={onOpen} />
-          <Box>
-            {children}
-          </Box>
+          <Box>{children}</Box>
           <ScrollToTop />
           <Footer />
         </>

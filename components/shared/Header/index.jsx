@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../../lib/detectBrowserLanguage";
+import MobileHeader from "./MobileHeader";
 function Header() {
   const [lang, setLang] = React.useState("");
   const [menus, setMenus] = React.useState([]);
@@ -60,12 +61,14 @@ function Header() {
       </Link>
     );
   };
-
+  
+  const router = useRouter();
   return (
     <>
-      <Box display={{ base: "none", md: "initial" }} >
+      <Box display={{ base: "none", md: "initial" }}>
         <></>
         <Flex
+          as="nav"
           bg="black"
           color="#fff"
           justifyContent="space-between"
@@ -73,13 +76,18 @@ function Header() {
           px={1.5}
           py={2}
         >
-          <Box>
-            <Link href={`/${lang}?ref=desktop-logo`}>
-              <Text fontSize="xl" fontWeight="bold" cursor="pointer">
-                <Image src={"/logo.svg"} width={200} height={35} />
-              </Text>
-            </Link>
-          </Box>
+          <Image
+            src={"/logo.svg"}
+            width={150}
+            height={30}
+            onClick={() => {
+              router.push(`/${lang}?ref=desktop-logo`);
+            }}
+            style={{
+              cursor: "pointer",
+            }}
+          />
+
           <Box>
             <Flex align={"center"} justifyContent="flex-end" gap={2}>
               {menus.map((menu) => (
@@ -105,15 +113,8 @@ function Header() {
         </Flex>
       </Box>
 
-      <Box
-        display={{ base: "initial", md: "none" }}
-        bg="black"
-        color="#fff"
-        justifyContent="space-between"
-        alignItems="center"
-        px={1.5}
-      >
-        mobile header
+      <Box display={{ base: "initial", md: "none" }}>
+        <MobileHeader lang={lang} menuItems={menus} />
       </Box>
     </>
   );
