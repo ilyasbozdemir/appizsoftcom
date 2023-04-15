@@ -40,7 +40,7 @@ const servicesData = [
 
 const Services = ({ icon, title, content }) => {
   return (
-    <Flex direction={"column"} w={{ base: "100%", md: "100%" }} gap={5} mx={5} userSelect={'none'}>
+    <Flex direction={"column"} w={{ base: "100%", md: "100%" }} gap={5} mt={2} mx={5} userSelect={'none'}>
       <Flex justifyContent={"center"}  data-aos={"zoom-out"}>
         <Image
           height={70}

@@ -61,7 +61,7 @@ function Header() {
       </Link>
     );
   };
-  
+
   const router = useRouter();
   return (
     <>
@@ -101,12 +101,12 @@ function Header() {
                 _hover={{ bg: "#6ebec2" }}
                 size="md"
                 onClick={() => {
-                  Router.push(`${lang}/teklif-al`);
+                  router.push(`${lang}/teklif-al`);
                 }}
+                fontSize={"sm"}
+                fontFamily={"Poppins"}
               >
-                <Text fontSize={"sm"} fontFamily={"Poppins"}>
-                  Teklif Al
-                </Text>
+                Teklif Al
               </Button>
             </Flex>
           </Box>

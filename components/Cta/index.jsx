@@ -2,7 +2,6 @@ import { Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 
-
 export default function CallToActionWithIllustration() {
   const router = useRouter();
   return (
@@ -20,9 +19,8 @@ export default function CallToActionWithIllustration() {
           fontFamily={"Montserrat"}
           data-aos="fade-up"
         >
-
           Yaratıcılıkla{" "}
-          <Text as={"span"} color={"#54bec3"} fontSize={"56xl"}>
+          <Text as={"span"} color={"primary"} fontSize={"56xl"}>
             Teknolojiyi{" "}
           </Text>
           birleştirerek Markanızı Öne Çıkarıyoruz.
@@ -36,15 +34,16 @@ export default function CallToActionWithIllustration() {
         <Stack spacing={6} direction={"row"}>
           <Button
             rounded={"full"}
-            px={6}
             colorScheme={"blue"}
-            bg={"#54bec3"}
+            bg={"primary"}
             _hover={{ bg: "#6ebec2" }}
             onClick={() => {
-              router.push("/#");
+              router.push("#");
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
+            px={6}
+            fontSize={{ base: 14, md: 15, lg: 16 }}
           >
             Hemen Başlayalım
           </Button>
@@ -52,10 +51,12 @@ export default function CallToActionWithIllustration() {
             rounded={"full"}
             px={6}
             onClick={() => {
-              router.push("/#");
+              router.push("#");
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
+            fontSize={{ base: 14, md: 15, lg: 16 }}
+
           >
             Detaylı Bilgi Al
           </Button>

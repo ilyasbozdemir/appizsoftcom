@@ -1,5 +1,5 @@
-import React from 'react'
-import { HamburgerIcon, CloseIcon, Icon } from '@chakra-ui/icons'
+import React from "react";
+import { HamburgerIcon, CloseIcon, Icon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -9,14 +9,14 @@ import {
   Text,
   useDisclosure,
   VStack,
-} from '@chakra-ui/react'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
+} from "@chakra-ui/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = ({ lang, menuItems }) => {
-  const { isOpen, onClose, onToggle } = useDisclosure()
-  const router = useRouter()
+  const { isOpen, onClose, onToggle } = useDisclosure();
+  const router = useRouter();
 
   return (
     <>
@@ -24,22 +24,22 @@ const Header = ({ lang, menuItems }) => {
         as="nav"
         bg="black"
         color="#fff"
-        p={6}
+        p={5}
         justify="space-between"
         align="center"
         zIndex={500}
-        pos={'relative'}
-        w={'100%'}
+        pos={"relative"}
+        w={"100%"}
       >
         <Box
           onClick={() => {
-            router.push(`/${lang}?ref=mobile-logo`)
+            router.push(`/${lang}?ref=mobile-logo`);
           }}
           style={{
-            cursor: 'pointer',
+            cursor: "pointer",
           }}
         >
-          <Image src={'/logo.svg'} width={150} height={30} />
+          <Image src={"/logo.svg"} width={150} height={30} />
         </Box>
 
         <IconButton
@@ -55,20 +55,20 @@ const Header = ({ lang, menuItems }) => {
           aria-label="Toggle Navigation"
           bg="transparent"
           color="white"
-          _hover={{ bg: 'transparent' }}
-          _active={{ bg: 'transparent' }}
+          _hover={{ bg: "transparent" }}
+          _active={{ bg: "transparent" }}
         />
       </Flex>
 
       {isOpen && (
         <Box
           zIndex={499}
-          pos={'absolute'}
+          pos={"absolute"}
           top={90}
           left={0}
-          bg={'#fff'}
-          w={'100%'}
-          h={'100%'}
+          bg={"#fff"}
+          w={"full"}
+          h={"full"}
         >
           <>
             {menuItems.map((menu) => (
@@ -78,38 +78,38 @@ const Header = ({ lang, menuItems }) => {
             ))}
             <Button
               color="#fff"
-              bg={'#54bec3'}
-              _hover={{ bg: '#6ebec2' }}
+              bg={"#54bec3"}
+              _hover={{ bg: "#6ebec2" }}
               size="md"
               onClick={() => {
-                router.push(`${lang}/teklif-al`)
+                router.push(`${lang}/teklif-al`);
               }}
-              className='text-center'
+              fontSize={"sm"}
+              fontFamily={"Poppins"}
             >
-              <Text fontSize={'sm'} fontFamily={'Poppins'}>
-                Teklif Al
-              </Text>
+              Teklif Al
             </Button>
           </>
         </Box>
       )}
     </>
-  )
-}
+  );
+};
 
 const MenuLink = ({ title, href }) => {
   return (
     <Link href={href} passHref>
       <Text
         cursor="pointer"
-        className={'flex align-center justify-between p-2'}
-        fontFamily={'Verdana'}
+        className={"flex align-center justify-between p-2"}
+        fontFamily={"Verdana"}
+
       >
         {title}
       </Text>
       <Divider />
     </Link>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

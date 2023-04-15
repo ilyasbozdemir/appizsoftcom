@@ -8,7 +8,6 @@ const theme = extendTheme({
         //color: "gray.600",
         //lineHeight: "tall",
       },
-      
     },
   },
   config: {
@@ -20,7 +19,7 @@ const theme = extendTheme({
     transparent: "transparent",
     black: "#000",
     white: "#fff",
-    primary:'#2aaeeb',
+    primary:'#54bec3',
   },
   fonts: {
     body: "system-ui, sans-serif",
