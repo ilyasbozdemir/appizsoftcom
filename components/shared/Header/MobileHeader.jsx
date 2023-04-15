@@ -73,7 +73,7 @@ const Header = ({ lang, menuItems }) => {
           <>
             {menuItems.map((menu) => (
               <React.Fragment key={menu.title}>
-                <MenuLink title={menu.title} href={menu.href} />
+                <MenuLink title={menu.title} href={menu.href} lang={lang} />
               </React.Fragment>
             ))}
             <Button
@@ -96,9 +96,9 @@ const Header = ({ lang, menuItems }) => {
   );
 };
 
-const MenuLink = ({ title, href }) => {
+const MenuLink = ({ title, href ,lang}) => {
   return (
-    <Link href={href} passHref>
+    <Link href={`/${lang}/${href}`} passHref>
       <Text
         cursor="pointer"
         className={"flex align-center justify-between p-2"}

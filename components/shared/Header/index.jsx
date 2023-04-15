@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
-import Link from "next/link";
+
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../../lib/detectBrowserLanguage";
 import MobileHeader from "./MobileHeader";
 function Header() {
-  const [lang, setLang] = React.useState("");
   const [menus, setMenus] = React.useState([]);
+
+  const [lang, setLang] = React.useState("");
 
   useEffect(() => {
     // Tarayıcı dilini al
@@ -24,41 +25,65 @@ function Header() {
       {
         title: "Hizmetlerimiz",
         href: lang + "/hizmetlerimiz",
+        children: [
+          {
+            title: "Özel Yazılım Geliştirme",
+            href: lang + "hizmet/ozel-yazilim-gelistirme",
+          },
+          {
+            title: "E-ticaret Yazılımı",
+            href: lang + "/hizmet/e-ticaret-yazilimi",
+          },
+          {
+            title: "Start-Up Çözümleri",
+            href: lang + "/hizmet/startup-cozumleri",
+          },
+          {
+            title: "Mobil Uygulama Geliştirme",
+            href: lang + "/hizmet/mobil-uygulama-gelistirme",
+          },
+        ],
       },
       {
         title: "Referanslarımız",
         href: lang + "/referanslarimiz",
+        children: [{}, {}],
       },
       {
         title: "Teknolojilerimiz",
         href: lang + "/teknolojilerimiz",
+        children: [{}, {}],
       },
       {
         title: "Hakkımızda",
         href: lang + "/hakkimizda",
+        children: [{}, {}],
       },
       {
         title: "Blog",
         href: lang + "/blog",
+        children: [],
       },
       {
         title: "İletişim",
         href: lang + "/iletisim",
+        children: [],
       },
     ]);
   }, []);
 
   const MenuLink = ({ title, href }) => {
     return (
-      <Link href={href} passHref>
-        <Text
-          cursor="pointer"
-          className={"text-sm font-medium"}
-          fontFamily={"Verdana"}
-        >
-          {title}
-        </Text>
-      </Link>
+      <Text
+        cursor="pointer"
+        className={"text-sm font-medium"}
+        fontFamily={"Verdana"}
+        onClick={() => {
+          Router.push(lang + "/" + href);
+        }}
+      >
+        {title}
+      </Text>
     );
   };
 

@@ -1,8 +1,15 @@
-import { Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
+import {
+  Container,
+  Heading,
+  Stack,
+  Text,
+  Button,
+  useColorMode,
+} from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 
-export default function CallToActionWithIllustration() {
+export default function CallToActionWithIllustration({lang}) {
   const router = useRouter();
   return (
     <Container maxW={"5xl"}>
@@ -25,7 +32,12 @@ export default function CallToActionWithIllustration() {
           </Text>
           birleştirerek Markanızı Öne Çıkarıyoruz.
         </Heading>
-        <Text color={"gray.500"} maxW={"3xl"} data-aos="fade-up">
+        <Text
+          _light={{ color: "gray.500" }}
+          _dark={{ color: "#fff" }}
+          maxW={"3xl"}
+          data-aos="fade-up"
+        >
           Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
           hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
           araştırmalarımızla, müşterilerimizin sektöründe öne çıkarak rekabet
@@ -43,7 +55,7 @@ export default function CallToActionWithIllustration() {
             fontFamily={"Verdana"}
             data-aos="zoom-in"
             px={6}
-            fontSize={{ base: 14, md: 15, lg: 16 }}
+            fontSize={{ base: 12, md: 14, lg: 16 }}
           >
             Hemen Başlayalım
           </Button>
@@ -51,12 +63,11 @@ export default function CallToActionWithIllustration() {
             rounded={"full"}
             px={6}
             onClick={() => {
-              router.push("#");
+              router.push(`${lang}/iletisim`);
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
-            fontSize={{ base: 14, md: 15, lg: 16 }}
-
+            fontSize={{ base: 12, md: 14, lg: 16 }}
           >
             Detaylı Bilgi Al
           </Button>

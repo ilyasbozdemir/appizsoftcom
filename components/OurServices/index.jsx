@@ -1,9 +1,4 @@
-import {
-  Flex,
-  Text,
-  Image,
-  Heading,
-} from "@chakra-ui/react";
+import { Flex, Text, Image, Heading } from "@chakra-ui/react";
 import React from "react";
 
 const servicesData = [
@@ -40,8 +35,15 @@ const servicesData = [
 
 const Services = ({ icon, title, content }) => {
   return (
-    <Flex direction={"column"} w={{ base: "100%", md: "100%" }} gap={5} mt={2} mx={5} userSelect={'none'}>
-      <Flex justifyContent={"center"}  data-aos={"zoom-out"}>
+    <Flex
+      direction={"column"}
+      w={{ base: "100%", md: "100%" }}
+      gap={5}
+      mt={2}
+      mx={5}
+      userSelect={"none"}
+    >
+      <Flex justifyContent={"center"} data-aos={"zoom-out"}>
         <Image
           height={70}
           width={70}
@@ -50,12 +52,22 @@ const Services = ({ icon, title, content }) => {
         />
       </Flex>
       <Flex justifyContent={"center"}>
-        <Heading as={"h2"} fontSize={"12px"} data-aos="zoom-in" textTransform={'uppercase'}>
+        <Heading
+          as={"h2"}
+          fontSize={"12px"}
+          data-aos="zoom-in"
+          textTransform={"uppercase"}
+        >
           {title}
         </Heading>
       </Flex>
 
-      <Text color={"gray.600"} fontSize={"13px"} data-aos="zoom-in-up">
+      <Text
+        _light={{ color: "gray.600" }}
+        _dark={{ color: "#fff" }}
+        fontSize={"13px"}
+        data-aos="zoom-in-up"
+      >
         {content}
       </Text>
     </Flex>
@@ -67,16 +79,15 @@ function OurServices() {
     <>
       <Flex
         direction={{ base: "column", md: "row" }}
-        justifyContent={'space-between'}
+        justifyContent={"space-between"}
+        p={3}
       >
         {servicesData.map((service, i) => (
-          <>
-            <Services
-              icon={service.icon}
-              title={service.title}
-              content={service.content}
-            />
-          </>
+          <Services
+            icon={service.icon}
+            title={service.title}
+            content={service.content}
+          />
         ))}
       </Flex>
     </>
