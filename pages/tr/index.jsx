@@ -33,8 +33,6 @@ function IndexPage() {
     if (browserLanguage.startsWith("en")) {
       setLang(`/en`);
     }
-
- 
   }, []);
 
   return (
@@ -47,7 +45,7 @@ function IndexPage() {
         />
       </>
       <Flex as="main" direction={"column"} gap={5}>
-        <Cta lang={lang}/>
+        <Cta lang={lang} />
         <Box>
           <OurServices />
         </Box>

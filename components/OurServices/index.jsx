@@ -3,74 +3,71 @@ import React from "react";
 
 const servicesData = [
   {
-    icon: "",
+    img: "/special_software_development.png",
     title: "Özel Yazılım Geliştirme",
     content: "İşletmenizin ihtiyaçlarına uygun özel yazılımlar geliştiriyoruz.",
   },
   {
-    icon: "",
+    img: "/digital_marketing.png",
     title: "Dijital Pazarlama",
     content:
       "Sektörünüzde öne çıkmanızı sağlamak için dijital pazarlama araçları konusunda uzmanız.",
   },
   {
-    icon: "",
+    img: "/e_commerce.png",
     title: "E-ticaret Çözümleri",
     content:
       "İnternet mağazanızın yazılım ve dijital pazarlama ihtiyaçları için tecrübeli ekibimizle yanınızdayız. E-ticaretteki rekabet ve sorunları aşmanız için uzman kadromuz iş başında",
   },
   {
-    icon: "",
+    img: "/production.png",
     title: "Prodüksiyon & Tasarım",
     content:
       "Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz. Size özel tasarımlar ve yaratıcı fikirlerle markanızı öne çıkarıyoruz.",
   },
   {
-    icon: "",
+    img: "/game_desing.png",
     title: "Oyun Tasarım",
     content:
       "Oyun tasarımı konusunda da uzman ekibimizle yaratıcı fikirlerimiz ve oyun geliştirme konusundaki tecrübemizle sizin için en iyi oyun deneyimini sunuyoruz.",
   },
 ];
 
-const Services = ({ icon, title, content }) => {
+const Services = ({ img, title, content }) => {
   return (
-    <Flex
-      direction={"column"}
-      w={{ base: "100%", md: "100%" }}
-      gap={5}
-      mt={2}
-      mx={5}
-      userSelect={"none"}
-    >
-      <Flex justifyContent={"center"} data-aos={"zoom-out"}>
-        <Image
-          height={70}
-          width={70}
-          src={"https://picsum.photos/70/70"}
-          draggable={false}
-        />
-      </Flex>
-      <Flex justifyContent={"center"}>
-        <Heading
-          as={"h2"}
-          fontSize={"12px"}
-          data-aos="zoom-in"
-          textTransform={"uppercase"}
-        >
-          {title}
-        </Heading>
-      </Flex>
-
-      <Text
-        _light={{ color: "gray.600" }}
-        _dark={{ color: "#fff" }}
-        fontSize={"13px"}
-        data-aos="zoom-in-up"
+    <>
+      <Flex
+        direction={"column"}
+        w={{ base: "100%", md: "100%" }}
+        gap={5}
+        mt={2}
+        mx={5}
+        userSelect={"none"}
       >
-        {content}
-      </Text>
-    </Flex>
+        <Flex justifyContent={"center"} data-aos={"zoom-out"}>
+          <Image height={70} width={70} src={img} draggable={false} />
+        </Flex>
+        <Flex justifyContent={"center"}>
+          <Heading
+            as={"h2"}
+            fontSize={"12px"}
+            data-aos="zoom-in"
+            textTransform={"uppercase"}
+          >
+            {title}
+          </Heading>
+        </Flex>
+
+        <Text
+          _light={{ color: "gray.600" }}
+          _dark={{ color: "#fff" }}
+          fontSize={"13px"}
+          data-aos="zoom-in-up"
+        >
+          {content}
+        </Text>
+      </Flex>
+    </>
   );
 };
 
@@ -84,7 +81,7 @@ function OurServices() {
       >
         {servicesData.map((service, i) => (
           <Services
-            icon={service.icon}
+          img={service.img}
             title={service.title}
             content={service.content}
           />

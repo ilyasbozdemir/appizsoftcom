@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Flex, Box, Text, Button } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { Flex, Text, Button } from "@chakra-ui/react";
 
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -47,17 +47,17 @@ function Header() {
       {
         title: "Referanslarımız",
         href: lang + "/referanslarimiz",
-        children: [{}, {}],
+        children: [],
       },
       {
         title: "Teknolojilerimiz",
         href: lang + "/teknolojilerimiz",
-        children: [{}, {}],
+        children: [],
       },
       {
         title: "Hakkımızda",
         href: lang + "/hakkimizda",
-        children: [{}, {}],
+        children: [],
       },
       {
         title: "Blog",
@@ -88,18 +88,22 @@ function Header() {
   };
 
   const router = useRouter();
+
   return (
     <>
-      <Box display={{ base: "none", md: "initial" }}>
-        <></>
+      <Flex
+        display={{ base: "none", md: "initial" }}
+        justifyContent="center"
+        align={"center"}
+      >
         <Flex
           as="nav"
           bg="black"
           color="#fff"
           justifyContent="space-between"
           alignItems="center"
-          px={1.5}
-          py={2}
+          px={3}
+          py={3}
         >
           <Image
             src={"/logo.svg"}
@@ -113,34 +117,37 @@ function Header() {
             }}
           />
 
-          <Box>
-            <Flex align={"center"} justifyContent="flex-end" gap={2}>
-              {menus.map((menu) => (
-                <React.Fragment key={menu.title}>
-                  <MenuLink title={menu.title} href={menu.href} />
-                </React.Fragment>
-              ))}
-              <Button
-                color="#fff"
-                bg={"#54bec3"}
-                _hover={{ bg: "#6ebec2" }}
-                size="md"
-                onClick={() => {
-                  router.push(`${lang}/teklif-al`);
-                }}
-                fontSize={"sm"}
-                fontFamily={"Poppins"}
-              >
-                Teklif Al
-              </Button>
-            </Flex>
-          </Box>
-        </Flex>
-      </Box>
+          <Flex
+            align={"center"}
+            justifyContent="center"
+            gap={2}
+          >
+            {menus.map((menu) => (
+              <React.Fragment key={menu.title}>
+                <MenuLink title={menu.title} href={menu.href} />
+              </React.Fragment>
+            ))}
 
-      <Box display={{ base: "initial", md: "none" }}>
+            <Button
+              color="#fff"
+              bg={"#54bec3"}
+              _hover={{ bg: "#6ebec2" }}
+              size="md"
+              onClick={() => {
+                router.push(`${lang}/teklif-al`);
+              }}
+              fontSize={"sm"}
+              fontFamily={"Poppins"}
+            >
+              Teklif Al
+            </Button>
+          </Flex>
+        </Flex>
+      </Flex>
+
+      <Flex display={{ base: "initial", md: "none" }}>
         <MobileHeader lang={lang} menuItems={menus} />
-      </Box>
+      </Flex>
     </>
   );
 }
