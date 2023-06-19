@@ -8,6 +8,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
+import OurReferences from "../../components/OurReferences";
 function IndexPage() {
   const router = useRouter();
   const [currentUrl, setCurrentUrl] = React.useState(router.asPath);
@@ -52,7 +53,9 @@ function IndexPage() {
         <Box>
           <OurTechnologies />
         </Box>
-        <></>
+        <Box>
+          <OurReferences />
+        </Box>
       </Flex>
     </>
   );
