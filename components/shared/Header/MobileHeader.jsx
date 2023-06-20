@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HamburgerIcon, CloseIcon, Icon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  Center,
   Divider,
   Flex,
   IconButton,
@@ -13,10 +14,24 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import LanguageSwitcher from "../../LanguageSwitcher";
+
 const Header = ({ lang, menuItems }) => {
   const { isOpen, onClose, onToggle } = useDisclosure();
   const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 0);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       <Flex
@@ -29,6 +44,11 @@ const Header = ({ lang, menuItems }) => {
         zIndex={500}
         pos={"relative"}
         w={"100%"}
+        position="sticky"
+        boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none"}
+        transition="box-shadow 0.3s"
+        top={0}
+        right={0}
       >
         <Box
           onClick={() => {
@@ -59,54 +79,67 @@ const Header = ({ lang, menuItems }) => {
         />
       </Flex>
 
+      <></>
+
       {isOpen && (
         <Box
+          as="section"
           zIndex={499}
           pos={"absolute"}
-          top={90}
+          top={"80px"}
           left={0}
           bg={"#fff"}
           w={"full"}
           h={"full"}
         >
-          <>
+          <Flex pos={"relative"} direction={"column"}>
             {menuItems.map((menu) => (
               <React.Fragment key={menu.title}>
                 <MenuLink title={menu.title} href={menu.href} lang={lang} />
               </React.Fragment>
             ))}
-            <Button
-              color="#fff"
-              bg={"#54bec3"}
-              _hover={{ bg: "#6ebec2" }}
-              size="md"
-              onClick={() => {
-                router.push(`${lang}/teklif-al`);
-              }}
-              fontSize={"sm"}
-              fontFamily={"Poppins"}
-            >
-              Teklif Al
-            </Button>
-          </>
+
+            <Center>
+              <Button
+                color="#fff"
+                bg={"primary"}
+                _hover={{ bg: "#6ebec2" }}
+                size="md"
+                onClick={() => {
+                  router.push(`${lang}/teklif-al`);
+                }}
+                fontSize={"sm"}
+                fontFamily={"Poppins"}
+                w="90%"
+                px={4}
+                h={75}
+              >
+                Teklif Al
+              </Button>
+            </Center>
+
+            <Box pos={"relative"}>
+              <LanguageSwitcher lang={lang} />
+            </Box>
+          </Flex>
         </Box>
       )}
     </>
   );
 };
 
-const MenuLink = ({ title, href ,lang}) => {
+const MenuLink = ({ title, href, lang }) => {
   return (
     <Link href={`/${lang}/${href}`} passHref>
       <Text
         cursor="pointer"
         className={"flex align-center justify-between p-2"}
-        fontFamily={"Verdana"}
-
+        fontFamily={"Montserrat"}
+        p={5}
       >
         {title}
       </Text>
-      <Divider />
+      <Divider color={"#000"} />
     </Link>
   );
 };

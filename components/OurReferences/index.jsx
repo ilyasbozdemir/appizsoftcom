@@ -9,6 +9,11 @@ const references = [
   { id: 3, logo: "/images/references/test-reference.png", w: 150, h: 75 },
   { id: 4, logo: "/images/references/test-reference.png", w: 150, h: 75 },
   { id: 5, logo: "/images/references/test-reference.png", w: 150, h: 75 },
+  { id: 6, logo: "/images/references/test-reference.png", w: 150, h: 75 },
+  { id: 7, logo: "/images/references/test-reference.png", w: 150, h: 75 },
+  { id: 8, logo: "/images/references/test-reference.png", w: 150, h: 75 },
+  { id: 9, logo: "/images/references/test-reference.png", w: 150, h: 75 },
+  { id: 10, logo: "/images/references/test-reference.png", w: 150, h: 75 },
 ];
 
 export default function OurReferences() {
@@ -28,12 +33,12 @@ export default function OurReferences() {
 
   return (
     <Box>
-      <Flex overflow="hidden" bg={"#ddd"} p={5}>
+      <Flex overflow="hidden" bg={"#eee"} p={5}>
         <motion.div
           style={{
             display: "flex",
             width: `${references.length * 100}%`,
-            transition: "transform 0.7s",
+            transition: "transform 0.2s",
             transform: `translateX(-${
               slideIndex * (100 / references.length)
             }%)`,

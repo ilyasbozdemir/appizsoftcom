@@ -12,10 +12,10 @@ export default function HomePage() {
     const browserLanguage = detectBrowserLanguage(["en", "tr"]);
 
     if (browserLanguage.startsWith("tr")) {
-      router.push(`/tr`);
+      router.push(`/tr/`);
     }
     if (browserLanguage.startsWith("en")) {
-      router.push(`/en`);
+      router.push(`/en/`);
     }
   }, []);
 

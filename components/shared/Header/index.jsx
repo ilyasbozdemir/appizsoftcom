@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
-import { Flex, Text, Button } from "@chakra-ui/react";
-
+import React, { useEffect, useState } from "react";
+import { Flex, Text, Button, Center } from "@chakra-ui/react";
+import { Portal } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../../lib/detectBrowserLanguage";
 import MobileHeader from "./MobileHeader";
+import LanguageSwitcher from "../../LanguageSwitcher";
 function Header() {
   const [menus, setMenus] = React.useState([]);
 
@@ -76,11 +77,11 @@ function Header() {
     return (
       <Text
         cursor="pointer"
-        className={"text-sm font-medium"}
-        fontFamily={"Verdana"}
+        fontFamily={"Montserrat"}
         onClick={() => {
           Router.push(lang + "/" + href);
         }}
+        fontSize={"lg"}
       >
         {title}
       </Text>
@@ -89,66 +90,80 @@ function Header() {
 
   const router = useRouter();
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <>
+    <React.Fragment>
       <Flex
         display={{ base: "none", md: "initial" }}
-        justifyContent="center"
-        align={"center"}
+        position="sticky"
+        top={0}
+        right={0}
+        zIndex={500}
       >
-        <Flex
-          as="nav"
+        <Center
           bg="black"
           color="#fff"
-          justifyContent="space-between"
-          alignItems="center"
-          px={3}
-          py={3}
+          p={5}
+          boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none"}
+          transition="box-shadow 0.3s"
         >
-          <Image
-            src={"/logo.svg"}
-            width={150}
-            height={30}
-            onClick={() => {
-              router.push(`/${lang}?ref=desktop-logo`);
-            }}
-            style={{
-              cursor: "pointer",
-            }}
-          />
-
-          <Flex
-            align={"center"}
-            justifyContent="center"
-            gap={2}
-          >
-            {menus.map((menu) => (
-              <React.Fragment key={menu.title}>
-                <MenuLink title={menu.title} href={menu.href} />
+          <Flex as="nav" justifyContent="space-between" alignContent="center">
+            <Flex align="center" justifyContent="center" gap={5}>
+              <Image
+                src={"/logo.svg"}
+                width={150}
+                height={30}
+                onClick={() => {
+                  router.push(`/${lang}?ref=desktop-logo`);
+                }}
+                style={{
+                  cursor: "pointer",
+                }}
+              />
+              <React.Fragment>
+                {menus.map((menu) => (
+                  <React.Fragment key={menu.title}>
+                    <MenuLink title={menu.title} href={menu.href} />
+                  </React.Fragment>
+                ))}
+                <Button
+                  color="#fff"
+                  bg={"#54bec3"}
+                  _hover={{ bg: "#6ebec2" }}
+                  size="md"
+                  onClick={() => {
+                    router.push(`${lang}/teklif-al`);
+                  }}
+                  fontSize={"sm"}
+                  fontFamily={"Poppins"}
+                >
+                  Teklif Al
+                </Button>
               </React.Fragment>
-            ))}
-
-            <Button
-              color="#fff"
-              bg={"#54bec3"}
-              _hover={{ bg: "#6ebec2" }}
-              size="md"
-              onClick={() => {
-                router.push(`${lang}/teklif-al`);
-              }}
-              fontSize={"sm"}
-              fontFamily={"Poppins"}
-            >
-              Teklif Al
-            </Button>
+            </Flex>
+            <LanguageSwitcher lang={lang} />
           </Flex>
-        </Flex>
+        </Center>
       </Flex>
 
       <Flex display={{ base: "initial", md: "none" }}>
         <MobileHeader lang={lang} menuItems={menus} />
       </Flex>
-    </>
+    </React.Fragment>
   );
 }
 

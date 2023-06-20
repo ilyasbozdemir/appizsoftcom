@@ -9,7 +9,7 @@ import {
 
 import { useRouter } from "next/router";
 
-export default function CallToActionWithIllustration({lang}) {
+export default function CallToActionWithIllustration({ lang }) {
   const router = useRouter();
   return (
     <Container maxW={"5xl"}>
@@ -27,9 +27,15 @@ export default function CallToActionWithIllustration({lang}) {
           data-aos="fade-up"
         >
           Yaratıcılıkla{" "}
-          <Text as={"span"} color={"primary"} fontSize={"56xl"}>
-            Teknolojiyi{" "}
+          <Text
+            bgGradient="linear(to-r, #07ede5, #07a8ed)"
+            bgClip="text"
+            fontSize={"56xl"}
+           
+          >
+               Teknolojiyi{" "}
           </Text>
+
           birleştirerek Markanızı Öne Çıkarıyoruz.
         </Heading>
         <Text
@@ -54,20 +60,20 @@ export default function CallToActionWithIllustration({lang}) {
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
-            px={6}
-            fontSize={{ base: 12, md: 14, lg: 16 }}
+            p={5}
+            fontSize={{ base: 14, md: 16, lg: 18 }}
           >
             Hemen Başlayalım
           </Button>
           <Button
             rounded={"full"}
-            px={6}
+            p={5}
             onClick={() => {
               router.push(`${lang}/iletisim`);
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
-            fontSize={{ base: 12, md: 14, lg: 16 }}
+            fontSize={{ base: 14, md: 16, lg: 18 }}
           >
             Detaylı Bilgi Al
           </Button>

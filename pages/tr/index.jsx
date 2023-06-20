@@ -24,17 +24,16 @@ function IndexPage() {
   });
 
   const [lang, setLang] = React.useState("");
-  useEffect(() => {
-    // Tarayıcı dilini al
-    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
 
-    if (browserLanguage.startsWith("tr")) {
-      setLang(`/tr`);
-    }
-    if (browserLanguage.startsWith("en")) {
-      setLang(`/en`);
-    }
+  useEffect(() => {
+    const supportedLanguages = ["tr", "en"];
+    const browserLanguage = detectBrowserLanguage(supportedLanguages);
+    router.push(`/${browserLanguage}`);
+    setLang(browserLanguage);
   }, []);
+
+
+
 
   return (
     <>
@@ -51,11 +50,12 @@ function IndexPage() {
           <OurServices />
         </Box>
         <Box>
-          <OurTechnologies />
-        </Box>
-        <Box>
           <OurReferences />
         </Box>
+        <Box>
+          <OurTechnologies />
+        </Box>
+        <Box>BLOG ALANI</Box>
       </Flex>
     </>
   );

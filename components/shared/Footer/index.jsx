@@ -1,9 +1,13 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
-export default function LargeWithAppLinksAndSocial() {
-  const date = new Date().getFullYear();
-  return <Box bg="black" color="#fff">
-
+const Footer = () => {
+  const router = useRouter();
+  return (
+    <Box >
     
-  </Box>;
-}
+    </Box>
+  );
+};
+
+export default Footer;
