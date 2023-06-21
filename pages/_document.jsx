@@ -4,13 +4,14 @@ import theme from "../src/theme";
 import { ColorModeScript } from "@chakra-ui/react";
 export default class MyDocument extends Document {
   render() {
-    const canonicalUrl = "";
+    const canonicalUrl = "https://www.appizsoft.com";
     const googleSiteVerification = ``;
     return (
       <Html lang="tr">
         <Head>
+
           <link rel="canonical" href={canonicalUrl} />
-          <meta name="theme-color" content={"#fff"} />
+          <meta name="theme-color" content={"#54bec3"} />
           <meta
             name="google-site-verification"
             content={googleSiteVerification}
