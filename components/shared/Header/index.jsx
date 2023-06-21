@@ -78,10 +78,11 @@ function Header() {
       <Text
         cursor="pointer"
         fontFamily={"Montserrat"}
+        fontWeight={100}
         onClick={() => {
           Router.push(lang + "/" + href);
         }}
-        fontSize={"lg"}
+        fontSize={{ md: "13px", lg: "17px" }}
       >
         {title}
       </Text>
@@ -121,8 +122,14 @@ function Header() {
           boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none"}
           transition="box-shadow 0.3s"
         >
-          <Flex as="nav" justifyContent="space-between" alignContent="center">
-            <Flex align="center" justifyContent="center" gap={5}>
+          <Flex justifyContent="space-between" alignContent="center">
+            <Flex
+              as="nav"
+              align="center"
+              justifyContent="center"
+              textAlign={"center"}
+              gap={[3, 4, 5]}
+            >
               <Image
                 src={"/logo.svg"}
                 width={150}
@@ -134,7 +141,7 @@ function Header() {
                   cursor: "pointer",
                 }}
               />
-              <React.Fragment>
+              <>
                 {menus.map((menu) => (
                   <React.Fragment key={menu.title}>
                     <MenuLink title={menu.title} href={menu.href} />
@@ -148,12 +155,13 @@ function Header() {
                   onClick={() => {
                     router.push(`${lang}/teklif-al`);
                   }}
-                  fontSize={"sm"}
                   fontFamily={"Poppins"}
+                  p={{ md: 4, lg: 6 }}
+                  fontSize={{ md: "13px", lg: "17px" }}
                 >
                   Teklif Al
                 </Button>
-              </React.Fragment>
+              </>
             </Flex>
             <LanguageSwitcher lang={lang} />
           </Flex>

@@ -4,17 +4,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const references = [
-  { id: 1, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 2, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 3, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 4, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 5, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 6, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 7, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 8, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 9, logo: "/images/references/test-reference.png", w: 150, h: 75 },
-  { id: 10, logo: "/images/references/test-reference.png", w: 150, h: 75 },
+  { id: 1, logo: "/images/references/test-reference.png", w: 250, h: 100 },
+  { id: 2, logo: "/images/references/test-reference.png", w: 250, h: 100 },
+  { id: 3, logo: "/images/references/test-reference.png", w: 250, h: 100 },
+  { id: 4, logo: "/images/references/test-reference.png", w: 250, h: 100 },
 ];
+
+const defaultWidth = 175;
+const defaultHeight = 75;
 
 export default function OurReferences() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -58,10 +55,17 @@ export default function OurReferences() {
               <Image
                 src={ref.logo}
                 alt={`Reference ${ref.id}`}
-                width={ref.w}
-                height={ref.h}
+                width={defaultWidth}
+                height={defaultHeight}
                 mx={2}
                 opacity={0.7}
+                objectFit="contain"
+                sx={{
+                  "@media (min-width: 768px)": {
+                    width: `${ref.w}px`,
+                    height: `${ref.h}px`,
+                  },
+                }}
               />
             </motion.div>
           ))}

@@ -1,13 +1,35 @@
-import {
-  Container,
-  Heading,
-  Stack,
-  Text,
-  Button,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Container, Heading, Stack, Text, Button, Box, keyframes } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
+
+import { IoCaretForwardOutline } from "react-icons/io5";
+
+const rainbowAnimation = keyframes`
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+`;
+
+const RainbowText = ({text}) => (
+  <Box
+    as="span"
+    bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
+    bgClip="text"
+    color="transparent"
+    animation={`${rainbowAnimation} 2s ease-in-out infinite`}
+    bgSize="400% 100%"
+    animationIterationCount="infinite"
+    w="fit-content"
+  >
+    {text}
+  </Box>
+);
 
 export default function CallToActionWithIllustration({ lang }) {
   const router = useRouter();
@@ -21,21 +43,13 @@ export default function CallToActionWithIllustration({ lang }) {
       >
         <Heading
           fontWeight={600}
-          fontSize={{ base: "xl", md: "50px" }}
+          fontSize={{ base: "30px", md: "50px" }}
           textTransform={"uppercase"}
           fontFamily={"Montserrat"}
           data-aos="fade-up"
         >
           Yaratıcılıkla{" "}
-          <Text
-            bgGradient="linear(to-r, #07ede5, #07a8ed)"
-            bgClip="text"
-            fontSize={"56xl"}
-           
-          >
-               Teknolojiyi{" "}
-          </Text>
-
+          <RainbowText text={'Teknolojiyi '}/>
           birleştirerek Markanızı Öne Çıkarıyoruz.
         </Heading>
         <Text
@@ -43,6 +57,7 @@ export default function CallToActionWithIllustration({ lang }) {
           _dark={{ color: "#fff" }}
           maxW={"3xl"}
           data-aos="fade-up"
+          fontSize={{ base: "19px", md: "25px" }}
         >
           Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
           hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
@@ -60,20 +75,21 @@ export default function CallToActionWithIllustration({ lang }) {
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
-            p={5}
+            p={7}
             fontSize={{ base: 14, md: 16, lg: 18 }}
           >
-            Hemen Başlayalım
+            Hemen Başlayalım!
           </Button>
           <Button
             rounded={"full"}
-            p={5}
+            p={7}
             onClick={() => {
               router.push(`${lang}/iletisim`);
             }}
             fontFamily={"Verdana"}
             data-aos="zoom-in"
             fontSize={{ base: 14, md: 16, lg: 18 }}
+            rightIcon={<IoCaretForwardOutline />}
           >
             Detaylı Bilgi Al
           </Button>

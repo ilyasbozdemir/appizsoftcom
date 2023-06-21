@@ -50,9 +50,9 @@ const Services = ({ img, title, content }) => {
         <Flex justifyContent={"center"}>
           <Heading
             as={"h2"}
-            fontSize={"12px"}
             data-aos="zoom-in"
             textTransform={"uppercase"}
+            fontSize={{ base: "15px", md: "16px" }}
           >
             {title}
           </Heading>
@@ -61,8 +61,8 @@ const Services = ({ img, title, content }) => {
         <Text
           _light={{ color: "gray.600" }}
           _dark={{ color: "#fff" }}
-          fontSize={"13px"}
           data-aos="zoom-in-up"
+          fontSize={{ base: "15px", md: "16px" }}
         >
           {content}
         </Text>
