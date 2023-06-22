@@ -108,7 +108,7 @@ const Header = ({ lang, menuItems }) => {
                 onClick={() => {
                   router.push(`${lang}/teklif-al`);
                 }}
-                fontSize={"sm"}
+                fontSize={"2xl"}
                 fontFamily={"Poppins"}
                 w="90%"
                 px={4}
@@ -136,6 +136,7 @@ const MenuLink = ({ title, href, lang }) => {
         className={"flex align-center justify-between p-2"}
         fontFamily={"Montserrat"}
         p={5}
+        _hover={{ color: "gray.600" }}
       >
         {title}
       </Text>

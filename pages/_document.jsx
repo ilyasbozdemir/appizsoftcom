@@ -1,17 +1,25 @@
-import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../src/theme";
 import { ColorModeScript } from "@chakra-ui/react";
+
+
 export default class MyDocument extends Document {
   render() {
-    const canonicalUrl = "https://www.appizsoft.com";
     const googleSiteVerification = ``;
-    return (
-      <Html lang="tr">
-        <Head>
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://www.appizsoft.com"
+        : "http://localhost:3000";
 
-          <link rel="canonical" href={canonicalUrl} />
+    return (
+      <Html lang={`tr`}>
+        <Head>
+          <base href={baseUrl} />
+          <meta name="language" content="Turkish" />
+          <link rel="canonical" href={baseUrl} />
+          <link rel="icon" type="image/x-icon" href="/favicon.png" />
           <meta name="theme-color" content={"#54bec3"} />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta
             name="google-site-verification"
             content={googleSiteVerification}
@@ -34,6 +42,11 @@ export default class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:ital,wght@0,200;1,300&display=swap"
             rel="stylesheet"
+          />
+          <link
+            href="https://www.dafontfree.net/embed/bW9udHNlcnJhdC1leHRyYS1ib2xkJmRhdGEvMTYvbS83ODYzMy9Nb250c2VycmF0LUV4dHJhQm9sZC5vdGY"
+            rel="stylesheet"
+            type="text/css"
           />
         </Head>
         <body>
