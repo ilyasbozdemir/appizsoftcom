@@ -15,6 +15,9 @@ function Meta({
       <title>{pageTitle}</title>
 
       <meta charSet="utf-8" />
+
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta itemprop="name" content={pageTitle} />
       <meta itemprop="description" content={description} />
       <meta name="description" content={description} />
@@ -38,10 +41,7 @@ function Meta({
       <meta name="og:description" content={description} />
       <meta name="og:type" content="website" />
       <meta property="og:site_name" content={pageTitle} />
-      <meta
-        property="og:image"
-        content={image}
-      />
+      <meta property="og:image" content={image} />
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="60" />
     </Head>

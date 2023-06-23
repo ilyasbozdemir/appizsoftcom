@@ -38,6 +38,18 @@ export const technologies = [
     },
   },
   {
+    id: "NodeJs",
+    title: "NodeJs",
+    category: "Backend",
+    imageUrl: "images/technologies/node-js.svg",
+    isMenuDisplay: true,
+    description:``,
+    size: {
+      width: 50,
+      height: 50,
+    },
+  },
+  {
     id: "Redis",
     title: "Redis",
     category: "Backend",
@@ -110,6 +122,30 @@ export const technologies = [
     },
   },
   {
+    id: "GoogleDataStudio",
+    title: "Google Data Studio",
+    category: "Dijital Yerel Pazarlama",
+    imageUrl: "images/technologies/google-data-studio.svg",
+    isMenuDisplay: true,
+    description:``,
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+  {
+    id: "MetaBusinessSuite",
+    title: "Meta Business Suite",
+    category: "Dijital Yerel Pazarlama",
+    imageUrl: "images/technologies/meta-business-suite.svg",
+    isMenuDisplay: true,
+    description:``,
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+  {
     id: "Blender",
     title: "Blender",
     category: "Grafik Tasarım",
@@ -148,7 +184,7 @@ export const technologies = [
   {
     id: "AdobePremiere",
     title: "Adobe Premiere Pro",
-    category: "Grafik Tasarım",
+    category: "Prodüksiyon",
     imageUrl: "images/technologies/adobe-pr.svg",
     isMenuDisplay: true,
     description:``,
@@ -184,7 +220,7 @@ export const technologies = [
   {
     id: "Adobe_InDesign",
     title: "Adobe InDesign",
-    category: "Prodüksiyon",
+    category: "Grafik Tasarım",
     imageUrl: "images/technologies/adobe-id.svg",
     isMenuDisplay: true,
     description:``,

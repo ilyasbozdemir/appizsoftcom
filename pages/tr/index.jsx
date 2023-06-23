@@ -20,7 +20,6 @@ function IndexPage() {
   const [site, setSite] = React.useState({
     title: `Appizsoft • Özel Yazılım Geliştirme`,
     publisher: `Appizsoft`,
-    title: `Appizsoft • Özel Yazılım Geliştirme & Dijital Pazarlama `,
     url: baseUrl,
     image: baseUrl + "/logo.svg",
     imageAlt: "site-logo-png",

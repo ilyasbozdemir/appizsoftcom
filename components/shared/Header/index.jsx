@@ -17,6 +17,7 @@ import MobileHeader from "./MobileHeader";
 import LanguageSwitcher from "../../LanguageSwitcher";
 import { menuList } from "../../../constants/menuList";
 import { technologies } from "../../../constants/technologies";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Header() {
   const [menus, setMenus] = React.useState([
@@ -133,6 +134,29 @@ function Header() {
                 )}
               </>
             ))}
+            <WrapItem mx={5} w="250px">
+              <Box
+                width="50%"
+              >
+                <Button
+                  p={3}
+                  onClick={() => {
+                    Router.push(`${lang}/teknolojilerimiz`);
+                  }}
+                  fontFamily={"Verdana"}
+                  rightIcon={<AiOutlineArrowRight />}
+                  mb={0}
+                  fontWeight={400}
+                  fontSize={"14px"}
+                  lineHeight={"20px"}
+                  bg={'primary'}
+                  color={'white'}
+                  variant={'outline'}
+                >
+                  Daha fazlasını Gör
+                </Button>
+              </Box>
+            </WrapItem>
           </Wrap>
         </Flex>
       );
