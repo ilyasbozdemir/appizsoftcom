@@ -75,46 +75,69 @@ function Header() {
     const TechnologiesContent = () => {
       return (
         <Flex justifyContent={"center"}>
-          <Wrap>
-            {technologies.map((technology) => (
+          <Wrap p={3} spacing="30px" justify="center">
+            {technologies.map((tech) => (
               <>
-                <WrapItem
-                  key={technology.title}
-                  mx={5}
-                  cursor={"pointer"}
-                  onClick={() => {
-                    Router.push(`${lang}/teknolojilerimiz#${technology.id}`);
-                  }}
-                >
-                  <Flex
-                    w="280px"
-                    bg="white"
-                    color={"black"}
-                    _hover={{ color: "gray.600" }}
-                    gap={"16px"}
-                    textAlign={"center"}
-                  >
-                    <Box bg={"#f3f4f6"} borderRadius={"4px"}>
-                      <Image
-                        src={technology.imageUrl}
-                        alt={`${technology.title} photo`}
-                        verticalAling={'middle'}
-                        width={32}
-                        height={32}
-                      />
-                    </Box>
-                    <Flex display={"grid"} gap={"8px"}>
-                      
-
-                    </Flex>
-                  </Flex>
-                </WrapItem>
+                {tech.isMenuDisplay === true && (
+                  <>
+                    <WrapItem
+                      key={tech.title}
+                      mx={5}
+                      cursor={"pointer"}
+                      onClick={() => {
+                        Router.push(`${lang}/teknolojilerimiz#${tech.id}`);
+                      }}
+                      w="250px"
+                    >
+                      <Flex direction={"row"}>
+                        <Box
+                          width="50%"
+                          bg={"#f3f4f6"}
+                          borderRadius={"4px"}
+                          p={".5rem"}
+                          gap={"1rem"}
+                          alignItems={"center"}
+                          boxSize={"50px"}
+                        >
+                          <Image
+                            src={tech.imageUrl}
+                            alt={tech.id}
+                            width={tech.size.width}
+                            height={tech.size.height}
+                            mr={4}
+                          />
+                        </Box>
+                        <Box mx={3}>
+                          <Text
+                            mb={0}
+                            fontWeight={500}
+                            fontSize={"14px"}
+                            lineHeight={"20px"}
+                            isTruncated
+                          >
+                            {tech.title}
+                          </Text>
+                          <Text
+                            mb={0}
+                            fontWeight={400}
+                            fontSize={"14px"}
+                            lineHeight={"20px"}
+                            isTruncated
+                          >
+                            {tech.category}
+                          </Text>
+                        </Box>
+                      </Flex>
+                    </WrapItem>
+                  </>
+                )}
               </>
             ))}
           </Wrap>
         </Flex>
       );
     };
+
     const ServicesContent = () => {
       return (
         <>
@@ -149,6 +172,7 @@ function Header() {
         </>
       );
     };
+
     const ComponentSelector = ({ clickedElementId }) => {
       const renderComponent = () => {
         switch (clickedElementId) {
