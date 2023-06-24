@@ -283,6 +283,7 @@ function Header() {
               justifyContent="center"
               textAlign={"center"}
               gap={[3, 4, 5]}
+              userSelect={'none'}
             >
               <Image
                 src={"/logo.svg"}

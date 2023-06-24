@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import MetaHead from "../../components/shared/MetaHead";
 
 const OurReferencesCTA = () => {
@@ -8,27 +8,26 @@ const OurReferencesContent = () => {
   return <>OurReferencesContent</>;
 };
 
-
 function OurReferencesPage() {
   const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://www.appizsoft.com"
-    : "http://localhost:3000";
+    process.env.NODE_ENV === "production"
+      ? "https://www.appizsoft.com"
+      : "http://localhost:3000";
 
-const [site, setSite] = React.useState({
-  publisher: `Appizsoft`,
-  title: `Referanslarımız • Appizsoft `,
-  url: baseUrl,
-  image: baseUrl + "/logo.svg",
-  imageAlt: "site-logo-png",
-  description: ``,
-  name: ``,
-  keywords: "",
-  isRobotIndex: true,
-});
+  const [site, setSite] = React.useState({
+    publisher: `Appizsoft`,
+    title: `Referanslarımız • Appizsoft `,
+    url: baseUrl,
+    image: baseUrl + "/logo.svg",
+    imageAlt: "site-logo-png",
+    description: ``,
+    name: ``,
+    keywords: "",
+    isRobotIndex: true,
+  });
   return (
     <>
-         <>
+      <>
         <MetaHead
           pageTitle={site.title}
           description={site.description}
@@ -39,11 +38,12 @@ const [site, setSite] = React.useState({
           image={site.image}
         />
       </>
-
-      <OurReferencesCTA />
-      <OurReferencesContent />
+      <main>
+        <OurReferencesCTA />
+        <OurReferencesContent />
+      </main>
     </>
-  )
+  );
 }
 
-export default OurReferencesPage
+export default OurReferencesPage;

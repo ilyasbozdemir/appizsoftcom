@@ -49,6 +49,7 @@ const Header = ({ lang, menuItems }) => {
         transition="box-shadow 0.3s"
         top={0}
         right={0}
+        userSelect={"none"}
       >
         <Box
           onClick={() => {

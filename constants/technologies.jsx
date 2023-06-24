@@ -210,7 +210,7 @@ export const technologies = [
     title: "Adobe XD",
     category: "Prodüksiyon",
     imageUrl: "images/technologies/adobe-xd.svg",
-    isMenuDisplay: true,
+    isMenuDisplay: false,
     description:``,
     size: {
       width: 32,
@@ -218,11 +218,11 @@ export const technologies = [
     },
   },
   {
-    id: "Adobe_InDesign",
+    id: "AdobeInDesign",
     title: "Adobe InDesign",
     category: "Grafik Tasarım",
     imageUrl: "images/technologies/adobe-id.svg",
-    isMenuDisplay: true,
+    isMenuDisplay: false,
     description:``,
     size: {
       width: 32,

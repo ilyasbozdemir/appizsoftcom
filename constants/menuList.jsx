@@ -42,18 +42,7 @@ export const menuList = [
     title: "Teknolojilerimiz",
     href: null,
     type:'technologies',
-    children: [
-      {
-        title: `ss`,
-        href: "/teknolojiler/mobil-uygulama-gelistirme",
-        type: `ss`,
-      },
-      {
-        title: `dd`,
-        href: "/teknolojiler/mobil-uygulama-gelistirme",
-        type: ``,
-      },
-    ],
+    children: [],
   },
   {
     title: "Hakkımızda",
