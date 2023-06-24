@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
         <Head>
           <base href={baseUrl} />
           <meta name="language" content="Turkish" />
+          
           <link rel="canonical" href={baseUrl} />
           <link rel="icon" type="image/x-icon" href="/favicon.png" />
           <meta name="theme-color" content={"#54bec3"} />
