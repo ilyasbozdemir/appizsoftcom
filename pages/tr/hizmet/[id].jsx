@@ -2,6 +2,13 @@ import React, { useEffect } from "react";
 import { services } from "../../../constants/services";
 import MetaHead from "../../../components/shared/MetaHead";
 
+const DOurServiceDetailCTA = () => {
+  return <>DOurServiceDetailCTA</>;
+};
+const DOurServiceDetailContent = () => {
+  return <>DOurServiceDetailContent</>;
+};
+
 function DOurServiceDetail({ service }) {
   const baseUrl =
     process.env.NODE_ENV === "production"
@@ -19,7 +26,7 @@ function DOurServiceDetail({ service }) {
     keywords: "",
     isRobotIndex: true,
   });
-  
+
   useEffect(() => {
     setSite((prevSite) => ({
       ...prevSite,
@@ -41,8 +48,10 @@ function DOurServiceDetail({ service }) {
         />
       </>
 
+     
       <main>
-        <>{service.title}</>
+        <DOurServiceDetailCTA />
+        <DOurServiceDetailContent />
       </main>
     </>
   );
