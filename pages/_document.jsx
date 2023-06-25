@@ -49,6 +49,8 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             type="text/css"
           />
+
+
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />

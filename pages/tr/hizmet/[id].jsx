@@ -21,7 +21,7 @@ function DOurServiceDetail({ service }) {
     url: baseUrl,
     image: baseUrl + "/logo.svg",
     imageAlt: "site-logo-png",
-    description: ``,
+    description: `${service.desc}`,
     name: ``,
     keywords: "",
     isRobotIndex: true,
@@ -31,6 +31,7 @@ function DOurServiceDetail({ service }) {
     setSite((prevSite) => ({
       ...prevSite,
       title: `${service.title} • Appizsoft `,
+      description: `${service.desc}`,
     }));
   }, [service]);
 
@@ -48,7 +49,6 @@ function DOurServiceDetail({ service }) {
         />
       </>
 
-     
       <main>
         <DOurServiceDetailCTA />
         <DOurServiceDetailContent />

@@ -74,18 +74,6 @@ export const technologies = [
     },
   },
   {
-    id: "ReactNative",
-    title: "React Native",
-    category: "Mobil Uygulama Geliştirme",
-    imageUrl: "images/technologies/react-js.svg",
-    isMenuDisplay: true,
-    description:``,
-    size: {
-      width: 35,
-      height: 35,
-    },
-  },
-  {
     id: "Figma",
     title: "Figma",
     category: "UX/UI Design",
@@ -222,7 +210,7 @@ export const technologies = [
     title: "Adobe InDesign",
     category: "Grafik Tasarım",
     imageUrl: "images/technologies/adobe-id.svg",
-    isMenuDisplay: false,
+    isMenuDisplay: true,
     description:``,
     size: {
       width: 32,
