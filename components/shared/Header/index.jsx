@@ -83,11 +83,6 @@ function Header() {
     );
 
     const TechnologiesContent = () => {
-      const getChildrenByTitle = (items, title) => {
-        const item = items.find((item) => item.title === title);
-        return item ? item.children : [];
-      };
-
       return (
         <Flex justifyContent={"center"} direction={"row"}>
           <Wrap p={3} spacing="30px" justify="center">

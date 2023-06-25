@@ -11,8 +11,16 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import Router, { useRouter } from "next/router";
+import { menuList } from "../../../constants/menuList";
+
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
 
 import LanguageSwitcher from "../../LanguageSwitcher";
 
@@ -32,6 +40,19 @@ const Header = ({ lang, menuItems }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleRouteChangeComplete = (url) => {
+    onClose(); // Sayfa geçişi tamamlandığında isOpen durumunu kapatmak için onClose işlevini çağırıyoruz
+  };
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+    };
+  }, []);
+
   return (
     <>
       <Flex
@@ -96,15 +117,23 @@ const Header = ({ lang, menuItems }) => {
           <Flex pos={"relative"} direction={"column"}>
             {menuItems.map((menu) => (
               <React.Fragment key={menu.title}>
-                <MenuLink title={menu.title} href={menu.href} lang={lang} />
+                <MenuLink
+                  title={menu.title}
+                  href={menu.href}
+                  lang={lang}
+                  data-menu-title={menu.title}
+                />
               </React.Fragment>
             ))}
 
-            <Center>
+            <Center my={5}>
               <Button
                 color="#fff"
                 bg={"primary"}
-                _hover={{ bg: "#6ebec2" }}
+                _hover={{
+                  bg: "#6ebec2",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
+                }}
                 size="md"
                 onClick={() => {
                   router.push(`${lang}/teklif-al`);
@@ -129,20 +158,117 @@ const Header = ({ lang, menuItems }) => {
   );
 };
 
-const MenuLink = ({ title, href, lang }) => {
+const MenuLink = ({ title, href, lang, "data-menu-title": dataMenuTitle }) => {
+  const handleClick = (event) => {
+    if (href !== null) {
+      Router.push(`${lang}/${href}`);
+    }
+  };
+
+  const [menus, setMenus] = React.useState([
+    {
+      title: "Hizmetlerimiz",
+    },
+    {
+      title: "Referanslarımız",
+    },
+    {
+      title: "Teknolojilerimiz",
+    },
+    {
+      title: "Hakkımızda",
+    },
+    {
+      title: "Blog",
+    },
+    {
+      title: "İletişim",
+    },
+  ]);
+  useEffect(() => {
+    setMenus(menuList);
+  }, []);
+
+  
+  const TechnologiesContent = () => {
+    return <></>;
+  };
+
+  const ServicesContent = () => {
+    return <></>;
+  };
+
+  const ComponentSelector = ({ clickedElementId }) => {
+    const renderComponent = () => {
+      switch (clickedElementId) {
+        case "Teknolojilerimiz":
+          return <TechnologiesContent />;
+        case "Hizmetlerimiz":
+          return <ServicesContent />;
+        default:
+          return null;
+      }
+    };
+    return <>{renderComponent()}</>;
+  };
+  
+  const AccordionContent = ({ title, menuId }) => {
+    return (
+      <>
+        <Accordion allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton
+                //_expanded={{ bg: "primary", color: "white" }}
+                cursor="pointer"
+                className={"flex align-center justify-between p-2"}
+                fontFamily={"Montserrat"}
+                p={5}
+                _hover={{
+                  color: "#fff",
+                }}
+                data-menu-id={menuId}
+              >
+                <Box as="span" flex="1" textAlign="left">
+                  {title}
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <ComponentSelector clickedElementId={menuId} />
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+      </>
+    );
+  };
+
   return (
-    <Link href={`/${lang}/${href}`} passHref>
-      <Text
-        cursor="pointer"
-        className={"flex align-center justify-between p-2"}
-        fontFamily={"Montserrat"}
-        p={5}
-        _hover={{ color: "gray.600" }}
-      >
-        {title}
-      </Text>
-      <Divider color={"#000"} />
-    </Link>
+    <>
+      <Box onClick={handleClick} _hover={{ bg: "primary", color: "#fff" }}>
+        {href === null ? (
+          <>
+            <AccordionContent title={dataMenuTitle} menuId={dataMenuTitle} />
+          </>
+        ) : (
+          <>
+            <Text
+              cursor="pointer"
+              className={"flex align-center justify-between p-2"}
+              fontFamily={"Montserrat"}
+              p={5}
+              _hover={{
+                color: "#fff",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+              }}
+            >
+              {title}
+            </Text>
+          </>
+        )}
+      </Box>
+    </>
   );
 };
 

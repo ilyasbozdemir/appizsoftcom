@@ -10,7 +10,7 @@ export const menuList = [
   {
     title: "Referanslarımız",
     href: "/referanslarimiz",
-    children: [],
+    children: null,
   },
   {
     title: "Teknolojilerimiz",
@@ -20,16 +20,16 @@ export const menuList = [
   {
     title: "Hakkımızda",
     href: "/hakkimizda",
-    children: [],
+    children: technologies,
   },
   {
     title: "Blog",
     href: "/blog",
-    children: [],
+    children: null,
   },
   {
     title: "İletişim",
     href: "/iletisim",
-    children: [],
+    children: null,
   },
 ];

@@ -9,6 +9,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
 import OurReferences from "../../components/OurReferences";
+
 function IndexPage() {
   const router = useRouter();
 
@@ -63,6 +64,14 @@ function IndexPage() {
     }, [currentIndex]);
   };
 
+
+  const objects = [
+    { x: 100, y: 100, color: 'red' },
+    { x: -100, y: -100, color: 'blue' },
+    { x: 0, y: 0, color: 'green' },
+  ];
+
+
   return (
     <>
       <>
@@ -78,6 +87,8 @@ function IndexPage() {
 
         <WindowTitleChanger />
       </>
+
+
       <Flex as="main" direction={"column"} gap={5}>
         <Cta lang={lang} />
         <Box>
@@ -89,10 +100,7 @@ function IndexPage() {
         <Box>
           <OurTechnologies />
         </Box>
-        <Box>
-          BLOG ALANI
-
-        </Box>
+        <Box>BLOG ALANI</Box>
       </Flex>
     </>
   );
