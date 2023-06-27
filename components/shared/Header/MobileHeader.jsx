@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { HamburgerIcon, CloseIcon, Icon } from "@chakra-ui/icons";
+import React, { useEffect, useRef, useState } from "react";
+import { HamburgerIcon, CloseIcon, AddIcon, MinusIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -8,7 +8,12 @@ import {
   Flex,
   IconButton,
   Text,
+  Wrap,
+  WrapItem,
   useDisclosure,
+  Icon,
+  AccordionIcon,
+  HStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -19,13 +24,14 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
 } from "@chakra-ui/react";
 
 import LanguageSwitcher from "../../LanguageSwitcher";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
-const Header = ({ lang, menuItems }) => {
-  const { isOpen, onClose, onToggle } = useDisclosure();
+import { BiMenuAltRight } from "react-icons/bi";
+
+const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -42,7 +48,7 @@ const Header = ({ lang, menuItems }) => {
   }, []);
 
   const handleRouteChangeComplete = (url) => {
-    onClose(); // Sayfa geçişi tamamlandığında isOpen durumunu kapatmak için onClose işlevini çağırıyoruz
+    onClose();
   };
 
   useEffect(() => {
@@ -80,7 +86,7 @@ const Header = ({ lang, menuItems }) => {
             cursor: "pointer",
           }}
         >
-          <Image src={"/logo.svg"} width={150} height={30} />
+          <Image src={"/logo.svg"} width={150} height={30} draggable={false} />
         </Box>
 
         <IconButton
@@ -88,7 +94,7 @@ const Header = ({ lang, menuItems }) => {
             isOpen ? (
               <Icon as={CloseIcon} fontSize={20} />
             ) : (
-              <Icon as={HamburgerIcon} fontSize={35} />
+              <Icon as={BiMenuAltRight} fontSize={35} />
             )
           }
           onClick={onToggle}
@@ -100,65 +106,52 @@ const Header = ({ lang, menuItems }) => {
           _active={{ bg: "transparent" }}
         />
       </Flex>
+      <>
+        {isOpen && (
+          <>
+            <Box as="section">
+              <Flex direction={"column"}>
+                {menus.map((menu) => (
+                  <React.Fragment key={menu.title}>
+                    <MenuLink title={menu.title} href={menu.href} lang={lang} />
+                  </React.Fragment>
+                ))}
 
-      <></>
+                <Center my={5}>
+                  <Button
+                    color="#fff"
+                    bg={"primary"}
+                    _hover={{
+                      bg: "#6ebec2",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
+                    }}
+                    size="md"
+                    onClick={() => {
+                      router.push(`${lang}/teklif-al`);
+                    }}
+                    fontSize={"2xl"}
+                    fontFamily={"Poppins"}
+                    w="90%"
+                    px={4}
+                    h={75}
+                  >
+                    Teklif Al
+                  </Button>
+                </Center>
 
-      {isOpen && (
-        <Box
-          as="section"
-          zIndex={499}
-          pos={"absolute"}
-          top={"80px"}
-          left={0}
-          bg={"#fff"}
-          w={"full"}
-          h={"full"}
-        >
-          <Flex pos={"relative"} direction={"column"}>
-            {menuItems.map((menu) => (
-              <React.Fragment key={menu.title}>
-                <MenuLink
-                  title={menu.title}
-                  href={menu.href}
-                  lang={lang}
-                  data-menu-title={menu.title}
-                />
-              </React.Fragment>
-            ))}
-
-            <Center my={5}>
-              <Button
-                color="#fff"
-                bg={"primary"}
-                _hover={{
-                  bg: "#6ebec2",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
-                }}
-                size="md"
-                onClick={() => {
-                  router.push(`${lang}/teklif-al`);
-                }}
-                fontSize={"2xl"}
-                fontFamily={"Poppins"}
-                w="90%"
-                px={4}
-                h={75}
-              >
-                Teklif Al
-              </Button>
-            </Center>
-
-            <Box pos={"relative"}>
-              <LanguageSwitcher lang={lang} />
+                <Box pos={"relative"}>
+                  <LanguageSwitcher lang={lang} />
+                </Box>
+              </Flex>
             </Box>
-          </Flex>
-        </Box>
-      )}
+          </>
+        )}
+      </>
     </>
   );
 };
 
-const MenuLink = ({ title, href, lang, "data-menu-title": dataMenuTitle }) => {
+const MenuLink = ({ title, href, lang }) => {
   const handleClick = (event) => {
     if (href !== null) {
       Router.push(`${lang}/${href}`);
@@ -185,86 +178,243 @@ const MenuLink = ({ title, href, lang, "data-menu-title": dataMenuTitle }) => {
       title: "İletişim",
     },
   ]);
+
   useEffect(() => {
     setMenus(menuList);
   }, []);
 
-  
+  const getChildrenByTitle = (items, title) => {
+    const item = items.find((item) => item.title === title);
+    return item ? item.children : [];
+  };
+
+  const technologiesList = getChildrenByTitle(menus, "Teknolojilerimiz");
+  const servicesList = getChildrenByTitle(menus, "Hizmetlerimiz");
+
+  const softwareServiceList = servicesList?.filter(
+    (service) => service.serviceCategory === "software"
+  );
+
+  const digitalMarketingServiceList = servicesList?.filter(
+    (service) => service.serviceCategory === "digital marketing"
+  );
+
   const TechnologiesContent = () => {
-    return <></>;
+    return (
+      <Flex justifyContent={"center"} direction={"row"}>
+        <Wrap spacing="30px" justify="center">
+          {technologiesList?.map((tech) => (
+            <>
+              {tech.isMenuDisplay === true && (
+                <>
+                  <WrapItem
+                    key={tech.title}
+                    mx={10}
+                    cursor={"pointer"}
+                    onClick={() => {
+                      Router.push(`${lang}/teknolojilerimiz#${tech.id}`);
+                    }}
+                    w="150px"
+                  >
+                    <Flex direction={"row"} zIndex={11}>
+                      <Box
+                        width="50%"
+                        bg={"#f3f4f6"}
+                        borderRadius={"4px"}
+                        p={".5rem"}
+                        gap={"1rem"}
+                        alignItems={"center"}
+                        boxSize={"50px"}
+                      >
+                        <Image
+                          src={tech.imageUrl}
+                          alt={tech.id}
+                          width={tech.size.width}
+                          height={tech.size.height}
+                          mr={4}
+                        />
+                      </Box>
+                      <Box mx={3}>
+                        <Text
+                          mb={0}
+                          fontWeight={500}
+                          fontSize={"14px"}
+                          lineHeight={"20px"}
+                          isTruncated
+                        >
+                          {tech.title}
+                        </Text>
+                        <Text
+                          mb={0}
+                          fontWeight={400}
+                          fontSize={"14px"}
+                          lineHeight={"20px"}
+                          isTruncated
+                        >
+                          {tech.category}
+                        </Text>
+                      </Box>
+                    </Flex>
+                  </WrapItem>
+                </>
+              )}
+            </>
+          ))}
+          <WrapItem mx={7} w="175px">
+            <Button
+              colorScheme="teal"
+              variant="outline"
+              fontFamily={"Montserrat"}
+              rightIcon={<AiOutlineArrowRight />}
+              mb={0}
+              p={3}
+              fontWeight={400}
+              fontSize={"14px"}
+              lineHeight={"20px"}
+              onClick={() => {
+                Router.push(`${lang}/teknolojilerimiz`);
+              }}
+            >
+              Daha fazlasını Gör
+            </Button>
+          </WrapItem>
+        </Wrap>
+      </Flex>
+    );
   };
 
   const ServicesContent = () => {
-    return <></>;
-  };
-
-  const ComponentSelector = ({ clickedElementId }) => {
-    const renderComponent = () => {
-      switch (clickedElementId) {
-        case "Teknolojilerimiz":
-          return <TechnologiesContent />;
-        case "Hizmetlerimiz":
-          return <ServicesContent />;
-        default:
-          return null;
-      }
-    };
-    return <>{renderComponent()}</>;
-  };
-  
-  const AccordionContent = ({ title, menuId }) => {
-    return (
-      <>
-        <Accordion allowMultiple>
-          <AccordionItem>
-            <h2>
-              <AccordionButton
-                //_expanded={{ bg: "primary", color: "white" }}
-                cursor="pointer"
-                className={"flex align-center justify-between p-2"}
-                fontFamily={"Montserrat"}
-                p={5}
-                _hover={{
-                  color: "#fff",
-                }}
-                data-menu-id={menuId}
+    const ServiceItem = ({ child }) => {
+      return (
+        <>
+          <WrapItem
+            key={child.title}
+            cursor={"pointer"}
+            onClick={() => {
+              Router.push(`${lang}/hizmet/${child.href}`);
+            }}
+          >
+            <Box bg="white" color={"black"} _hover={{ color: "gray.600" }}>
+              <Text
+                fontWeight={500}
+                fontSize={16}
+                lineHeight={10}
+                color={"primary"}
               >
-                <Box as="span" flex="1" textAlign="left">
-                  {title}
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <ComponentSelector clickedElementId={menuId} />
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      </>
+                {child.title}
+              </Text>
+              <Text fontWeight={200} fontSize={14}>
+                {child.content}
+              </Text>
+            </Box>
+          </WrapItem>
+        </>
+      );
+    };
+
+    const ServiceWrap = ({ items, title }) => {
+      return (
+        <>
+          <Accordion allowMultiple>
+            <AccordionItem>
+              {({ isExpanded }) => (
+                <>
+                  <h2>
+                    <AccordionButton
+                      fontFamily={"Montserrat"}
+                      p={5}
+                      userSelect={"none"}
+                      className={
+                        "font-weight-400 font-size-15 line-height-22 mb-0"
+                      }
+                    >
+                      <Box as="span" flex="1" textAlign="left">
+                        {title}
+                      </Box>
+                      {isExpanded ? (
+                        <MinusIcon fontSize="12px" />
+                      ) : (
+                        <AddIcon fontSize="12px" />
+                      )}
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    {items?.map((child) => (
+                      <>
+                        <ServiceItem child={child} />
+                      </>
+                    ))}
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+          </Accordion>
+        </>
+      );
+    };
+
+    return (
+      <Flex justifyContent={"center"} direction={"column"} py={2}>
+        <ServiceWrap
+          items={softwareServiceList}
+          title={"Yazılım Hizmetlerimiz"}
+        />
+        <ServiceWrap
+          items={digitalMarketingServiceList}
+          title={"Dijital Pazarlama Hizmetlerimiz"}
+        />
+      </Flex>
     );
   };
 
   return (
     <>
-      <Box onClick={handleClick} _hover={{ bg: "primary", color: "#fff" }}>
+      <Box onClick={handleClick}>
         {href === null ? (
           <>
-            <AccordionContent title={dataMenuTitle} menuId={dataMenuTitle} />
+            <Accordion allowMultiple>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton
+                    fontFamily={"Montserrat"}
+                    p={5}
+                    userSelect={"none"}
+                    className={
+                      "font-weight-500 font-size-16 line-height-24 mb-0"
+                    }
+                  >
+                    <Box as="span" flex="1" textAlign="left">
+                      {title}
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  {title === "Hizmetlerimiz" ? (
+                    <>
+                      <ServicesContent />
+                    </>
+                  ) : (
+                    <>
+                      <TechnologiesContent />
+                    </>
+                  )}
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
           </>
         ) : (
           <>
             <Text
               cursor="pointer"
-              className={"flex align-center justify-between p-2"}
               fontFamily={"Montserrat"}
               p={5}
-              _hover={{
-                color: "#fff",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
-              }}
+              userSelect={"none"}
+              className={"font-weight-500 font-size-16 line-height-24 mb-0"}
             >
               {title}
             </Text>
+            <Divider />
           </>
         )}
       </Box>

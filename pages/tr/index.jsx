@@ -4,12 +4,10 @@ import Cta from "../../components/Cta";
 import OurServices from "../../components/OurServices";
 import OurTechnologies from "../../components/OurTechnologies";
 
-import { Box, Flex } from "@chakra-ui/react";
-
 import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
 import OurReferences from "../../components/OurReferences";
-
+import { Box, Flex } from "@chakra-ui/react";
 function IndexPage() {
   const router = useRouter();
 
@@ -65,12 +63,6 @@ function IndexPage() {
   };
 
 
-  const objects = [
-    { x: 100, y: 100, color: 'red' },
-    { x: -100, y: -100, color: 'blue' },
-    { x: 0, y: 0, color: 'green' },
-  ];
-
 
   return (
     <>
@@ -101,6 +93,7 @@ function IndexPage() {
           <OurTechnologies />
         </Box>
         <Box>BLOG ALANI</Box>
+       
       </Flex>
     </>
   );

@@ -60,18 +60,9 @@ export const services = [
     desc: `İhtiyaçlarınızı dinliyor, firmanızı en iyi şekilde yansıtacak size özel, teknolojiye uyumunuzu hızlandıracak modern bir tasarım çıkarıyoruz`,
     content: ``,
     serviceCategory: "software",
-    isServicesComponentDisplay: false,
-  },
-  {
-    id: 7005,
-    href: "web-tasarim",
-    title: "Web Tasarım",
-    img: `/images/game_desing.png`,
-    desc: ``,
-    content: `Oyun tasarımı konusunda da uzman ekibimizle yaratıcı fikirlerimiz ve oyun geliştirme konusundaki tecrübemizle sizin için en iyi oyun deneyimini sunuyoruz.`,
-    serviceCategory: "software",
     isServicesComponentDisplay: true,
   },
+
   {
     id: 7101,
     href: "web-tasarim",

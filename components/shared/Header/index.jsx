@@ -19,7 +19,7 @@ import LanguageSwitcher from "../../LanguageSwitcher";
 import { menuList } from "../../../constants/menuList";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-function Header() {
+function Header({ isOpen, onOpen, onClose, onToggle }) {
   const [menus, setMenus] = React.useState([
     {
       title: "Hizmetlerimiz",
@@ -143,27 +143,25 @@ function Header() {
                 )}
               </>
             ))}
-            <WrapItem mx={5} w="250px">
-              <Box width="50%">
-                <Button
-                  p={3}
-                  onClick={() => {
-                    Router.push(`${lang}/teknolojilerimiz`);
-                  }}
-                  fontFamily={"Verdana"}
-                  rightIcon={<AiOutlineArrowRight />}
-                  mb={0}
-                  fontWeight={400}
-                  fontSize={"14px"}
-                  lineHeight={"20px"}
-                  bg={"primary"}
-                  color={"white"}
-                  variant={"outline"}
-                >
-                  Daha fazlasını Gör
-                </Button>
-              </Box>
-            </WrapItem>
+             <WrapItem mx={5} w="250px">
+            <Button
+              colorScheme="teal"
+              variant="outline"
+              fontFamily={"Montserrat"}
+              rightIcon={<AiOutlineArrowRight />}
+              mb={0}
+              p={3}
+              fontWeight={400}
+              fontSize={"14px"}
+              lineHeight={"20px"}
+              onClick={() => {
+                Router.push(`${lang}/teknolojilerimiz`);
+              }}
+
+            >
+              Daha fazlasını Gör
+            </Button>
+          </WrapItem>
           </Wrap>
         </Flex>
       );
@@ -369,6 +367,7 @@ function Header() {
                   cursor: "pointer",
                   zIndex: 11,
                 }}
+                draggable={false}
               />
               <>
                 {menus.map((menu) => (
@@ -401,7 +400,14 @@ function Header() {
       </Flex>
 
       <Flex display={{ base: "initial", md: "none" }}>
-        <MobileHeader lang={lang} menuItems={menus} />
+        <MobileHeader
+          lang={lang}
+          onOpen={onOpen}
+          isOpen={isOpen}
+          onClose={onClose}
+          onToggle={onToggle}
+          menus={menus}
+        />
       </Flex>
     </React.Fragment>
   );
