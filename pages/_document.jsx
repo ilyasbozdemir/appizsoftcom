@@ -1,7 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../src/theme";
 import { ColorModeScript } from "@chakra-ui/react";
-
+import GoogleAnalytics from "../plugins/GoogleAnalytics";
+import FacebookPixel from "../plugins/FacebookPixel";
+import GoogleTagManager from "../plugins/GoogleTagManager";
+import GoogleTagManagerBody from "../plugins/GoogleTagManagerBody";
+import TiktokPixel from "../plugins/TiktokPixel";
 
 export default class MyDocument extends Document {
   render() {
@@ -11,12 +15,18 @@ export default class MyDocument extends Document {
         ? "https://www.appizsoft.com"
         : "http://localhost:3000";
 
+    const googleAnalyticsCode = ``;
+    const facebookPixelCode = ``;
+    const gtmCode = ``;
+    const ttCode = ``;
+
     return (
       <Html lang={`tr`}>
         <Head>
           <base href={baseUrl} />
           <meta name="language" content="Turkish" />
-          
+          <link rel="icon" href="/favicon.ico" />
+
           <link rel="canonical" href={baseUrl} />
           <link rel="icon" type="image/x-icon" href="/favicon.png" />
           <meta name="theme-color" content={"#54bec3"} />
@@ -25,10 +35,6 @@ export default class MyDocument extends Document {
             name="google-site-verification"
             content={googleSiteVerification}
           />
-
-          <link rel="icon" href="/favicon.ico" />
-
-          <meta name="emotion-insertion-point" content="" />
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,9 +56,16 @@ export default class MyDocument extends Document {
             type="text/css"
           />
 
+          <GoogleAnalytics code={googleAnalyticsCode} />
+          <FacebookPixel code={facebookPixelCode} />
+          <GoogleTagManager code={gtmCode} />
+          <TiktokPixel code={ttCode} />
+          
+
 
         </Head>
         <body>
+          <GoogleTagManagerBody code={gtmCode} />
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />

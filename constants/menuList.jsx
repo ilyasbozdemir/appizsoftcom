@@ -3,13 +3,18 @@ import { technologies } from "./technologies";
 
 export const menuList = [
   {
+    title: "Anasayfa",
+    href: '/',
+    children: null,
+  },
+  {
     title: "Hizmetlerimiz",
     href: null,
     children: services,
   },
   {
-    title: "Referanslarımız",
-    href: "/referanslarimiz",
+    title: "Projelerimiz",
+    href: "/projelerimiz",
     children: null,
   },
   {

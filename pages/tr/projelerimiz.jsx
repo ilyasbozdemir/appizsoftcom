@@ -1,8 +1,9 @@
 import React from "react";
 import MetaHead from "../../components/shared/MetaHead";
+import { Flex } from "@chakra-ui/react";
 
 const OurReferencesCTA = () => {
-  return <>OurReferencesCTA</>;
+  return <>Projeler</>;
 };
 const OurReferencesContent = () => {
   return <>OurReferencesContent</>;
@@ -38,10 +39,10 @@ function OurReferencesPage() {
           image={site.image}
         />
       </>
-      <main>
+      <Flex as="main" direction={"column"} gap={2}>
         <OurReferencesCTA />
         <OurReferencesContent />
-      </main>
+      </Flex>
     </>
   );
 }

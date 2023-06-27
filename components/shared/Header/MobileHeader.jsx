@@ -135,7 +135,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
                     px={4}
                     h={75}
                   >
-                    Teklif Al
+                    Teklif İste
                   </Button>
                 </Center>
 
@@ -306,6 +306,7 @@ const MenuLink = ({ title, href, lang }) => {
               <Text fontWeight={200} fontSize={14}>
                 {child.content}
               </Text>
+              
             </Box>
           </WrapItem>
         </>

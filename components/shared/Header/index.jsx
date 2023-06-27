@@ -143,25 +143,24 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                 )}
               </>
             ))}
-             <WrapItem mx={5} w="250px">
-            <Button
-              colorScheme="teal"
-              variant="outline"
-              fontFamily={"Montserrat"}
-              rightIcon={<AiOutlineArrowRight />}
-              mb={0}
-              p={3}
-              fontWeight={400}
-              fontSize={"14px"}
-              lineHeight={"20px"}
-              onClick={() => {
-                Router.push(`${lang}/teknolojilerimiz`);
-              }}
-
-            >
-              Daha fazlasını Gör
-            </Button>
-          </WrapItem>
+            <WrapItem mx={5} w="250px">
+              <Button
+                colorScheme="teal"
+                variant="outline"
+                fontFamily={"Montserrat"}
+                rightIcon={<AiOutlineArrowRight />}
+                mb={0}
+                p={3}
+                fontWeight={400}
+                fontSize={"14px"}
+                lineHeight={"20px"}
+                onClick={() => {
+                  Router.push(`${lang}/teknolojilerimiz`);
+                }}
+              >
+                Daha fazlasını Gör
+              </Button>
+            </WrapItem>
           </Wrap>
         </Flex>
       );
@@ -331,6 +330,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
   return (
     <React.Fragment>
       <Flex
+        as="nav"
         display={{ base: "none", md: "initial" }}
         position="sticky"
         top={0}
@@ -350,7 +350,6 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
             zIndex={11}
           >
             <Flex
-              as="nav"
               align="center"
               justifyContent="center"
               textAlign={"center"}
@@ -389,7 +388,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                   fontSize={{ md: "13px", lg: "17px" }}
                   zIndex={11}
                 >
-                  Teklif Al
+                  Teklif İste
                 </Button>
               </>
             </Flex>
