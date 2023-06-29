@@ -1,5 +1,6 @@
 import React from "react";
 import MetaHead from "../../configuration//MetaHead";
+import Meta from "../../configuration//MetaHead";
 
 
 const AboutUsCTA = () => {
@@ -29,7 +30,7 @@ function AboutUsPage() {
 
   return (
     <>
-      <>
+      <Meta>
         <MetaHead
           pageTitle={site.title}
           description={site.description}
@@ -39,7 +40,7 @@ function AboutUsPage() {
           isRobotIndex={site.isRobotIndex}
           image={site.image}
         />
-      </>
+      </Meta>
 
       <main>
         <AboutUsCTA />

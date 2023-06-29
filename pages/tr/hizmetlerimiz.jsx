@@ -1,6 +1,6 @@
 import React from "react";
 import MetaHead from "../../configuration//MetaHead";
-
+import Head from "next/head";
 
 const OurServicesCTA = () => {
   return <>OurServicesCTA</>;
@@ -29,7 +29,7 @@ function OurServicesPage() {
   });
   return (
     <>
-      <>
+      <Head>
         <MetaHead
           pageTitle={site.title}
           description={site.description}
@@ -39,7 +39,7 @@ function OurServicesPage() {
           isRobotIndex={site.isRobotIndex}
           image={site.image}
         />
-      </>
+      </Head>
 
       <main>
         <OurServicesCTA />

@@ -1,9 +1,7 @@
-import Head from "next/head";
 import React from "react";
 import { site } from "../constants/site";
 
 function Meta({
-  isMetaProvider = true,
   pageTitle = site.title,
   description = site.description,
   keywords,
@@ -11,10 +9,8 @@ function Meta({
   isRobotIndex = true,
   themeColor,
   jsonLdData,
-  image
+  image,
 }) {
- 
-
   const logo = site.baseUrl + "/logo.svg";
 
   const publisher = `Appizsoft`;
@@ -38,71 +34,56 @@ function Meta({
     sameAs: site.sosyalMediaLinks,
   };
 
-  const MetaContents = () => {
-    return (
-      <>
-        <base href={ site.baseUrl} />
-        <title>{pageTitle}</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.png" />
-        <link rel="canonical" href={ site.baseUrl} />
-
-        <meta charSet="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <meta itemprop="name" content={pageTitle} />
-        <meta itemprop="description" content={description} />
-        <meta name="description" content={description} />
-        <meta
-          name="robots"
-          content={isRobotIndex === true ? "index, follow" : "noindex"}
-        />
-        <meta
-          name="google-site-verification"
-          content={googleSiteVerification}
-        />
-        <meta name="language" content="Turkish" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="revisit-after" content="3 days" />
-        <meta name="keywords" content={keywords || ``} />
-        <meta name="author" content={author} />
-        <meta name="publisher" content={publisher} />
-        <meta name="theme-color" content={themeColor} />
-
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:image" content={image} />
-
-        <meta name="og:title" content={pageTitle} />
-        <meta name="og:description" content={description} />
-        <meta name="og:type" content="website" />
-        <meta property="og:site_name" content={pageTitle} />
-        <meta property="og:image" content={image} />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="60" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(_jsonLdData),
-          }}
-        />
-      </>
-    );
-  };
   return (
     <>
-      {isMetaProvider === true ? (
-        <Head>
-          <MetaContents />
-        </Head>
-      ) : (
-        <>
-          <MetaContents />
-        </>
-      )}
-    </>
+    <base href={site.baseUrl} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <link rel="canonical" href={site.baseUrl} />
+
+    <meta charSet="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta itemprop="name" content={pageTitle} />
+    <meta itemprop="description" content={description} />
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={isRobotIndex === true ? "index, follow" : "noindex"}
+    />
+    <meta
+      name="google-site-verification"
+      content={googleSiteVerification}
+    />
+    <meta name="language" content="Turkish" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="keywords" content={keywords || ``} />
+    <meta name="author" content={author} />
+    <meta name="publisher" content={publisher} />
+    <meta name="theme-color" content={themeColor} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:site" content="@appizsoftcom" />
+    <meta name="twitter:image" content={image} />
+
+    <meta name="og:title" content={pageTitle} />
+    <meta name="og:description" content={description} />
+    <meta name="og:type" content="website" />
+    <meta property="og:site_name" content={pageTitle} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="60" />
+
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(_jsonLdData),
+      }}
+    />
+  </>
   );
 }
 

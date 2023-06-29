@@ -1,34 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://guvenotell.com/</loc>
-      <lastmod>2023-02-11T00:00:00+03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://guvenotell.com/hakkimizda</loc>
-      <lastmod>2023-02-11T00:00:00+03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://guvenotell.com/foto-galeri</loc>
-      <lastmod>2023-02-11T00:00:00+03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://guvenotell.com/iletisim</loc>
-      <lastmod>2023-02-11T00:00:00+03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://guvenotell.com/rezervasyon</loc>
-      <lastmod>2023-02-26T00:00:00+03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   
+      <urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      
+	<url>
+		<loc>https://www.appizsoft.com/en/index</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/favicon</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/index</loc>
+		<priority>1</priority>
+		<changefreq>always</changefreq>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/blog</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/hakkimizda</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/hizmet/[id]</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/hizmetlerimiz</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/iletisim</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/index</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/projelerimiz</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/teklif-al</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://www.appizsoft.com/tr/teknolojilerimiz</loc>
+		<lastmod>2023-06-29</lastmod>
+	</url>
 </urlset>

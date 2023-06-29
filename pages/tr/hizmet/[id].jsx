@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { services } from "../../../constants/services";
-import MetaHead from "../../../components/shared/MetaHead";
+import MetaHead from "../../../configuration//MetaHead";
+import Head from "next/head";
+
 
 const DOurServiceDetailCTA = () => {
   return <>DOurServiceDetailCTA</>;
@@ -37,7 +39,7 @@ function DOurServiceDetail({ service }) {
 
   return (
     <>
-      <>
+      <Head>
         <MetaHead
           pageTitle={site.title}
           description={site.description}
@@ -47,7 +49,7 @@ function DOurServiceDetail({ service }) {
           isRobotIndex={site.isRobotIndex}
           image={site.image}
         />
-      </>
+      </Head>
 
       <main>
         <DOurServiceDetailCTA />

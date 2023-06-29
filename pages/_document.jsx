@@ -1,12 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../src/theme";
 import { ColorModeScript } from "@chakra-ui/react";
-import GoogleAnalytics from "../plugins/GoogleAnalytics";
-import FacebookPixel from "../plugins/FacebookPixel";
-import GoogleTagManager from "../plugins/GoogleTagManager";
 import GoogleTagManagerBody from "../plugins/GoogleTagManagerBody";
-import TiktokPixel from "../plugins/TiktokPixel";
-import PinterestAnalytics from "../plugins/PinterestAnalytics";
 import ExternalFonts from "../fonts/ExternalFonts";
 
 import MetaHead from "../configuration//MetaHead";
@@ -20,14 +15,12 @@ export default class MyDocument extends Document {
       <Html lang={site.lang}>
         <Head>
           <MetaHead
-            isMetaProvider={false}
             keywords={site.keywords}
             author={site.author}
             publisher={site.publisher}
             isRobotIndex={site.isRobotIndex}
             image={site.image}
             themeColor={site.themeColor}
-            
           />
 
           <ExternalFonts />

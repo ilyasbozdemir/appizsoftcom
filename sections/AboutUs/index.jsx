@@ -22,18 +22,20 @@ function AboutUs({ lang }) {
     <>
       <Flex direction={"column"}>
         <Center as={Flex} direction={"Column"}>
-          <Text
-            color={"#54bec3"}
-            fontSize={{ base: "60px", md: "75px" }}
-            fontFamily={"montserrat-extra-bold"}
-          >
-            appizsoft
-          </Text>
+          <Image
+            src={"/logo.svg"}
+            width={300}
+            height={60}
+            style={{
+              cursor: "pointer",
+            }}
+            draggable={false}
+          />
           <Box pt={".5rem"}>
             <Text
               fontSize={{ base: "20px", md: "30px" }}
-              className="text-lg2 gray-text bold-text center-text"
-            >
+              fontFamily={"montserrat-extra-bold"}
+                          >
               Dijital Başarı İçin Appizsoft
             </Text>
           </Box>
@@ -93,16 +95,15 @@ function AboutUs({ lang }) {
           </Flex>
         </Container>
         <Center>
-        <Link to="AboutUs" smooth={true} duration={500} offset={-88}>
-          <Icon
-            as={FaCaretDown}
-            fontSize={80}
-            cursor={"pointer"}
-            color={"blackAlpha.800"}
-          />
-        </Link>
+          <Link to="AboutUs" smooth={true} duration={500} offset={-88}>
+            <Icon
+              as={FaCaretDown}
+              fontSize={80}
+              cursor={"pointer"}
+              color={"blackAlpha.800"}
+            />
+          </Link>
         </Center>
-    
       </Flex>
     </>
   );

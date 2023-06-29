@@ -65,7 +65,7 @@ export const services = [
 
   {
     id: 7101,
-    href: "produksiyon%26tasarim",
+    href: "produksiyon-tasarim",
     title: "Prodüksiyon & Tasarım",
     img: "/images/production.png",
     desc: `İhtiyaçlarınızı dinliyor, firmanızı en iyi şekilde yansıtacak size özel, teknolojiye uyumunuzu hızlandıracak modern bir tasarım çıkarıyoruz`,

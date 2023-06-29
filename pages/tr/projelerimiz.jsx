@@ -1,15 +1,13 @@
 import React from "react";
 import MetaHead from "../../configuration//MetaHead";
 import { Flex } from "@chakra-ui/react";
+import Head from "next/head";
 
 const OurReferencesCTA = () => {
   return <>Projeler</>;
 };
 const OurReferencesContent = () => {
-  return (<>
-  
-  Tümü 
-  </>);
+  return <>Tümü</>;
 };
 
 function OurReferencesPage() {
@@ -31,15 +29,17 @@ function OurReferencesPage() {
   });
   return (
     <>
-      <MetaHead
-        pageTitle={site.title}
-        description={site.description}
-        keywords={site.keywords}
-        author={site.author}
-        publisher={site.publisher}
-        isRobotIndex={site.isRobotIndex}
-        image={site.image}
-      />
+      <Head>
+        <MetaHead
+          pageTitle={site.title}
+          description={site.description}
+          keywords={site.keywords}
+          author={site.author}
+          publisher={site.publisher}
+          isRobotIndex={site.isRobotIndex}
+          image={site.image}
+        />
+      </Head>
 
       <Flex direction={"row"} gap={2}>
         <OurReferencesCTA />
