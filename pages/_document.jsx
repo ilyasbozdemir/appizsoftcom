@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
     const googleAnalyticsCode = ``;
     const facebookPixelCode = ``;
     const gtmCode = ``;
-    const ttCode = ``;
+    const ttCode = `CIEJ1LJC77U441D19LNG`;
 
     return (
       <Html lang={`tr`}>
@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
             name="google-site-verification"
             content={googleSiteVerification}
           />
-
+          <meta name="keywords" content={""} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
           <link
@@ -61,8 +61,6 @@ export default class MyDocument extends Document {
           <GoogleTagManager code={gtmCode} />
           <TiktokPixel code={ttCode} />
           
-
-
         </Head>
         <body>
           <GoogleTagManagerBody code={gtmCode} />

@@ -2,12 +2,12 @@
 
 export const technologies = [
   {
-    id: "Kubernates",
-    title: "Kubernates",
+    id: "Kubernetes",
+    title: "Kubernetes",
     category: "Backend",
-    imageUrl: "images/technologies/kubernates.svg",
+    imageUrl: "images/technologies/kubernetes.svg",
     isMenuDisplay: true,
-    description:``,
+    description: `Kubernetes, konteyner tabanlı uygulamaların otomatik dağıtımını ve yönetimini sağlayan güçlü bir yazılım platformudur. Uygulamaların hızlı bir şekilde başlamasını, sorunsuz ölçeklenebilirliği ve kesintisiz hizmet sunmayı mümkün kılar. Deklaratif yapısıyla istenen durumu otomatik olarak gerçekleştirerek geliştiricilere büyük bir operasyonel kolaylık sağlar. Kubernetes, modern uygulama geliştirme süreçlerinde vazgeçilmez bir rol oynar.`,
     size: {
       width: 32,
       height: 32,
@@ -19,19 +19,21 @@ export const technologies = [
     category: "Backend",
     imageUrl: "images/technologies/docker.svg",
     isMenuDisplay: true,
-    description:``,
+    description: `Docker, konteynerleştirme teknolojisi olarak bilinen bir yazılım platformudur. Uygulamaları hafif ve taşınabilir konteynerler halinde paketlemek ve çalıştırmak için kullanılır. Docker, uygulamaların bağımsız olarak çalışmasını sağlar, sistemler arasında tutarlılığı sağlar ve hızlı dağıtım imkanı sunar. Bu sayede uygulama geliştirme ve dağıtım süreçlerinde büyük kolaylık sağlar ve yazılım ekosistemini standartlaştırır.`,
     size: {
       width: 35,
       height: 35,
     },
   },
   {
-    id: ".NETCore6.0",
-    title: ".NET Core 6.0",
+    id: ".NETCore7.0",
+    title: ".NET Core 7.0",
     category: "Backend",
     imageUrl: "images/technologies/dot-net-6.0.svg",
     isMenuDisplay: true,
-    description:``,
+    description: `.NET Core 7.0, Microsoft tarafından geliştirilen, açık kaynaklı ve çok platformlu bir yazılım geliştirme çerçevesidir. .NET Core, uygulama geliştiricilerine Windows, macOS ve Linux gibi farklı işletim sistemlerinde çalışabilen yüksek performanslı ve ölçeklenebilir uygulamalar oluşturma imkanı sunar.
+
+    .NET Core 7.0, .NET 7.0 olarak da bilinen son sürümüdür ve yeni ve geliştirilmiş özelliklerle birlikte gelir. Bu sürümde geliştiriciler, geliştirme süreçlerini hızlandıran, uygulama performansını iyileştiren ve daha fazla platform desteği sağlayan bir dizi yenilik bulacaklar.`,
     size: {
       width: 32,
       height: 32,
@@ -43,7 +45,7 @@ export const technologies = [
     category: "Backend",
     imageUrl: "images/technologies/node-js.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 50,
       height: 50,
@@ -55,7 +57,7 @@ export const technologies = [
     category: "Backend",
     imageUrl: "images/technologies/redis.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -67,7 +69,7 @@ export const technologies = [
     category: "Frontend",
     imageUrl: "images/technologies/react-js.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 35,
       height: 35,
@@ -79,7 +81,7 @@ export const technologies = [
     category: "UX/UI Design",
     imageUrl: "images/technologies/figma.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 25,
       height: 25,
@@ -91,7 +93,7 @@ export const technologies = [
     category: "İnternet Reklamları",
     imageUrl: "images/technologies/google-ads.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -103,7 +105,7 @@ export const technologies = [
     category: "Dijital Yerel Pazarlama",
     imageUrl: "images/technologies/google-my-business.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -115,7 +117,7 @@ export const technologies = [
     category: "Dijital Yerel Pazarlama",
     imageUrl: "images/technologies/google-data-studio.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -127,7 +129,7 @@ export const technologies = [
     category: "Dijital Yerel Pazarlama",
     imageUrl: "images/technologies/meta-business-suite.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -139,7 +141,7 @@ export const technologies = [
     category: "Grafik Tasarım",
     imageUrl: "images/technologies/blender.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -151,7 +153,7 @@ export const technologies = [
     category: "Grafik Tasarım",
     imageUrl: "images/technologies/adobe-ai.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -163,7 +165,7 @@ export const technologies = [
     category: "Grafik Tasarım",
     imageUrl: "images/technologies/adobe-ps.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -175,7 +177,7 @@ export const technologies = [
     category: "Prodüksiyon",
     imageUrl: "images/technologies/adobe-pr.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -187,7 +189,7 @@ export const technologies = [
     category: "Prodüksiyon",
     imageUrl: "images/technologies/adobe-ae.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -199,7 +201,7 @@ export const technologies = [
     category: "Prodüksiyon",
     imageUrl: "images/technologies/adobe-xd.svg",
     isMenuDisplay: false,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -211,7 +213,7 @@ export const technologies = [
     category: "Grafik Tasarım",
     imageUrl: "images/technologies/adobe-id.svg",
     isMenuDisplay: true,
-    description:``,
+    description: ``,
     size: {
       width: 32,
       height: 32,

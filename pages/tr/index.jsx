@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import MetaHead from "../../components/shared/MetaHead";
-import Cta from "../../components/Cta";
-import OurServices from "../../components/OurServices";
-import OurTechnologies from "../../components/OurTechnologies";
+import Cta from "../../sections/Cta";
+import OurServices from "../../sections/OurServices";
+import OurTechnologies from "../../sections/OurTechnologies";
 
 import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
-import OurReferences from "../../components/OurReferences";
-import { Box, Flex } from "@chakra-ui/react";
+import OurReferences from "../../sections/OurReferences";
+import { Box, Divider, Flex } from "@chakra-ui/react";
+import JsonLd from "../../components/shared/JsonLd";
+import AboutUs from "../../sections/AboutUs";
+
 function IndexPage() {
   const router = useRouter();
 
@@ -26,10 +29,17 @@ function IndexPage() {
     name: ``,
     keywords: "",
     isRobotIndex: true,
+    sameAs: [
+      [
+        "https://www.instagram.com/appizsoftcom/",
+        "https://www.facebook.com/appizsoftcom/",
+        "https://tr.linkedin.com/company/appizsoft",
+        "https://tr.linkedin.com/company/appizsoft",
+        "https://www.youtube.com/channel/UC0T2GB4idz_7_3KAZJZy22A",
+      ],
+    ],
   });
-
   const [lang, setLang] = React.useState("");
-
   useEffect(() => {
     const supportedLanguages = ["tr", "en"];
     const browserLanguage = detectBrowserLanguage(supportedLanguages);
@@ -62,7 +72,22 @@ function IndexPage() {
     }, [currentIndex]);
   };
 
-
+  const jsonLdData = {
+    context: "https://schema.org",
+    type: "Organization",
+    name: site.publisher,
+    alternateName: baseUrl,
+    url: baseUrl,
+    logo: site.image,
+    contactPoint: {
+      type: "ContactPoint",
+      telephone: "",
+      contactType: "customer service",
+      areaServed: "TR",
+      availableLanguage: "Turkish",
+    },
+    sameAs: site.sameAs,
+  };
 
   return (
     <>
@@ -76,24 +101,35 @@ function IndexPage() {
           isRobotIndex={site.isRobotIndex}
           image={site.image}
         />
+        <JsonLd data={jsonLdData} />
 
         <WindowTitleChanger />
       </>
 
-
       <Flex as="main" direction={"column"} gap={5}>
-        <Cta lang={lang} />
         <Box>
+          <Cta lang={lang} />
+        </Box>
+        <Divider />
+
+        <Box id={"AboutUs"}>
+          <AboutUs lang={lang} />
+        </Box>
+        <Divider />
+
+        <Box id={"OurServices"}>
           <OurServices />
         </Box>
-        <Box>
-          <OurReferences />
-        </Box>
+        <Divider />
+
+
         <Box>
           <OurTechnologies />
         </Box>
+        <Divider />
+
         <Box>BLOG ALANI</Box>
-       
+        <Divider />
       </Flex>
     </>
   );

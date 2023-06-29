@@ -2,19 +2,14 @@ import { Box, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const references = [
-  { id: 1, logo: "/images/references/test-reference.png", w: 250, h: 100 },
-  { id: 2, logo: "/images/references/test-reference.png", w: 250, h: 100 },
-  { id: 3, logo: "/images/references/test-reference.png", w: 250, h: 100 },
-  { id: 4, logo: "/images/references/test-reference.png", w: 250, h: 100 },
-];
+import { projects } from "../../constants/projects";
 
 const defaultWidth = 175;
 const defaultHeight = 75;
 
 export default function OurReferences() {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [references, setReferences] = useState(projects);
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -3,7 +3,7 @@ import { Flex, Text, Image, Heading, Box } from "@chakra-ui/react";
 import React from "react";
 import { services } from "../../constants/services";
 
-const Services = ({ img, title, content }) => {
+const Services = ({ id, img, title, content }) => {
   return (
     <>
       <Flex
@@ -15,7 +15,7 @@ const Services = ({ img, title, content }) => {
         userSelect={"none"}
       >
         <Flex justifyContent={"center"} data-aos={"zoom-out"}>
-          <Image height={70} width={70} src={img} draggable={false} />
+          <Image id={id} height={70} width={70} src={img} draggable={false} />
         </Flex>
         <Flex justifyContent={"center"}>
           <Heading
@@ -41,42 +41,30 @@ const Services = ({ img, title, content }) => {
   );
 };
 
-const ServiceCard = ({ title, body }) => {
-  return (
-    <Box borderWidth="1px" borderRadius="lg" p="6" mb="8">
-      <Heading size="md" mb="2">
-        {title}
-      </Heading>
-      <Text>{body}</Text>
-    </Box>
-  );
-};
-
 function OurServices() {
   return (
     <>
-      <>
-        <Flex
-          direction={{ base: "column", md: "row" }}
-          justifyContent={"space-between"}
-          p={3}
-        >
-          {services.map(
-            (service, i) =>
-              service.isServicesComponentDisplay === true &&(
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        justifyContent={"space-between"}
+        p={3}
+      >
+        {services.map(
+          (service, i) =>
+            service.isServicesComponentDisplay === true && (
+              <>
                 <>
-                  <>
-                    <Services
-                      img={service.img}
-                      title={service.title}
-                      content={service.content}
-                    />
-                  </>
+                  <Services
+                    id={service.id}
+                    img={service.img}
+                    title={service.title}
+                    content={service.content}
+                  />
                 </>
-              )
-          )}
-        </Flex>
-      </>
+              </>
+            )
+        )}
+      </Flex>
     </>
   );
 }

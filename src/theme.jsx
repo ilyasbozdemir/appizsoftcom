@@ -15,11 +15,14 @@ const theme = extendTheme({
     useSystemColorMode: true,
     cssVarPrefix: "appizsoft",
   },
+
+
   colors: {
     transparent: "transparent",
     black: "#000",
     white: "#fff",
     primary:'#54bec3',
+    
   },
   fonts: {
     body: "system-ui, sans-serif",

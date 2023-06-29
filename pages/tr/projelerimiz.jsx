@@ -6,7 +6,10 @@ const OurReferencesCTA = () => {
   return <>Projeler</>;
 };
 const OurReferencesContent = () => {
-  return <>OurReferencesContent</>;
+  return (<>
+  
+  Tümü 
+  </>);
 };
 
 function OurReferencesPage() {
@@ -17,7 +20,7 @@ function OurReferencesPage() {
 
   const [site, setSite] = React.useState({
     publisher: `Appizsoft`,
-    title: `Referanslarımız • Appizsoft `,
+    title: `Referanslarımız • Appizsoft`,
     url: baseUrl,
     image: baseUrl + "/logo.svg",
     imageAlt: "site-logo-png",
@@ -28,18 +31,17 @@ function OurReferencesPage() {
   });
   return (
     <>
-      <>
-        <MetaHead
-          pageTitle={site.title}
-          description={site.description}
-          keywords={site.keywords}
-          author={site.author}
-          publisher={site.publisher}
-          isRobotIndex={site.isRobotIndex}
-          image={site.image}
-        />
-      </>
-      <Flex as="main" direction={"column"} gap={2}>
+      <MetaHead
+        pageTitle={site.title}
+        description={site.description}
+        keywords={site.keywords}
+        author={site.author}
+        publisher={site.publisher}
+        isRobotIndex={site.isRobotIndex}
+        image={site.image}
+      />
+
+      <Flex direction={"row"} gap={2}>
         <OurReferencesCTA />
         <OurReferencesContent />
       </Flex>

@@ -26,7 +26,7 @@ export const services = [
     id: 7002,
     href: `e-ticaret-yazilimi`,
     title: "E-ticaret Yazılımı",
-    img: "/images/special_software_development.png",
+    img: "/images/e_commerce.png",
     desc: `Herkes e-ticarette satış yapmak istiyor; ama kim daha iyi satış yapacak? Büyük oyuncular ve zorlu e-ticaret sürecinde uzman ekibimizle birlikte yanınızdayız`,
     content: `İnternet mağazanızın yazılım ve dijital pazarlama ihtiyaçları için tecrübeli ekibimizle yanınızdayız. E-ticaretteki rekabet ve sorunları aşmanız için uzman kadromuz iş başında`,
     serviceCategory: "software",

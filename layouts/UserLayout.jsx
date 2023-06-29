@@ -27,7 +27,7 @@ function UserLayout({ children }) {
   }, [onOpen, onClose]);
 
   return (
-    <Box>
+    <Box scrollBehavior={"smooth"}>
       <>
         <Header
           onOpen={onOpen}
