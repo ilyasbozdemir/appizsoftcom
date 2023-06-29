@@ -33,7 +33,7 @@ function IndexPage() {
       [
         "https://www.instagram.com/appizsoftcom/",
         "https://www.facebook.com/appizsoftcom/",
-        "https://tr.linkedin.com/company/appizsoft",
+        "https://www.tiktok.com/@appizsoftcom",
         "https://tr.linkedin.com/company/appizsoft",
         "https://www.youtube.com/channel/UC0T2GB4idz_7_3KAZJZy22A",
       ],
