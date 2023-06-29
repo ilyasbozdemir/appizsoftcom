@@ -27,6 +27,7 @@ export default class MyDocument extends Document {
             isRobotIndex={site.isRobotIndex}
             image={site.image}
             themeColor={site.themeColor}
+            
           />
 
           <ExternalFonts />

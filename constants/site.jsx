@@ -28,8 +28,10 @@ export const site = {
     "https://www.facebook.com/appizsoftcom/",
     "https://www.tiktok.com/@appizsoftcom",
     "https://tr.linkedin.com/company/appizsoft",
-    "https://www.youtube.com/channel/UC0T2GB4idz_7_3KAZJZy22A",
+    "https://www.youtube.com/@Appizsoft",
     "https://twitter.com/appizsoftcom",
+    "https://github.com/appizsoftcom",
+    "https://tr.pinterest.com/appizsoftcom/",
   ],
   analyticsCodes: {
     pinterestAnalyticsCode,
