@@ -1,7 +1,7 @@
 import React from "react";
 import { technologies } from "../../constants/technologies";
 
-import MetaHead from "../../components/shared/MetaHead";
+import MetaHead from "../../configuration//MetaHead";
 import { Box, Divider, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 

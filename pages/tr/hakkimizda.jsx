@@ -1,5 +1,5 @@
 import React from "react";
-import MetaHead from "../../components/shared/MetaHead";
+import MetaHead from "../../configuration//MetaHead";
 
 
 const AboutUsCTA = () => {
