@@ -30,6 +30,7 @@ import LanguageSwitcher from "../../LanguageSwitcher";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 import { BiMenuAltRight } from "react-icons/bi";
+import Logo from "../Logo";
 
 const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
   const router = useRouter();
@@ -78,16 +79,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         right={0}
         userSelect={"none"}
       >
-        <Box
-          onClick={() => {
-            router.push(`/${lang}?ref=mobile-logo`);
-          }}
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          <Image src={"/logo.svg"} width={150} height={30} draggable={false} />
-        </Box>
+        <Logo platform={"mobile"} lang={lang} />
 
         <IconButton
           icon={
@@ -306,7 +298,6 @@ const MenuLink = ({ title, href, lang }) => {
               <Text fontWeight={200} fontSize={14}>
                 {child.content}
               </Text>
-              
             </Box>
           </WrapItem>
         </>

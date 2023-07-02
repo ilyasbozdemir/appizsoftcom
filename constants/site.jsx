@@ -2,7 +2,7 @@ import theme from "../src/theme";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://www.appizsoft.com"
+    ? "https://appizsoft.com"
     : "http://localhost:3000";
 
 const pinterestAnalyticsCode = `7f9464b7cba4c1e15e8dfb587b8ef00d`;

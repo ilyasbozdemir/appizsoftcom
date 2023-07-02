@@ -18,6 +18,7 @@ import MobileHeader from "./MobileHeader";
 import LanguageSwitcher from "../../LanguageSwitcher";
 import { menuList } from "../../../constants/menuList";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import Logo from "../Logo";
 
 function Header({ isOpen, onOpen, onClose, onToggle }) {
   const [menus, setMenus] = React.useState([
@@ -355,19 +356,8 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
               textAlign={"center"}
               gap={[3, 4, 5]}
             >
-              <Image
-                src={"/logo.svg"}
-                width={150}
-                height={30}
-                onClick={() => {
-                  router.push(`/${lang}?ref=desktop-logo`);
-                }}
-                style={{
-                  cursor: "pointer",
-                  zIndex: 11,
-                }}
-                draggable={false}
-              />
+              <Logo platform={"desktop"}  lang={lang}/>
+
               <>
                 {menus.map((menu) => (
                   <React.Fragment key={menu.title}>

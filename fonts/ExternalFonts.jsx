@@ -5,7 +5,7 @@ function ExternalFonts() {
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      
+
       <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
         rel="stylesheet"
@@ -23,6 +23,7 @@ function ExternalFonts() {
         rel="stylesheet"
         type="text/css"
       />
+     
     </>
   );
 }

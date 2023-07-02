@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang={site.lang}>
         <Head>
+          
           <MetaHead
             keywords={site.keywords}
             author={site.author}

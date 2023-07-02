@@ -14,28 +14,21 @@ import { useRouter } from "next/router";
 import React from "react";
 import { FaCaretDown } from "react-icons/fa";
 import { Link } from "react-scroll";
+import Logo from "../../components/shared/Logo";
 
 function AboutUs({ lang }) {
   const router = useRouter();
-
+  const size = { h: 125, w: 400 };
   return (
     <>
       <Flex direction={"column"}>
         <Center as={Flex} direction={"Column"}>
-          <Image
-            src={"/logo.svg"}
-            width={300}
-            height={60}
-            style={{
-              cursor: "pointer",
-            }}
-            draggable={false}
-          />
+          <Logo isLink={false} size={size} />
           <Box pt={".5rem"}>
             <Text
               fontSize={{ base: "20px", md: "30px" }}
               fontFamily={"montserrat-extra-bold"}
-                          >
+            >
               Dijital Başarı İçin Appizsoft
             </Text>
           </Box>
