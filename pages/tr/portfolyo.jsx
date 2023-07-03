@@ -1,5 +1,5 @@
 import React from "react";
-import MetaHead from "../../configuration//MetaHead";
+import MetaHead from "../../configuration/MetaHead";
 import { Flex } from "@chakra-ui/react";
 import Head from "next/head";
 

@@ -1,14 +1,7 @@
 import React from "react";
 
- 
-
-
 function OurTechnologies() {
-  return (
-    <>
-OurTechnologies
-    </>
-  );
+  return <>ÇALIŞTIĞIMIZ TEKNOLOJİLER</>;
 }
 
 export default OurTechnologies;

@@ -15,6 +15,7 @@ function Analytics() {
       <FacebookPixel code={site.analyticsCodes.facebookPixelCode} />
       <GoogleTagManager code={site.analyticsCodes.gtmCode} />
       <TiktokPixel code={site.analyticsCodes.ttCode} />
+      
     </>
   );
 }

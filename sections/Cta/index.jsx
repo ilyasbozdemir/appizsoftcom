@@ -49,7 +49,7 @@ export default function CallToActionWithIllustration({ lang }) {
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems="center" // Dikeyde ortala
-      bg="url('url('/images/cta-bg.jpg') center / cover no-repeat"
+
     >
       <Container maxW={"5xl"} as="article">
         <Stack

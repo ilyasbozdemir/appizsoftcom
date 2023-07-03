@@ -8,42 +8,15 @@ import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
 import { Box, Divider, Flex } from "@chakra-ui/react";
 import AboutUs from "../../sections/AboutUs";
+import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 
 function IndexPage() {
-  const router = useRouter();
-
   const [lang, setLang] = React.useState("");
   useEffect(() => {
     const supportedLanguages = ["tr", "en"];
     const browserLanguage = detectBrowserLanguage(supportedLanguages);
-    router.push(`/${browserLanguage}`);
     setLang(browserLanguage);
   }, []);
-
-  const WindowTitleChanger = () => {
-    const titles = [
-      "Appizsoft • Özel Yazılım Geliştirme",
-      "Appizsoft • Dijital Pazarlama",
-      "Appizsoft • E-ticaret Çözümleri",
-      "Appizsoft • Prodüksiyon & Tasarım",
-      "Appizsoft • Oyun Tasarım",
-    ];
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
-      }, 2500);
-
-      return () => {
-        clearInterval(interval);
-      };
-    }, []);
-
-    useEffect(() => {
-      document.title = titles[currentIndex];
-    }, [currentIndex]);
-  };
 
   return (
     <>

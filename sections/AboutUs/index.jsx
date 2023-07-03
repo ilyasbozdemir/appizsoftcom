@@ -21,7 +21,13 @@ function AboutUs({ lang }) {
   const size = { h: 125, w: 400 };
   return (
     <>
-      <Flex direction={"column"}>
+      <Flex
+        direction={"column"}
+        w="100vw" // Genişliği ekran genişliğine eşit
+        h="100vh" // Yüksekliği ekran yüksekliğine eşit
+        justifyContent="center" // Yatayda ortala
+        alignItems="center" // Dikeyde ortala
+      >
         <Center as={Flex} direction={"Column"}>
           <Logo isLink={false} size={size} />
           <Box pt={".5rem"}>
@@ -88,7 +94,7 @@ function AboutUs({ lang }) {
           </Flex>
         </Container>
         <Center>
-          <Link to="AboutUs" smooth={true} duration={500} offset={-88}>
+          <Link to="OurServices" smooth={true} duration={500} offset={-88}>
             <Icon
               as={FaCaretDown}
               fontSize={80}

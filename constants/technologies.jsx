@@ -5,7 +5,7 @@ export const technologies = [
     id: "Kubernetes",
     title: "Kubernetes",
     category: "Backend",
-    imageUrl: "images/technologies/kubernetes.svg",
+    imageUrl: "/images/technologies/kubernetes.svg",
     isMenuDisplay: true,
     description: `Kubernetes, konteyner tabanlı uygulamaların otomatik dağıtımını ve yönetimini sağlayan güçlü bir yazılım platformudur. Uygulamaların hızlı bir şekilde başlamasını, sorunsuz ölçeklenebilirliği ve kesintisiz hizmet sunmayı mümkün kılar. Deklaratif yapısıyla istenen durumu otomatik olarak gerçekleştirerek geliştiricilere büyük bir operasyonel kolaylık sağlar. Kubernetes, modern uygulama geliştirme süreçlerinde vazgeçilmez bir rol oynar.`,
     size: {
@@ -17,7 +17,7 @@ export const technologies = [
     id: "Docker",
     title: "Docker",
     category: "Backend",
-    imageUrl: "images/technologies/docker.svg",
+    imageUrl: "/images/technologies/docker.svg",
     isMenuDisplay: true,
     description: `Docker, konteynerleştirme teknolojisi olarak bilinen bir yazılım platformudur. Uygulamaları hafif ve taşınabilir konteynerler halinde paketlemek ve çalıştırmak için kullanılır. Docker, uygulamaların bağımsız olarak çalışmasını sağlar, sistemler arasında tutarlılığı sağlar ve hızlı dağıtım imkanı sunar. Bu sayede uygulama geliştirme ve dağıtım süreçlerinde büyük kolaylık sağlar ve yazılım ekosistemini standartlaştırır.`,
     size: {
@@ -29,7 +29,7 @@ export const technologies = [
     id: ".NETCore7.0",
     title: ".NET Core 7.0",
     category: "Backend",
-    imageUrl: "images/technologies/dot-net-6.0.svg",
+    imageUrl: "/images/technologies/dot-net-6.0.svg",
     isMenuDisplay: true,
     description: `.NET Core 7.0, Microsoft tarafından geliştirilen, açık kaynaklı ve çok platformlu bir yazılım geliştirme çerçevesidir. .NET Core, uygulama geliştiricilerine Windows, macOS ve Linux gibi farklı işletim sistemlerinde çalışabilen yüksek performanslı ve ölçeklenebilir uygulamalar oluşturma imkanı sunar.
 
@@ -43,7 +43,7 @@ export const technologies = [
     id: "NodeJs",
     title: "NodeJs",
     category: "Backend",
-    imageUrl: "images/technologies/node-js.svg",
+    imageUrl: "/images/technologies/node-js.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -55,7 +55,7 @@ export const technologies = [
     id: "Redis",
     title: "Redis",
     category: "Backend",
-    imageUrl: "images/technologies/redis.svg",
+    imageUrl: "/images/technologies/redis.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -67,7 +67,7 @@ export const technologies = [
     id: "React.js",
     title: "React.js",
     category: "Frontend",
-    imageUrl: "images/technologies/react-js.svg",
+    imageUrl: "/images/technologies/react-js.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -79,7 +79,7 @@ export const technologies = [
     id: "Figma",
     title: "Figma",
     category: "UX/UI Design",
-    imageUrl: "images/technologies/figma.svg",
+    imageUrl: "/images/technologies/figma.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -91,7 +91,7 @@ export const technologies = [
     id: "GoogleAds",
     title: "Google Ads",
     category: "İnternet Reklamları",
-    imageUrl: "images/technologies/google-ads.svg",
+    imageUrl: "/images/technologies/google-ads.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -115,7 +115,7 @@ export const technologies = [
     id: "GoogleDataStudio",
     title: "Google Data Studio",
     category: "Dijital Yerel Pazarlama",
-    imageUrl: "images/technologies/google-data-studio.svg",
+    imageUrl: "/images/technologies/google-data-studio.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -127,7 +127,7 @@ export const technologies = [
     id: "MetaBusinessSuite",
     title: "Meta Business Suite",
     category: "Dijital Yerel Pazarlama",
-    imageUrl: "images/technologies/meta-business-suite.svg",
+    imageUrl: "/images/technologies/meta-business-suite.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -139,7 +139,7 @@ export const technologies = [
     id: "Blender",
     title: "Blender",
     category: "Grafik Tasarım",
-    imageUrl: "images/technologies/blender.svg",
+    imageUrl: "/images/technologies/blender.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -151,7 +151,7 @@ export const technologies = [
     id: "AdobeIllustrator",
     title: "Adobe Illustrator",
     category: "Grafik Tasarım",
-    imageUrl: "images/technologies/adobe-ai.svg",
+    imageUrl: "/images/technologies/adobe-ai.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -163,7 +163,7 @@ export const technologies = [
     id: "AdobePhotoshop",
     title: "Adobe Photoshop",
     category: "Grafik Tasarım",
-    imageUrl: "images/technologies/adobe-ps.svg",
+    imageUrl: "/images/technologies/adobe-ps.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -175,7 +175,7 @@ export const technologies = [
     id: "AdobePremiere",
     title: "Adobe Premiere Pro",
     category: "Prodüksiyon",
-    imageUrl: "images/technologies/adobe-pr.svg",
+    imageUrl: "/images/technologies/adobe-pr.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -187,7 +187,7 @@ export const technologies = [
     id: "AdobeAfterEffects",
     title: "Adobe After Effects",
     category: "Prodüksiyon",
-    imageUrl: "images/technologies/adobe-ae.svg",
+    imageUrl: "/images/technologies/adobe-ae.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -199,7 +199,7 @@ export const technologies = [
     id: "AdobeXD",
     title: "Adobe XD",
     category: "Prodüksiyon",
-    imageUrl: "images/technologies/adobe-xd.svg",
+    imageUrl: "/images/technologies/adobe-xd.svg",
     isMenuDisplay: false,
     description: ``,
     size: {
@@ -211,7 +211,7 @@ export const technologies = [
     id: "AdobeInDesign",
     title: "Adobe InDesign",
     category: "Grafik Tasarım",
-    imageUrl: "images/technologies/adobe-id.svg",
+    imageUrl: "/images/technologies/adobe-id.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
