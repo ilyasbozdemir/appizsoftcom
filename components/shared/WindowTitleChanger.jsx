@@ -23,7 +23,6 @@ function WindowTitleChanger() {
   useEffect(() => {
     document.title = titles[currentIndex];
   }, [currentIndex]);
-  return <></>;
 }
 
 export default WindowTitleChanger;
