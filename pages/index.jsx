@@ -18,6 +18,9 @@ export default function HomePage() {
     if (browserLanguage.startsWith("en")) {
       router.push(`/en/`);
     }
+
   }, []);
+
+
 
 }

@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import UserLayout from "../layouts/UserLayout";
 import AdminLayout from "../layouts/AdminLayout";
+import ErrorLayout from "../layouts/ErrorLayout";
 
 import theme from "../src/theme";
 import "../styles/globals.css";
@@ -9,7 +10,7 @@ import "aos/dist/aos.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, statusCode }) {
   const data = {};
   let Layout;
   const router = useRouter();
@@ -32,17 +33,37 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {pageProps.statusCode ? (
-        <>{/* <Page404 statusCode={pageProps.statusCode} /> */}</>
-      ) : (
-        <ChakraProvider theme={theme}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ChakraProvider>
-      )}
+      <>
+        {[401, 403, 404, 500, 501].includes(statusCode) ? (
+          <>
+            <ErrorLayout statusCode={statusCode} />
+          </>
+        ) : (
+          <ChakraProvider theme={theme}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ChakraProvider>
+        )}
+      </>
+
+      <></>
     </>
   );
 }
+
+MyApp.getInitialProps = async (appContext) => {
+  const { Component, ctx } = appContext;
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  const { res, err } = ctx;
+  const statusCode = res ? res.statusCode : err ? err.statusCode : null;
+
+  return { pageProps, statusCode };
+};
 
 export default MyApp;

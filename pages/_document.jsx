@@ -10,8 +10,10 @@ import { site } from "../constants/site";
 
 export default class MyDocument extends Document {
   render() {
+    const { langValue } = this.props;
+
     return (
-      <Html lang={site.lang}>
+      <Html lang={langValue || site.lang}>
         <Head>
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta
@@ -57,7 +59,17 @@ MyDocument.getInitialProps = async (ctx) => {
     });
   const initialProps = await Document.getInitialProps(ctx);
 
+  // URL'den dil bölümünü alın
+  const { asPath } = ctx;
+  const language = asPath.split("/")[1]; // İlk bölüm dil bölümü olacak
+  let langValue = "tr";
+
+  if (language === "tr" || language === "en") {
+    langValue = language;
+  }
+
   return {
     ...initialProps,
+    langValue,
   };
 };
