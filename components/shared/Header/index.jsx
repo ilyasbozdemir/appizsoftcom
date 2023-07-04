@@ -19,6 +19,8 @@ import LanguageSwitcher from "../../LanguageSwitcher";
 import { menuList } from "../../../constants/menuList";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Logo from "../Logo";
+import OfferButton from "../../OfferButton";
+import ThemeSwitcher from "../../ThemeSwitcher";
 
 function Header({ isOpen, onOpen, onClose, onToggle }) {
   const [menus, setMenus] = React.useState([
@@ -356,7 +358,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
               textAlign={"center"}
               gap={[3, 4, 5]}
             >
-              <Logo platform={"desktop"}  lang={lang}/>
+              <Logo platform={"desktop"} lang={lang} />
 
               <>
                 {menus.map((menu) => (
@@ -364,22 +366,8 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                     <MenuLink title={menu.title} href={menu.href} />
                   </React.Fragment>
                 ))}
-
-                <Button
-                  color="#fff"
-                  bg={"#54bec3"}
-                  _hover={{ bg: "#6ebec2" }}
-                  size="md"
-                  onClick={() => {
-                    router.push(`${lang}/teklif-al`);
-                  }}
-                  fontFamily={"Poppins"}
-                  p={{ md: 4, lg: 6 }}
-                  fontSize={{ md: "13px", lg: "17px" }}
-                  zIndex={11}
-                >
-                  Teklif İste
-                </Button>
+                <ThemeSwitcher />
+                <OfferButton platform={'desktop'} />
               </>
             </Flex>
 

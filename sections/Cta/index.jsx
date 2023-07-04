@@ -49,7 +49,6 @@ export default function CallToActionWithIllustration({ lang }) {
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems="center" // Dikeyde ortala
-
     >
       <Container maxW={"5xl"} as="article">
         <Stack
@@ -59,6 +58,7 @@ export default function CallToActionWithIllustration({ lang }) {
           py={{ base: 10, md: 14 }}
         >
           <Heading
+            as={"h1"}
             fontWeight={600}
             fontSize={{ base: "30px", md: "50px" }}
             textTransform={"uppercase"}
@@ -84,7 +84,6 @@ export default function CallToActionWithIllustration({ lang }) {
             <Button
               rounded={"full"}
               colorScheme={"teal"}
-              
               _hover={{
                 boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
               }}
@@ -105,8 +104,7 @@ export default function CallToActionWithIllustration({ lang }) {
                 as={FaCaretDown}
                 fontSize={80}
                 cursor={"pointer"}
-                color={'blackAlpha.800'}
-             
+                color={"blackAlpha.800"}
               />
             </Link>
           </Stack>

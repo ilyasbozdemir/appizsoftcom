@@ -24,14 +24,47 @@ export const site = {
   themeColor: theme.colors.primary,
   lang: "tr",
   sosyalMediaLinks: [
-    "https://www.instagram.com/appizsoftcom/",
-    "https://www.facebook.com/appizsoftcom/",
-    "https://www.tiktok.com/@appizsoftcom",
-    "https://tr.linkedin.com/company/appizsoft",
-    "https://www.youtube.com/@Appizsoft",
-    "https://twitter.com/appizsoftcom",
-    "https://github.com/appizsoftcom",
-    "https://tr.pinterest.com/appizsoftcom/",
+    {
+      id: 1,
+      label: "instagram",
+      link: "https://www.instagram.com/appizsoftcom/",
+    },
+    {
+      id: 2,
+      label: "facebook",
+      link: "https://www.facebook.com/appizsoftcom/",
+    },
+    {
+      id: 3,
+      label: "tiktok",
+      link: "https://www.tiktok.com/@appizsoftcom",
+    },
+    {
+      id: 4,
+      label: "linkedin",
+      link: "https://tr.linkedin.com/company/appizsoft",
+    },
+
+    {
+      id: 5,
+      label: "youtube",
+      link: "https://www.youtube.com/@Appizsoft",
+    },
+    {
+      id: 6,
+      label: "twitter",
+      link: "https://twitter.com/appizsoftcom",
+    },
+    {
+      id: 7,
+      label: "github",
+      link: "https://github.com/appizsoftcom",
+    },
+    {
+      id: 8,
+      label: "pinterest",
+      link: "https://tr.pinterest.com/appizsoftcom/",
+    },
   ],
   analyticsCodes: {
     pinterestAnalyticsCode,

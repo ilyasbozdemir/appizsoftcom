@@ -10,13 +10,14 @@ function LanguageSwitcher({ lang: defaultLanguage }) {
 
     const handleLanguageChange = (language) => {
       setCurrentLanguage(language.replace(/^\/|\/$/g, ""));
-      router.push(`/${language}`);
+      //router.push(`/${language}`);
     };
 
     return (
       <Box position="absolute" top={4} right={4} zIndex={500}>
         <Stack direction={"row"}>
           <Button
+            cursor={"default"}
             color="#54bec3"
             bg="transparent"
             p={2}

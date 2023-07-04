@@ -98,10 +98,7 @@ const FooterContent = () => {
           <FooterData />
           <SosyalMediaIcon />
 
-          {/*
-          
-          coming soon :)
-          */}
+       
  
       </Box>
     </>

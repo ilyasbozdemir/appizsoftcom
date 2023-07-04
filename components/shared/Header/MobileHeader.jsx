@@ -31,6 +31,8 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 import { BiMenuAltRight } from "react-icons/bi";
 import Logo from "../Logo";
+import ThemeSwitcher from "../../ThemeSwitcher";
+import OfferButton from "../../OfferButton";
 
 const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
   const router = useRouter();
@@ -80,23 +82,25 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         userSelect={"none"}
       >
         <Logo platform={"mobile"} lang={lang} />
-
-        <IconButton
-          icon={
-            isOpen ? (
-              <Icon as={CloseIcon} fontSize={20} />
-            ) : (
-              <Icon as={BiMenuAltRight} fontSize={35} />
-            )
-          }
-          onClick={onToggle}
-          size="md"
-          aria-label="Toggle Navigation"
-          bg="transparent"
-          color="white"
-          _hover={{ bg: "transparent" }}
-          _active={{ bg: "transparent" }}
-        />
+        <HStack>
+          <ThemeSwitcher />
+          <IconButton
+            icon={
+              isOpen ? (
+                <Icon as={CloseIcon} fontSize={20} />
+              ) : (
+                <Icon as={BiMenuAltRight} fontSize={35} />
+              )
+            }
+            onClick={onToggle}
+            size="md"
+            aria-label="Toggle Navigation"
+            bg="transparent"
+            color="white"
+            _hover={{ bg: "transparent" }}
+            _active={{ bg: "transparent" }}
+          />
+        </HStack>
       </Flex>
       <>
         {isOpen && (
@@ -110,25 +114,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
                 ))}
 
                 <Center my={5}>
-                  <Button
-                    color="#fff"
-                    bg={"primary"}
-                    _hover={{
-                      bg: "#6ebec2",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
-                    }}
-                    size="md"
-                    onClick={() => {
-                      router.push(`${lang}/teklif-al`);
-                    }}
-                    fontSize={"2xl"}
-                    fontFamily={"Poppins"}
-                    w="90%"
-                    px={4}
-                    h={75}
-                  >
-                    Teklif İste
-                  </Button>
+                  <OfferButton platform={'mobile'}/>
                 </Center>
 
                 <Box pos={"relative"}>

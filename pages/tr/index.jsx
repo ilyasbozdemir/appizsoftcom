@@ -28,25 +28,24 @@ function IndexPage() {
         <Box>
           <Cta lang={lang} />
         </Box>
-        <Divider />
 
         <Box id={"AboutUs"}>
           <AboutUs lang={lang} />
         </Box>
-        <Divider />
 
         <Box id={"OurServices"}>
           <OurServices />
         </Box>
-        <Divider />
+      
 
         <Box>
           <OurTechnologies />
         </Box>
         <Divider />
-
-        <Box>BLOG ALANI</Box>
-        <Divider />
+        {/*
+  <Box>BLOG ALANI</Box>
+       <Divider />
+  */}
       </Flex>
     </>
   );

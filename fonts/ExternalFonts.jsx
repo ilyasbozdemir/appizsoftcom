@@ -23,7 +23,15 @@ function ExternalFonts() {
         rel="stylesheet"
         type="text/css"
       />
-     
+      <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;600&display=swap"
+        rel="stylesheet"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@300;600&display=swap"
+        rel="stylesheet"
+      />
     </>
   );
 }
