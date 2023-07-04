@@ -7,23 +7,17 @@ import React, { useEffect, useState } from "react";
 function ThemeSwitcher() {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const [icon, setIcon] = useState(colorMode === "dark" ?  SunIcon : MoonIcon);
+  const [icon, setIcon] = useState(colorMode === "dark" ? SunIcon : MoonIcon);
 
   useEffect(() => {
-    setIcon(colorMode === "dark" ?  SunIcon : MoonIcon);
-  }, [colorMode]);
-
-  const handleOnClick = () => {
-    toggleColorMode();
     setIcon(colorMode === "dark" ? SunIcon : MoonIcon);
-
-  };
+  }, [colorMode]);
 
   return (
     <>
       <Icon
         as={icon}
-        onClick={handleOnClick}
+        onClick={toggleColorMode}
         cursor={"pointer"}
         fontSize={"lg"}
       />
