@@ -13,7 +13,7 @@ const theme = extendTheme({
   config: {
     initialColorMode: "system",
     useSystemColorMode: true,
-    cssVarPrefix: "appizsoft",
+    cssVarPrefix: "appiz-software",
   },
 
 

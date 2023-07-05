@@ -80,6 +80,8 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         top={0}
         right={0}
         userSelect={"none"}
+        _dark={{ bg: "##1D1F21" }}
+        _light={{ bg: "#000" }}
       >
         <Logo platform={"mobile"} lang={lang} />
         <HStack>

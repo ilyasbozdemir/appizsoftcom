@@ -64,10 +64,34 @@ export const technologies = [
     },
   },
   {
+    id: "Wordpress",
+    title: "Wordpress",
+    category: "İçerik Yönetim Sistemi ",
+    imageUrl: "/images/technologies/wordpress.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+  {
     id: "React.js",
     title: "React.js",
     category: "Frontend",
     imageUrl: "/images/technologies/react-js.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 35,
+      height: 35,
+    },
+  },
+  {
+    id: "Angular",
+    title: "Angular",
+    category: "Frontend",
+    imageUrl: "/images/technologies/angular.svg",
     isMenuDisplay: true,
     description: ``,
     size: {
@@ -103,8 +127,33 @@ export const technologies = [
     id: "GoogleMyBusiness",
     title: "Google My Business",
     category: "Dijital Yerel Pazarlama",
-    imageUrl: "images/technologies/google-my-business.svg",
-    isMenuDisplay: true,
+    imageUrl: "/images/technologies/google-my-business.svg",
+    isMenuDisplay: false,
+    description: ``,
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+  {
+    id: "GoogleMerchantCenter",
+    title: "Google Merchant Center",
+    category: "Dijital Yerel Pazarlama",
+    imageUrl: "/images/technologies/google-merchant-center.svg",
+    isMenuDisplay: false,
+    description: ``,
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+
+  {
+    id: "GoogleCloud",
+    title: "Google Cloud",
+    category: "Backend",
+    imageUrl: "/images/technologies/google-cloud.svg",
+    isMenuDisplay: false,
     description: ``,
     size: {
       width: 32,
@@ -219,4 +268,29 @@ export const technologies = [
       height: 32,
     },
   },
+  {
+    id: "UnrealEngine",
+    title: "Unreal Engine",
+    category: "Oyun Geliştirme",
+    imageUrl: "/images/technologies/unreal-engine.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+  {
+    id: "Unity",
+    title: "Unity",
+    category: "Oyun Geliştirme",
+    imageUrl: "/images/technologies/unity-technologies-logo.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 40,
+      height: 40,
+    },
+  },
+  //
 ];

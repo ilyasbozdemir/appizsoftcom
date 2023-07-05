@@ -339,6 +339,8 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         top={0}
         right={0}
         zIndex={11}
+        _dark={{ bg: "#1D1F21" }}
+        _light={{ bg: "#000" }}
       >
         <Center
           bg="black"
@@ -367,7 +369,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                   </React.Fragment>
                 ))}
                 <ThemeSwitcher />
-                <OfferButton platform={'desktop'} />
+                <OfferButton platform={"desktop"} />
               </>
             </Flex>
 
@@ -376,7 +378,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         </Center>
       </Flex>
 
-      <Flex display={{ base: "initial", md: "none" }}>
+      <Flex display={{ base: "initial", md: "none" }} >
         <MobileHeader
           lang={lang}
           onOpen={onOpen}

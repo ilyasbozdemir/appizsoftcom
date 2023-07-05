@@ -26,13 +26,13 @@ export const menuList = [
     children: services,
     lang: "tr",
   },
-  /*
+  
   {
     title: "Teknolojilerimiz",
     href: null,
     children: technologies,
     lang:'tr'
-  },*/
+  },
   {
     title: "Hakkımızda",
     href: "/hakkimizda",

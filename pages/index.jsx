@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../lib/detectBrowserLanguage";
 
@@ -8,7 +8,6 @@ export default function HomePage() {
   const router = useRouter();
   const { locale, locales, defaultLocale } = router;
 
-  
   useEffect(() => {
     // Tarayıcı dilini al
     const browserLanguage = detectBrowserLanguage(["en", "tr"]);
@@ -18,9 +17,9 @@ export default function HomePage() {
     if (browserLanguage.startsWith("en")) {
       router.push(`/en/`);
     }
-
   }, []);
 
 
-
 }
+
+
