@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { services } from "../../../constants/services";
-import MetaHead from "../../../configuration//MetaHead";
+import MetaHead from "../../../configuration/MetaHead";
 import Head from "next/head";
 
 

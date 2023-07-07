@@ -11,6 +11,7 @@ import {
   Divider,
   HStack,
   useColorModeValue,
+  Icon,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -23,6 +24,7 @@ import Logo from "../Logo";
 import OfferButton from "../../OfferButton";
 import ThemeSwitcher from "../../ThemeSwitcher";
 import SearchButton from "../../SearchButton";
+import { FiChevronDown } from "react-icons/fi";
 
 function Header({ isOpen, onOpen, onClose, onToggle }) {
   const [menus, setMenus] = React.useState([
@@ -76,8 +78,8 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
       return item ? item.children : [];
     };
 
-    const technologiesList = getChildrenByTitle(menus, "Teknolojilerimiz");
-    const servicesList = getChildrenByTitle(menus, "Hizmetlerimiz");
+    const technologiesList = getChildrenByTitle(menus, "Teknolojiler");
+    const servicesList = getChildrenByTitle(menus, "Hizmetler");
 
     const softwareServiceList = servicesList?.filter(
       (service) => service.serviceCategory === "software"
@@ -180,7 +182,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
               mx={5}
               cursor={"pointer"}
               onClick={() => {
-                Router.push(`${lang}/hizmet/${child.href}`);
+                Router.push(`${lang}/service/${child.href}`);
               }}
             >
               <Box
@@ -254,7 +256,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         switch (clickedElementId) {
           case "Teknolojilerimiz":
             return <TechnologiesContent />;
-          case "Hizmetlerimiz":
+          case "Hizmetler":
             return <ServicesContent />;
           default:
             return null;
@@ -280,7 +282,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
           as={"li"}
           pl={4}
         >
-          {title}
+          {title} {isOpen === true ? <Icon as={FiChevronDown} /> : ""}
         </Text>
         <>
           {isOpen && (
@@ -291,7 +293,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                 left={0}
                 w="100%"
                 h="100%"
-                bg="rgba(0, 0, 0, 0.5)"
+                bg="rgba(0, 0, 0, 0.4)"
                 zIndex={10}
                 onClick={() => {
                   setIsOpen(!isOpen);
@@ -301,6 +303,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
               <Box
                 pos={"absolute"}
                 top={"80px"}
+                left={0}
                 w="100%"
                 h={"full"}
                 zIndex={11}
@@ -335,7 +338,8 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
     };
   }, []);
 
-  const bg = useColorModeValue("white", "gray.800");
+  const bg = useColorModeValue("transparent", "transparent");
+  const bgScrolled= useColorModeValue("white", "gray.800");
 
   return (
     <React.Fragment>
@@ -344,30 +348,27 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         position="sticky"
         top={0}
         right={0}
-        zIndex={11}
+        zIndex={110}
       >
         <Center
-          bg={bg}
+          bg={!isScrolled ? bg : bgScrolled}
+
           p={5}
           boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.3)" : "none"}
           transition="box-shadow 0.3s"
         >
-          <Flex
-            justifyContent="space-between"
-            alignContent="center"
-            zIndex={11}
-          >
+          <Flex justifyContent="space-between" alignContent="center">
             <Flex
               align="center"
               justifyContent="center"
               textAlign={"center"}
               gap={[3, 4, 5]}
-              as={'nav'}
+              as={"nav"}
             >
               <Logo platform={"desktop"} lang={lang} />
 
               <>
-                <Flex as={'ul'}>
+                <Flex as={"ul"}>
                   {menus.map((menu) => (
                     <React.Fragment key={menu.title}>
                       <MenuLink title={menu.title} href={menu.href} />

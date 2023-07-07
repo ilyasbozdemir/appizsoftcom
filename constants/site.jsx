@@ -31,7 +31,7 @@ export const site = {
     postalCode: `12345`,
     addressCountry: `TR`,
   },
-  telephone:'+90 555 555 55 55',
+  telephone: "+90 555 555 55 55",
   sosyalMediaLinks: [
     {
       id: 1,
@@ -43,6 +43,12 @@ export const site = {
       label: "facebook",
       link: "https://www.facebook.com/appizsoftcom/",
     },
+    {
+      id: 2,
+      label: "threads",
+      link: "https://www.threads.net/",
+    },
+
     {
       id: 3,
       label: "tiktok",

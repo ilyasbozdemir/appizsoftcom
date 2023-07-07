@@ -14,7 +14,7 @@ function LanguageSwitcher({ lang: defaultLanguage }) {
     };
 
     return (
-      <Box position="absolute" top={4} right={4} zIndex={500}>
+      <Box  >
         <Stack direction={"row"}>
           <Button
             cursor={"default"}

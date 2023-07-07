@@ -7,11 +7,14 @@ import {
   Box,
   keyframes,
   Icon,
+  useColorModeValue,
+  Center,
 } from "@chakra-ui/react";
 import { Link } from "react-scroll";
 import Router, { useRouter } from "next/router";
-
 import { FaCaretDown } from "react-icons/fa";
+
+import { motion } from "framer-motion";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -49,6 +52,10 @@ export default function CallToActionWithIllustration({ lang }) {
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems="center" // Dikeyde ortala
+      color={useColorModeValue("white", "white")}
+      backgroundImage={
+        "linear-gradient(to right top, #e927bf, #d156d7, #b872e7, #a087ef, #8e97ef, #7ca6f6, #6eb3f9, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);"
+      }
     >
       <Container maxW={"5xl"} as="article">
         <Stack
@@ -69,11 +76,10 @@ export default function CallToActionWithIllustration({ lang }) {
             birleştirerek Markanızı Öne Çıkarıyoruz.
           </Heading>
           <Text
-            _light={{ color: "gray.500" }}
-            _dark={{ color: "#fff" }}
             maxW={"3xl"}
             data-aos="fade-up"
             fontSize={{ base: "19px", md: "25px" }}
+            color={useColorModeValue("white", "white")}
           >
             Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
             hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
@@ -83,7 +89,7 @@ export default function CallToActionWithIllustration({ lang }) {
           <Stack spacing={6} direction={"column"}>
             <Button
               rounded={"full"}
-              colorScheme={"teal"}
+              colorScheme={"white"}
               _hover={{
                 boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
               }}
@@ -99,14 +105,30 @@ export default function CallToActionWithIllustration({ lang }) {
               Hemen Başlayalım!
             </Button>
 
-            <Link to="AboutUs" smooth={true} duration={500} offset={-88}>
-              <Icon
-                as={FaCaretDown}
-                fontSize={80}
-                cursor={"pointer"}
-                color={"blackAlpha.800"}
-              />
-            </Link>
+            <Center>
+              <Link to="AboutUs" smooth={true} duration={500} offset={-88}>
+                <motion.div
+                  initial={{ y: 0, opacity: 0 }}
+                  animate={{
+                    y: [0, -1, 0], // Animation sequence: move up, move down, move up
+                    opacity: [1, 0.5, 1], // Animation sequence: fade in, fade out, fade in
+                  }}
+                  transition={{
+                    repeat: Infinity, // Repeat animation indefinitely
+                    repeatType: "reverse", // Reverse the animation sequence on each repeat
+                    type: "spring",
+                    damping: 20,
+                    stiffness: 100,
+                  }}
+                >
+                  <FaCaretDown
+                    fontSize={80}
+                    cursor="pointer"
+                    color={useColorModeValue("white", "white")}
+                  />
+                </motion.div>
+              </Link>
+            </Center>
           </Stack>
         </Stack>
       </Container>

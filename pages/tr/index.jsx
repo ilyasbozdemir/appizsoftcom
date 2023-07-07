@@ -24,7 +24,7 @@ function IndexPage() {
         <WindowTitleChanger />
       </>
 
-      <Flex as="main" direction={"column"} gap={5}>
+      <Flex as="main" direction={"column"} >
         <Box>
           <Cta lang={lang} />
         </Box>
@@ -33,12 +33,10 @@ function IndexPage() {
           <AboutUs lang={lang} />
         </Box>
 
-        <Box id={"OurServices"}>
+        <Box id={"OurServices"} mt={3}>
           <OurServices />
         </Box>
-      
-
-        <Box>
+        <Box m={3}>
           <OurTechnologies />
         </Box>
         <Divider />

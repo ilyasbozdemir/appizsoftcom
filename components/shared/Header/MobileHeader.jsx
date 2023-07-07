@@ -172,8 +172,8 @@ const MenuLink = ({ title, href, lang }) => {
     return item ? item.children : [];
   };
 
-  const technologiesList = getChildrenByTitle(menus, "Teknolojilerimiz");
-  const servicesList = getChildrenByTitle(menus, "Hizmetlerimiz");
+  const technologiesList = getChildrenByTitle(menus, "Teknolojiler");
+  const servicesList = getChildrenByTitle(menus, "Hizmetler");
 
   const softwareServiceList = servicesList?.filter(
     (service) => service.serviceCategory === "software"
@@ -275,7 +275,7 @@ const MenuLink = ({ title, href, lang }) => {
             key={child.title}
             cursor={"pointer"}
             onClick={() => {
-              Router.push(`${lang}/hizmet/${child.href}`);
+              Router.push(`${lang}/service/${child.href}`);
             }}
           >
             <Box bg="white" color={"black"} _hover={{ color: "gray.600" }}>
@@ -380,7 +380,7 @@ const MenuLink = ({ title, href, lang }) => {
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  {title === "Hizmetlerimiz" ? (
+                  {title === "Hizmetler" ? (
                     <>
                       <ServicesContent />
                     </>

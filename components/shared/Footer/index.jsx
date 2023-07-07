@@ -6,12 +6,16 @@ import {
   Text,
   useColorModeValue,
   Button,
+  HStack,
+  Divider,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import SosyalMediaIcon from "../SosyalMediaIcon";
 
 import Logo from "../Logo";
 import { site } from "../../../constants/site";
+
+import LanguageSwitcher from "../../LanguageSwitcher";
 
 const FooterTopContent = () => {
   const router = useRouter();
@@ -88,15 +92,61 @@ const FooterContent = () => {
     return <Text> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</Text>;
   };
 
+  const institutionalMenu = [
+    {
+      title: "Hakkımızda",
+      href: "/appizsoft-hakkinda",
+    },
+    {
+      title: "Referanslar",
+      href: "/portfolio",
+    },
+    {
+      title: "Bize Ulaşın",
+      href: "/contact",
+    },
+  ];
+
+  const contractMenu = [
+    {
+      title: "Gizlilik Politikası",
+      href: "/gizlilik-politikasi",
+    },
+    {
+      title: "Çerez Politikası",
+      href: "/cerez-politikasi",
+    },
+  ];
+  const serviceMenu = [
+    {
+      title: "Özel Yazılım Geliştirme",
+      href: "/service/ozel-yazilim-gelistirme",
+    },
+    {
+      title: "E-ticaret Yazılımı",
+      href: "/service/e-ticaret-yazilimi",
+    },
+    {
+      title: "Oyun Tasarım",
+      href: "/service/oyun-tasarim",
+    },
+    {
+      title: "Prodüksiyon & Tasarım",
+      href: "/service/produksiyon-tasarim",
+    },
+  ];
   return (
-    <>
-      <Box
-        bg={useColorModeValue("gray.50", "gray.900")}
-        color={useColorModeValue("gray.700", "gray.200")}
-        as={Stack}
-        p={8}
-      >
-        <Flex p={20} gap={15} direction={{ base: "column", md: "row" }}>
+    <Center
+      bg={useColorModeValue("gray.50", "gray.900")}
+      color={useColorModeValue("gray.700", "gray.200")}
+    >
+      <Box as={Stack} p={8}>
+        <Flex
+          p={20}
+          gap={15}
+          direction={{ base: "column", md: "row" }}
+          wrap={"wrap"}
+        >
           <Center
             as={Flex}
             direction={"column"}
@@ -104,18 +154,9 @@ const FooterContent = () => {
             itemType="http://schema.org/Organization"
           >
             <Logo isLink={false} s={{ h: 125, w: 250 }} />
-            <Box pt={".5rem"}>
-              <Text
-                fontSize={15}
-                fontFamily={"montserrat-extra-bold"}
-                color={useColorModeValue("gray.500", "gray.500")}
-              >
-                Dijital Başarı İçin Appizsoft
-              </Text>
-            </Box>
 
             <Box
-              mt={5}
+              mt={2}
               pt={".5rem"}
               itemScope
               itemType="http://schema.org/ContactPoint"
@@ -171,31 +212,82 @@ const FooterContent = () => {
                 {site.address.addressCountry}
               </Text>
             </Box>
+            <Stack mt={5}>
+              <SosyalMediaIcon />
+            </Stack>
           </Center>
 
-          <Center
-            as={Flex}
-            direction={"column"}
-            itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
-          >
+          <Flex gap={5}>
+            <SiteNavigationElement
+              header={"Kurumsal"}
+              menus={institutionalMenu}
+            />
+          </Flex>
+          <Flex gap={5}>
+            <SiteNavigationElement
+              header={"Sözleşmeler"}
+              menus={contractMenu}
+            />
+          </Flex>
 
-
-
-          </Center>
-          
+          <Flex gap={5}>
+            <SiteNavigationElement header={"Hizmetler"} menus={serviceMenu} />
+          </Flex>
         </Flex>
 
-        <Center>
+        <Divider />
+
+        <Flex
+          justifyContent={{ base: "center", md: "space-between" }}
+          direction={{ base: "column-reverse", md: "row" }}
+          px={20}
+          gap={3}
+        >
           <FooterData />
-        </Center>
+          <HStack direction={"row"}>
+            <Text>Select Language: </Text>
+            <LanguageSwitcher lang={"tr"} />
+          </HStack>
+        </Flex>
       </Box>
+    </Center>
+  );
+};
+
+const SiteNavigationElement = ({ header, menus }) => {
+  const router = useRouter();
+  return (
+    <>
+      <Flex
+        ml={"50px"}
+        direction={"column"}
+        itemscope="itemscope"
+        itemtype="https://www.schema.org/SiteNavigationElement"
+      >
+        <Text fontWeight={"bold"} fontSize={18}>
+          {header}
+        </Text>
+
+        <Flex mt={5} gap={2} direction={"column"}>
+          {menus.map((menu) => (
+            <Text
+              onClick={() => {
+                router.push("/tr/" + menu.href);
+              }}
+              cursor={"pointer"}
+            >
+              {menu.title}
+            </Text>
+          ))}
+        </Flex>
+      </Flex>
     </>
   );
 };
 
 const Footer = () => {
   return (
-    <Flex direction={"column"} as='footer'>
+    <Flex direction={"column"} as="footer">
       <FooterTopContent />
       <FooterContent />
     </Flex>

@@ -8,6 +8,7 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import { site } from "../../constants/site";
+import Link from "next/link";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -30,60 +31,109 @@ const SocialButton = ({ children, label, href }) => {
   );
 };
 
+const LinkWrapper = (props) => {
+  const { children, href, ...rest } = props;
+
+  return (
+    <Link href={href} passHref target="_blank" rel="noopener noreferrer" {...rest}>
+      {children}
+    </Link>
+  );
+};
+
 function SosyalMediaIcon() {
-
-
-  const socialLogo = site.sosyalMediaLinks.map((s) => s);
   return (
     <>
-      <ButtonGroup>
-        <IconButton
-          as="i"
-          cursor={"pointer"}
-          aria-label="Instagram"
-          icon={<FaInstagram fontSize="1.25rem" />}
-          _hover={{ bg: "#657786", color: " white" }}
-          bg={"transparent"}
-          children={<VisuallyHidden>Instagram</VisuallyHidden>}
-        />
-        <IconButton
-          as="i"
-          cursor={"pointer"}
-          aria-label="Facebook"
-          icon={<FaFacebook fontSize="1.25rem" />}
-          _hover={{ bg: "#657786", color: " white" }}
-          bg={"transparent"}
-          children={<VisuallyHidden>Facebook</VisuallyHidden>}
-        />
-
-        <IconButton
-          as="i"
-          aria-label="FaTwitter"
-          cursor={"pointer"}
-          icon={<FaTwitter fontSize="1.25rem" />}
-          _hover={{ bg: "#657786", color: " white" }}
-          bg={"transparent"}
-          children={<VisuallyHidden>Twitter</VisuallyHidden>}
-        />
+      <ButtonGroup
+        itemscope="itemscope"
+        itemtype="https://schema.org/Organization"
+      >
+        <LinkWrapper
+          href={
+            site.sosyalMediaLinks.find((item) => item.label === "instagram")
+              .link
+          }
+          itemprop="sameAs"
+        >
           <IconButton
-          as="i"
-          aria-label="Linkedin"
-          cursor={"pointer"}
-          icon={<FaYoutube fontSize="1.25rem" />}
-          _hover={{ bg: "#657786", color: " white" }}
-          bg={"transparent"}
-          children={<VisuallyHidden>Youtube</VisuallyHidden>}
-        />
-        
-        <IconButton
-          as="i"
-          aria-label="Linkedin"
-          cursor={"pointer"}
-          icon={<FaLinkedin fontSize="1.25rem" />}
-          _hover={{ bg: "#657786", color: " white" }}
-          bg={"transparent"}
-          children={<VisuallyHidden>Linkedin</VisuallyHidden>}
-        />
+            as="i"
+            cursor={"pointer"}
+            aria-label="Instagram"
+            icon={<FaInstagram fontSize="1.25rem" />}
+            _hover={{ bg: "#657786", color: " white" }}
+            bg={"transparent"}
+            children={<VisuallyHidden>Instagram</VisuallyHidden>}
+          />
+          {}
+        </LinkWrapper>
+
+        <LinkWrapper
+          href={
+            site.sosyalMediaLinks.find((item) => item.label === "facebook").link
+          }
+          itemprop="sameAs"
+        >
+          <IconButton
+            as="i"
+            cursor={"pointer"}
+            aria-label="Facebook"
+            icon={<FaFacebook fontSize="1.25rem" />}
+            _hover={{ bg: "#657786", color: " white" }}
+            bg={"transparent"}
+            children={<VisuallyHidden>Facebook</VisuallyHidden>}
+          />
+        </LinkWrapper>
+
+        <LinkWrapper
+          href={
+            site.sosyalMediaLinks.find((item) => item.label === "twitter").link
+          }
+          itemprop="sameAs"
+        >
+          <IconButton
+            as="i"
+            aria-label="FaTwitter"
+            cursor={"pointer"}
+            icon={<FaTwitter fontSize="1.25rem" />}
+            _hover={{ bg: "#657786", color: " white" }}
+            bg={"transparent"}
+            children={<VisuallyHidden>Twitter</VisuallyHidden>}
+          />
+        </LinkWrapper>
+
+        <LinkWrapper
+          href={
+            site.sosyalMediaLinks.find((item) => item.label === "youtube").link
+          }
+          itemprop="sameAs"
+        >
+          <IconButton
+            as="i"
+            aria-label="Linkedin"
+            cursor={"pointer"}
+            icon={<FaYoutube fontSize="1.25rem" />}
+            _hover={{ bg: "#657786", color: " white" }}
+            bg={"transparent"}
+            children={<VisuallyHidden>Youtube</VisuallyHidden>}
+          />
+        </LinkWrapper>
+
+        <LinkWrapper
+          href={
+            site.sosyalMediaLinks.find((item) => item.label === "linkedin").link
+          }
+          itemprop="sameAs"
+        >
+          <IconButton
+            as="i"
+            aria-label="Linkedin"
+            cursor={"pointer"}
+            icon={<FaLinkedin fontSize="1.25rem" />}
+            _hover={{ bg: "#657786", color: " white" }}
+            bg={"transparent"}
+            children={<VisuallyHidden>Linkedin</VisuallyHidden>}
+          />
+        </LinkWrapper>
       </ButtonGroup>
     </>
   );
