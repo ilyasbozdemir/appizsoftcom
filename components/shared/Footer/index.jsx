@@ -6,10 +6,12 @@ import {
   Text,
   useColorModeValue,
   Button,
-  VisuallyHidden,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import SosyalMediaIcon from "../SosyalMediaIcon";
+
+import Logo from "../Logo";
+import { site } from "../../../constants/site";
 
 const FooterTopContent = () => {
   const router = useRouter();
@@ -94,12 +96,98 @@ const FooterContent = () => {
         as={Stack}
         p={8}
       >
-     
-          <FooterData />
-          <SosyalMediaIcon />
+        <Flex p={20} gap={15} direction={{ base: "column", md: "row" }}>
+          <Center
+            as={Flex}
+            direction={"column"}
+            itemScope
+            itemType="http://schema.org/Organization"
+          >
+            <Logo isLink={false} s={{ h: 125, w: 250 }} />
+            <Box pt={".5rem"}>
+              <Text
+                fontSize={15}
+                fontFamily={"montserrat-extra-bold"}
+                color={useColorModeValue("gray.500", "gray.500")}
+              >
+                Dijital Başarı İçin Appizsoft
+              </Text>
+            </Box>
 
-       
- 
+            <Box
+              mt={5}
+              pt={".5rem"}
+              itemScope
+              itemType="http://schema.org/ContactPoint"
+            >
+              <Text
+                fontSize={15}
+                fontFamily={"montserrat-extra-bold"}
+                color={useColorModeValue("gray.500", "gray.500")}
+                itemProp="telephone"
+              >
+                <a itemProp="email" href={`mailto:${site.telephone}`}>
+                  {site.telephone}
+                </a>
+              </Text>
+            </Box>
+            <Box pt={".5rem"}>
+              <Text
+                fontSize={15}
+                fontFamily={"montserrat-extra-bold"}
+                color={useColorModeValue("gray.500", "gray.500")}
+                itemScope
+                itemType="http://schema.org/ContactPoint"
+              >
+                <a itemProp="email" href={`mailto:${site.mailAddress}`}>
+                  {site.mailAddress}
+                </a>
+              </Text>
+            </Box>
+
+            <Box
+              as={Flex}
+              pt={".5rem"}
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+              fontSize={15}
+              fontFamily={"montserrat-extra-bold"}
+              color={useColorModeValue("gray.500", "gray.500")}
+              gap={3}
+            >
+              <Text as={"span"} itemProp="streetAddress">
+                {site.address.streetAddress}
+              </Text>
+              <Text as={"span"} itemProp="addressLocality">
+                {site.address.addressLocality}
+              </Text>
+              <Text as={"span"} itemProp="addressRegion">
+                {site.address.addressRegion}
+              </Text>
+              <Text as={"span"} itemProp="postalCode">
+                {site.address.postalCode}
+              </Text>
+              <Text as={"span"} itemProp="addressCountry">
+                {site.address.addressCountry}
+              </Text>
+            </Box>
+          </Center>
+
+          <Center
+            as={Flex}
+            direction={"column"}
+            itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
+          >
+
+
+
+          </Center>
+          
+        </Flex>
+
+        <Center>
+          <FooterData />
+        </Center>
       </Box>
     </>
   );
@@ -107,9 +195,8 @@ const FooterContent = () => {
 
 const Footer = () => {
   return (
-    <Flex direction={"column"}>
+    <Flex direction={"column"} as='footer'>
       <FooterTopContent />
-
       <FooterContent />
     </Flex>
   );

@@ -292,5 +292,30 @@ export const technologies = [
       height: 40,
     },
   },
+  {
+    id: "Plesk",
+    title: "Plesk",
+    category: "",
+    imageUrl: "/images/technologies/plesk.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 40,
+      height: 40,
+    },
+  },
+  {
+    id: "cPanel",
+    title: "cPanel",
+    category: "",
+    imageUrl: "/images/technologies/cPanel.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 40,
+      height: 40,
+    },
+  },
+  
   //
 ];

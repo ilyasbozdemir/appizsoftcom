@@ -10,10 +10,10 @@ import {
   Text,
   Wrap,
   WrapItem,
-  useDisclosure,
   Icon,
   AccordionIcon,
   HStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -33,6 +33,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import Logo from "../Logo";
 import ThemeSwitcher from "../../ThemeSwitcher";
 import OfferButton from "../../OfferButton";
+import SearchButton from "../../SearchButton";
 
 const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
   const router = useRouter();
@@ -62,12 +63,13 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
     };
   }, []);
 
+  const bg = useColorModeValue("white", "gray.800");
+
   return (
     <>
       <Flex
         as="nav"
-        bg="black"
-        color="#fff"
+        bg={bg}
         p={5}
         justify="space-between"
         align="center"
@@ -75,17 +77,13 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         pos={"relative"}
         w={"100%"}
         position="sticky"
-        boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none"}
+        boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.3)" : "none"}
         transition="box-shadow 0.3s"
         top={0}
         right={0}
         userSelect={"none"}
-        _dark={{ bg: "##1D1F21" }}
-        _light={{ bg: "#000" }}
       >
-        <Logo platform={"mobile"} lang={lang} />
-        <HStack>
-          <ThemeSwitcher />
+        <HStack spacing={5}>
           <IconButton
             icon={
               isOpen ? (
@@ -98,10 +96,16 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
             size="md"
             aria-label="Toggle Navigation"
             bg="transparent"
-            color="white"
             _hover={{ bg: "transparent" }}
             _active={{ bg: "transparent" }}
           />
+        </HStack>
+
+        <Logo platform={"mobile"} lang={lang} />
+
+        <HStack spacing={5}>
+          <ThemeSwitcher />
+          <SearchButton />
         </HStack>
       </Flex>
       <>
@@ -116,7 +120,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
                 ))}
 
                 <Center my={5}>
-                  <OfferButton platform={'mobile'}/>
+                  <OfferButton platform={"mobile"} />
                 </Center>
 
                 <Box pos={"relative"}>
@@ -363,7 +367,13 @@ const MenuLink = ({ title, href, lang }) => {
                       "font-weight-500 font-size-16 line-height-24 mb-0"
                     }
                   >
-                    <Box as="span" flex="1" textAlign="left">
+                    <Box
+                      as="span"
+                      flex="1"
+                      textAlign="left"
+                      itemscope="itemscope"
+                      itemtype="https://www.schema.org/SiteNavigationElement"
+                    >
                       {title}
                     </Box>
                     <AccordionIcon />

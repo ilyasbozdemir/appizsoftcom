@@ -1,6 +1,6 @@
 import React from "react";
-import MetaHead from "../../configuration//MetaHead";
-import Meta from "../../configuration//MetaHead";
+import MetaHead from "../../configuration/MetaHead";
+import Meta from "../../configuration/MetaHead";
 
 
 const AboutUsCTA = () => {

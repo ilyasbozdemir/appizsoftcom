@@ -29,7 +29,7 @@ function AboutUs({ lang }) {
         alignItems="center" // Dikeyde ortala
       >
         <Center as={Flex} direction={"Column"}>
-          <Logo isLink={false} size={size} />
+          <Logo isLink={false} s={size} />
           <Box pt={".5rem"}>
             <Text
               fontSize={{ base: "20px", md: "30px" }}

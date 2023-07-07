@@ -10,6 +10,7 @@ import {
   WrapItem,
   Divider,
   HStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -21,6 +22,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import Logo from "../Logo";
 import OfferButton from "../../OfferButton";
 import ThemeSwitcher from "../../ThemeSwitcher";
+import SearchButton from "../../SearchButton";
 
 function Header({ isOpen, onOpen, onClose, onToggle }) {
   const [menus, setMenus] = React.useState([
@@ -270,10 +272,13 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
           pos={"relative"}
           userSelect={"none"}
           data-menu-title={title}
-          _hover={{ color: "gray.200" }}
           zIndex={11}
           borderBottom={isOpen === true ? "1px solid #fff" : ""}
-          className="font-weight-500 font-size-14 line-height-20 text-white cursor-pointer font-size-13-m font-size-11-sm"
+          className="my-box  font-weight-500 font-size-14 line-height-20  cursor-pointer font-size-13-m font-size-11-sm"
+          itemscope="itemscope"
+          itemtype="https://www.schema.org/SiteNavigationElement"
+          as={"li"}
+          pl={4}
         >
           {title}
         </Text>
@@ -330,23 +335,21 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
     };
   }, []);
 
+  const bg = useColorModeValue("white", "gray.800");
+
   return (
     <React.Fragment>
       <Flex
-        as="nav"
         display={{ base: "none", md: "initial" }}
         position="sticky"
         top={0}
         right={0}
         zIndex={11}
-        _dark={{ bg: "#1D1F21" }}
-        _light={{ bg: "#000" }}
       >
         <Center
-          bg="black"
-          color="#fff"
+          bg={bg}
           p={5}
-          boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none"}
+          boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.3)" : "none"}
           transition="box-shadow 0.3s"
         >
           <Flex
@@ -359,16 +362,20 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
               justifyContent="center"
               textAlign={"center"}
               gap={[3, 4, 5]}
+              as={'nav'}
             >
               <Logo platform={"desktop"} lang={lang} />
 
               <>
-                {menus.map((menu) => (
-                  <React.Fragment key={menu.title}>
-                    <MenuLink title={menu.title} href={menu.href} />
-                  </React.Fragment>
-                ))}
+                <Flex as={'ul'}>
+                  {menus.map((menu) => (
+                    <React.Fragment key={menu.title}>
+                      <MenuLink title={menu.title} href={menu.href} />
+                    </React.Fragment>
+                  ))}
+                </Flex>
                 <ThemeSwitcher />
+                <SearchButton />
                 <OfferButton platform={"desktop"} />
               </>
             </Flex>
@@ -378,7 +385,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         </Center>
       </Flex>
 
-      <Flex display={{ base: "initial", md: "none" }} >
+      <Flex display={{ base: "initial", md: "none" }}>
         <MobileHeader
           lang={lang}
           onOpen={onOpen}

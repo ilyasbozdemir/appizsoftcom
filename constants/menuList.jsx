@@ -1,54 +1,47 @@
 import { services } from "./services";
 import { technologies } from "./technologies";
 
+
 export const menuList = [
   {
     title: "Anasayfa",
     href: "/?ref=home-link",
     children: null,
-    lang: "tr",
   },
   {
-    title: "Portfolyo",
-    href: "/portfolyo",
-    children: null,
-    lang: "tr",
-  },
-  {
-    title: "Ürünlerimiz",
-    href: "/urunlerimiz",
-    children: null,
-    lang: "tr",
-  },
-  {
-    title: "Hizmetlerimiz",
+    title: "Hizmetler",
     href: null,
     children: services,
-    lang: "tr",
   },
-  
   {
-    title: "Teknolojilerimiz",
+    title: "Kurumsal",
     href: null,
-    children: technologies,
-    lang:'tr'
-  },
-  {
-    title: "Hakkımızda",
-    href: "/hakkimizda",
-    children: technologies,
-    lang: "tr",
+    children: [
+      {
+        title: "Teknolojilerimiz",
+        href: null,
+        children: null,
+      },
+      {
+        title: "Ürünlerimiz",
+        href: "/urunlerimiz",
+        children: null,
+      },
+      {
+        title: "Hakkımızda",
+        href: "/appizsoft-hakkinda",
+        children: null,
+      },
+    ],
   },
   {
     title: "Blog",
     href: "/blog",
     children: null,
-    lang: "tr",
   },
   {
     title: "Bize Ulaşın",
-    href: "/iletisim",
+    href: "/contact",
     children: null,
-    lang: "tr",
   },
 ];

@@ -23,6 +23,15 @@ export const site = {
   isRobotIndex: true,
   themeColor: theme.colors.primary,
   lang: "tr",
+  mailAddress: "info@appizsoft.com",
+  address: {
+    streetAddress: `123 Example Street`,
+    addressLocality: `City`,
+    addressRegion: `State`,
+    postalCode: `12345`,
+    addressCountry: `TR`,
+  },
+  telephone:'+90 555 555 55 55',
   sosyalMediaLinks: [
     {
       id: 1,
