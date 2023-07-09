@@ -30,8 +30,8 @@ export const menuList = [
   },
   {
     title: "Hizmetler",
-    href: null,
-    children: services,
+    href: "services",
+    children: null,
   },
   {
     title: "Blog",

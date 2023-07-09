@@ -35,7 +35,7 @@ const DOurServiceDetailCTA = ({ currentService }) => {
           <Flex direction={"column"}>
             <Center>
               <Text fontSize={65} fontWeight={"bold"}>
-                Hizmetler
+              {currentService.title}
               </Text>
             </Center>
 
@@ -79,7 +79,7 @@ const DOurServiceDetailCTA = ({ currentService }) => {
                       itemscope=""
                       itemtype="http://schema.org/ListItem"
                     >
-                      Ana Sayfa
+                      Hizmetler
                     </a>
                   </Link>
 
@@ -112,48 +112,27 @@ const DOurServiceDetailContent = () => {
 };
 
 function OurServiceDetailPage({ service }) {
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://www.appizsoft.com"
-      : "http://localhost:3000";
 
-  const [site, setSite] = React.useState({
-    publisher: `Appizsoft`,
-    title: `${service.title} • Appizsoft `,
-    url: baseUrl,
-    image: baseUrl + "/logo.svg",
-    imageAlt: "site-logo-png",
-    description: `${service.desc}`,
-    name: ``,
-    keywords: "",
-    isRobotIndex: true,
-  });
+  let serviceType = services.find(
+    (s) => s.id === service.id
+  ).serviceCategory;
 
-  useEffect(() => {
-    setSite((prevSite) => ({
-      ...prevSite,
-      title: `${service.title} • Appizsoft `,
-      description: `${service.desc}`,
-    }));
-  }, [service]);
+  const category = serviceType;
+
+  serviceType =
+    serviceType === "software"
+      ? "Yazılım Hizmetleri"
+      : "Dijital Pazarlama Hizmetleri";
 
   return (
     <>
       <Head>
-        <MetaHead
-          pageTitle={site.title}
-          description={site.description}
-          keywords={site.keywords}
-          author={site.author}
-          publisher={site.publisher}
-          isRobotIndex={site.isRobotIndex}
-          image={site.image}
-        />
+        <title> {service.title} | {serviceType} • Appizsoft</title>
       </Head>
 
       <main>
         <DOurServiceDetailCTA currentService={service} />
-        <DOurServiceDetailContent />
+        <DOurServiceDetailContent  />
       </main>
     </>
   );

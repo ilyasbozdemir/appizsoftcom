@@ -62,7 +62,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
     setMenus(menuList);
   }, []);
 
-  const MenuLink = ({ title, href }) => {
+  const MenuLink = ({ title, href, active }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [clickedElement, setClickedElement] = useState(null);
 
@@ -380,6 +380,12 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
   const bg = useColorModeValue("transparent", "transparent");
   const bgScrolled = useColorModeValue("white", "gray.800");
 
+  const [activeLink, setActiveLink] = useState(""); // Başlangıçta hiçbir link aktif değil
+
+  const handleLinkClick = (title) => {
+    setActiveLink(title); // Tıklanan linki aktif yap
+  };
+
   return (
     <React.Fragment>
       <Flex
@@ -408,9 +414,13 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
               <>
                 <Flex as={"ul"}>
                   {menus.map((menu) => (
-                    <React.Fragment key={menu.title}>
-                      <MenuLink title={menu.title} href={menu.href} />
-                    </React.Fragment>
+                    <>
+                      <MenuLink
+                        title={menu.title}
+                        href={menu.href}
+                        // Link tıklandığında durumu güncellemek için
+                      />
+                    </>
                   ))}
                 </Flex>
                 <ThemeSwitcher />

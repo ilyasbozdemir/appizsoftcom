@@ -64,7 +64,7 @@ const FooterTopContent = () => {
                 variant="outline"
                 fontSize={"md"}
                 onClick={() => {
-                  router.push(`${lang}/teklif-al`);
+                  router.push(`tr/teklif-al`);
                 }}
               >
                 Bizimle bir proje başlatın 🚀
