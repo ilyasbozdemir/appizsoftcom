@@ -1,9 +1,12 @@
 import React from "react";
 import { technologies } from "../../constants/technologies";
 
-import MetaHead from "../../configuration//MetaHead";
+import MetaHead from "../../configuration/MetaHead";
 import {
   Box,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
   Center,
   Divider,
   Flex,
@@ -13,21 +16,39 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Head from "next/head";
+import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 
 const OurTechnologiesCTA = () => {
-  return <></>;
+  return (
+    <>
+      <Flex
+        as="section"
+        h={"350px"}
+        bg="primary"
+        w="100%"
+        color="white"
+        justify={"center"}
+      >
+        <Center>
+          <Flex direction={"column"}>
+            <Text fontSize={65}>Teknolojiler</Text>
+            <Center>
+              <PagesBreadcrumb currentPage={"Teknolojiler"} />
+            </Center>
+          </Flex>
+        </Center>
+      </Flex>
+    </>
+  );
 };
+
 const OurTechnologiesContent = () => {
   return (
-    <Box h="100vh"  w="100vw">
+    <Box h="100vh" w="100vw">
       <Wrap maxH="100vh">
         {technologies.map((tech) => (
-          <Flex
-            direction={{ base: "column", md: "row" }}
-         
-            key={tech.id}
-          >
-            <WrapItem >
+          <Flex direction={{ base: "column", md: "row" }} key={tech.id}>
+            <WrapItem>
               <Flex direction={"row"}>
                 <Box
                   width="50%"

@@ -12,6 +12,10 @@ import {
   HStack,
   useColorModeValue,
   Icon,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -66,7 +70,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
       const clickedElementId = event.target.getAttribute("data-menu-title");
       setClickedElement(clickedElementId);
 
-      if (href !== null) {
+      if (href !== null && title !== "Kurumsal") {
         Router.push(`${lang}/${href}`);
       } else {
         setIsOpen(!isOpen);
@@ -102,7 +106,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                       mx={5}
                       cursor={"pointer"}
                       onClick={() => {
-                        Router.push(`${lang}/teknolojilerimiz#${tech.id}`);
+                        Router.push(`${lang}/technologies#${tech.id}`);
                       }}
                       w="250px"
                     >
@@ -254,7 +258,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
     const ComponentSelector = ({ clickedElementId }) => {
       const renderComponent = () => {
         switch (clickedElementId) {
-          case "Teknolojilerimiz":
+          case "Teknolojiler":
             return <TechnologiesContent />;
           case "Hizmetler":
             return <ServicesContent />;
@@ -264,6 +268,21 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
       };
       return <>{renderComponent()}</>;
     };
+
+    const institutionalMenu = [
+      {
+        title: "Hakkımızda",
+        href: "/about-appizsoft",
+      },
+      {
+        title: "Referanslar",
+        href: "/portfolio",
+      },
+      {
+        title: "Teknolojiler",
+        href: "/technologies",
+      },
+    ];
 
     return (
       <>
@@ -282,19 +301,39 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
           as={"li"}
           pl={4}
         >
-          {title} {isOpen === true ? <Icon as={FiChevronDown} /> : ""}
+          {title === "Kurumsal" ? (
+            <>
+              <Menu zIndex={150}>
+                <MenuButton
+                  itemscope="itemscope"
+                  itemtype="https://www.schema.org/SiteNavigationElement"
+                >
+                  {title}
+                </MenuButton>
+                <MenuList>
+                  {institutionalMenu.map((menu) => (
+                    <>
+                      <MenuItem
+                        key={menu.title}
+                        onClick={() => {
+                          Router.push(`${lang}/${menu.href}`);
+                        }}
+                      >
+                        {menu.title}
+                      </MenuItem>
+                    </>
+                  ))}
+                </MenuList>
+              </Menu>
+            </>
+          ) : (
+            <>{title}</>
+          )}
         </Text>
         <>
           {isOpen && (
             <>
               <Box
-                pos="fixed"
-                top={0}
-                left={0}
-                w="100%"
-                h="100%"
-                bg="rgba(0, 0, 0, 0.4)"
-                zIndex={10}
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
@@ -339,7 +378,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
   }, []);
 
   const bg = useColorModeValue("transparent", "transparent");
-  const bgScrolled= useColorModeValue("white", "gray.800");
+  const bgScrolled = useColorModeValue("white", "gray.800");
 
   return (
     <React.Fragment>
@@ -348,11 +387,10 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         position="sticky"
         top={0}
         right={0}
-        zIndex={110}
+        zIndex={999}
       >
         <Center
           bg={!isScrolled ? bg : bgScrolled}
-
           p={5}
           boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.3)" : "none"}
           transition="box-shadow 0.3s"

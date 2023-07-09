@@ -95,7 +95,7 @@ const FooterContent = () => {
   const institutionalMenu = [
     {
       title: "Hakkımızda",
-      href: "/appizsoft-hakkinda",
+      href: "/about-appizsoft",
     },
     {
       title: "Referanslar",

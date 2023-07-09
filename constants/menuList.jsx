@@ -18,13 +18,13 @@ export const menuList = [
       },
       {
         title: "Hakkımızda",
-        href: "/appizsoft-hakkinda",
+        href: "/about-appizsoft",
         children: null,
       },
       {
         title: "Teknolojiler",
-        href: null,
-        children: null,
+        href: "/technologies",
+        children: technologies,
       },
     ],
   },

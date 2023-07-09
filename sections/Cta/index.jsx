@@ -52,10 +52,8 @@ export default function CallToActionWithIllustration({ lang }) {
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems="center" // Dikeyde ortala
-      color={useColorModeValue("white", "white")}
-      backgroundImage={
-        "linear-gradient(to right top, #e927bf, #d156d7, #b872e7, #a087ef, #8e97ef, #7ca6f6, #6eb3f9, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);"
-      }
+   
+     
     >
       <Container maxW={"5xl"} as="article">
         <Stack
@@ -79,7 +77,6 @@ export default function CallToActionWithIllustration({ lang }) {
             maxW={"3xl"}
             data-aos="fade-up"
             fontSize={{ base: "19px", md: "25px" }}
-            color={useColorModeValue("white", "white")}
           >
             Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
             hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
@@ -124,7 +121,7 @@ export default function CallToActionWithIllustration({ lang }) {
                   <FaCaretDown
                     fontSize={80}
                     cursor="pointer"
-                    color={useColorModeValue("white", "white")}
+                    color={useColorModeValue("black", "gray.800")}
                   />
                 </motion.div>
               </Link>

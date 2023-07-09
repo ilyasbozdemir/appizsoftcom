@@ -351,12 +351,16 @@ const MenuLink = ({ title, href, lang }) => {
     );
   };
 
+  const InstitutionalContent = () => {
+    return <>InstitutionalContent</>;
+  };
+
   return (
     <>
       <Box onClick={handleClick}>
         {href === null ? (
           <>
-            <Accordion allowMultiple>
+            <Accordion >
               <AccordionItem>
                 <h2>
                   <AccordionButton
@@ -386,7 +390,18 @@ const MenuLink = ({ title, href, lang }) => {
                     </>
                   ) : (
                     <>
-                      <TechnologiesContent />
+                      {title === "Kurumsal" ? (
+                        <>
+                          <InstitutionalContent />
+                        </>
+                      ) : (
+                        <>
+                        {
+                          title === "Kurumsal"
+                        }
+                          <TechnologiesContent />
+                        </>
+                      )}
                     </>
                   )}
                 </AccordionPanel>

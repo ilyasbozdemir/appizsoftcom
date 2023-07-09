@@ -113,7 +113,7 @@ function AboutUs({ lang }) {
               <FaCaretDown
                 fontSize={80}
                 cursor="pointer"
-                color={useColorModeValue("black", "black")}
+                color={useColorModeValue("black", "gray.800")}
               />
             </motion.div>
           </Link>
