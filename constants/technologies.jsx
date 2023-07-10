@@ -295,7 +295,7 @@ export const technologies = [
   {
     id: "Plesk",
     title: "Plesk",
-    category: "",
+    category: "Backend",
     imageUrl: "/images/technologies/plesk.svg",
     isMenuDisplay: true,
     description: ``,
@@ -307,7 +307,7 @@ export const technologies = [
   {
     id: "cPanel",
     title: "cPanel",
-    category: "",
+    category: "Backend",
     imageUrl: "/images/technologies/cPanel.svg",
     isMenuDisplay: true,
     description: ``,

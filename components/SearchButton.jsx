@@ -158,6 +158,7 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
       console.error(error);
     }
   };
+  
   useEffect(() => {
     if (isOpen) {
       searchInputRef.current?.focus();

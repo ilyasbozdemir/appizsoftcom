@@ -1,22 +1,24 @@
-import React from "react";
-import { technologies } from "../../constants/technologies";
+import React, { useEffect, useState } from "react";
 
-import MetaHead from "../../configuration/MetaHead";
 import {
   Box,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  ButtonGroup,
+  Button,
   Center,
   Divider,
   Flex,
   Text,
   Wrap,
   WrapItem,
+  Select,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Head from "next/head";
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import axios from "axios";
 
 const OurTechnologiesCTA = () => {
   return (
@@ -43,10 +45,108 @@ const OurTechnologiesCTA = () => {
 };
 
 const OurTechnologiesContent = () => {
+  const [technologies, setTechnologies] = useState([]);
+  const [filteredTechnologies, setFilteredTechnologies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/technologies-list`);
+        setTechnologies(response.data);
+        setFilteredTechnologies(technologies);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const getUniqueCategories = (data) => {
+    const uniqueCategories = [...new Set(data.map((item) => item.category))];
+    return uniqueCategories;
+  };
+
+  const uniqueCategories = getUniqueCategories(technologies);
+
+  const handleCategoryFilter = (category) => {
+    const filteredData = technologies.filter(
+      (item) => item.category === category
+    );
+    setFilteredTechnologies(filteredData);
+  };
+  const handleCategoryAll = () => {
+    setFilteredTechnologies(technologies);
+  };
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1024) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
+  const handleCategoryChange = (event) => {
+    const selectedCategory = event.target.value;
+
+    const filteredData = technologies.filter(
+      (item) => item.category === selectedCategory
+    );
+    setFilteredTechnologies(filteredData);
+  };
+
   return (
     <Box h="100vh" w="100vw">
+      {!isMobile && (
+        <>
+          <Center my={5}>
+            <Wrap maxH="100vh">
+              <WrapItem>
+                <Button onClick={() => handleCategoryAll()}>Tümü</Button>
+              </WrapItem>
+              {uniqueCategories.map((category) => (
+                <WrapItem key={category}>
+                  <Button onClick={() => handleCategoryFilter(category)}>
+                    {category}
+                  </Button>
+                </WrapItem>
+              ))}
+            </Wrap>
+          </Center>
+        </>
+      )}
+
+      {isMobile && (
+        <Center my={10}>
+          <Select onChange={handleCategoryChange} w={'90%'}>
+            <option value="all">Tümü</option>
+            {uniqueCategories.map((category) => (
+              <>
+                <option
+                  value={category}
+                  onClick={() => handleCategoryFilter(category)}
+                >
+                  {category}
+                </option>
+              </>
+            ))}
+          </Select>
+        </Center>
+      )}
+
       <Wrap maxH="100vh">
-        {technologies.map((tech) => (
+        {filteredTechnologies.map((tech) => (
           <Flex direction={{ base: "column", md: "row" }} key={tech.id}>
             <WrapItem>
               <Flex direction={"row"}>
