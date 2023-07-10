@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-
-import { FiSearch } from "react-icons/fi";
-
 import {
+  Divider,
+  HStack,
+  InputLeftElement,
+  Kbd,
+  ModalFooter,
+  Spacer,
+  Stack,
   Flex,
   Button,
   Box,
@@ -14,51 +18,35 @@ import {
   useDisclosure,
   FormControl,
   FormLabel,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
 } from "@chakra-ui/react";
 
-import { Modal, ModalOverlay, ModalContent, ModalBody } from "@chakra-ui/react";
+import {
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+} from "@chakra-ui/react";
 
+import { FiSearch } from "react-icons/fi";
+import axios from "axios";
+import { AiOutlineClose } from "react-icons/ai";
 function SearchButton() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
 
   const handleIconClick = () => {
     onOpen();
   };
 
-  const handleSearchInputChange = (e) => {
-    setSearchValue(e.target.value);
-  };
-
-  const handleSearchSubmit = () => {
-    // Burada arama işlemini gerçekleştir veya ilgili işlemleri yapabilirsiniz
-    console.log("Arama yapıldı:", searchValue);
-
-    // Örnek arama sonuçları
-    const results = ["Sonuç 1", "Sonuç 2", "Sonuç 3", "Sonuç 4", "Sonuç 5"];
-
-    setSearchResults(results);
-
-    setSearchValue("");
-  };
-
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
-  const searchInputRef = useRef(null);
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      searchInputRef.current?.focus();
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1024) {
         setIsMobile(true);
       } else {
         setIsMobile(false);
@@ -72,6 +60,16 @@ function SearchButton() {
     };
   }, []);
 
+  const initialRef = useRef(null);
+  const finalRef = useRef(null);
+  const [blockScrollOnMount, setBlockScrollOnMount] = useState(false);
+
+  const modalOverlay = {
+    bg: "none",
+    backdropFilter: "auto",
+    backdropBlur: "8px",
+  };
+
   return (
     <>
       <Icon
@@ -82,72 +80,152 @@ function SearchButton() {
       />
 
       <>
-        <main>
+        <Modal
+          initialFocusRef={initialRef}
+          finalFocusRef={finalRef}
+          isOpen={isOpen}
+          onClose={onClose}
+          isCentered
+          motionPreset="slideInBottom"
+          blockScrollOnMount={blockScrollOnMount}
+          size={isMobile === true ? "full" : "750px"}
+        >
           {isMobile && (
             <>
-              <MobileSearchContent
-                isOpen={isOpen}
-                onOpen={onOpen}
-                onClose={onClose}
-              />
+              <ModalOverlay />
             </>
           )}
           {!isMobile && (
             <>
-              <DesktopSearchContent
-                isOpen={isOpen}
-                onOpen={onOpen}
-                onClose={onClose}
-              />
+              <ModalOverlay {...modalOverlay} />
             </>
           )}
-        </main>
+          <ModalContent
+            width={isMobile === true ? "full" : "750px"}
+            height={isMobile === true ? "full" : "85%"}
+          >
+            <ModalBody overflowY="auto">
+              <SearchContent
+                isMobile={isMobile}
+                onClose={onClose}
+                isOpen={isOpen}
+              />
+            </ModalBody>
+            {!isMobile && (
+              <ModalFooter display={"none"}>
+                <Flex direction={"row"} justifyContent={"space-between"}>
+                  <Flex>
+                    <Kbd>Enter</Kbd> <Text color={"#969faf"}>Seç</Text>
+                  </Flex>
+                  <Spacer />
+                  <Flex>
+                    <Kbd>↑</Kbd> <Text color={"#969faf"}>yukarı veya</Text>
+                    <Kbd>↓</Kbd>
+                    <Text color={"#969faf"}>aşağı tuşuna basın</Text>
+                  </Flex>
+                  <Spacer />
+                  <Flex>
+                    <Kbd>Esc</Kbd> <Text color={"#969faf"}>Kapat</Text>
+                  </Flex>
+                </Flex>
+              </ModalFooter>
+            )}
+          </ModalContent>
+        </Modal>
       </>
       <></>
     </>
   );
 }
 
-const MobileSearchContent = ({ isOpen, onOpen, onClose }) => {
-  const initialRef = useRef(null);
-  const finalRef = useRef(null);
+const SearchContent = ({ isMobile, onClose, isOpen }) => {
+  const searchInputRef = useRef(null);
+  useEffect(() => {
+    if (isOpen) {
+      searchInputRef.current?.focus();
+    }
+  }, [isOpen]);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(`/api/search?query=${searchQuery}`);
+      const searchData = response.data;
+
+      setSearchResults(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    if (isOpen) {
+      searchInputRef.current?.focus();
+    }
+  }, [searchQuery]);
 
   return (
     <>
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-        isCentered
-        motionPreset="slideInBottom"
-        size={"full"}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalBody></ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-};
-const DesktopSearchContent = ({ isOpen, onOpen, onClose }) => {
-  const initialRef = useRef(null);
-  const finalRef = useRef(null);
-  return (
-    <>
-      <Modal
-        initialFocusRef={initialRef}
-        isOpen={isOpen}
-        onClose={onClose}
-        motionPreset="slideInBottom"
-        size={"md"}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalBody pb={6}></ModalBody>
-        </ModalContent>
-      </Modal>
+      <Stack spacing={4} direction={"row"}>
+        <form
+          style={{
+            width: "100%",
+          }}
+          onSubmit={handleSearch}
+        >
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">
+              <Icon as={FiSearch} cursor={"pointer"} fontSize={"20px"} />
+            </InputLeftElement>
+            <Input
+              type="text"
+              placeholder="Site içi Arama Yap"
+              ref={searchInputRef}
+              borderColor={"primary"}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery.length > 0 && (
+              <>
+                <InputRightElement>
+                  <Icon
+                    as={AiOutlineClose}
+                    cursor={"pointer"}
+                    onClick={() => {
+                      setSearchQuery("");
+                    }}
+                    _hover={{color:'red.500'}}
+                  />
+                </InputRightElement>
+              </>
+            )}
+          </InputGroup>
+        </form>
+
+        {isMobile && (
+          <>
+            <HStack>
+              <Text onClick={onClose} cursor={"pointer"} color={"primary"}>
+                <>Kapat</>
+              </Text>
+            </HStack>
+          </>
+        )}
+      </Stack>
+      <>
+        <List spacing={3}>
+          {searchResults.map((result) => (
+            <ListItem key={result.id}>
+              <h3>{result.title}</h3>
+              <p>{result.description}</p>
+            </ListItem>
+          ))}
+          {errorMessage}
+        </List>
+      </>
     </>
   );
 };
