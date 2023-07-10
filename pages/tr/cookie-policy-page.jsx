@@ -2,7 +2,7 @@ import React from 'react'
 
 function CookiePolicyPage() {
   return (
-    <div>cerez-politikasi</div>
+    <div>cookie-policy-page</div>
   )
 }
 

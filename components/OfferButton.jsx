@@ -18,7 +18,7 @@ function OfferButton({ lang = `tr`, platform }) {
             }}
             size="md"
             onClick={() => {
-              router.push(`/${lang}/teklif-al`);
+              router.push(`/${lang}/get-a-quote`);
             }}
             fontSize={"2xl"}
             fontFamily={"Poppins"}
@@ -37,7 +37,7 @@ function OfferButton({ lang = `tr`, platform }) {
             _hover={{ bg: "#6ebec2" }}
             size="md"
             onClick={() => {
-              router.push(`/${lang}/teklif-al`);
+              router.push(`/${lang}/get-a-quote`);
             }}
             fontFamily={"Poppins"}
             p={{ md: 4, lg: 6 }}

@@ -16,6 +16,7 @@ import Logo from "../Logo";
 import { site } from "../../../constants/site";
 
 import LanguageSwitcher from "../../LanguageSwitcher";
+import { menuList } from "../../../constants/menuList";
 
 const FooterTopContent = () => {
   const router = useRouter();
@@ -23,10 +24,10 @@ const FooterTopContent = () => {
     router.asPath.endsWith("/teklif-al") ||
     router.pathname.endsWith("/teklif-al");
 
-    const isAboutPage =
+  const isAboutPage =
     router.asPath.endsWith("/about-appizsoft") ||
     router.pathname.endsWith("/about-appizsoft");
-    
+
   return (
     <>
       {isTeklifAlPage | isAboutPage ? (
@@ -96,20 +97,12 @@ const FooterContent = () => {
     return <Text> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</Text>;
   };
 
-  const institutionalMenu = [
-    {
-      title: "Hakkımızda",
-      href: "/about-appizsoft",
-    },
-    {
-      title: "Referanslar",
-      href: "/portfolio",
-    },
-    {
-      title: "Bize Ulaşın",
-      href: "/contact",
-    },
-  ];
+  const getChildrenByTitle = (items, title) => {
+    const item = items.find((item) => item.title === title);
+    return item ? item.children : [];
+  };
+
+  const institutionalMenu = getChildrenByTitle(menuList, "Kurumsal");
 
   const contractMenu = [
     {
