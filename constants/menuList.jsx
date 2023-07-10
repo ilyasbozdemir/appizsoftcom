@@ -22,9 +22,14 @@ export const menuList = [
         children: null,
       },
       {
+        title: "Kariyer",
+        href: "/careers",
+        children: null,
+      },
+      {
         title: "Teknolojiler",
         href: "/technologies",
-        children: technologies,
+        children: null,
       },
     ],
   },

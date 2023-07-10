@@ -35,6 +35,9 @@ import {
 import { FiSearch } from "react-icons/fi";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
+import { FaBlog } from "react-icons/fa";
+import { AiOutlineEnter } from "react-icons/ai";
+
 function SearchButton() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -62,7 +65,7 @@ function SearchButton() {
 
   const initialRef = useRef(null);
   const finalRef = useRef(null);
-  const [blockScrollOnMount, setBlockScrollOnMount] = useState(false);
+  const [blockScrollOnMount, setBlockScrollOnMount] = useState(true);
 
   const modalOverlay = {
     bg: "none",
@@ -112,21 +115,15 @@ function SearchButton() {
               />
             </ModalBody>
             {!isMobile && (
-              <ModalFooter display={"none"}>
+              <ModalFooter display={'none'}>
                 <Flex direction={"row"} justifyContent={"space-between"}>
-                  <Flex>
-                    <Kbd>Enter</Kbd> <Text color={"#969faf"}>Seç</Text>
-                  </Flex>
+                  <Kbd>Enter</Kbd> <Text color={"#969faf"}>Seç</Text>
                   <Spacer />
-                  <Flex>
-                    <Kbd>↑</Kbd> <Text color={"#969faf"}>yukarı veya</Text>
-                    <Kbd>↓</Kbd>
-                    <Text color={"#969faf"}>aşağı tuşuna basın</Text>
-                  </Flex>
+                  <Kbd>↑</Kbd> <Text color={"#969faf"}>yukarı veya</Text>
+                  <Kbd>↓</Kbd>
+                  <Text color={"#969faf"}>aşağı tuşuna basın</Text>
                   <Spacer />
-                  <Flex>
-                    <Kbd>Esc</Kbd> <Text color={"#969faf"}>Kapat</Text>
-                  </Flex>
+                  <Kbd>Esc</Kbd> <Text color={"#969faf"}>Kapat</Text>
                 </Flex>
               </ModalFooter>
             )}
@@ -182,7 +179,7 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
             </InputLeftElement>
             <Input
               type="text"
-              placeholder="Site içi Arama Yap"
+              placeholder="Blog Ara"
               ref={searchInputRef}
               borderColor={"primary"}
               value={searchQuery}
@@ -197,7 +194,7 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
                     onClick={() => {
                       setSearchQuery("");
                     }}
-                    _hover={{color:'red.500'}}
+                    _hover={{ color: "red.500" }}
                   />
                 </InputRightElement>
               </>
@@ -215,17 +212,43 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
           </>
         )}
       </Stack>
-      <>
-        <List spacing={3}>
+      <Box mt={4} ml={4} overflow="auto">
+        {searchResults.length > 0 && (
+          <>
+            <Text fontWeight={"semibold"} my={3}>
+              Bloglar
+            </Text>
+          </>
+        )}
+        <List spacing={5}>
           {searchResults.map((result) => (
-            <ListItem key={result.id}>
-              <h3>{result.title}</h3>
-              <p>{result.description}</p>
+            <ListItem
+              key={result.id}
+              py={2}
+              bg={"gray.100"}
+              borderRadius={"md"}
+              p={3}
+              _hover={{ bg: "primary", color: "white" }}
+              cursor={"pointer"}
+            >
+              <Flex
+                direction={"row"}
+                justifyContent={isMobile === false ? "space-between" : ""}
+              >
+                <Icon as={FaBlog} />
+                <Text ml={10}>{result.title}</Text>
+
+                {!isMobile && (
+                  <>
+                    <Icon as={AiOutlineEnter} />
+                  </>
+                )}
+              </Flex>
             </ListItem>
           ))}
           {errorMessage}
         </List>
-      </>
+      </Box>
     </>
   );
 };

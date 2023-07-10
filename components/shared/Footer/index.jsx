@@ -23,9 +23,13 @@ const FooterTopContent = () => {
     router.asPath.endsWith("/teklif-al") ||
     router.pathname.endsWith("/teklif-al");
 
+    const isAboutPage =
+    router.asPath.endsWith("/about-appizsoft") ||
+    router.pathname.endsWith("/about-appizsoft");
+    
   return (
     <>
-      {isTeklifAlPage ? (
+      {isTeklifAlPage | isAboutPage ? (
         <></>
       ) : (
         <Center>

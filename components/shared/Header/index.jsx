@@ -11,7 +11,6 @@ import {
   Divider,
   HStack,
   useColorModeValue,
-  Icon,
   Menu,
   MenuButton,
   MenuItem,
@@ -28,7 +27,6 @@ import Logo from "../Logo";
 import OfferButton from "../../OfferButton";
 import ThemeSwitcher from "../../ThemeSwitcher";
 import SearchButton from "../../SearchButton";
-import { FiChevronDown } from "react-icons/fi";
 
 function Header({ isOpen, onOpen, onClose, onToggle }) {
   const [menus, setMenus] = React.useState([
@@ -268,21 +266,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
       };
       return <>{renderComponent()}</>;
     };
-
-    const institutionalMenu = [
-      {
-        title: "Hakkımızda",
-        href: "/about-appizsoft",
-      },
-      {
-        title: "Referanslar",
-        href: "/portfolio",
-      },
-      {
-        title: "Teknolojiler",
-        href: "/technologies",
-      },
-    ];
+    const institutionalMenu = getChildrenByTitle(menus, "Kurumsal");
 
     return (
       <>
@@ -302,30 +286,23 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
           pl={4}
         >
           {title === "Kurumsal" ? (
-            <>
-              <Menu zIndex={150}>
-                <MenuButton
-                  itemscope="itemscope"
-                  itemtype="https://www.schema.org/SiteNavigationElement"
-                >
-                  {title}
-                </MenuButton>
-                <MenuList>
-                  {institutionalMenu.map((menu) => (
-                    <>
-                      <MenuItem
-                        key={menu.title}
-                        onClick={() => {
-                          Router.push(`${lang}/${menu.href}`);
-                        }}
-                      >
-                        {menu.title}
-                      </MenuItem>
-                    </>
-                  ))}
-                </MenuList>
-              </Menu>
-            </>
+            <Menu>
+              <MenuButton>{title}</MenuButton>
+              <MenuList>
+                {institutionalMenu.map((menu) => (
+                  <>
+                    <MenuItem
+                      key={menu.title}
+                      onClick={() => {
+                        Router.push(`${lang}/${menu.href}`);
+                      }}
+                    >
+                      {menu.title}
+                    </MenuItem>
+                  </>
+                ))}
+              </MenuList>
+            </Menu>
           ) : (
             <>{title}</>
           )}
@@ -415,11 +392,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
                 <Flex as={"ul"}>
                   {menus.map((menu) => (
                     <>
-                      <MenuLink
-                        title={menu.title}
-                        href={menu.href}
-                        // Link tıklandığında durumu güncellemek için
-                      />
+                      <MenuLink title={menu.title} href={menu.href} />
                     </>
                   ))}
                 </Flex>

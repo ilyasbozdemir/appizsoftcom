@@ -1,25 +1,39 @@
 import React from "react";
-import MetaHead from "../../configuration/MetaHead";
-import Meta from "../../configuration/MetaHead";
-
-
+import { useRouter } from "next/router";
+import { Box, Center, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import Head from "next/head";
 const AboutUsCTA = () => {
-  return <>AboutUsCTA</>;
+  const router = useRouter();
+  return (
+    <>
+      <Flex h={"250px"} bg="primary" w="100%" color="white" justify={"center"}>
+        <Center>
+          <Flex direction={"column"}>
+            <Text as="h1" fontSize={65}>Hakkımızda</Text>
+            <Center>
+              <PagesBreadcrumb currentPage={"Hakkımızda"} />
+            </Center>
+          </Flex>
+        </Center>
+      </Flex>
+    </>
+  );
 };
 const AboutUsContent = () => {
-  return <>AboutUsContent</>;
+  return (
+    <>
+      <Box >
+       
+      </Box>
+    </>
+  );
 };
 
 function AboutUsPage() {
-
- 
-  
-
   return (
     <>
-      <Meta>
-   
-      </Meta>
+      <Head></Head>
 
       <main>
         <AboutUsCTA />

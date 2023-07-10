@@ -9,6 +9,12 @@ const searchResults = [
     title: "Örnek Blog 2",
     description: "Bu da başka bir örnek arama sonucudur.",
   },
+  {
+    id: 3,
+    title: "Örnek Blog 3",
+    description: "Bu da daha  başka bir örnek arama sonucudur.",
+  },
+
 ];
 
 export default function handler(req, res) {
