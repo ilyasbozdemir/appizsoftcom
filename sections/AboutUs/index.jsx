@@ -17,7 +17,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { Link } from "react-scroll";
 import Logo from "../../components/shared/Logo";
 
-function AboutUs({ lang }) {
+function AboutUs({ lang,targetId }) {
   const router = useRouter();
   const size = { h: 125, w: 400 };
   return (
@@ -95,7 +95,7 @@ function AboutUs({ lang }) {
           </Flex>
         </Container>
         <Center>
-          <Link to="OurServices" smooth={true} duration={500} offset={-88}>
+          <Link to={targetId} smooth={true} duration={500} offset={-88}>
             <motion.div
               initial={{ y: 0, opacity: 0 }}
               animate={{
