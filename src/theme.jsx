@@ -1,7 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
-
   styles: {
     global: {
       "html, body": {
@@ -16,13 +15,11 @@ const theme = extendTheme({
     cssVarPrefix: "appiz-software",
   },
 
-
   colors: {
     transparent: "transparent",
     black: "#000",
     white: "#fff",
-    primary:'#54bec3',
-    
+    primary: "#54bec3",
   },
   fonts: {
     body: "system-ui, sans-serif",
@@ -64,12 +61,12 @@ const theme = extendTheme({
     widest: "0.1em",
   },
   breakpoints: {
-    base: "20em",//320
-    sm: "30em",//480
-    md: "48em",//768
-    lg: "62em",//992
-    xl: "80em",//1280
-    "2xl": "96em",//1536
+    base: "20em", //320
+    sm: "30em", //480
+    md: "48em", //768
+    lg: "62em", //992
+    xl: "80em", //1280
+    "2xl": "96em", //1536
   },
   space: {
     px: "1px",

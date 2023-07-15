@@ -32,7 +32,7 @@ const Services = (props) => {
             data-aos="zoom-in"
             textTransform={"uppercase"}
             fontSize={{ base: "15px", md: "16px" }}
-            color={'#616161'}
+            color={"#616161"}
           >
             {title}
           </Heading>
@@ -55,7 +55,9 @@ function OurServices() {
   return (
     <>
       <Center>
-        <Heading fontWeight={"semibold"} color={'#5c5c5c'}>Hizmetler</Heading>
+        <Heading fontWeight={"semibold"} color={"#5c5c5c"}>
+          Hizmetler
+        </Heading>
       </Center>
       <Flex
         direction={{ base: "column", md: "row" }}

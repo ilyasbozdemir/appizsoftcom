@@ -121,7 +121,7 @@ export default function CallToActionWithIllustration({ lang,targetId }) {
                   <FaCaretDown
                     fontSize={80}
                     cursor="pointer"
-                    color={useColorModeValue("black", "gray.800")}
+                    color={useColorModeValue("black", "white")}
                   />
                 </motion.div>
               </Link>

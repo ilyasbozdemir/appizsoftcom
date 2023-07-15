@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import MetaHead from "../../configuration/MetaHead";
 import Cta from "../../sections/Cta";
 import OurServices from "../../sections/OurServices";
-import OurTechnologies from "../../sections/OurTechnologies";
+import AboutUs from "../../sections/AboutUs";
 
-import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
 import { Box, Divider, Flex } from "@chakra-ui/react";
-import AboutUs from "../../sections/AboutUs";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
+import PartnersSection from "../../sections/Partners";
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -25,17 +23,15 @@ function IndexPage() {
       </>
 
       <Flex as="main" direction={"column"}>
-        <Box>
-          <Cta lang={lang} targetId={"OurServices"} />
+        <Box id={"Cta"}>
+          <Cta lang={lang} targetId={"AboutUs"} />
         </Box>
-
-        {/*
-
-     <Box id={"AboutUs"}>
-          <AboutUs lang={lang} targetId={"OurServices"}  />
+        <Box id={"AboutUs"}>
+          <AboutUs lang={lang} targetId={"Partners"} />
         </Box>
-  
-  */}
+        <Box id={"Partners"}>
+          <PartnersSection lang={lang} targetId={"OurServices"} />
+        </Box>
 
         <Box id={"OurServices"} mt={3}>
           <OurServices />

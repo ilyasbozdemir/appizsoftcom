@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -8,7 +9,7 @@ function PagesBreadcrumb({ currentPage }) {
   return (
     <>
       <Breadcrumb
-        separator="•"
+        separator={<ChevronRightIcon color="gray.500" />}
         fontSize={20}
         itemscope
         itemtype="https://schema.org/BreadcrumbList"
@@ -28,7 +29,7 @@ function PagesBreadcrumb({ currentPage }) {
         </BreadcrumbItem>
 
         <BreadcrumbItem isCurrentPage>
-          <Link href="#" passHref legacyBehavior> 
+          <Link href="#" passHref legacyBehavior>
             <a
               href="#"
               itemprop="itemListElement"

@@ -25,23 +25,7 @@ import axios from "axios";
 const OurTechnologiesCTA = () => {
   return (
     <>
-      <Flex
-        as="section"
-        h={"350px"}
-        bg="primary"
-        w="100%"
-        color="white"
-        justify={"center"}
-      >
-        <Center>
-          <Flex direction={"column"}>
-            <Text fontSize={65}>Teknolojiler</Text>
-            <Center>
-              <PagesBreadcrumb currentPage={"Teknolojiler"} />
-            </Center>
-          </Flex>
-        </Center>
-      </Flex>
+    
     </>
   );
 };

@@ -6,16 +6,7 @@ import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 const OurServicesCTA = () => {
   return (
     <>
-      <Flex h={"350px"} bg="primary" w="100%" color="white" justify={"center"}>
-        <Center>
-          <Flex direction={"column"}>
-            <Text fontSize={65}>Hizmetler</Text>
-            <Center>
-              <PagesBreadcrumb currentPage={"Hizmetler"} />
-            </Center>
-          </Flex>
-        </Center>
-      </Flex>
+     
     </>
   );
 };

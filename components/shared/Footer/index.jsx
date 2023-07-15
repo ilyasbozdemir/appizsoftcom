@@ -21,8 +21,8 @@ import { menuList } from "../../../constants/menuList";
 const FooterTopContent = () => {
   const router = useRouter();
   const isTeklifAlPage =
-    router.asPath.endsWith("/teklif-al") ||
-    router.pathname.endsWith("/teklif-al");
+    router.asPath.endsWith("/get-a-quote") ||
+    router.pathname.endsWith("/get-a-quote");
 
   const isAboutPage =
     router.asPath.endsWith("/about-appizsoft") ||
@@ -38,9 +38,9 @@ const FooterTopContent = () => {
             as={Box}
             bgColor={"transparent"}
             bgImage={
-              "radial-gradient(at bottom left, #12acff 55%, #0c85c7 100%)"
+              "radial-gradient(at bottom left, #08c3cc 55%, #54bec3 100%)"
             }
-            boxShadow={"0px 2px 10px 0px rgba(18, 172, 255, 0.41)"}
+            boxShadow={"0px 2px 10px 0px rgba(15, 164, 171, 0.41)"}
             p={"64px"}
             spacing={4}
             borderRadius={"15px"}
@@ -64,7 +64,7 @@ const FooterTopContent = () => {
             <Box>
               <Button
                 color="white"
-                _hover={{color:'#eee'}}
+                _hover={{ color: "#eee" }}
                 variant="outline"
                 fontSize={"md"}
                 onClick={() => {
@@ -281,9 +281,12 @@ const SiteNavigationElement = ({ header, menus }) => {
 const Footer = () => {
   return (
     <Flex direction={"column"} as="footer" pos={"relative"}>
-      <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
-        <FooterTopContent />
-      </Box>
+      <Center>
+        <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
+          <FooterTopContent />
+        </Box>
+      </Center>
+
       <Box pos={"relative"} style={{ zIndex: 1 }}>
         <FooterContent />
       </Box>
