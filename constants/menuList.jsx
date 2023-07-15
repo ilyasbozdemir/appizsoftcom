@@ -27,7 +27,7 @@ export const menuList = [
         children: null,
       },
       {
-        title: "Teknolojiler",
+        title: "Teknolojilerimiz",
         href: "/technologies",
         children: null,
       },

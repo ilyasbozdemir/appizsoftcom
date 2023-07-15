@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 
 import {
   Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  ButtonGroup,
   Button,
   Center,
-  Divider,
   Flex,
   Text,
   Wrap,
   WrapItem,
   Select,
+  Popover,
+  PopoverTrigger,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverBody,
+  PopoverHeader,
+  PopoverContent,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Head from "next/head";
@@ -48,26 +50,12 @@ const OurTechnologiesContent = () => {
   const [technologies, setTechnologies] = useState([]);
   const [filteredTechnologies, setFilteredTechnologies] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/technologies-list`);
-        setTechnologies(response.data);
-        setFilteredTechnologies(technologies);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   const getUniqueCategories = (data) => {
     const uniqueCategories = [...new Set(data.map((item) => item.category))];
     return uniqueCategories;
   };
 
-  const uniqueCategories = getUniqueCategories(technologies);
+  let uniqueCategories = getUniqueCategories(technologies);
 
   const handleCategoryFilter = (category) => {
     const filteredData = technologies.filter(
@@ -88,14 +76,21 @@ const OurTechnologiesContent = () => {
         setIsMobile(false);
       }
     };
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/technologies-list`);
+        setTechnologies(response.data);
 
+        handleCategoryAll();
+      } catch (error) {}
+    };
+    fetchData();
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
@@ -107,7 +102,7 @@ const OurTechnologiesContent = () => {
   };
 
   return (
-    <Box h="100vh" w="100vw">
+    <Box w="100vw" h={"auto"} as={"article"}>
       {!isMobile && (
         <>
           <Center my={5}>
@@ -129,8 +124,8 @@ const OurTechnologiesContent = () => {
 
       {isMobile && (
         <Center my={10}>
-          <Select onChange={handleCategoryChange} w={'90%'}>
-            <option value="all">Tümü</option>
+          <Select onChange={handleCategoryChange} w={"85%"}>
+            {/*<option value="all">Tümü</option>*/}
             {uniqueCategories.map((category) => (
               <>
                 <option
@@ -145,49 +140,67 @@ const OurTechnologiesContent = () => {
         </Center>
       )}
 
-      <Wrap maxH="100vh">
+      <Popover isLazy>
+        <PopoverTrigger>
+          <Button>test</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverHeader fontWeight="semibold">Popover placement</PopoverHeader>
+          <PopoverArrow />
+          <PopoverCloseButton />
+          <PopoverBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore.
+          </PopoverBody>
+        </PopoverContent>
+      </Popover>
+
+      <Wrap maxH="100vh" justify="center" align="center">
         {filteredTechnologies.map((tech) => (
-          <Flex direction={{ base: "column", md: "row" }} key={tech.id}>
-            <WrapItem>
-              <Flex direction={"row"}>
-                <Box
-                  width="50%"
-                  bg={"#f3f4f6"}
-                  borderRadius={"4px"}
-                  p={".5rem"}
-                  gap={"1rem"}
-                  alignItems={"center"}
-                  boxSize={"50px"}
-                >
-                  <Image
-                    id={tech.id}
-                    src={tech.imageUrl}
-                    alt={tech.id}
-                    width={150}
-                    height={150}
-                    mr={4}
-                  />
-                </Box>
-                <Box mx={3}>
-                  <Text
-                    mb={0}
-                    fontWeight={500}
-                    fontSize={"14px"}
-                    lineHeight={"20px"}
-                    isTruncated
+          <Flex key={tech.id}>
+            <WrapItem p={5} cursor={"pointer"}>
+              <Flex direction={{ base: "column", lg: "row" }} gap={4}>
+                <Flex>
+                  <Box
+                    width="50%"
+                    bg={"#f3f4f6"}
+                    borderRadius={"4px"}
+                    p={".5rem"}
+                    gap={"1rem"}
+                    alignItems={"center"}
+                    boxSize={"50px"}
                   >
-                    {tech.title}
-                  </Text>
-                  <Text
-                    mb={0}
-                    fontWeight={400}
-                    fontSize={"14px"}
-                    lineHeight={"20px"}
-                    isTruncated
-                  >
-                    {tech.category}
-                  </Text>
-                </Box>
+                    <Image
+                      id={tech.id}
+                      src={tech.imageUrl}
+                      alt={tech.id}
+                      width={200}
+                      height={200}
+                      mr={4}
+                    />
+                  </Box>
+                  <Flex mx={3} direction={"column"}>
+                    <Text
+                      mb={0}
+                      fontWeight={500}
+                      fontSize={"14px"}
+                      lineHeight={"20px"}
+                      isTruncated
+                    >
+                      {tech.title}
+                    </Text>
+                    <Text
+                      mb={0}
+                      fontWeight={400}
+                      fontSize={"14px"}
+                      lineHeight={"20px"}
+                      isTruncated
+                      color={"gray.600"}
+                    >
+                      {tech.category}
+                    </Text>
+                  </Flex>
+                </Flex>
               </Flex>
             </WrapItem>
           </Flex>
@@ -200,10 +213,14 @@ const OurTechnologiesContent = () => {
 function OurTechnologiesPage() {
   return (
     <>
-      <Head></Head>
+      <Head>
+        <title>Teknolojiler • Appizsoft</title>
+      </Head>
 
-      <OurTechnologiesCTA />
-      <OurTechnologiesContent />
+      <main>
+        <OurTechnologiesCTA />
+        <OurTechnologiesContent />
+      </main>
     </>
   );
 }

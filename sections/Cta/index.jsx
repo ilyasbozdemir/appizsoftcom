@@ -34,7 +34,7 @@ const RainbowText = ({ text }) => (
     bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
     bgClip="text"
     color="transparent"
-    animation={`${rainbowAnimation} 2s ease-in-out infinite`}
+    animation={`${rainbowAnimation} 4s ease-out infinite`}
     bgSize="400% 100%"
     animationIterationCount="infinite"
     w="fit-content"
@@ -43,7 +43,7 @@ const RainbowText = ({ text }) => (
   </Box>
 );
 
-export default function CallToActionWithIllustration({ lang }) {
+export default function CallToActionWithIllustration({ lang,targetId }) {
   const router = useRouter();
   return (
     <Box
@@ -96,14 +96,14 @@ export default function CallToActionWithIllustration({ lang }) {
               fontSize={{ base: 14, md: 16, lg: 18 }}
               variant={"outline"}
               onClick={() => {
-                Router.push(lang + "/teklif-al");
+                Router.push(lang + "/get-a-quote");
               }}
             >
               Hemen Başlayalım!
             </Button>
 
             <Center>
-              <Link to="AboutUs" smooth={true} duration={500} offset={-88}>
+              <Link to={targetId} smooth={true} duration={500} offset={-88}>
                 <motion.div
                   initial={{ y: 0, opacity: 0 }}
                   animate={{

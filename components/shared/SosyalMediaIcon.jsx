@@ -1,4 +1,9 @@
-import { ButtonGroup, IconButton, VisuallyHidden } from "@chakra-ui/react";
+import {
+  ButtonGroup,
+  IconButton,
+  VisuallyHidden,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import React from "react";
 import {
   FaInstagram,
@@ -35,7 +40,13 @@ const LinkWrapper = (props) => {
   const { children, href, ...rest } = props;
 
   return (
-    <Link href={href} passHref target="_blank" rel="noopener noreferrer" {...rest}>
+    <Link
+      href={href}
+      passHref
+      target="_blank"
+      rel="noopener noreferrer"
+      {...rest}
+    >
       {children}
     </Link>
   );
@@ -60,9 +71,9 @@ function SosyalMediaIcon() {
             cursor={"pointer"}
             aria-label="Instagram"
             icon={<FaInstagram fontSize="1.25rem" />}
-            _hover={{ bg: "#657786", color: " white" }}
             bg={"transparent"}
             children={<VisuallyHidden>Instagram</VisuallyHidden>}
+            color={useColorModeValue("", "white")}
           />
           {}
         </LinkWrapper>
@@ -78,9 +89,9 @@ function SosyalMediaIcon() {
             cursor={"pointer"}
             aria-label="Facebook"
             icon={<FaFacebook fontSize="1.25rem" />}
-            _hover={{ bg: "#657786", color: " white" }}
             bg={"transparent"}
             children={<VisuallyHidden>Facebook</VisuallyHidden>}
+            color={useColorModeValue("", "white")}
           />
         </LinkWrapper>
 
@@ -95,9 +106,9 @@ function SosyalMediaIcon() {
             aria-label="FaTwitter"
             cursor={"pointer"}
             icon={<FaTwitter fontSize="1.25rem" />}
-            _hover={{ bg: "#657786", color: " white" }}
             bg={"transparent"}
             children={<VisuallyHidden>Twitter</VisuallyHidden>}
+            color={useColorModeValue("", "white")}
           />
         </LinkWrapper>
 
@@ -112,9 +123,9 @@ function SosyalMediaIcon() {
             aria-label="Linkedin"
             cursor={"pointer"}
             icon={<FaYoutube fontSize="1.25rem" />}
-            _hover={{ bg: "#657786", color: " white" }}
             bg={"transparent"}
             children={<VisuallyHidden>Youtube</VisuallyHidden>}
+            color={useColorModeValue("", "white")}
           />
         </LinkWrapper>
 
@@ -129,9 +140,9 @@ function SosyalMediaIcon() {
             aria-label="Linkedin"
             cursor={"pointer"}
             icon={<FaLinkedin fontSize="1.25rem" />}
-            _hover={{ bg: "#657786", color: " white" }}
             bg={"transparent"}
             children={<VisuallyHidden>Linkedin</VisuallyHidden>}
+            color={useColorModeValue("", "white")}
           />
         </LinkWrapper>
       </ButtonGroup>

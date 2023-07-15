@@ -15,6 +15,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Spacer,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
@@ -388,6 +389,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
             >
               <Logo platform={"desktop"} lang={lang} />
 
+             
               <>
                 <Flex as={"ul"}>
                   {menus.map((menu) => (
@@ -417,6 +419,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
           menus={menus}
         />
       </Flex>
+      
     </React.Fragment>
   );
 }

@@ -71,7 +71,7 @@ function AboutUs({ lang }) {
               fontSize={{ base: 14, md: 15, lg: 16 }}
               variant={"outline"}
               onClick={() => {
-                router.push(lang + "/projelerimiz");
+                router.push(lang + "/portfolio");
               }}
             >
               Projelerimize Göz At
@@ -87,7 +87,7 @@ function AboutUs({ lang }) {
               fontSize={{ base: 14, md: 15, lg: 16 }}
               variant={"outline"}
               onClick={() => {
-                router.push(lang + "/hakkimizda");
+                router.push(lang + "/about-appizsoft");
               }}
             >
               Devamını Oku

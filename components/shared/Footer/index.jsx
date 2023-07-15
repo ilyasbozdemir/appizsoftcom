@@ -36,27 +36,25 @@ const FooterTopContent = () => {
         <Center>
           <Stack
             as={Box}
-            bg={"#D3E6FE"}
-            color={"#fff"}
+            bgColor={"transparent"}
+            bgImage={
+              "radial-gradient(at bottom left, #12acff 55%, #0c85c7 100%)"
+            }
+            boxShadow={"0px 2px 10px 0px rgba(18, 172, 255, 0.41)"}
             p={"64px"}
             spacing={4}
             borderRadius={"15px"}
-            w={"95%"}
+            w={{ base: "95%", md: "auto" }}
           >
             <Flex direction={"column"}>
-              <Text color={"#141b25"} fontSize={18} fontFamily={"Inter"}>
+              <Text color={"#fff"} fontSize={18} fontFamily={"Inter"}>
                 Biz senin için buradayız
               </Text>
-              <Text
-                color={"#151b25"}
-                fontSize={30}
-                fontFamily={"Inter"}
-                as={"h4"}
-              >
+              <Text color={"#fff"} fontSize={30} fontFamily={"Inter"} as={"h4"}>
                 Fikir aşamasından tasarıma, koddan teslimata.
               </Text>
 
-              <Text color={"#151b25"} w={{ base: "", md: 650 }} fontSize={18}>
+              <Text color={"#fff"} w={{ base: "", md: 650 }} fontSize={18}>
                 Her büyüklükteki ekip için kullanıcı merkezli uygulamalar
                 geliştiren tam hizmet veren bir dijital ajansız.
                 Teknolojilerimiz, ortaklarımız için heyecan verici yeni
@@ -65,11 +63,12 @@ const FooterTopContent = () => {
             </Flex>
             <Box>
               <Button
-                colorScheme="blue"
+                color="white"
+                _hover={{color:'#eee'}}
                 variant="outline"
                 fontSize={"md"}
                 onClick={() => {
-                  router.push(`tr/teklif-al`);
+                  router.push(`/tr/get-a-quote`);
                 }}
               >
                 Bizimle bir proje başlatın 🚀
@@ -134,8 +133,8 @@ const FooterContent = () => {
   ];
   return (
     <Center
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
+      bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
+      color={useColorModeValue("gray.300", "gray.300")}
     >
       <Box as={Stack} p={8}>
         <Flex
@@ -161,7 +160,6 @@ const FooterContent = () => {
               <Text
                 fontSize={15}
                 fontFamily={"montserrat-extra-bold"}
-                color={useColorModeValue("gray.500", "gray.500")}
                 itemProp="telephone"
               >
                 <a itemProp="email" href={`mailto:${site.telephone}`}>
@@ -173,7 +171,6 @@ const FooterContent = () => {
               <Text
                 fontSize={15}
                 fontFamily={"montserrat-extra-bold"}
-                color={useColorModeValue("gray.500", "gray.500")}
                 itemScope
                 itemType="http://schema.org/ContactPoint"
               >
@@ -190,7 +187,6 @@ const FooterContent = () => {
               itemType="https://schema.org/PostalAddress"
               fontSize={15}
               fontFamily={"montserrat-extra-bold"}
-              color={useColorModeValue("gray.500", "gray.500")}
               gap={3}
             >
               <Text as={"span"} itemProp="streetAddress">
@@ -284,9 +280,13 @@ const SiteNavigationElement = ({ header, menus }) => {
 
 const Footer = () => {
   return (
-    <Flex direction={"column"} as="footer">
-      <FooterTopContent />
-      <FooterContent />
+    <Flex direction={"column"} as="footer" pos={"relative"}>
+      <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
+        <FooterTopContent />
+      </Box>
+      <Box pos={"relative"} style={{ zIndex: 1 }}>
+        <FooterContent />
+      </Box>
     </Flex>
   );
 };

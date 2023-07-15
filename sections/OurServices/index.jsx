@@ -1,9 +1,13 @@
-import { Flex, Text, Image, Heading, Box } from "@chakra-ui/react";
+import { Flex, Text, Image, Heading, Box, Center } from "@chakra-ui/react";
 
 import React from "react";
 import { services } from "../../constants/services";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const Services = ({ id, img, title, content }) => {
+const Services = (props) => {
+  const { id, img, href, title, content } = props;
+  const router = useRouter();
   return (
     <>
       <Flex
@@ -13,6 +17,11 @@ const Services = ({ id, img, title, content }) => {
         mt={2}
         mx={5}
         userSelect={"none"}
+        onClick={() => {
+          router.push("tr/service/" + href);
+        }}
+        cursor={"pointer"}
+        p={5}
       >
         <Flex justifyContent={"center"} data-aos={"zoom-out"}>
           <Image id={id} height={70} width={70} src={img} draggable={false} />
@@ -23,6 +32,7 @@ const Services = ({ id, img, title, content }) => {
             data-aos="zoom-in"
             textTransform={"uppercase"}
             fontSize={{ base: "15px", md: "16px" }}
+            color={'#616161'}
           >
             {title}
           </Heading>
@@ -44,6 +54,9 @@ const Services = ({ id, img, title, content }) => {
 function OurServices() {
   return (
     <>
+      <Center>
+        <Heading fontWeight={"semibold"} color={'#5c5c5c'}>Hizmetler</Heading>
+      </Center>
       <Flex
         direction={{ base: "column", md: "row" }}
         justifyContent={"space-between"}
@@ -52,16 +65,9 @@ function OurServices() {
         {services.map(
           (service, i) =>
             service.isServicesComponentDisplay === true && (
-              <>
-                <>
-                  <Services
-                    id={service.id}
-                    img={service.img}
-                    title={service.title}
-                    content={service.content}
-                  />
-                </>
-              </>
+              <React.Fragment key={service.id}>
+                <Services {...service} />
+              </React.Fragment>
             )
         )}
       </Flex>

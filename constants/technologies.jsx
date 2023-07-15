@@ -1,4 +1,5 @@
-//dahası var
+
+
 
 export const technologies = [
   {
@@ -307,7 +308,7 @@ export const technologies = [
   {
     id: "cPanel",
     title: "cPanel",
-    category: "Backend",
+    category: "",
     imageUrl: "/images/technologies/cPanel.svg",
     isMenuDisplay: true,
     description: ``,

@@ -24,26 +24,22 @@ function IndexPage() {
         <WindowTitleChanger />
       </>
 
-      <Flex as="main" direction={"column"} >
+      <Flex as="main" direction={"column"}>
         <Box>
-          <Cta lang={lang} />
+          <Cta lang={lang} targetId={"OurServices"} />
         </Box>
 
-        <Box id={"AboutUs"}>
-          <AboutUs lang={lang} />
+        {/*
+
+     <Box id={"AboutUs"}>
+          <AboutUs lang={lang} targetId={"OurServices"}  />
         </Box>
+  
+  */}
 
         <Box id={"OurServices"} mt={3}>
           <OurServices />
         </Box>
-        <Box m={3}>
-          <OurTechnologies />
-        </Box>
-        <Divider />
-        {/*
-  <Box>BLOG ALANI</Box>
-       <Divider />
-  */}
       </Flex>
     </>
   );

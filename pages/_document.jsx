@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
           <Analytics />
         </Head>
 
-        <body>
+        <body style={{bg:'#111'}}>
           <GoogleTagManagerBody code={site.analyticsCodes.gtmCode} />
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
