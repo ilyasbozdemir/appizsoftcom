@@ -8,13 +8,14 @@ import {
   Button,
   HStack,
   Divider,
+  useBreakpointValue,
+  useTheme,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import SosyalMediaIcon from "../SosyalMediaIcon";
-
 import Logo from "../Logo";
 import { site } from "../../../constants/site";
-
 import LanguageSwitcher from "../../LanguageSwitcher";
 import { menuList } from "../../../constants/menuList";
 
@@ -28,6 +29,27 @@ const FooterTopContent = () => {
     router.asPath.endsWith("/about-appizsoft") ||
     router.pathname.endsWith("/about-appizsoft");
 
+  const theme = useTheme();
+
+  const { colorMode } = useColorMode();
+
+  const primaryColor =
+    colorMode === "dark"
+      ? theme.colors.primaryD["100"]
+      : theme.colors.primary["100"];
+  const primaryColor2 =
+    colorMode === "dark"
+      ? theme.colors.primaryD["200"]
+      : theme.colors.primary["200"];
+
+  const boxShadow = useBreakpointValue({
+    base: theme.shadows.sm,
+    sm: theme.shadows.md,
+    md: theme.shadows.lg,
+    lg: theme.shadows.xl,
+    xl: theme.shadows["2xl"],
+  });
+  
   return (
     <>
       {isTeklifAlPage | isAboutPage ? (
@@ -37,10 +59,8 @@ const FooterTopContent = () => {
           <Stack
             as={Box}
             bgColor={"transparent"}
-            bgImage={
-              "radial-gradient(at bottom left, #08c3cc 55%, #54bec3 100%)"
-            }
-            boxShadow={"0px 2px 10px 0px rgba(15, 164, 171, 0.41)"}
+            bgImage={`radial-gradient(at bottom left, ${primaryColor} 55%, ${primaryColor2}  100%)`}
+            boxShadow={boxShadow}
             p={"64px"}
             spacing={4}
             borderRadius={"15px"}

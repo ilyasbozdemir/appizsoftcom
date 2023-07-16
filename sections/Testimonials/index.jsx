@@ -16,9 +16,8 @@ import { HStack, Icon } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
 
 const Testimonial = ({ children }) => {
-  return <Box>{children}</Box>;
+  return <Box w={"full"}>{children}</Box>;
 };
-
 const TestimonialContent = ({ children }) => {
   return (
     <Stack
@@ -49,7 +48,6 @@ const TestimonialContent = ({ children }) => {
     </Stack>
   );
 };
-
 const TestimonialHeading = ({ children }) => {
   return (
     <Heading as={"h3"} fontSize={"xl"}>
@@ -62,23 +60,25 @@ const Rating = (props) => {
   const color = useColorModeValue("gray.200", "gray.600");
   const activeColor = useColorModeValue("primary", "#1cb1b8");
   return (
-    <HStack spacing="0.5" {...rootProps}>
-      {Array.from({
-        length: max,
-      })
-        .map((_, index) => index + 1)
-        .map((index) => (
-          <Icon
-            key={index}
-            as={FaStar}
-            fontSize={size}
-            color={index <= defaultValue ? activeColor : color}
-          />
-        ))}
-    </HStack>
+    <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+      <HStack spacing="0.5" {...rootProps}>
+        {Array.from({
+          length: max,
+        })
+          .map((_, index) => index + 1)
+          .map((index) => (
+            <Icon
+              key={index}
+              as={FaStar}
+              fontSize={size}
+              color={index <= defaultValue ? activeColor : color}
+            />
+          ))}
+      </HStack>
+      <meta itemprop="ratingValue" content={defaultValue} />
+    </div>
   );
 };
-
 const TestimonialText = ({ children }) => {
   return (
     <Text
@@ -91,7 +91,6 @@ const TestimonialText = ({ children }) => {
     </Text>
   );
 };
-
 const TestimonialAvatar = ({ src, name, title }) => {
   return (
     <Flex align={"center"} mt={8} direction={"column"}>
@@ -110,14 +109,17 @@ const TestimonialAvatar = ({ src, name, title }) => {
         >
           {name}
         </Text>
-        <Text fontSize={"sm"} color={useColorModeValue("gray.600", "gray.800")} itemprop="jobTitle">
+        <Text
+          fontSize={"sm"}
+          color={useColorModeValue("gray.600", "gray.800")}
+          itemprop="jobTitle"
+        >
           {title}
         </Text>
       </Stack>
     </Flex>
   );
 };
-
 function WithSpeechBubbles() {
   const testimonialsData = [
     {
@@ -131,10 +133,11 @@ function WithSpeechBubbles() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
       reviewTitle: "Lorem ipsum dolor sit",
     },
+  
+ 
   ];
-
   return (
-    <Box bg={"gray.200"} >
+    <Box>
       <Container maxW={"full"} py={16} as={Stack} spacing={12}>
         <Stack spacing={0} align={"center"}>
           <Heading fontWeight={"semibold"} color={"#5c5c5c"}>
@@ -149,15 +152,7 @@ function WithSpeechBubbles() {
             <React.Fragment key={testimonial.id}>
               <Testimonial itemscope itemtype="http://schema.org/Review">
                 <TestimonialContent>
-                  <div
-                    itemprop="reviewRating"
-                    itemscope
-                    itemtype="http://schema.org/Rating"
-                  >
-                    <Rating defaultValue={testimonial.rating} size="lg" />
-                    <meta itemprop="ratingValue" content={testimonial.rating} />
-                  </div>
-
+                  <Rating defaultValue={testimonial.rating} size="lg" />
                   <TestimonialHeading>
                     {testimonial.reviewTitle}
                   </TestimonialHeading>
@@ -172,6 +167,18 @@ function WithSpeechBubbles() {
             </React.Fragment>
           ))}
         </Stack>
+        <Center>
+          <Text
+            onClick={() => {
+              router.push(`${lang}/teknolojilerimiz#${image.id}`);
+            }}
+            color={"#0066ff"}
+            fontWeight={"semibold"}
+            mt={3}
+          >
+            Daha fazla yorum görüntüleyin →
+          </Text>
+        </Center>
       </Container>
     </Box>
   );
@@ -180,15 +187,9 @@ function WithSpeechBubbles() {
 function TestimonialsSection() {
   return (
     <>
-      <Flex
-        direction={{ base: "column", md: "row" }}
-        justifyContent={"space-between"}
-        p={3}
-      >
-        <Center>
-          <WithSpeechBubbles testimonial />
-        </Center>
-      </Flex>
+      <Center p={4}>
+        <WithSpeechBubbles />
+      </Center>
     </>
   );
 }
