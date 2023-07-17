@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { services } from "../../../constants/services";
 import MetaHead from "../../../configuration/MetaHead";
 import Head from "next/head";
@@ -153,7 +153,6 @@ function OurServiceDetailPage({ service }) {
     <>
       <Head>
         <title>
-          {" "}
           {service.title} | {serviceType} • Appizsoft
         </title>
       </Head>
@@ -187,7 +186,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      service: service || null,
+      service: service,
     },
   };
 }

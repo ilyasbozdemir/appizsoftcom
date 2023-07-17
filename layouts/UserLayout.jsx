@@ -27,29 +27,25 @@ function UserLayout({ children }) {
   }, [onOpen, onClose]);
 
   return (
-    <Box scrollBehavior={"smooth"}>
+    <Box as="main" scrollBehavior={"smooth"}>
       <>
-        <Header
-          onOpen={onOpen}
-          isOpen={isOpen}
-          onClose={onClose}
-          onToggle={onToggle}
-        />
+        <Box as={"header"} zIndex={1} position="sticky" top={0} right={0}>
+          <Header
+            onOpen={onOpen}
+            isOpen={isOpen}
+            onClose={onClose}
+            onToggle={onToggle}
+          />
+        </Box>
 
-        {isOpen === false && (
-          <>
-            <Box>{children}</Box>
-            <ScrollToTop />
-            <Footer />
-          </>
-        )}
-        {isOpen === true && (
-          <>
-            <Head>
-              <title>{"Appizsoft • Özel Yazılım Geliştirme"}</title>
-            </Head>
-          </>
-        )}
+        <Box as={"main"} zIndex={1}>
+          {children}
+        </Box>
+        <Box zIndex={1} as="footer">
+          <Footer />
+        </Box>
+
+        <ScrollToTop />
       </>
     </Box>
   );

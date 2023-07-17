@@ -32,6 +32,25 @@ function ExternalFonts() {
         href="https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@300;600&display=swap"
         rel="stylesheet"
       />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@300;600&family=Open+Sans&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap"
+        rel="stylesheet"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&family=Raleway:wght@600&display=swap"
+        rel="stylesheet"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet"
+      />
     </>
   );
 }

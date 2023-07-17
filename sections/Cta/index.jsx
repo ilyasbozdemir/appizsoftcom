@@ -3,10 +3,8 @@ import {
   Heading,
   Stack,
   Text,
-  Button,
   Box,
   keyframes,
-  Icon,
   useColorModeValue,
   Center,
 } from "@chakra-ui/react";
@@ -15,6 +13,7 @@ import Router, { useRouter } from "next/router";
 import { FaCaretDown } from "react-icons/fa";
 
 import { motion } from "framer-motion";
+import StartProjectButton from "../../components/StartProjectButton";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -29,22 +28,26 @@ const rainbowAnimation = keyframes`
 `;
 
 const RainbowText = ({ text }) => (
-  <Box
-    as="span"
-    bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
-    bgClip="text"
-    color="transparent"
-    animation={`${rainbowAnimation} 4s ease-out infinite`}
-    bgSize="400% 100%"
-    animationIterationCount="infinite"
-    w="fit-content"
-  >
-    {text}
-  </Box>
+  <>
+    <Text
+      as="span"
+      bgGradient="linear(to left, #61A5C2, #5298AD, #61A5C2, #5874B7, #61A5C2, #5298AD)"
+      //bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
+      bgClip="text"
+      color="transparent"
+      animation={`${rainbowAnimation} 4s ease-out infinite`}
+      bgSize="400% 100%"
+      animationIterationCount="infinite"
+      w="fit-content"
+    >
+      {text}
+    </Text>
+  </>
 );
 
-export default function CallToActionWithIllustration({ lang,targetId }) {
+export default function CallToActionWithIllustration({ lang, targetId }) {
   const router = useRouter();
+
   return (
     <Box
       w="100vw" // Genişliği ekran genişliğine eşit
@@ -52,8 +55,6 @@ export default function CallToActionWithIllustration({ lang,targetId }) {
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems="center" // Dikeyde ortala
-   
-     
     >
       <Container maxW={"5xl"} as="article">
         <Stack
@@ -70,13 +71,14 @@ export default function CallToActionWithIllustration({ lang,targetId }) {
             fontFamily={"Montserrat"}
             data-aos="fade-up"
           >
-            Yaratıcılıkla <RainbowText text={"Teknolojiyi "} />
-            birleştirerek Markanızı Öne Çıkarıyoruz.
+            Markanızı öne çıkarmak için yaratıcılığı
+            <RainbowText text={" Teknolojiyle "} /> birleştiriyoruz.
           </Heading>
           <Text
             maxW={"3xl"}
             data-aos="fade-up"
             fontSize={{ base: "19px", md: "25px" }}
+            fontFamily={"'Nunito Sans', sans-serif"}
           >
             Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
             hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
@@ -84,26 +86,10 @@ export default function CallToActionWithIllustration({ lang,targetId }) {
             avantajı elde etmelerini sağlıyoruz.
           </Text>
           <Stack spacing={6} direction={"column"}>
-            <Button
-              rounded={"full"}
-              colorScheme={"white"}
-              _hover={{
-                boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
-              }}
-              fontFamily={"Verdana"}
-              data-aos="zoom-in"
-              p={7}
-              fontSize={{ base: 14, md: 16, lg: 18 }}
-              variant={"outline"}
-              onClick={() => {
-                Router.push(lang + "/get-a-quote");
-              }}
-            >
-              Hemen Başlayalım!
-            </Button>
+            <StartProjectButton />
 
             <Center>
-              <Link to={targetId} smooth={true} duration={500} offset={-88}>
+              <Link to={targetId} smooth={true} duration={500} offset={-120}>
                 <motion.div
                   initial={{ y: 0, opacity: 0 }}
                   animate={{

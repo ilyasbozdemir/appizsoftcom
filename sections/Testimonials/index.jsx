@@ -10,6 +10,7 @@ import {
   Container,
   Avatar,
   useColorModeValue,
+  Divider,
 } from "@chakra-ui/react";
 
 import { HStack, Icon } from "@chakra-ui/react";
@@ -133,17 +134,26 @@ function WithSpeechBubbles() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
       reviewTitle: "Lorem ipsum dolor sit",
     },
-  
- 
   ];
   return (
     <Box>
       <Container maxW={"full"} py={16} as={Stack} spacing={12}>
-        <Stack spacing={0} align={"center"}>
-          <Heading fontWeight={"semibold"} color={"#5c5c5c"}>
-            Müşteri Yorumları
-          </Heading>
-        </Stack>
+        <Flex direction={"column"} w={'full'}>
+          <Box mx={3} display="flex" alignItems="center">
+            <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+            <Box flex="1" textAlign="center">
+              <Heading
+                fontFamily={"Montserrat"}
+                as="h2"
+                fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
+              >
+                Müşteri Yorumları
+              </Heading>
+            </Box>
+            <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+          </Box>
+        </Flex>
+
         <Stack
           direction={{ base: "column", md: "row" }}
           spacing={{ base: 10, md: 4, lg: 10 }}

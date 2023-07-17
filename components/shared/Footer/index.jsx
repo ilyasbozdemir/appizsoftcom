@@ -11,6 +11,10 @@ import {
   useBreakpointValue,
   useTheme,
   useColorMode,
+  Link,
+  VStack,
+  Icon,
+  Image,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import SosyalMediaIcon from "../SosyalMediaIcon";
@@ -18,6 +22,9 @@ import Logo from "../Logo";
 import { site } from "../../../constants/site";
 import LanguageSwitcher from "../../LanguageSwitcher";
 import { menuList } from "../../../constants/menuList";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FiTwitter } from "react-icons/fi";
+import { GrInstagram } from "react-icons/gr";
 
 const FooterTopContent = () => {
   const router = useRouter();
@@ -37,6 +44,7 @@ const FooterTopContent = () => {
     colorMode === "dark"
       ? theme.colors.primaryD["100"]
       : theme.colors.primary["100"];
+
   const primaryColor2 =
     colorMode === "dark"
       ? theme.colors.primaryD["200"]
@@ -49,7 +57,7 @@ const FooterTopContent = () => {
     lg: theme.shadows.xl,
     xl: theme.shadows["2xl"],
   });
-  
+
   return (
     <>
       {isTeklifAlPage | isAboutPage ? (
@@ -67,14 +75,19 @@ const FooterTopContent = () => {
             w={{ base: "95%", md: "auto" }}
           >
             <Flex direction={"column"}>
-              <Text color={"#fff"} fontSize={18} fontFamily={"Inter"}>
+              <Text color={"white"} fontSize={18} fontFamily={"Inter"}>
                 Biz senin için buradayız
               </Text>
-              <Text color={"#fff"} fontSize={30} fontFamily={"Inter"} as={"h4"}>
+              <Text
+                color={"white"}
+                fontSize={30}
+                fontFamily={"Inter"}
+                as={"h4"}
+              >
                 Fikir aşamasından tasarıma, koddan teslimata.
               </Text>
 
-              <Text color={"#fff"} w={{ base: "", md: 650 }} fontSize={18}>
+              <Text color={"white"} w={{ base: "", md: 650 }} fontSize={18}>
                 Her büyüklükteki ekip için kullanıcı merkezli uygulamalar
                 geliştiren tam hizmet veren bir dijital ajansız.
                 Teknolojilerimiz, ortaklarımız için heyecan verici yeni
@@ -83,8 +96,9 @@ const FooterTopContent = () => {
             </Flex>
             <Box>
               <Button
-                color="white"
-                _hover={{ color: "#eee" }}
+                colorScheme={colorMode === "dark" ? "messenger" : "messenger"}
+                rounded={"full"}
+                p={3}
                 variant="outline"
                 fontSize={"md"}
                 onClick={() => {
@@ -97,6 +111,37 @@ const FooterTopContent = () => {
           </Stack>
         </Center>
       )}
+    </>
+  );
+};
+
+const SiteNavigationElement = ({ header, menus }) => {
+  const router = useRouter();
+  return (
+    <>
+      <Flex
+        ml={"50px"}
+        direction={"column"}
+        itemscope="itemscope"
+        itemtype="https://www.schema.org/SiteNavigationElement"
+      >
+        <Text fontWeight={"bold"} fontSize={18}>
+          {header}
+        </Text>
+
+        <Flex mt={5} gap={2} direction={"column"}>
+          {menus.map((menu) => (
+            <Text
+              onClick={() => {
+                router.push("/tr/" + menu.href);
+              }}
+              cursor={"pointer"}
+            >
+              {menu.title}
+            </Text>
+          ))}
+        </Flex>
+      </Flex>
     </>
   );
 };
@@ -267,40 +312,9 @@ const FooterContent = () => {
   );
 };
 
-const SiteNavigationElement = ({ header, menus }) => {
-  const router = useRouter();
-  return (
-    <>
-      <Flex
-        ml={"50px"}
-        direction={"column"}
-        itemscope="itemscope"
-        itemtype="https://www.schema.org/SiteNavigationElement"
-      >
-        <Text fontWeight={"bold"} fontSize={18}>
-          {header}
-        </Text>
-
-        <Flex mt={5} gap={2} direction={"column"}>
-          {menus.map((menu) => (
-            <Text
-              onClick={() => {
-                router.push("/tr/" + menu.href);
-              }}
-              cursor={"pointer"}
-            >
-              {menu.title}
-            </Text>
-          ))}
-        </Flex>
-      </Flex>
-    </>
-  );
-};
-
 const Footer = () => {
   return (
-    <Flex direction={"column"} as="footer" pos={"relative"}>
+    <Flex direction={"column"} pos={"relative"}>
       <Center>
         <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
           <FooterTopContent />

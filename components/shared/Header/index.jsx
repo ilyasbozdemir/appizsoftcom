@@ -368,10 +368,6 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
     <React.Fragment>
       <Flex
         display={{ base: "none", md: "initial" }}
-        position="sticky"
-        top={0}
-        right={0}
-        zIndex={999}
       >
         <Center
           bg={!isScrolled ? bg : bgScrolled}

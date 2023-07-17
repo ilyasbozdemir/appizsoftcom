@@ -3,11 +3,6 @@ import { technologies } from "./technologies";
 
 export const menuList = [
   {
-    title: "Anasayfa",
-    href: "/?ref=home-link",
-    children: null,
-  },
-  {
     title: "Kurumsal",
     href: null,
     children: [

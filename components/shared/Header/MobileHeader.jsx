@@ -18,7 +18,15 @@ import {
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
 import { menuList } from "../../../constants/menuList";
-
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import {
   Accordion,
   AccordionItem,
@@ -73,7 +81,6 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         p={5}
         justify="space-between"
         align="center"
-        zIndex={500}
         pos={"relative"}
         w={"100%"}
         position="sticky"
@@ -109,27 +116,66 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         </HStack>
       </Flex>
       <>
-        {isOpen && (
-          <>
-            <Box as="section">
-              <Flex direction={"column"}>
-                {menus.map((menu) => (
-                  <React.Fragment key={menu.title}>
-                    <MenuLink title={menu.title} href={menu.href} lang={lang} />
-                  </React.Fragment>
-                ))}
+        <Modal
+          size={"full"}
+          isOpen={isOpen}
+          onClose={onClose}
+          motionPreset="slideInBottom"
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>
+              <Flex p={5} justify="space-between">
+                <HStack spacing={5}>
+                  <IconButton
+                    icon={
+                      isOpen ? (
+                        <Icon as={CloseIcon} fontSize={20} />
+                      ) : (
+                        <Icon as={BiMenuAltRight} fontSize={35} />
+                      )
+                    }
+                    onClick={onToggle}
+                    size="md"
+                    aria-label="Toggle Navigation"
+                    bg="transparent"
+                    _hover={{ bg: "transparent" }}
+                    _active={{ bg: "transparent" }}
+                  />
+                </HStack>
+                <Logo platform={"mobile"} lang={lang} />
 
-                <Center my={5}>
-                  <OfferButton platform={"mobile"} />
-                </Center>
-
-                <Box pos={"relative"}>
-                  <LanguageSwitcher lang={lang} />
-                </Box>
+                <HStack spacing={5}>
+                  <ThemeSwitcher />
+                  <SearchButton />
+                </HStack>
               </Flex>
-            </Box>
-          </>
-        )}
+            </ModalHeader>
+            <ModalBody>
+              <Box>
+                <Flex direction={"column"}>
+                  {menus.map((menu) => (
+                    <React.Fragment key={menu.title}>
+                      <MenuLink
+                        title={menu.title}
+                        href={menu.href}
+                        lang={lang}
+                      />
+                    </React.Fragment>
+                  ))}
+
+                  <Center my={5}>
+                    <OfferButton platform={"mobile"} />
+                  </Center>
+
+                  <Box pos={"relative"}>
+                    <LanguageSwitcher lang={lang} />
+                  </Box>
+                </Flex>
+              </Box>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       </>
     </>
   );
@@ -283,7 +329,7 @@ const MenuLink = ({ title, href, lang }) => {
                 fontWeight={500}
                 fontSize={16}
                 lineHeight={10}
-                color={"primary"}
+                color={"primary.100"}
               >
                 {child.title}
               </Text>
@@ -360,7 +406,7 @@ const MenuLink = ({ title, href, lang }) => {
       <Box onClick={handleClick}>
         {href === null ? (
           <>
-            <Accordion >
+            <Accordion>
               <AccordionItem>
                 <h2>
                   <AccordionButton
@@ -396,9 +442,7 @@ const MenuLink = ({ title, href, lang }) => {
                         </>
                       ) : (
                         <>
-                        {
-                          title === "Kurumsal"
-                        }
+                          {title === "Kurumsal"}
                           <TechnologiesContent />
                         </>
                       )}

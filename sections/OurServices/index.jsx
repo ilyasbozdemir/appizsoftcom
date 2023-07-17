@@ -1,29 +1,47 @@
-import { Flex, Text, Image, Heading, Box, Center } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  Image,
+  Heading,
+  Box,
+  Center,
+  Wrap,
+  WrapItem,
+  useColorModeValue,
+  SimpleGrid,
+  Button,
+  Divider,
+} from "@chakra-ui/react";
+
+import { BsArrowRight } from "react-icons/bs";
 
 import React from "react";
 import { services } from "../../constants/services";
-import Link from "next/link";
 import { useRouter } from "next/router";
-
+import { Link as ScrollLink } from "react-scroll";
+import { motion } from "framer-motion";
+import { FaCaretDown } from "react-icons/fa";
+import Link from "next/link";
 const Services = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
+
   return (
-    <>
+    <Flex gap={5} mt={2} mx={5} direction={"column"}>
       <Flex
         direction={"column"}
-        w={{ base: "100%", md: "100%" }}
         gap={5}
         mt={2}
         mx={5}
         userSelect={"none"}
-        onClick={() => {
-          router.push("tr/service/" + href);
-        }}
-        cursor={"pointer"}
         p={5}
+        //bg={useColorModeValue("#F5F5F5", "#fff")}
+        boxShadow={
+          "rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;"
+        }
+        borderRadius={"10px"}
       >
-        <Flex justifyContent={"center"} data-aos={"zoom-out"}>
+        <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
           <Image id={id} height={70} width={70} src={img} draggable={false} />
         </Flex>
         <Flex justifyContent={"center"}>
@@ -32,46 +50,100 @@ const Services = (props) => {
             data-aos="zoom-in"
             textTransform={"uppercase"}
             fontSize={{ base: "15px", md: "16px" }}
-            color={"#616161"}
+            isTruncated
           >
             {title}
           </Heading>
         </Flex>
 
         <Text
-          _light={{ color: "gray.600" }}
-          _dark={{ color: "#fff" }}
           data-aos="zoom-in-up"
           fontSize={{ base: "15px", md: "16px" }}
+          p={3}
         >
           {content}
         </Text>
+
+        <Flex justifyContent={"center"} mt={4}>
+          <Link href={`tr/service/${href}`}  passHref>
+            <Button
+              variant={"outline"}
+              color="primary.100"
+              rightIcon={<BsArrowRight />}
+              w={"full"}
+              h={"50px"}
+            >
+              İncele
+            </Button>
+          </Link>
+        </Flex>
+        <Text mt={2} textAlign="center" fontSize="sm">
+          Size Özel Çözümlerimizle İşinizi Dijital Dünyada Öne Çıkarıyoruz!
+        </Text>
       </Flex>
-    </>
+    </Flex>
   );
 };
 
-function OurServices() {
+function OurServices({ targetId }) {
   return (
     <>
-      <Center>
-        <Heading fontWeight={"semibold"} color={"#5c5c5c"}>
-          Hizmetler
-        </Heading>
-      </Center>
-      <Flex
-        direction={{ base: "column", md: "row" }}
-        justifyContent={"space-between"}
-        p={3}
-      >
-        {services.map(
-          (service, i) =>
-            service.isServicesComponentDisplay === true && (
-              <React.Fragment key={service.id}>
-                <Services {...service} />
-              </React.Fragment>
-            )
-        )}
+      <Flex direction={"column"} gap={5} w="100vw" h="auto">
+        <Box mx={3} display="flex" alignItems="center">
+          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+          <Box flex="1" textAlign="center">
+            <Heading
+              fontFamily={"Montserrat"}
+              as="h2"
+              fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
+            >
+              Size Özel Hizmetler
+            </Heading>
+          </Box>
+          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+        </Box>
+
+        <SimpleGrid
+          columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
+          spacing={5}
+          justify="center"
+        >
+          {services.map(
+            (service, i) =>
+              service.isServicesComponentDisplay === true && (
+                <Box key={service.id} p={5}>
+                  <Services {...service} />
+                </Box>
+              )
+          )}
+        </SimpleGrid>
+
+        <Box display={{ base: "none", lg: "initial" }}>
+          <Center>
+            <ScrollLink to={targetId} smooth={true} duration={500}>
+              <motion.div
+                initial={{ y: 0, opacity: 0 }}
+                animate={{
+                  y: [0, -1, 0],
+                  opacity: [1, 0.5, 1],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  type: "spring",
+                  damping: 20,
+                  stiffness: 100,
+                }}
+              >
+                <FaCaretDown
+                  fontSize={80}
+                  cursor="pointer"
+                  color={useColorModeValue("black", "white")}
+                />
+              </motion.div>
+            </ScrollLink>
+          </Center>
+        </Box>
       </Flex>
     </>
   );

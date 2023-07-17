@@ -8,6 +8,7 @@ import {
   Button,
   Icon,
   useColorModeValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -20,6 +21,7 @@ import Logo from "../../components/shared/Logo";
 function AboutUs({ lang,targetId }) {
   const router = useRouter();
   const size = { h: 125, w: 400 };
+  const { colorMode } = useColorMode();
   return (
     <>
       <Flex
@@ -58,12 +60,12 @@ function AboutUs({ lang,targetId }) {
               alanlarında çözümler sunmaktadır.
             </Text>
           </Stack>
-
+        
           <Flex direction={"row"} justifyContent={"space-between"}>
             <Button
               rounded={"full"}
-              colorScheme={"teal"}
-              fontFamily={"Verdana"}
+              colorScheme={colorMode === "light" ? "black" : "white"}
+              fontFamily={"Nunito Sans"}
               _hover={{
                 boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
               }}
@@ -72,14 +74,15 @@ function AboutUs({ lang,targetId }) {
               variant={"outline"}
               onClick={() => {
                 router.push(lang + "/portfolio");
+
               }}
             >
               Projelerimize Göz At
             </Button>
             <Button
               rounded={"full"}
-              colorScheme={"teal"}
-              fontFamily={"Verdana"}
+              colorScheme={colorMode === "light" ? "black" : "white"}
+              fontFamily={"Nunito Sans"}
               _hover={{
                 boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
               }}
@@ -113,7 +116,7 @@ function AboutUs({ lang,targetId }) {
               <FaCaretDown
                 fontSize={80}
                 cursor="pointer"
-                color={useColorModeValue("black", "gray.800")}
+                color={useColorModeValue("black", "white")}
               />
             </motion.div>
           </Link>

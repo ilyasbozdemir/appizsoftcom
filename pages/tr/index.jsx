@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import Cta from "../../sections/Cta";
-import OurServices from "../../sections/OurServices";
-import AboutUs from "../../sections/AboutUs";
-import OurTechnologies from "../../sections/OurTechnologies";
-
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
-import { Box, Divider, Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
-import PartnersSection from "../../sections/Partners";
-import TestimonialsSection from "../../sections/Testimonials";
+import dynamic from "next/dynamic";
+
+
+const LazyCta = dynamic(() => import("../../sections/Cta"));
+const LazyOurServices = dynamic(() => import("../../sections/OurServices"));
+const LazyAboutUs = dynamic(() => import("../../sections/AboutUs"));
+
+const LazyOurTechnologies = dynamic(() =>
+  import("../../sections/OurTechnologies")
+);
+const LazyTestimonialsSection = dynamic(() =>
+  import("../../sections/Testimonials")
+);
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -17,39 +23,53 @@ function IndexPage() {
     const browserLanguage = detectBrowserLanguage(supportedLanguages);
     setLang(browserLanguage);
   }, []);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <>
-      <>
-        <WindowTitleChanger />
-      </>
-      <Box>
-        <Flex direction={"column"} gap={5}>
-          <Box id={"Cta"}  >
-            <Cta lang={lang} targetId={"OurServices"} />
-          </Box>
+      <WindowTitleChanger />
 
-          <Box id={"OurServices"} w="100vw" h="auto" >
-            {/*  */}<OurServices targetId={"AboutUs"} />
-          </Box>
-
-          <Box id={"AboutUs"}>
-            {/*  <AboutUs lang={lang} targetId={"OurTechnologies"} />*/}
-          </Box>
-
-          {/*
-         <Box id={"OurTechnologies"}>
-          <OurTechnologies lang={lang} targetId={"Testimonials"} />
+      <Flex direction={"column"} gap={5}>
+        <Box id={"Cta"} as="section">
+          {isMounted && (
+            <>
+              <LazyCta lang={lang} targetId={"OurServices"} />
+            </>
+          )}
         </Box>
-        */}
 
-          {/* 
-         <Box id={"Testimonials"}>
-          <TestimonialsSection lang={lang} targetId={"OurServices"} />
+        <Box id={"OurServices"} as="section">
+          {isMounted && (
+            <>
+              <LazyOurServices targetId={"AboutUs"} />
+            </>
+          )}
         </Box>
-        */}
-        </Flex>
-      </Box>
+
+        <Box id={"AboutUs"} as="section">
+          {isMounted && (
+            <>
+              <LazyAboutUs lang={lang} targetId={"OurTechnologies"} />
+            </>
+          )}
+        </Box>
+
+        <Box id={"OurTechnologies"} as="section">
+          {isMounted && (
+            <>
+              <LazyOurTechnologies lang={lang} targetId={"Testimonials"} />
+            </>
+          )}
+        </Box>
+
+        <Box id={"Testimonials"} as="section">Testimonials</Box>
+
+        <Box id={"Blog"} as="section"></Box>
+      </Flex>
     </>
   );
 }

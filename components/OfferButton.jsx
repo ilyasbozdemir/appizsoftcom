@@ -11,9 +11,9 @@ function OfferButton({ lang = `tr`, platform }) {
         <>
           <Button
             color="#fff"
-            bg={"primary"}
+            bg={"primary.100"}
             _hover={{
-              bg: "#6ebec2",
+              bg: "primary.200",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
             }}
             size="md"

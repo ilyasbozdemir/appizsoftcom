@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import OurServices from "../../sections/OurServices";
 
 function BlogPage() {
   return (
@@ -25,7 +26,7 @@ const BlogPageCTA = () => {
   const router = useRouter();
   return (
     <>
-      <Flex h={"350px"} bg="primary" w="100%" color="white" justify={"center"}>
+      <Flex h={"350px"} bg="primary.100" w="100%" color="white" justify={"center"}>
         <Center>
           <Flex direction={"column"}>
             <Text fontSize={65}>Blog</Text>
@@ -42,7 +43,7 @@ const BlogPageCTA = () => {
 const BlogPageContent = () => {
   return (
     <>
-      <></>
+    
     </>
   );
 };

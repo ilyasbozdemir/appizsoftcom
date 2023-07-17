@@ -33,7 +33,7 @@ const GetAQuoteCTA = () => {
           <Flex
             as="section"
             h={"350px"}
-            bg="primary"
+            bg="primary.100"
             w="100%"
             color="white"
             justify={"center"}
