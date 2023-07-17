@@ -23,27 +23,33 @@ function IndexPage() {
       <>
         <WindowTitleChanger />
       </>
+      <Box>
+        <Flex direction={"column"} gap={5}>
+          <Box id={"Cta"}  >
+            <Cta lang={lang} targetId={"OurServices"} />
+          </Box>
 
-      <Flex as="main" direction={"column"} gap={5}>
-        <Box id={"Cta"}>
-          <Cta lang={lang} targetId={"AboutUs"} />
-        </Box>
-        <Box id={"AboutUs"}>
-          <AboutUs lang={lang} targetId={"OurTechnologies"} />
-        </Box>
-        <Box id={"OurTechnologies"}>
+          <Box id={"OurServices"} w="100vw" h="auto" >
+            {/*  */}<OurServices targetId={"AboutUs"} />
+          </Box>
+
+          <Box id={"AboutUs"}>
+            {/*  <AboutUs lang={lang} targetId={"OurTechnologies"} />*/}
+          </Box>
+
+          {/*
+         <Box id={"OurTechnologies"}>
           <OurTechnologies lang={lang} targetId={"Testimonials"} />
         </Box>
+        */}
 
-    
-        <Box id={"Testimonials"}>
+          {/* 
+         <Box id={"Testimonials"}>
           <TestimonialsSection lang={lang} targetId={"OurServices"} />
         </Box>
-
-        <Box id={"OurServices"} mt={3}>
-          <OurServices />
-        </Box>
-      </Flex>
+        */}
+        </Flex>
+      </Box>
     </>
   );
 }
