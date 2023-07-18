@@ -6,16 +6,6 @@
       xmlns:xhtml="http://www.w3.org/1999/xhtml">
       
 	<url>
-		<loc>https://www.appizsoft.com/en/index</loc>
-		<lastmod>2023-06-29</lastmod>
-	</url>
-
-	<url>
-		<loc>https://www.appizsoft.com/favicon</loc>
-		<lastmod>2023-06-29</lastmod>
-	</url>
-
-	<url>
 		<loc>https://www.appizsoft.com/index</loc>
 		<priority>1</priority>
 		<changefreq>always</changefreq>
