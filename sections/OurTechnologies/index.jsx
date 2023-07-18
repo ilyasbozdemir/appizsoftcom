@@ -18,6 +18,7 @@ import Link from "next/link";
 const lang = `tr`;
 
 //
+
 function OurTechnologies() {
   const router = useRouter();
   const settings = {
@@ -61,11 +62,10 @@ function OurTechnologies() {
 
   const [isDragging, setIsDragging] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
   const handleMouseDown = () => {
     setIsDragging(true);
   };
-
+  
   const handleMouseUp = () => {
     setIsDragging(false);
   };
@@ -86,38 +86,36 @@ function OurTechnologies() {
           </Box>
           <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
         </Box>
+
         <Slider {...settings}>
           {technologies.map((image, index) => (
             <React.Fragment key={index}>
-              <Box
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-                cursor={isDragging ? "pointer" : "grabbing"}
-              >
-                <Link
-                  href={`${lang}/technologies#${image.id}`}
-                  passHref
-                  legacyBehavior
+              <Tooltip aria-label="A tooltip" label={image.title} hasArrow>
+                <div
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  onMouseDown={handleMouseDown}
+                  onMouseUp={handleMouseUp}
                 >
-                  <a
-                    style={{
-                      pointerEvents: isDragging ? "none" : "auto",
-                    }}
-                  >
-                    <ChakraImage
-                      id={image.id}
-                      src={image.imageUrl}
-                      alt={`${image.title}`}
-                      width={50}
-                      height={50}
-                      filter={"grayscale(95%)"}
-                      cursor={isDragging ? "grabbing" : "pointer"}
-                    />
-                  </a>
-                </Link>
-              </Box>
+                  <Link href={`${lang}/technologies#${image.id}`} passHref legacyBehavior>
+                    <a
+                      style={{
+                        pointerEvents: isDragging ? "none" : "auto",
+                        cursor: isDragging ? "grabbing" : "pointer",
+                      }}
+                    >
+                      <ChakraImage
+                        id={image.id}
+                        src={image.imageUrl}
+                        alt={`${image.title}`}
+                        width={50}
+                        height={50}
+                        filter={"grayscale(95%)"}
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </Tooltip>
             </React.Fragment>
           ))}
         </Slider>
@@ -130,7 +128,7 @@ function OurTechnologies() {
             color={"#0066ff"}
             fontWeight={"semibold"}
             mt={3}
-            cursor={'pointer'}
+            cursor={"pointer"}
           >
             Tam hizmet teknolojilerimizi görüntüleyin →
           </Text>

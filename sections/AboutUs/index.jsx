@@ -56,7 +56,7 @@ function AboutUs({ lang,targetId }) {
             </Text>
           </Stack>
         
-          <Flex direction={"row"} justifyContent={"space-between"}>
+          <Flex direction={"row"} justifyContent={"space-between"} px={5}>
             <Button
               rounded={"full"}
               colorScheme={colorMode === "light" ? "black" : "white"}
@@ -92,9 +92,11 @@ function AboutUs({ lang,targetId }) {
             </Button>
           </Flex>
         </Container>
-        <Center>
+        <Box display={{ base: "none", lg: "initial" }}>
+          <Center>
             <ScrollToIdButton targetId={targetId} />
           </Center>
+        </Box>
       </Flex>
     </>
   );
