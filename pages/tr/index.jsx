@@ -14,10 +14,14 @@ const LazyAboutUs = dynamic(() => import("../../sections/AboutUs"));
 const LazyOurTechnologies = dynamic(() =>
   import("../../sections/OurTechnologies")
 );
-const LazyTestimonialsSection = dynamic(() =>
-  import("../../sections/Testimonials")
-);
+const LazyTestimonials = dynamic(() => import("../../sections/Testimonials"));
 const LazyWhyChooseUs = dynamic(() => import("../../sections/WhyChooseUs"));
+const LazyOurWorkProcess = dynamic(() =>
+  import("../../sections/OurWorkProcess")
+);
+const LazyBlog = dynamic(() => import("../../sections/Blog"));
+const LazyPartners = dynamic(() => import("../../sections/Partners"));
+
 //
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -31,6 +35,43 @@ function IndexPage() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const RenderLazyComponent = (id, lang = `tr`, targetId) => {
+    switch (id) {
+      case "Cta":
+        return <LazyCta lang={lang} targetId={targetId} />;
+      case "OurServices":
+        return <LazyOurServices targetId={targetId} />;
+      case "AboutUs":
+        return <LazyAboutUs lang={lang} targetId={targetId} />;
+      case "OurTechnologies":
+        return <LazyOurTechnologies lang={lang} targetId={targetId} />;
+      case "OurWorkProcess":
+        return <LazyOurWorkProcess lang={lang} targetId={targetId} />;
+      case "LazyWhyChooseUs":
+        return <LazyWhyChooseUs lang={lang} targetId={targetId} />;
+      case "Testimonials":
+        return <LazyTestimonials lang={lang} targetId={targetId} />;
+      case "Partners":
+        return <LazyPartners lang={lang} targetId={targetId} />;
+      case "Blog":
+        return <LazyBlog lang={lang} targetId={targetId} />;
+      default:
+        return null;
+    }
+  };
+
+  const priorityOrder = [
+    { id: "Cta", targetId: "OurServices" },
+    { id: "OurServices", targetId: "AboutUs" },
+    { id: "AboutUs", targetId: "OurTechnologies" },
+    { id: "OurTechnologies", targetId: "OurWorkProcess" },
+    { id: "OurWorkProcess", targetId: "WhyChooseUs" },
+    { id: "WhyChooseUs", targetId: "Testimonials" },
+    { id: "Testimonials", targetId: "Partners" },
+    { id: "Partners", targetId: "Blog" },
+    { id: "Blog", targetId: "" },
+  ];
 
   return (
     <>
@@ -56,29 +97,49 @@ function IndexPage() {
         <Box id={"AboutUs"} as="section">
           {isMounted && (
             <>
-              <LazyAboutUs lang={lang} targetId={"OurTechnologies"} />
+              <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
             </>
           )}
         </Box>
 
-        <Box id={"OurTechnologies"} as="section">
+        <Box id={"OurWorkProcess"} as="section">
           {isMounted && (
             <>
-              <LazyOurTechnologies lang={lang} targetId={"Testimonials"} />
+              <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
             </>
           )}
         </Box>
-        <Box id={"LazyWhyChooseUs"} as="section">
-          Why Choose Us section
+        <Box id={"OurWorkProcess"} as="section">
+          {isMounted && (
+            <>
+              <LazyOurWorkProcess lang={lang} targetId={"Testimonials"} />
+            </>
+          )}
         </Box>
+
+        <Box id={"Partners"} as="section">
+          {isMounted && (
+            <>
+              <LazyPartners lang={lang} targetId={"Testimonials"} />
+            </>
+          )}
+        </Box>
+
         <Box id={"Testimonials"} as="section">
-          Testimonials section
+          {isMounted && (
+            <>
+              <LazyTestimonials lang={lang} targetId={"Blog"} />
+            </>
+          )}
         </Box>
+
         <Box id={"Blog"} as="section">
-          Blog section
+          {isMounted && (
+            <>
+              <LazyBlog lang={lang} />
+            </>
+          )}
         </Box>
-   
-     
       </Flex>
     </>
   );

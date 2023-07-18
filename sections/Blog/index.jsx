@@ -1,7 +1,7 @@
-import { Box, Divider, Flex, Heading } from "@chakra-ui/react";
+import { Box, Divider, Heading } from "@chakra-ui/react";
 import React from "react";
 
-function PartnersSection() {
+function Blog() {
   return (
     <>
       <Box mx={3} display="flex" alignItems="center">
@@ -12,24 +12,18 @@ function PartnersSection() {
             as="h2"
             fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
           >
-           Partnerlerimiz
+            Blog
           </Heading>
         </Box>
         <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
       </Box>
 
-      <Flex
-        direction={{ base: "column", md: "row" }}
-        justifyContent={"space-between"}
-        p={3}
-      >
-       <>
-       
-       
-       </>
-      </Flex>
+<>
+
+</>
+
     </>
   );
 }
 
-export default PartnersSection;
+export default Blog;

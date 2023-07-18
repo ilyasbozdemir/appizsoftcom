@@ -180,7 +180,7 @@ function WithSpeechBubbles() {
         <Center>
           <Text
             onClick={() => {
-              router.push(`${lang}/teknolojilerimiz#${image.id}`);
+              
             }}
             color={"#0066ff"}
             fontWeight={"semibold"}
@@ -194,7 +194,7 @@ function WithSpeechBubbles() {
   );
 }
 
-function TestimonialsSection() {
+function Testimonials() {
   return (
     <>
       <Center p={4}>
@@ -204,4 +204,4 @@ function TestimonialsSection() {
   );
 }
 
-export default TestimonialsSection;
+export default Testimonials;

@@ -31,10 +31,16 @@ const Services = (props) => {
         userSelect={"none"}
         p={5}
         //bg={useColorModeValue("#F5F5F5", "#fff")}
-        boxShadow={
-          "rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;"
-        }
+        boxShadow={"rgba(17, 17, 26, 0.1) 0px 0px 16px;"}
         borderRadius={"10px"}
+        cursor="pointer"
+        role={"group"}
+        _hover={{
+          boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
+        }}
+        onClick={() => {
+          router.push(`tr/service/${href}`);
+        }}
       >
         <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
           <Image id={id} height={70} width={70} src={img} draggable={false} />
@@ -67,6 +73,9 @@ const Services = (props) => {
               rightIcon={<BsArrowRight />}
               w={"full"}
               h={"50px"}
+              _groupHover={{
+                boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
+              }}
             >
               İncele
             </Button>
@@ -100,7 +109,7 @@ function OurServices({ targetId }) {
 
         <SimpleGrid
           columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
-          spacing={5}
+          spacing={2}
           justify="center"
         >
           {services.map(
