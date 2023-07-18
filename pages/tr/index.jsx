@@ -113,6 +113,7 @@ function IndexPage() {
             </>
           )}
         </Box>
+        
         <Box id={"OurWorkProcess"} as="section">
           {isMounted && (
             <>
