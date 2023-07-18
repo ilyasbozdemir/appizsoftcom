@@ -22,7 +22,13 @@ const Services = (props) => {
   const router = useRouter();
 
   return (
-    <Flex gap={5} mt={2} mx={5} direction={"column"}>
+    <Flex
+      gap={5}
+      mt={2}
+      mx={5}
+      direction={"column"}
+      p={{ base: 3, md: 5, lg: 10 }}
+    >
       <Flex
         direction={"column"}
         gap={5}

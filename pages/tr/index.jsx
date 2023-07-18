@@ -89,18 +89,22 @@ function IndexPage() {
         <Box id={"OurServices"} as="section">
           {isMounted && (
             <>
-              <LazyOurServices targetId={"AboutUs"} />
+              <LazyOurServices targetId={"Technologies"} />
             </>
           )}
         </Box>
 
-        <Box id={"AboutUs"} as="section">
+        {/*
+  
+    <Box id={"Technologies"} as="section">
           {isMounted && (
             <>
               <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
             </>
           )}
         </Box>
+  
+  */}
 
         <Box id={"OurWorkProcess"} as="section">
           {isMounted && (
@@ -117,7 +121,8 @@ function IndexPage() {
           )}
         </Box>
 
-        <Box id={"Partners"} as="section">
+        {/*
+    <Box id={"Partners"} as="section">
           {isMounted && (
             <>
               <LazyPartners lang={lang} targetId={"Testimonials"} />
@@ -133,13 +138,15 @@ function IndexPage() {
           )}
         </Box>
 
-        <Box id={"Blog"} as="section">
+        <Box id={"Blog"} as="section" display={"none"}>
           {isMounted && (
             <>
               <LazyBlog lang={lang} />
             </>
           )}
         </Box>
+  
+  */}
       </Flex>
     </>
   );
