@@ -83,7 +83,7 @@ const Services = (props) => {
 function OurServices({ targetId }) {
   return (
     <>
-      <Flex as={'article'} direction={"column"} gap={5} w="100vw" h="auto">
+      <Flex as={"article"} direction={"column"} gap={5} w="100vw" h="auto">
         <Box mx={3} display="flex" alignItems="center">
           <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
           <Box flex="1" textAlign="center">
@@ -114,8 +114,13 @@ function OurServices({ targetId }) {
         </SimpleGrid>
 
         <Center>
-          <Flex direction={"column"}>
-            <Button></Button>
+          <Flex direction={"column"} gap={3}>
+            <Link href={"/tr/services"} passHref>
+              <Button variant={"outline"} color="primary.100" p={5}>
+                Hizmetlerimizi İncele
+              </Button>
+            </Link>
+
             <Text>Diğer Hizmetlerimizi İnceleyin</Text>
           </Flex>
         </Center>

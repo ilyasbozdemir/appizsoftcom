@@ -77,7 +77,7 @@ function IndexPage() {
         <Box id={"Blog"} as="section">
           Blog section
         </Box>
-
+   
      
       </Flex>
     </>
