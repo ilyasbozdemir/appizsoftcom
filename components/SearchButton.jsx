@@ -115,7 +115,7 @@ function SearchButton() {
               />
             </ModalBody>
             {!isMobile && (
-              <ModalFooter display={'none'}>
+              <ModalFooter display={"none"}>
                 <Flex direction={"row"} justifyContent={"space-between"}>
                   <Kbd>Enter</Kbd> <Text color={"#969faf"}>Seç</Text>
                   <Spacer />
@@ -150,7 +150,12 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`/api/search?query=${searchQuery}`);
+      const response = await axios.get(`/api/search`, {
+        params: {
+          query: searchQuery,
+        },
+      });
+
       const searchData = response.data;
 
       setSearchResults(response.data);
@@ -158,7 +163,7 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
       console.error(error);
     }
   };
-  
+
   useEffect(() => {
     if (isOpen) {
       searchInputRef.current?.focus();
@@ -206,7 +211,7 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
         {isMobile && (
           <>
             <HStack>
-              <Text onClick={onClose} cursor={"pointer"} color={"primary"}>
+              <Text onClick={onClose} cursor={"pointer"} color={"primary.100"}>
                 <>Kapat</>
               </Text>
             </HStack>
@@ -229,7 +234,7 @@ const SearchContent = ({ isMobile, onClose, isOpen }) => {
               bg={"gray.100"}
               borderRadius={"md"}
               p={3}
-              _hover={{ bg: "primary", color: "white" }}
+              _hover={{ bg: "primary.100", color: "white" }}
               cursor={"pointer"}
             >
               <Flex

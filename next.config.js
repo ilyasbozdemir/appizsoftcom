@@ -5,7 +5,9 @@ module.exports = {
     defaultLocale: "tr",
   },
   */
-
+  env: {
+    PRIVATE_KEY: process.env.PRIVATE_KEY
+  },
   reactStrictMode: true,
   images: {
     unoptimized: true,
