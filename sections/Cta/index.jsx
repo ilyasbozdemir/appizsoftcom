@@ -8,12 +8,10 @@ import {
   useColorModeValue,
   Center,
 } from "@chakra-ui/react";
-import { Link } from "react-scroll";
 import Router, { useRouter } from "next/router";
-import { FaCaretDown } from "react-icons/fa";
 
-import { motion } from "framer-motion";
 import StartProjectButton from "../../components/StartProjectButton";
+import ScrollToIdButton from "../../components/ScrollToIdButton ";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -89,28 +87,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
             <StartProjectButton />
 
             <Center>
-              <Link to={targetId} smooth={true} duration={500} offset={-120}>
-                <motion.div
-                  initial={{ y: 0, opacity: 0 }}
-                  animate={{
-                    y: [0, -1, 0], // Animation sequence: move up, move down, move up
-                    opacity: [1, 0.5, 1], // Animation sequence: fade in, fade out, fade in
-                  }}
-                  transition={{
-                    repeat: Infinity, // Repeat animation indefinitely
-                    repeatType: "reverse", // Reverse the animation sequence on each repeat
-                    type: "spring",
-                    damping: 20,
-                    stiffness: 100,
-                  }}
-                >
-                  <FaCaretDown
-                    fontSize={80}
-                    cursor="pointer"
-                    color={useColorModeValue("black", "white")}
-                  />
-                </motion.div>
-              </Link>
+              <ScrollToIdButton targetId={targetId} />
             </Center>
           </Stack>
         </Stack>

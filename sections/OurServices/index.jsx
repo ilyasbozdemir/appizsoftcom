@@ -5,9 +5,6 @@ import {
   Heading,
   Box,
   Center,
-  Wrap,
-  WrapItem,
-  useColorModeValue,
   SimpleGrid,
   Button,
   Divider,
@@ -18,10 +15,8 @@ import { BsArrowRight } from "react-icons/bs";
 import React from "react";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
-import { Link as ScrollLink } from "react-scroll";
-import { motion } from "framer-motion";
-import { FaCaretDown } from "react-icons/fa";
 import Link from "next/link";
+import ScrollToIdButton from "../../components/ScrollToIdButton ";
 const Services = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
@@ -65,7 +60,7 @@ const Services = (props) => {
         </Text>
 
         <Flex justifyContent={"center"} mt={4}>
-          <Link href={`tr/service/${href}`}  passHref>
+          <Link href={`tr/service/${href}`} passHref>
             <Button
               variant={"outline"}
               color="primary.100"
@@ -120,28 +115,7 @@ function OurServices({ targetId }) {
 
         <Box display={{ base: "none", lg: "initial" }}>
           <Center>
-            <ScrollLink to={targetId} smooth={true} duration={500}>
-              <motion.div
-                initial={{ y: 0, opacity: 0 }}
-                animate={{
-                  y: [0, -1, 0],
-                  opacity: [1, 0.5, 1],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  type: "spring",
-                  damping: 20,
-                  stiffness: 100,
-                }}
-              >
-                <FaCaretDown
-                  fontSize={80}
-                  cursor="pointer"
-                  color={useColorModeValue("black", "white")}
-                />
-              </motion.div>
-            </ScrollLink>
+            <ScrollToIdButton targetId={targetId} />
           </Center>
         </Box>
       </Flex>

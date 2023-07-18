@@ -125,13 +125,14 @@ function OurTechnologies() {
         <Center>
           <Text
             onClick={() => {
-              router.push(`${lang}/teknolojilerimiz#${image.id}`);
+              router.push(`${lang}/technologies#${image.id}`);
             }}
             color={"#0066ff"}
             fontWeight={"semibold"}
             mt={3}
+            cursor={'pointer'}
           >
-            Tam hizmet tekliflerimizi görüntüleyin →
+            Tam hizmet teknolojilerimizi görüntüleyin →
           </Text>
         </Center>
       </Flex>

@@ -31,6 +31,8 @@ function MyApp({ Component, pageProps, statusCode }) {
     AOS.refresh();
   }, []);
 
+  
+
   return (
     <>
       <>
@@ -39,10 +41,10 @@ function MyApp({ Component, pageProps, statusCode }) {
             <ErrorLayout statusCode={statusCode} />
           </>
         ) : (
-          <ChakraProvider  theme={theme} resetCSS>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
+          <ChakraProvider theme={theme} resetCSS>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </ChakraProvider>
         )}
       </>

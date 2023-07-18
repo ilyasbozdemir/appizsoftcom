@@ -1,14 +1,18 @@
 import { Icon, useColorMode } from "@chakra-ui/react";
-import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import React, { useEffect, useState } from "react";
+import { BsMoon, BsSun } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 function ThemeSwitcher() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [icon, setIcon] = useState(colorMode === "dark" ? SunIcon : MoonIcon);
+  const [darkIcon, setDarkIcon] = useState(BsMoon);
+  const [lightIcon, setLightIcon] = useState(BsSun);
+
+  const [icon, setIcon] = useState(colorMode === "dark" ? lightIcon : darkIcon);
 
   useEffect(() => {
     const channel = new BroadcastChannel("themeChannel");
-    setIcon(colorMode === "dark" ? SunIcon : MoonIcon);
+    setIcon(colorMode === "dark" ? lightIcon : darkIcon);
 
     const handleChannelMessage = (event) => {
       const { colorMode: newColorMode } = event.data;
@@ -34,15 +38,26 @@ function ThemeSwitcher() {
     toggleColorMode();
     channelBroadcast();
   };
+  const iconAnimation = {
+    scale: [1, 0.8, 1.2, 1],
+    transition: {
+      duration: 0.3,
+    },
+  };
 
   return (
     <>
-      <Icon
-        as={icon}
-        onClick={handleToggleColorMode}
-        cursor="pointer"
-        fontSize="lg"
-      />
+      <motion.div
+        initial={{ scale: 1 }}
+        whileHover={iconAnimation} whileTap={iconAnimation}
+      >
+        <Icon
+          as={icon === darkIcon ? BsMoon : BsSun}
+          onClick={handleToggleColorMode}
+          cursor="pointer"
+          fontSize="lg"
+        />
+      </motion.div>
     </>
   );
 }

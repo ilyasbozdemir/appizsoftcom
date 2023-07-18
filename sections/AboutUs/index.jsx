@@ -6,17 +6,12 @@ import {
   Text,
   Container,
   Button,
-  Icon,
-  useColorModeValue,
   useColorMode,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
 import React from "react";
-import { FaCaretDown } from "react-icons/fa";
-import { Link } from "react-scroll";
 import Logo from "../../components/shared/Logo";
+import ScrollToIdButton from "../../components/ScrollToIdButton ";
 
 function AboutUs({ lang,targetId }) {
   const router = useRouter();
@@ -98,29 +93,8 @@ function AboutUs({ lang,targetId }) {
           </Flex>
         </Container>
         <Center>
-          <Link to={targetId} smooth={true} duration={500} offset={-88}>
-            <motion.div
-              initial={{ y: 0, opacity: 0 }}
-              animate={{
-                y: [0, -1, 0], // Animation sequence: move up, move down, move up
-                opacity: [1, 0.5, 1], // Animation sequence: fade in, fade out, fade in
-              }}
-              transition={{
-                repeat: Infinity, // Repeat animation indefinitely
-                repeatType: "reverse", // Reverse the animation sequence on each repeat
-                type: "spring",
-                damping: 20,
-                stiffness: 100,
-              }}
-            >
-              <FaCaretDown
-                fontSize={80}
-                cursor="pointer"
-                color={useColorModeValue("black", "white")}
-              />
-            </motion.div>
-          </Link>
-        </Center>
+            <ScrollToIdButton targetId={targetId} />
+          </Center>
       </Flex>
     </>
   );

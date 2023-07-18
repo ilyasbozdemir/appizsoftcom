@@ -36,6 +36,9 @@ export default class MyDocument extends Document {
           />
 
           <Analytics />
+          
+          <link rel="stylesheet" href="/styles/globals.css" />
+
         </Head>
 
         <body style={{bg:'#111'}}>

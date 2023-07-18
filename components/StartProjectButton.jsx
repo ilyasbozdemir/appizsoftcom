@@ -1,8 +1,11 @@
 import { Button, useColorMode } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import React from "react";
 
 function StartProjectButton() {
   const { colorMode } = useColorMode();
+  const router = useRouter();
+  const lang = `tr`;
   return (
     <>
       <Button

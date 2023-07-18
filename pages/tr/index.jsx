@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
+const LazyCta = dynamic(() => import("../../sections/Cta"), {
+  //loading: () => <p>Loading...</p>,
+});
 
-const LazyCta = dynamic(() => import("../../sections/Cta"));
 const LazyOurServices = dynamic(() => import("../../sections/OurServices"));
 const LazyAboutUs = dynamic(() => import("../../sections/AboutUs"));
 
@@ -15,7 +17,8 @@ const LazyOurTechnologies = dynamic(() =>
 const LazyTestimonialsSection = dynamic(() =>
   import("../../sections/Testimonials")
 );
-
+const LazyWhyChooseUs = dynamic(() => import("../../sections/WhyChooseUs"));
+//
 function IndexPage() {
   const [lang, setLang] = React.useState("");
   useEffect(() => {
@@ -65,10 +68,17 @@ function IndexPage() {
             </>
           )}
         </Box>
+        <Box id={"LazyWhyChooseUs"} as="section">
+          Why Choose Us section
+        </Box>
+        <Box id={"Testimonials"} as="section">
+          Testimonials section
+        </Box>
+        <Box id={"Blog"} as="section">
+          Blog section
+        </Box>
 
-        <Box id={"Testimonials"} as="section">Testimonials</Box>
-
-        <Box id={"Blog"} as="section"></Box>
+     
       </Flex>
     </>
   );
