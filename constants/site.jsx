@@ -46,7 +46,7 @@ export const site = {
     {
       id: 2,
       label: "threads",
-      link: "https://www.threads.net/",
+      link: "https://www.threads.net/appizsoftcom",
     },
 
     {

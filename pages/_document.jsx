@@ -58,6 +58,32 @@ const jsonLdSchema = {
   "inLanguage": "tr" 
 };
 
+const jsonLdSchema2 = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Appizsoft",
+  "url": site.baseUrl,
+  "logo": site.image,
+  "description": site.description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": site.address.streetAddress,
+    "addressLocality": site.address.addressLocality,
+    "addressRegion": site.address.addressRegion,
+    "postalCode": site.address.postalCode,
+    "addressCountry": site.address.addressCountry,
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": site.telephone,
+      "contactType": "customer support",
+      "availableLanguage": "Turkish",
+    },
+  ],
+  "sameAs": site.sosyalMediaLinks.map((link) => link.link),
+};
+
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
@@ -98,6 +124,10 @@ export default class MyDocument extends Document {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+          />
+             <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema2) }}
           />
         </Head>
 

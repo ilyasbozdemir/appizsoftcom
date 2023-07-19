@@ -59,249 +59,273 @@ export default function Header() {
   }, []);
 
   return (
-    <Box>
-      <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
-        justifyContent={"flex-end"}
-        display={{ base: "none", md: "flex" }}
-      >
-        <LanguageSwitcher lang={lang} />
-      </Flex>
-      <Divider />
-      <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
-        {
-          // asagıda ki yapu mobilde hambuerger menu içindir
-        }
-
-        <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
-          < >
-            <IconButton
-              onClick={onToggle}
-              icon={
-                isOpen ? (
-                  <CloseIcon w={3} h={3} fontSize={20} />
-                ) : (
-                  <BiMenuAltRight w={5} h={5} fontSize={35} />
-                )
-              }
-              variant={"ghost"}
-              aria-label={"Toggle Navigation"}
-            />
-          </>
-        </Flex>
-
-        <Flex
-          flex={{ base: 1 }}
-          justify={{ base: "center", md: "center" }}
-          gap={3}
-        >
-          <Logo
-            platform={useBreakpointValue({ base: "mobile", lg: "desktop" })}
-            lang={lang}
-          />
-
-          {
-            // asagıda ki yapu desktopta  menu içindir
-          }
-
-          <Flex display={{ base: "none", md: "flex" }} ml={10} gap={3}>
-            <HStack spacing={5}>
-              <DesktopNav />
-
-              <SearchButton />
-              <ThemeSwitcher />
-              <OfferButton />
-            </HStack>
-          </Flex>
-        </Flex>
-
-        <HStack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          spacing={6}
-          display={useBreakpointValue({ base: "initial", md: "none" })}
-        >
-          <Stack direction={"row"}>
-            <Box>
-              <ThemeSwitcher />
-            </Box>
-            <Box>
-              <SearchButton />
-            </Box>
-          </Stack>
-        </HStack>
-      </Flex>
-
-      <Collapse id={'collapse'} in={isOpen} animateOpacity>
-        <MobileNav />
-        <Flex direction={"column"}>
-          <SearchButton />
-        </Flex>
-      </Collapse>
-
-      <Flex display={{ base: "none", md: "flex" }}>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
-          transition={{ duration: isSticky ? 0.4 : 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          style={{
-            position: isSticky ? "fixed" : "relative",
-            top: 0,
-            left: 0,
-            width: "100%",
-            zIndex: 999,
-            background: "#ffffff",
-            boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
-          }}
-        >
-          <Flex
-            flex={{ base: 1 }}
-            justify={{ base: "center", md: "center" }}
-            gap={3}
-          >
-            <HStack>
-              <Logo
-                platform={useBreakpointValue({ base: "mobile", lg: "desktop" })}
-                lang={lang}
-              />
-            </HStack>
-
-            {
-              // asagıda ki yapu desktopta  menu içindir
-            }
-
+    <>
+   
+   
+        <>
+          <Box>
             <Flex
+              bg={useColorModeValue("white", "gray.800")}
+              color={useColorModeValue("gray.600", "white")}
+              justifyContent={"flex-end"}
               display={{ base: "none", md: "flex" }}
-              ml={10}
-              gap={3}
-              p={isSticky ? 4 : 0}
             >
-              <HStack spacing={5}>
-                <DesktopNav />
+              <LanguageSwitcher lang={lang} />
+            </Flex>
+            <Divider />
+            <Flex
+              bg={useColorModeValue("white", "gray.800")}
+              color={useColorModeValue("gray.600", "white")}
+              minH={"60px"}
+              py={{ base: 2 }}
+              px={{ base: 4 }}
+              borderBottom={1}
+              borderStyle={"solid"}
+              borderColor={useColorModeValue("gray.200", "gray.900")}
+              align={"center"}
+            >
+              {
+                // asagıda ki yapu mobilde hambuerger menu içindir
+              }
 
-                <SearchButton />
-                <ThemeSwitcher />
-                <OfferButton />
+              <Flex
+                flex={{ base: 1, md: "auto" }}
+                ml={{ base: -2 }}
+                display={{ base: "flex", md: "none" }}
+              >
+                <>
+                  <IconButton
+                    onClick={onToggle}
+                    icon={
+                      isOpen ? (
+                        <CloseIcon w={3} h={3} fontSize={20} />
+                      ) : (
+                        <BiMenuAltRight w={5} h={5} fontSize={35} />
+                      )
+                    }
+                    variant={"ghost"}
+                    aria-label={"Toggle Navigation"}
+                  />
+                </>
+              </Flex>
+
+              <Flex
+                flex={{ base: 1 }}
+                justify={{ base: "center", md: "center" }}
+                gap={3}
+              >
+                <Logo
+                  platform={useBreakpointValue({
+                    base: "mobile",
+                    lg: "desktop",
+                  })}
+                  lang={lang}
+                />
+
+                {
+                  // asagıda ki yapu desktopta  menu içindir
+                }
+
+                <Flex display={{ base: "none", md: "flex" }} ml={10} gap={3}>
+                  <HStack spacing={5}>
+                    <DesktopNav />
+
+                    <SearchButton />
+                    <ThemeSwitcher />
+                    <OfferButton />
+                  </HStack>
+                </Flex>
+              </Flex>
+
+              <HStack
+                flex={{ base: 1, md: 0 }}
+                justify={"flex-end"}
+                spacing={6}
+                display={useBreakpointValue({ base: "initial", md: "none" })}
+              >
+                <Stack direction={"row"}>
+                  <Box>
+                    <ThemeSwitcher />
+                  </Box>
+                  <Box>
+                    <SearchButton />
+                  </Box>
+                </Stack>
               </HStack>
             </Flex>
-          </Flex>
-        </motion.div>
-      </Flex>
 
-      <Flex display={{ base: "flex", md: "none" }}>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
-          transition={{ duration: isSticky ? 0.4 : 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          style={{
-            position: isSticky ? "fixed" : "relative",
-            top: 0,
-            left: 0,
-            width: "100%",
-            zIndex: 999,
-            background: "#ffffff",
-            boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
-          }}
-        >
-          <Flex
-            bg={useColorModeValue("white", "gray.800")}
-            color={useColorModeValue("gray.600", "white")}
-            minH={"60px"}
-            py={{ base: 2 }}
-            px={{ base: 4 }}
-            borderBottom={1}
-            borderStyle={"solid"}
-            borderColor={useColorModeValue("gray.200", "gray.900")}
-            align={"center"}
-          >
-            {
-              // asagıda ki yapu mobilde hambuerger menu içindir
-            }
-
-            <Flex
-              flex={{ base: 1, md: "auto" }}
-              ml={{ base: -2 }}
-              display={{ base: "flex", md: "none" }}
-            >
-              <IconButton
-                onClick={onToggle}
-                icon={
-                  isOpen ? (
-                    <CloseIcon w={3} h={3} fontSize={20} />
-                  ) : (
-                    <BiMenuAltRight w={5} h={5} fontSize={35} />
-                  )
-                }
-                variant={"ghost"}
-                aria-label={"Toggle Navigation"}
-              />
-            </Flex>
-
-            {
-              //
-            }
-
-            <Flex
-              flex={{ base: 1 }}
-              justify={{ base: "center", md: "center" }}
-              gap={3}
-            >
-              <Logo
-                platform={useBreakpointValue({ base: "mobile", lg: "desktop" })}
-                lang={lang}
-              />
-
-              {
-                // asagıda ki yapu desktopta  menu içindir
-              }
-
-              <Flex display={{ base: "none", md: "flex" }} ml={10} gap={3}>
-                <HStack spacing={5}>
-                  <DesktopNav />
-
-                  <SearchButton />
-                  <ThemeSwitcher />
-                  <OfferButton />
-                </HStack>
+            <Collapse id={"collapse"} in={isOpen} animateOpacity>
+              <MobileNav />
+              <Flex direction={"column"}>
+                <SearchButton />
               </Flex>
+            </Collapse>
+
+            <Flex display={{ base: "none", md: "flex" }}>
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
+                transition={{ duration: isSticky ? 0.4 : 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                style={{
+                  position: isSticky ? "fixed" : "relative",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  zIndex: 999,
+                  background: "#ffffff",
+                  boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+                }}
+              >
+                <Flex
+                  flex={{ base: 1 }}
+                  justify={{ base: "center", md: "center" }}
+                  gap={3}
+                >
+                  <HStack>
+                    <Logo
+                      platform={useBreakpointValue({
+                        base: "mobile",
+                        lg: "desktop",
+                      })}
+                      lang={lang}
+                    />
+                  </HStack>
+
+                  {
+                    // asagıda ki yapu desktopta  menu içindir
+                  }
+
+                  <Flex
+                    display={{ base: "none", md: "flex" }}
+                    ml={10}
+                    gap={3}
+                    p={isSticky ? 4 : 0}
+                  >
+                    <HStack spacing={5}>
+                      <DesktopNav />
+
+                      <SearchButton />
+                      <ThemeSwitcher />
+                      <OfferButton />
+                    </HStack>
+                  </Flex>
+                </Flex>
+              </motion.div>
             </Flex>
 
-            <HStack
-              flex={{ base: 1, md: 0 }}
-              justify={"flex-end"}
-              spacing={6}
-              display={useBreakpointValue({ base: "initial", md: "none" })}
-            >
-              <Stack direction={"row"}>
-                <Box>
-                  <ThemeSwitcher />
-                </Box>
-                <Box>
-                  <SearchButton />
-                </Box>
-              </Stack>
-            </HStack>
-          </Flex>
-        </motion.div>
-      </Flex>
-    </Box>
+            <Flex display={{ base: "flex", md: "none" }}>
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
+                transition={{ duration: isSticky ? 0.4 : 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                style={{
+                  position: isSticky ? "fixed" : "relative",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  zIndex: 999,
+                  background: "#ffffff",
+                  boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+                }}
+              >
+                <Flex
+                  bg={useColorModeValue("white", "gray.800")}
+                  color={useColorModeValue("gray.600", "white")}
+                  minH={"60px"}
+                  py={{ base: 2 }}
+                  px={{ base: 4 }}
+                  borderBottom={1}
+                  borderStyle={"solid"}
+                  borderColor={useColorModeValue("gray.200", "gray.900")}
+                  align={"center"}
+                >
+                  {
+                    // asagıda ki yapu mobilde hambuerger menu içindir
+                  }
+
+                  <Flex
+                    flex={{ base: 1, md: "auto" }}
+                    ml={{ base: -2 }}
+                    display={{ base: "flex", md: "none" }}
+                  >
+                    <IconButton
+                      onClick={onToggle}
+                      icon={
+                        isOpen ? (
+                          <CloseIcon w={3} h={3} fontSize={20} />
+                        ) : (
+                          <BiMenuAltRight w={5} h={5} fontSize={35} />
+                        )
+                      }
+                      variant={"ghost"}
+                      aria-label={"Toggle Navigation"}
+                    />
+                  </Flex>
+
+                  {
+                    //
+                  }
+
+                  <Flex
+                    flex={{ base: 1 }}
+                    justify={{ base: "center", md: "center" }}
+                    gap={3}
+                  >
+                    <Logo
+                      platform={useBreakpointValue({
+                        base: "mobile",
+                        lg: "desktop",
+                      })}
+                      lang={lang}
+                    />
+
+                    {
+                      // asagıda ki yapu desktopta  menu içindir
+                    }
+
+                    <Flex
+                      display={{ base: "none", md: "flex" }}
+                      ml={10}
+                      gap={3}
+                    >
+                      <HStack spacing={5}>
+                        <DesktopNav />
+
+                        <SearchButton />
+                        <ThemeSwitcher />
+                        <OfferButton />
+                      </HStack>
+                    </Flex>
+                  </Flex>
+
+                  <HStack
+                    flex={{ base: 1, md: 0 }}
+                    justify={"flex-end"}
+                    spacing={6}
+                    display={useBreakpointValue({
+                      base: "initial",
+                      md: "none",
+                    })}
+                  >
+                    <Stack direction={"row"}>
+                      <Box>
+                        <ThemeSwitcher />
+                      </Box>
+                      <Box>
+                        <SearchButton />
+                      </Box>
+                    </Stack>
+                  </HStack>
+                </Flex>
+              </motion.div>
+            </Flex>
+          </Box>
+        </>
+   
+   
+    </>
   );
 }
 

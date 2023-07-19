@@ -1,30 +1,160 @@
 import {
   Box,
-  Center,
-  Flex,
+  Container,
+  SimpleGrid,
   Stack,
   Text,
+  Flex,
+  Tag,
   useColorModeValue,
-  Button,
-  HStack,
-  Divider,
-  useBreakpointValue,
+  Center,
   useTheme,
   useColorMode,
-  Link,
-  VStack,
-  Icon,
-  Image,
+  useBreakpointValue,
+  Button,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import SosyalMediaIcon from "../SosyalMediaIcon";
 import Logo from "../Logo";
-import { site } from "../../../constants/site";
-import LanguageSwitcher from "../../LanguageSwitcher";
-import { menuList } from "../../../constants/menuList";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { FiTwitter } from "react-icons/fi";
-import { GrInstagram } from "react-icons/gr";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+
+const ListHeader = ({ children }) => {
+  return (
+    <Text
+      fontWeight={"500"}
+      fontSize={"lg"}
+      mb={2}
+      textDecoration={"underline"}
+    >
+      {children}
+    </Text>
+  );
+};
+
+export default function LargeWithLogoCentered() {
+  const googlePartnersUrl = `#`;
+
+  return (
+    <Flex direction={"column"} pos={"relative"} w="100%" h="auto">
+      <Center>
+        <Box pos={"relative"} style={{ top: "25px", zIndex: 2 }}>
+          <FooterTopContent />
+        </Box>
+      </Center>
+
+      <Box
+        bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
+        color={useColorModeValue("white", "gray.200")}
+        w="100vw"
+        h="auto"
+        pos={"relative"}
+        style={{ zIndex: 1 }}
+      >
+        <Flex direction={"column"} justify={"center"} justifyContent={"center"}>
+          <Container as={Stack} maxW={"8xl"} py={10}>
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+              <Stack align={"flex-start"}>
+                <ListHeader>Ürün</ListHeader>
+                <Link href={"#"}>Genel Bakış</Link>
+                <Link href={"#"}>Ücretlendirme</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>Kurumsal</ListHeader>
+                <Link href={"#"}>Hakkımızda</Link>
+                <Link href={"#"}>Kariyer</Link>
+                <Link href={"#"}>Bize Ulaşın</Link>
+                <Link href={"#"}>Partnerlerimiz</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>Yazılım Hizmetlerimiz</ListHeader>
+                <Link href={"#"}>Web Tasarım ve Geliştirme</Link>
+                <Link href={"#"}>Mobil Uygulama Geliştirme</Link>
+                <Link href={"#"}>Veritabanı Yönetimi</Link>
+                <Link href={"#"}>Bulut Bilişim Hizmetleri</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>Dijital Hizmetlerimiz</ListHeader>
+                <Link href={"#"}>Grafik Tasarım</Link>
+                <Link href={"#"}>Prodüksiyon Hizmetleri</Link>
+                <Link href={"#"}>Sosyal Medya Yönetimi</Link>
+                <Link href={"#"}>Dijital Pazarlama</Link>
+                <Link href={"#"}>SEO (Arama Motoru Optimizasyonu)</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>E-ticaret Çözümleri</ListHeader>
+                <Link href={"#"}>Sanal Mağaza Oluşturma</Link>
+                <Link href={"#"}>Ödeme Entegrasyonu</Link>
+                <Link href={"#"}>Envanter Yönetimi</Link>
+                <Link href={"#"}>Müşteri İlişkileri Yönetimi</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>Blog / RSS</ListHeader>
+                <Link href={"#"}>Blog Yazıları</Link>
+                <Link href={"#"}>RSS Aboneliği</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>Legal</ListHeader>
+                <Link href={"#"}>Çerez Politikası</Link>
+                <Link href={"#"}>Gizlilik Politikası</Link>
+                <Link href={"#"}>KVKK</Link>
+                <Link href={"#"}>Satış Sözleşmesi</Link>
+                <Link href={"#"}>Gizlilik Sözleşmesi</Link>
+              </Stack>
+              <Stack align={"flex-start"}>
+                <ListHeader>Bizi takip edin</ListHeader>
+                <Link href={"#"}>Instagram</Link>
+                <Link href={"#"}>Facebook</Link>
+                <Link href={"#"}>Twitter</Link>
+                <Link href={"#"}>LinkedIn</Link>
+                <Link href={"#"}>Pinterest</Link>
+              </Stack>
+            </SimpleGrid>
+          </Container>
+
+          <Box py={10} display={"none"}>
+            <Link
+              href={googlePartnersUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="https://www.gstatic.com/partners/badge/images/2022/PartnerBadgeClickable.svg"
+                alt="google-partner"
+                width={80}
+                height={80}
+              />
+            </Link>
+          </Box>
+
+          <Box py={10}>
+            <Flex
+              align={"center"}
+              _before={{
+                content: '""',
+                borderBottom: "1px solid",
+                borderColor: useColorModeValue("gray.200", "gray.700"),
+                flexGrow: 1,
+                mr: 8,
+              }}
+              _after={{
+                content: '""',
+                borderBottom: "1px solid",
+                borderColor: useColorModeValue("gray.200", "gray.700"),
+                flexGrow: 1,
+                ml: 8,
+              }}
+            >
+              <Logo isLink={false} s={{ h: 125, w: 250 }} />
+            </Flex>
+            <Text pt={6} fontSize={"sm"} textAlign={"center"}>
+              <FooterData />
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
+    </Flex>
+  );
+}
 
 const FooterTopContent = () => {
   const router = useRouter();
@@ -102,7 +232,7 @@ const FooterTopContent = () => {
               </Flex>
               <Box>
                 <Button
-                  colorScheme={colorMode === "dark" ? "messenger" : "messenger"}
+                  colorScheme={colorMode === "dark" ? "white" : "messenger"}
                   rounded={"full"}
                   p={3}
                   variant="outline"
@@ -122,39 +252,7 @@ const FooterTopContent = () => {
   );
 };
 
-const SiteNavigationElement = ({ header, menus }) => {
-  const router = useRouter();
-  return (
-    <>
-      <Flex
-        ml={"50px"}
-        direction={"column"}
-        itemscope="itemscope"
-        itemtype="https://www.schema.org/SiteNavigationElement"
-      >
-        <Text fontWeight={"bold"} fontSize={18}>
-          {header}
-        </Text>
-
-        <Flex mt={5} gap={2} direction={"column"}>
-          {menus.map((menu) => (
-            <Text
-              onClick={() => {
-                router.push("/tr/" + menu.href);
-              }}
-              cursor={"pointer"}
-            >
-              {menu.title}
-            </Text>
-          ))}
-        </Flex>
-      </Flex>
-    </>
-  );
-};
-
-const FooterContent = () => {
-  const router = useRouter();
+const FooterData = () => {
   const startYear = 2023;
   const currentYear = new Date().getFullYear();
   let yearText;
@@ -163,175 +261,5 @@ const FooterContent = () => {
   } else {
     yearText = `${startYear}`;
   }
-
-  const FooterData = () => {
-    return <Text> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</Text>;
-  };
-
-  const getChildrenByTitle = (items, title) => {
-    const item = items.find((item) => item.title === title);
-    return item ? item.children : [];
-  };
-
-  const institutionalMenu = getChildrenByTitle(menuList, "Kurumsal");
-
-  const contractMenu = [
-    {
-      title: "Gizlilik Politikası",
-      href: "/gizlilik-politikasi",
-    },
-    {
-      title: "Çerez Politikası",
-      href: "/cerez-politikasi",
-    },
-  ];
-  const serviceMenu = [
-    {
-      title: "Özel Yazılım Geliştirme",
-      href: "/service/ozel-yazilim-gelistirme",
-    },
-    {
-      title: "E-ticaret Yazılımı",
-      href: "/service/e-ticaret-yazilimi",
-    },
-    {
-      title: "Oyun Tasarım",
-      href: "/service/oyun-tasarim",
-    },
-    {
-      title: "Prodüksiyon & Tasarım",
-      href: "/service/produksiyon-tasarim",
-    },
-  ];
-  return (
-    <Flex
-      bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
-      color={useColorModeValue("gray.300", "gray.300")}
-    >
-      <Box as={Stack} >
-        <Flex
-          gap={15}
-          direction={{ base: "column", md: "row" }}
-          wrap={"wrap"}
-        >
-          <Center
-            as={Flex}
-            direction={"column"}
-            itemScope
-            itemType="http://schema.org/Organization"
-          >
-            <Logo isLink={false} s={{ h: 125, w: 250 }} />
-
-            <Box
-              mt={2}
-              pt={".5rem"}
-              itemScope
-              itemType="http://schema.org/ContactPoint"
-            >
-              <Text
-                fontSize={15}
-                fontFamily={"montserrat-extra-bold"}
-                itemProp="telephone"
-              >
-                <a itemProp="email" href={`mailto:${site.telephone}`}>
-                  {site.telephone}
-                </a>
-              </Text>
-            </Box>
-            <Box pt={".5rem"}>
-              <Text
-                fontSize={15}
-                fontFamily={"montserrat-extra-bold"}
-                itemScope
-                itemType="http://schema.org/ContactPoint"
-              >
-                <a itemProp="email" href={`mailto:${site.mailAddress}`}>
-                  {site.mailAddress}
-                </a>
-              </Text>
-            </Box>
-
-            <Box
-              as={Flex}
-              pt={".5rem"}
-              itemScope
-              itemType="https://schema.org/PostalAddress"
-              fontSize={15}
-              fontFamily={"montserrat-extra-bold"}
-              gap={3}
-            >
-              <Text as={"span"} itemProp="streetAddress">
-                {site.address.streetAddress}
-              </Text>
-              <Text as={"span"} itemProp="addressLocality">
-                {site.address.addressLocality}
-              </Text>
-              <Text as={"span"} itemProp="addressRegion">
-                {site.address.addressRegion}
-              </Text>
-              <Text as={"span"} itemProp="postalCode">
-                {site.address.postalCode}
-              </Text>
-              <Text as={"span"} itemProp="addressCountry">
-                {site.address.addressCountry}
-              </Text>
-            </Box>
-            <Stack mt={5}>
-              <SosyalMediaIcon />
-            </Stack>
-          </Center>
-
-          <Flex gap={5}>
-            <SiteNavigationElement
-              header={"Kurumsal"}
-              menus={institutionalMenu}
-            />
-          </Flex>
-          <Flex gap={5}>
-            <SiteNavigationElement
-              header={"Sözleşmeler"}
-              menus={contractMenu}
-            />
-          </Flex>
-
-          <Flex gap={5}>
-            <SiteNavigationElement header={"Hizmetler"} menus={serviceMenu} />
-          </Flex>
-        </Flex>
-
-        <Divider />
-
-        <Flex
-          justifyContent={{ base: "center", md: "space-between" }}
-          direction={{ base: "column-reverse", md: "row" }}
-          px={20}
-          gap={3}
-        >
-          <FooterData />
-          <HStack direction={"row"}>
-            <Text>Select Language: </Text>
-            <LanguageSwitcher lang={"tr"} />
-          </HStack>
-        </Flex>
-      </Box>
-    </Flex>
-  );
+  return <Text> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</Text>;
 };
-
-const Footer = () => {
-  return (
-    <Flex direction={"column"} pos={"relative"} w="100%" h="auto" display={'none'} >
-      <Center>
-        <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
-          <FooterTopContent />
-        </Box>
-      </Center>
-
-      <Box pos={"relative"} style={{ zIndex: 1 }}>
-        <FooterContent />
-      </Box>
-    </Flex>
-  );
-};
-
-export default Footer;
