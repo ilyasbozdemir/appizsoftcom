@@ -145,6 +145,7 @@ const OurWorkProcessFeature = () => {
         _dark={{
           bg: "gray.800",
         }}
+        borderRadius={'15px'}
       >
         <Box
           textAlign={{
