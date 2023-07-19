@@ -22,11 +22,7 @@ const Services = (props) => {
   const router = useRouter();
 
   return (
-    <Flex
-      gap={5}
-      direction={"column"}
-      p={{ base: 3, md: 5, lg: 8 }}
-    >
+    <Flex gap={5} direction={"column"} p={{ base: 3, md: 5, lg: 8 }}>
       <Flex
         direction={"column"}
         gap={5}
@@ -43,7 +39,9 @@ const Services = (props) => {
           boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
         }}
         onClick={() => {
-          router.push(`tr/service/${href}`);
+          router.push("/tr/service/[id]", `/tr/service/${href}`, {
+            shallow: true,
+          });
         }}
       >
         <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
@@ -71,7 +69,12 @@ const Services = (props) => {
         </Text>
 
         <Flex justifyContent={"center"} mt={4}>
-          <Link href={`tr/service/${href}`} passHref>
+          <Link
+            href="/tr/service/[id]"
+            as={`/tr/service/${href}`}
+            shallow={true}
+            passHref
+          >
             <Button
               variant={"outline"}
               color="primary.100"
@@ -138,8 +141,6 @@ function OurServices({ targetId }) {
             <Text>Diğer Hizmetlerimizi İnceleyin</Text>
           </Flex>
         </Center>
-
-
       </Flex>
     </>
   );

@@ -26,7 +26,7 @@ export const services = [
 
   {
     id: 7002,
-    href: `e-commerce-solutions`,
+    href: "e-commerce-solutions",
     title: "E-ticaret Çözümleri",
     img: "/images/e_commerce.png",
     desc: "Herkes e-ticarette satış yapmak istiyor; ama kim daha iyi satış yapacak? Büyük oyuncular ve zorlu e-ticaret sürecinde uzman ekibimizle birlikte yanınızdayız",
@@ -41,9 +41,9 @@ export const services = [
     id: 7003,
     href: "startup-solutions",
     title: "Start-Up Çözümleri",
-    img: "/images/e_commerce.png",
+    img: "/images/start_up.png",
     desc: ``,
-    content: ``,
+    content: `Start-up dünyasının zorluklarını anlıyoruz ve size özel çözümler sunarak rekabet avantajı elde etmenize yardımcı oluyoruz. Deneyimli ekibimiz, projenizin her aşamasında yanınızda yer alarak başarıya ulaşmanızı destekliyoruz.`,
     serviceCategory: "software",
     isServicesComponentDisplay: false,
   },
