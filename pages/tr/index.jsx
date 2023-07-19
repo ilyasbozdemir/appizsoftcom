@@ -79,74 +79,50 @@ function IndexPage() {
 
       <Flex direction={"column"} gap={5}>
         <Box id={"Cta"} as="section">
-          {isMounted && (
-            <>
-              <LazyCta lang={lang} targetId={"OurServices"} />
-            </>
-          )}
+          {isMounted && <LazyCta lang={lang} targetId={"OurServices"} />}
         </Box>
 
         <Box id={"OurServices"} as="section">
-          {isMounted && (
-            <>
-              <LazyOurServices targetId={"Technologies"} />
-            </>
-          )}
+          {isMounted && <LazyOurServices targetId={"Technologies"} />}
         </Box>
-
         {/*
-  
     <Box id={"Technologies"} as="section">
           {isMounted && (
-            <>
-              <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
-            </>
-          )}
-        </Box>
-  
-  */}
-
-        <Box id={"OurWorkProcess"} as="section">
-          {isMounted && (
-            <>
-              <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
-            </>
-          )}
-        </Box>
         
-        <Box id={"OurWorkProcess"} as="section">
-          {isMounted && (
-            <>
-              <LazyOurWorkProcess lang={lang} targetId={"Testimonials"} />
-            </>
+              <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
+          
           )}
         </Box>
-
+  */}
+        <Box id={"WhyChooseUs"} as="section">
+          {isMounted && (
+            <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
+          )}
+        </Box>
+        <Box id={"OurWorkProcess"} as="section">
+          {isMounted && (
+            <LazyOurWorkProcess lang={lang} targetId={"Testimonials"} />
+          )}
+        </Box>
         {/*
     <Box id={"Partners"} as="section">
           {isMounted && (
-            <>
+           
               <LazyPartners lang={lang} targetId={"Testimonials"} />
-            </>
           )}
         </Box>
 
         <Box id={"Testimonials"} as="section">
           {isMounted && (
-            <>
               <LazyTestimonials lang={lang} targetId={"Blog"} />
-            </>
           )}
         </Box>
 
         <Box id={"Blog"} as="section" display={"none"}>
           {isMounted && (
-            <>
               <LazyBlog lang={lang} />
-            </>
           )}
         </Box>
-  
   */}
       </Flex>
     </>

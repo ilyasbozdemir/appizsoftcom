@@ -86,9 +86,14 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
           <Stack spacing={6} direction={"column"}>
             <StartProjectButton />
 
-            <Center>
-              <ScrollToIdButton targetId={targetId} />
-            </Center>
+            {/*
+ <Box display={{ base: "none", lg: "initial" }}>
+              <Center>
+                <ScrollToIdButton targetId={targetId} />
+              </Center>
+            </Box>
+
+*/}
           </Stack>
         </Stack>
       </Container>

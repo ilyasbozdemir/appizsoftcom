@@ -27,9 +27,16 @@ function UserLayout({ children }) {
   }, [onOpen, onClose]);
 
   return (
-    <Box as="main" scrollBehavior={"smooth"}>
-      <>
-        <Box as={"header"} zIndex={1} position="sticky" top={0} right={0}>
+    <>
+      <Box as='main' scrollBehavior={"smooth"} w={"100vw"}>
+        <Box
+          as={"header"}
+          position="sticky"
+          top={0}
+          right={0}
+          w={"full"}
+          zIndex={500}
+        >
           <Header
             onOpen={onOpen}
             isOpen={isOpen}
@@ -38,16 +45,14 @@ function UserLayout({ children }) {
           />
         </Box>
 
-        <Box as={"main"} zIndex={1}>
-          {children}
-        </Box>
-        <Box zIndex={1} as="footer">
+        <Box w={"full"}>{children}</Box>
+
+        <Box as="footer" w={"full"} zIndex={500}>
           <Footer />
         </Box>
-
         <ScrollToTop />
-      </>
-    </Box>
+      </Box>
+    </>
   );
 }
 

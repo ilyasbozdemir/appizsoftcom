@@ -41,8 +41,7 @@ function Meta({
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <link rel="canonical" href={site.baseUrl} />
 
-    <meta charSet="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+ 
     <meta itemprop="name" content={pageTitle} />
     <meta itemprop="description" content={description} />
     <meta name="description" content={description} />
@@ -54,10 +53,7 @@ function Meta({
       name="google-site-verification"
       content={googleSiteVerification}
     />
-    <meta name="language" content="Turkish" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="revisit-after" content="3 days" />
+    
     <meta name="keywords" content={keywords || ``} />
     <meta name="author" content={author} />
     <meta name="publisher" content={publisher} />

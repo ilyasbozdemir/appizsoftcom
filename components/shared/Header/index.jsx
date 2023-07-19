@@ -405,7 +405,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         </Center>
       </Flex>
 
-      <Flex display={{ base: "initial", md: "none" }}>
+      <Flex display={{ base: "initial", md: "none" }} >
         <MobileHeader
           lang={lang}
           onOpen={onOpen}

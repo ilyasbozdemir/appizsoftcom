@@ -72,10 +72,9 @@ function SosyalMediaIcon() {
             aria-label="Instagram"
             icon={<FaInstagram fontSize="1.25rem" />}
             bg={"transparent"}
-            children={<VisuallyHidden>Instagram</VisuallyHidden>}
             color={useColorModeValue("", "white")}
           />
-          {}
+          <VisuallyHidden aria-label="Instagram">Instagram</VisuallyHidden>
         </LinkWrapper>
 
         <LinkWrapper

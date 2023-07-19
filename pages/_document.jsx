@@ -15,11 +15,16 @@ export default class MyDocument extends Document {
     return (
       <Html lang={langValue || site.lang}>
         <Head>
+          <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <meta name="language" content="Turkish" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="revisit-after" content="3 days" />
           <link rel="icon" href="/favicon.png" type="image/png" />
 
           <ExternalFonts />
@@ -36,12 +41,11 @@ export default class MyDocument extends Document {
           />
 
           <Analytics />
-          
-          <link rel="stylesheet" href="/styles/globals.css" />
 
+          <link rel="stylesheet" href="/styles/globals.css" />
         </Head>
 
-        <body style={{bg:'#111'}}>
+        <body style={{ bg: "#111" }}>
           <GoogleTagManagerBody code={site.analyticsCodes.gtmCode} />
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
