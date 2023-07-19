@@ -26,10 +26,9 @@ function OurTechnologies() {
     infinite: true,
     arrows: false,
     autoplay: true,
-    speed: 50,
+    speed: 500,
     slidesToShow: 9,
     slidesToScroll: 1,
-    centerPadding: "60px",
     initialSlide: 0,
     vertical: false,
     responsive: [
@@ -39,7 +38,6 @@ function OurTechnologies() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -71,74 +69,70 @@ function OurTechnologies() {
   };
 
   return (
-    <>
-      <Flex
-        bg="#edf3f8"
+    <Box mt={10}>
+      <Box mx={3} display="flex" alignItems="center">
+        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+        <Box flex="1" textAlign="center">
+          <Heading
+            fontFamily={"Montserrat"}
+            as="h2"
+            fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
+          >
+            Teknolojiler
+          </Heading>
+        </Box>
+        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+      </Box>
+
+      <Box
+        px={8}
+        py={20}
+        mx="auto"
+        bg="white"
         _dark={{
-          bg: "#3e3e3e",
+          bg: "gray.800",
         }}
-        p={{  md: 5, lg: 10 }}
-        w="100vw" h="auto"
       >
-        <Box
-          px={8}
-          py={20}
-          mx="auto"
-          bg="white"
-          _dark={{
-            bg: "gray.800",
-          }}
-        >
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dignissimos iure facere distinctio autem id consectetur! Soluta alias necessitatibus voluptatibus, iusto, ullam tempora nihil provident animi, quaerat consequatur quisquam vitae.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos assumenda harum iure nobis et a. Fuga recusandae officia voluptatem repellendus molestiae? Reprehenderit autem eligendi aspernatur explicabo pariatur excepturi iste eos?
-      {
-
-        /*
-
-            <Slider {...settings}>
-            {technologies.map((image, index) => (
-              <React.Fragment key={index}>
-                <Tooltip aria-label="A tooltip" label={image.title} hasArrow>
-                  <div
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    onMouseDown={handleMouseDown}
-                    onMouseUp={handleMouseUp}
+        <Slider {...settings}>
+          {technologies.map((image, index) => (
+            <React.Fragment key={index}>
+              <Tooltip aria-label="A tooltip" label={image.title} hasArrow>
+                <div
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  onMouseDown={handleMouseDown}
+                  onMouseUp={handleMouseUp}
+                >
+                  <Link
+                    href={`${lang}/technologies#${image.id}`}
+                    passHref
+                    legacyBehavior
                   >
-                    <Link
-                      href={`${lang}/technologies#${image.id}`}
-                      passHref
-                      legacyBehavior
+                    <a
+                      style={{
+                        pointerEvents: isDragging ? "none" : "auto",
+                        cursor: isDragging ? "grabbing" : "pointer",
+                      }}
                     >
-                      <a
-                        style={{
-                          pointerEvents: isDragging ? "none" : "auto",
-                          cursor: isDragging ? "grabbing" : "pointer",
-                        }}
-                      >
-                        <ChakraImage
-                          id={image.id}
-                          src={image.imageUrl}
-                          alt={`${image.title}`}
-                          width={50}
-                          height={50}
-                          filter={"grayscale(95%)"}
-                        />
-                      </a>
-                    </Link>
-                  </div>
-                </Tooltip>
-              </React.Fragment>
-            ))}
-          </Slider>
-         
-         */
-      }
-
+                      <ChakraImage
+                        id={image.id}
+                        src={image.imageUrl}
+                        alt={`${image.title}`}
+                        width={50}
+                        height={50}
+                        filter={"grayscale(95%)"}
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </Tooltip>
+            </React.Fragment>
+          ))}
+        </Slider>
+        <Flex mt={10} justify={"center"}>
           <Text
             onClick={() => {
-              router.push(`${lang}/technologies#${image.id}`);
+              router.push(`${lang}/technologies`);
             }}
             color={"#0066ff"}
             fontWeight={"semibold"}
@@ -147,9 +141,9 @@ function OurTechnologies() {
           >
             Tam hizmet teknolojilerimizi görüntüleyin →
           </Text>
-        </Box>
-      </Flex>
-    </>
+        </Flex>
+      </Box>
+    </Box>
   );
 }
 
