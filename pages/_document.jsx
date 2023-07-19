@@ -92,13 +92,14 @@ export default class MyDocument extends Document {
       <Html lang={langValue || site.lang}>
         <Head>
           <title>Appizsoft • Özel Yazılım Geliştirme</title>
+
           <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta name="language" content="Turkish" />
 
           <meta
             name="viewport"
-            content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no"
+            content="width=device-width,initial-scale=1,maximum-scale=6,user-scalable=no"
           />
 
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
