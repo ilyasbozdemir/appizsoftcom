@@ -147,7 +147,7 @@ const OurWorkProcessFeature = () => {
         mx="auto"
         bg="white"
         _dark={{
-          bg: "gray.800",
+          bg: "gray.700",
         }}
         borderRadius={"15px"}
       >
@@ -214,6 +214,7 @@ const OurWorkProcessFeature = () => {
             </div>
           ))}
         </SimpleGrid>
+
       </Box>
     </Flex>
   );

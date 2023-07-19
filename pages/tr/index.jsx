@@ -103,6 +103,10 @@ function IndexPage() {
           )}
         </Box>
 
+        <Box id={"Testimonials"} as="section">
+          {isMounted && <LazyTestimonials lang={lang} targetId={"Blog"} />}
+        </Box>
+
         {/*
     <Box id={"Partners"} as="section">
           {isMounted && (
@@ -111,11 +115,7 @@ function IndexPage() {
           )}
         </Box>
 
-        <Box id={"Testimonials"} as="section">
-          {isMounted && (
-              <LazyTestimonials lang={lang} targetId={"Blog"} />
-          )}
-        </Box>
+     
 
         <Box id={"Blog"} as="section" display={"none"}>
           {isMounted && (

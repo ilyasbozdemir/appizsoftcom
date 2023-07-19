@@ -148,17 +148,16 @@ function WhyChooseUs() {
 
   return (
     <Flex
-      bg="#edf3f8"
       _dark={{
         bg: "#3e3e3e",
       }}
-      p={{ md: 5, lg: 10 }}
+      p={{ md: 5, lg: 5 }}
       w="auto"
       justifyContent="center"
       alignItems="center"
     >
       <Box
-        shadow="xl"
+        shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;"
         bg="white"
         _dark={{
           bg: "gray.800",
@@ -168,6 +167,7 @@ function WhyChooseUs() {
         mx="auto"
         borderRadius={"15px"}
       >
+
         <Flex
           direction={{ base: "column", lg: "row" }}
           align={"center"}
@@ -248,6 +248,7 @@ function WhyChooseUs() {
               </div>
             ))}
           </Wrap>
+          
         </Flex>
         <Center>
           <Box display={{ base: "initial", lg: "none" }} mt={10}>
@@ -266,7 +267,9 @@ function WhyChooseUs() {
             </Link>
           </Box>
         </Center>
+        
       </Box>
+      
     </Flex>
   );
 }

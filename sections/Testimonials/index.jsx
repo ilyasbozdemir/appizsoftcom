@@ -59,7 +59,7 @@ const TestimonialHeading = ({ children }) => {
 const Rating = (props) => {
   const { defaultValue = 0, max = 5, size = "md", rootProps } = props;
   const color = useColorModeValue("gray.200", "gray.600");
-  const activeColor = useColorModeValue("primary", "#1cb1b8");
+  const activeColor = useColorModeValue("primary.100", "primary.200");
   return (
     <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
       <HStack spacing="0.5" {...rootProps}>
@@ -122,23 +122,10 @@ const TestimonialAvatar = ({ src, name, title }) => {
   );
 };
 function WithSpeechBubbles() {
-  const testimonialsData = [
-    {
-      id: 1,
-      rating: 5,
-      author: "John Doe",
-      avatarUrl:
-        "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      jobTitle: "CEO at XYZ Company",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-      reviewTitle: "Lorem ipsum dolor sit",
-    },
-  ];
   return (
     <Box>
       <Container maxW={"full"} py={16} as={Stack} spacing={12}>
-        <Flex direction={"column"} w={'full'}>
+        <Flex direction={"column"} w={"full"}>
           <Box mx={3} display="flex" alignItems="center">
             <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
             <Box flex="1" textAlign="center">
@@ -179,9 +166,7 @@ function WithSpeechBubbles() {
         </Stack>
         <Center>
           <Text
-            onClick={() => {
-              
-            }}
+            onClick={() => {}}
             color={"#0066ff"}
             fontWeight={"semibold"}
             mt={3}
@@ -194,14 +179,73 @@ function WithSpeechBubbles() {
   );
 }
 
-function Testimonials() {
+const Testimonials = () => {
   return (
     <>
+      <>
+        <Head>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Review",
+              review: testimonialsData.map((testimonial) => ({
+                "@type": "Review",
+                reviewRating: {
+                  "@type": "Rating",
+                  ratingValue: testimonial.rating,
+                },
+                author: {
+                  "@type": "Person",
+                  name: testimonial.author,
+                },
+                reviewBody: testimonial.review,
+                name: testimonial.reviewTitle,
+              })),
+            })}
+          </script>
+        </Head>
+      </>
       <Center p={4}>
         <WithSpeechBubbles />
       </Center>
     </>
   );
-}
+};
+
+const testimonialsData = [
+  {
+    id: 1,
+    rating: 5,
+    author: "John Doe",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    jobTitle: "CEO at XYZ Company",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
+    reviewTitle: "Lorem ipsum dolor sit",
+  },
+  {
+    id: 2,
+    rating: 3,
+    author: "John Doe",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    jobTitle: "CEO at XYZ Company",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
+    reviewTitle: "Lorem ipsum dolor sit",
+  },
+  {
+    id: 3,
+    rating: 4,
+    author: "John Doe",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    jobTitle: "CEO at XYZ Company",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
+    reviewTitle: "Lorem ipsum dolor sit",
+  },
+];
 
 export default Testimonials;
