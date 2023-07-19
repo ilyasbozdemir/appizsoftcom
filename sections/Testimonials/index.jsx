@@ -15,6 +15,7 @@ import {
 
 import { HStack, Icon } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
+import Head from "next/head";
 
 const Testimonial = ({ children }) => {
   return <Box w={"full"}>{children}</Box>;
