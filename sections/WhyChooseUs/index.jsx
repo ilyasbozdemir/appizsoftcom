@@ -213,7 +213,7 @@ function WhyChooseUs() {
             </Center>
           </Box>
 
-          <Wrap alignItems="start" w={{ base: "full", lg: "900px" }}>
+          <Wrap alignItems="start" w={{ base: "90%", lg: "900px" }}>
             {features.map((child) => (
               <div key={child.icon}>
                 <WrapItem mx={4}>
