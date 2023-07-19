@@ -14,6 +14,8 @@ import { technologies } from "../../constants/technologies";
 import Slider from "react-slick";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const lang = `tr`;
 
@@ -28,9 +30,9 @@ function OurTechnologies() {
     autoplay: true,
     speed: 500,
     slidesToShow: 9,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    vertical: false,
+    slidesToScroll: 4,
+    focusOnSelect: true,
+    draggable: true, 
     responsive: [
       {
         breakpoint: 1024,
@@ -38,6 +40,7 @@ function OurTechnologies() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
+          draggable: true, 
         },
       },
       {
@@ -46,6 +49,7 @@ function OurTechnologies() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          draggable: true, 
         },
       },
       {
@@ -53,10 +57,12 @@ function OurTechnologies() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          draggable: true, 
         },
       },
     ],
   };
+  
 
   const [isDragging, setIsDragging] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -96,36 +102,34 @@ function OurTechnologies() {
         <Slider {...settings}>
           {technologies.map((image, index) => (
             <React.Fragment key={index}>
-              <Tooltip aria-label="A tooltip" label={image.title} hasArrow>
-                <div
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  onMouseDown={handleMouseDown}
-                  onMouseUp={handleMouseUp}
+              <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+              >
+                <Link
+                  href={`${lang}/technologies#${image.id}`}
+                  passHref
+                  legacyBehavior
                 >
-                  <Link
-                    href={`${lang}/technologies#${image.id}`}
-                    passHref
-                    legacyBehavior
+                  <a
+                    style={{
+                      pointerEvents: isDragging ? "none" : "auto",
+                      cursor: isDragging ? "grabbing" : "pointer",
+                    }}
                   >
-                    <a
-                      style={{
-                        pointerEvents: isDragging ? "none" : "auto",
-                        cursor: isDragging ? "grabbing" : "pointer",
-                      }}
-                    >
-                      <ChakraImage
-                        id={image.id}
-                        src={image.imageUrl}
-                        alt={`${image.title}`}
-                        width={50}
-                        height={50}
-                        filter={"grayscale(95%)"}
-                      />
-                    </a>
-                  </Link>
-                </div>
-              </Tooltip>
+                    <ChakraImage
+                      id={image.id}
+                      src={image.imageUrl}
+                      alt={`${image.title}`}
+                      width={50}
+                      height={50}
+                      filter={"grayscale(99%)"}
+                    />
+                  </a>
+                </Link>
+              </div>
             </React.Fragment>
           ))}
         </Slider>
@@ -134,7 +138,7 @@ function OurTechnologies() {
             onClick={() => {
               router.push(`${lang}/technologies`);
             }}
-            color={"#0066ff"}
+            color={"blue"}
             fontWeight={"semibold"}
             mt={3}
             cursor={"pointer"}
