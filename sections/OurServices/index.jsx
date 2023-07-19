@@ -16,7 +16,7 @@ import React from "react";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import ScrollToIdButton from "../../components/ScrollToIdButton ";
+
 const Services = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
@@ -25,7 +25,7 @@ const Services = (props) => {
     <Flex
       gap={5}
       direction={"column"}
-      p={{ base: 3, md: 5, lg: 10 }}
+      p={{ base: 3, md: 5, lg: 8 }}
     >
       <Flex
         direction={"column"}
@@ -65,6 +65,7 @@ const Services = (props) => {
           data-aos="zoom-in-up"
           fontSize={{ base: "15px", md: "16px" }}
           p={3}
+          fontFamily={"'Open Sans', sans-serif, Arial, Helvetica"}
         >
           {content}
         </Text>

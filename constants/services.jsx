@@ -13,8 +13,8 @@
 export const services = [
   {
     id: 7001,
-    href: "custom-software-development", //[id].jsx
-    title: "Özel Yazılım Geliştirme", //ortak
+    href: "web-design-development", //[id].jsx
+    title: "Web Tasarımı ve Geliştirme", //ortak
     img: "/images/special_software_development.png", //services componenti için
     desc: "Geliştirdiğimiz süreç yazılımları, müşteri yönetim yazılımları ve özel ERP yazılımları ile firmanıza ait tüm işleri tek bir yazılım ile kontrol altına alabilirsiniz",
     content: `Bireysel, kurumsal ve e-ticaret gibi farklı alanlarda ihtiyaç duyduğunuz
@@ -34,7 +34,7 @@ export const services = [
     tecrübeli ekibimizle yanınızdayız. E-ticaretteki rekabet ve sorunları
     aşmanız için uzman kadromuz iş başında.`,
     serviceCategory: "software",
-    isServicesComponentDisplay: true,
+    isServicesComponentDisplay: false,
   },
 
   {
@@ -51,11 +51,11 @@ export const services = [
     id: 7004,
     href: "mobile-app-development",
     title: "Mobil Uygulama Geliştirme",
-    img: ``,
+    img: `/images/mobile__app.png`,
     desc: ``,
-    content: ``,
+    content: `Mobil cihazların popülaritesi hızla artarken, müşterilerinize kaliteli ve kullanıcı dostu mobil uygulamalar sunmak, işletmenizin dijital varlığını güçlendirmenin temel unsurlarından biridir.`,
     serviceCategory: "software",
-    isServicesComponentDisplay: false,
+    isServicesComponentDisplay: true,
   },
   {
     id: 7005,
@@ -75,7 +75,7 @@ export const services = [
     title: "Prodüksiyon & Tasarım",
     img: "/images/production.png",
     desc: "İhtiyaçlarınızı dinliyor, firmanızı en iyi şekilde yansıtacak size özel, teknolojiye uyumunuzu hızlandıracak modern bir tasarım çıkarıyoruz",
-    content:`Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
+    content: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
     işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz. Size
     özel tasarımlar ve yaratıcı fikirlerle markanızı öne çıkarıyoruz.`,
     serviceCategory: "digital marketing",
