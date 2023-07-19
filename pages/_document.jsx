@@ -91,6 +91,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang={langValue || site.lang}>
         <Head>
+          <title>Appizsoft • Özel Yazılım Geliştirme</title>
           <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta name="language" content="Turkish" />
