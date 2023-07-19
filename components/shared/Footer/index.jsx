@@ -132,14 +132,14 @@ export default function LargeWithLogoCentered() {
               _before={{
                 content: '""',
                 borderBottom: "1px solid",
-                borderColor: useColorModeValue("gray.200", "gray.700"),
+                borderColor: useColorModeValue("gray.200", "gray.200"),
                 flexGrow: 1,
                 mr: 8,
               }}
               _after={{
                 content: '""',
                 borderBottom: "1px solid",
-                borderColor: useColorModeValue("gray.200", "gray.700"),
+                borderColor: useColorModeValue("gray.200", "gray.200"),
                 flexGrow: 1,
                 ml: 8,
               }}
