@@ -132,7 +132,7 @@ const OurWorkProcessFeature = () => {
       _dark={{
         bg: "#3e3e3e",
       }}
-      p={{ base: 3, md: 5, lg: 10 }}
+      p={{ md: 5, lg: 10 }}
       w="auto"
       justifyContent="center"
       alignItems="center"

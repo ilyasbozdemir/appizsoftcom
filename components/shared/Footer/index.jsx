@@ -63,53 +63,60 @@ const FooterTopContent = () => {
       {isTeklifAlPage | isAboutPage ? (
         <></>
       ) : (
-        <Center>
-          <Stack
-            as={Box}
-            bgColor={"transparent"}
-            bgImage={`radial-gradient(at bottom left, ${primaryColor} 55%, ${primaryColor2}  100%)`}
-            boxShadow={boxShadow}
-            p={"64px"}
-            spacing={4}
-            borderRadius={"15px"}
-            w={{ base: "95%", md: "auto" }}
-          >
-            <Flex direction={"column"}>
-              <Text color={"white"} fontSize={18} fontFamily={"Inter"}>
-                Biz senin için buradayız
-              </Text>
-              <Text
-                color={"white"}
-                fontSize={30}
-                fontFamily={"Inter"}
-                as={"h4"}
-              >
-                Fikir aşamasından tasarıma, koddan teslimata.
-              </Text>
+        <Flex>
+          <Center>
+            <Stack
+              as={Box}
+              bgColor={"transparent"}
+              bgImage={`radial-gradient(at bottom left, ${primaryColor} 55%, ${primaryColor2}  100%)`}
+              boxShadow={boxShadow}
+              p={"64px"}
+              spacing={4}
+              borderRadius={"15px"}
+              w={{ base: "95%", md: "auto" }}
+            >
+              <Flex direction={"column"}>
+                <Text color={"white"} fontSize={18} fontFamily={"Inter"}>
+                  Biz senin için buradayız
+                </Text>
+                <Text
+                  color={"white"}
+                  fontSize={30}
+                  fontFamily={"Inter"}
+                  as={"h4"}
+                >
+                  Fikir aşamasından tasarıma, koddan teslimata.
+                </Text>
 
-              <Text color={"white"} w={{ base: "", md: 650 }} fontSize={18}>
-                Her büyüklükteki ekip için kullanıcı merkezli uygulamalar
-                geliştiren tam hizmet veren bir dijital ajansız.
-                Teknolojilerimiz, ortaklarımız için heyecan verici yeni
-                olanaklar yaratıyor.
-              </Text>
-            </Flex>
-            <Box>
-              <Button
-                colorScheme={colorMode === "dark" ? "messenger" : "messenger"}
-                rounded={"full"}
-                p={3}
-                variant="outline"
-                fontSize={"md"}
-                onClick={() => {
-                  router.push(`/tr/get-a-quote`);
-                }}
-              >
-                Bizimle bir proje başlatın 🚀
-              </Button>
-            </Box>
-          </Stack>
-        </Center>
+                <Text
+                  color={"white"}
+                  w={{ base: "", md: 650 }}
+                  fontSize={18}
+                  display={{ base: "none", lg: "initial" }}
+                >
+                  Her büyüklükteki ekip için kullanıcı merkezli uygulamalar
+                  geliştiren tam hizmet veren bir dijital ajansız.
+                  Teknolojilerimiz, ortaklarımız için heyecan verici yeni
+                  olanaklar yaratıyor.
+                </Text>
+              </Flex>
+              <Box>
+                <Button
+                  colorScheme={colorMode === "dark" ? "messenger" : "messenger"}
+                  rounded={"full"}
+                  p={3}
+                  variant="outline"
+                  fontSize={"md"}
+                  onClick={() => {
+                    router.push(`/tr/get-a-quote`);
+                  }}
+                >
+                  Bizimle bir proje başlatın 🚀
+                </Button>
+              </Box>
+            </Stack>
+          </Center>
+        </Flex>
       )}
     </>
   );
@@ -197,13 +204,12 @@ const FooterContent = () => {
     },
   ];
   return (
-    <Center
+    <Flex
       bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
       color={useColorModeValue("gray.300", "gray.300")}
     >
-      <Box as={Stack} p={8}>
+      <Box as={Stack} >
         <Flex
-          p={20}
           gap={15}
           direction={{ base: "column", md: "row" }}
           wrap={"wrap"}
@@ -308,13 +314,13 @@ const FooterContent = () => {
           </HStack>
         </Flex>
       </Box>
-    </Center>
+    </Flex>
   );
 };
 
 const Footer = () => {
   return (
-    <Flex direction={"column"} pos={"relative"}>
+    <Flex direction={"column"} pos={"relative"} w="100%" h="auto" >
       <Center>
         <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
           <FooterTopContent />

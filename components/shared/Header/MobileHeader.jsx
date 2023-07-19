@@ -74,7 +74,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
   const bg = useColorModeValue("white", "gray.800");
 
   return (
-    <>
+    <Flex w={"100%"}>
       <Flex
         as="nav"
         bg={bg}
@@ -82,7 +82,6 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
         justify="space-between"
         align="center"
         pos={"relative"}
-        w={"100%"}
         position="sticky"
         boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.3)" : "none"}
         transition="box-shadow 0.3s"
@@ -115,7 +114,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
           <SearchButton />
         </HStack>
       </Flex>
-      <>
+      <Flex>
         <Modal
           size={"full"}
           isOpen={isOpen}
@@ -123,7 +122,7 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
           motionPreset="slideInBottom"
         >
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent bg={"purple"}>
             <ModalHeader>
               <Flex p={5} justify="space-between">
                 <HStack spacing={5}>
@@ -176,8 +175,8 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
             </ModalBody>
           </ModalContent>
         </Modal>
-      </>
-    </>
+      </Flex>
+    </Flex>
   );
 };
 

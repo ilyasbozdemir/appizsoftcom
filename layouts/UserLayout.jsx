@@ -28,7 +28,7 @@ function UserLayout({ children }) {
 
   return (
     <>
-      <Box as='main' scrollBehavior={"smooth"} w={"100vw"}>
+      <Box as='main' scrollBehavior={"smooth"} w={"auto"} >
         <Box
           as={"header"}
           position="sticky"
@@ -47,7 +47,7 @@ function UserLayout({ children }) {
 
         <Box w={"full"}>{children}</Box>
 
-        <Box as="footer" w={"full"} zIndex={500}>
+        <Box as="footer" w={"full"} zIndex={500} >
           <Footer />
         </Box>
         <ScrollToTop />

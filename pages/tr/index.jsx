@@ -85,15 +85,13 @@ function IndexPage() {
         <Box id={"OurServices"} as="section">
           {isMounted && <LazyOurServices targetId={"Technologies"} />}
         </Box>
-        {/*
-    <Box id={"Technologies"} as="section">
+
+        <Box id={"Technologies"} as="section">
           {isMounted && (
-        
-              <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
-          
+            <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
           )}
         </Box>
-  */}
+
         <Box id={"WhyChooseUs"} as="section">
           {isMounted && (
             <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
@@ -104,6 +102,7 @@ function IndexPage() {
             <LazyOurWorkProcess lang={lang} targetId={"Testimonials"} />
           )}
         </Box>
+
         {/*
     <Box id={"Partners"} as="section">
           {isMounted && (

@@ -365,7 +365,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
   };
 
   return (
-    <React.Fragment>
+    <Flex direction={"column"} pos={"relative"} w="100%" h="auto" >
       <Flex
         display={{ base: "none", md: "initial" }}
       >
@@ -416,7 +416,7 @@ function Header({ isOpen, onOpen, onClose, onToggle }) {
         />
       </Flex>
       
-    </React.Fragment>
+    </Flex>
   );
 }
 
