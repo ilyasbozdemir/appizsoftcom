@@ -31,7 +31,7 @@ function WhyChooseUs() {
   const Feature = (props) => {
     return (
       <>
-        <Center py={3}>
+        <Center py={3} data-aos="zoom-in-up">
           <Flex
             direction={{ base: "column", lg: "column" }}
             w={{ base: "full", lg: "250px" }}
@@ -62,18 +62,37 @@ function WhyChooseUs() {
                     bg: `${props.color}.800`,
                   }}
                 >
-                  <Icon as={props.icon} boxSize={10} aria-hidden="true" />
+                  <Icon
+                    as={props.icon}
+                    boxSize={10}
+                    aria-hidden="true"
+                    data-aos="zoom-out-right"
+                    data-aos-duration="2500"
+                    data-aos-easing="linear"
+                  />
                 </Flex>
               </Stack>
 
               <Center>
-                <Heading fontFamily={"Montserrat"} as="h2" fontSize={"20px"}>
+                <Heading
+                  fontFamily={"Montserrat"}
+                  as="h2"
+                  fontSize={"20px"}
+                  data-aos="fade-up"
+                  data-aos-anchor-placement="top-bottom"
+                >
                   {props.title}
                 </Heading>
               </Center>
             </Stack>
 
-            <Box bg={useColorModeValue("gray.50", "gray.900")} px={6} py={10}>
+            <Box
+              bg={useColorModeValue("gray.50", "gray.900")}
+              px={6}
+              py={10}
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+            >
               {props.content}
             </Box>
           </Flex>
@@ -84,9 +103,9 @@ function WhyChooseUs() {
 
   const features = [
     {
-      color: "teal", 
+      color: "teal",
       title: "Yüksek Hız",
-      icon: FaRocket, 
+      icon: FaRocket,
       content:
         "Projelerinizi hızlı bir şekilde tamamlarız. İleri düzeyde verimlilikle çalışarak zamanınızı tasarruf ederiz.",
     },
@@ -106,7 +125,7 @@ function WhyChooseUs() {
     },
     {
       color: "yellow",
-      title: "Garanti ve Para İadesi",
+      title: "Para İade Garantisi",
       icon: FaShieldAlt,
       content:
         "Müşteri memnuniyeti için garanti sağlarız ve memnun kalmamanız durumunda para iadesi sunarız.",
@@ -172,6 +191,7 @@ function WhyChooseUs() {
               }}
               lineHeight="shorter"
               letterSpacing="tight"
+              data-aos="fade-up"
             >
               Neden bizi seçmelisiniz?
             </Text>
@@ -190,6 +210,7 @@ function WhyChooseUs() {
               _dark={{
                 color: "gray.500",
               }}
+              data-aos="zoom-in-right"
             >
               Minimum 6 aylık destek, haftalık güncellemeler ve size özel
               hizmetlerimizle buradayız. Başarıya giden yolda yanınızdayız.

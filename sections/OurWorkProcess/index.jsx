@@ -33,8 +33,10 @@ const OurWorkProcessFeature = () => {
             color: `${props.color}.200`,
             bg: `${props.color}.800`,
           }}
+          data-aos="fade-right"
         >
           <Icon
+            data-aos="fade-left"
             as={props.icon}
             boxSize={5}
             viewBox="0 0 20 20"
@@ -50,6 +52,7 @@ const OurWorkProcessFeature = () => {
           _light={{
             color: "gray.900",
           }}
+          data-aos="fade-up"
         >
           {props.title}
         </Box>
@@ -60,6 +63,7 @@ const OurWorkProcessFeature = () => {
           _dark={{
             color: "gray.400",
           }}
+          data-aos="fade-up-left"
         >
           {props.children}
         </Box>
@@ -145,7 +149,7 @@ const OurWorkProcessFeature = () => {
         _dark={{
           bg: "gray.800",
         }}
-        borderRadius={'15px'}
+        borderRadius={"15px"}
       >
         <Box
           textAlign={{

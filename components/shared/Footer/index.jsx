@@ -206,7 +206,12 @@ const FooterTopContent = () => {
               w={{ base: "95%", md: "auto" }}
             >
               <Flex direction={"column"}>
-                <Text color={"white"} fontSize={18} fontFamily={"Inter"}>
+                <Text
+                  color={"white"}
+                  fontSize={18}
+                  fontFamily={"Inter"}
+                  data-aos="fade-down"
+                >
                   Biz senin için buradayız
                 </Text>
                 <Text
@@ -214,6 +219,7 @@ const FooterTopContent = () => {
                   fontSize={30}
                   fontFamily={"Inter"}
                   as={"h4"}
+                  data-aos="fade-up"
                 >
                   Fikir aşamasından tasarıma, koddan teslimata.
                 </Text>
@@ -240,6 +246,7 @@ const FooterTopContent = () => {
                   onClick={() => {
                     router.push(`/tr/get-a-quote`);
                   }}
+                  data-aos="fade-right"
                 >
                   Bizimle bir proje başlatın 🚀
                 </Button>
