@@ -6,6 +6,7 @@ import {
   Box,
   keyframes,
   useColorModeValue,
+  useBreakpointValue,
   Center,
 } from "@chakra-ui/react";
 import Router, { useRouter } from "next/router";
@@ -52,7 +53,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
       h="100vh" // Yüksekliği ekran yüksekliğine eşit
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
-      alignItems="self-start" // Dikeyde ortala
+      alignItems={useBreakpointValue({base:'center', lg: "self-start" })}
     >
       <Container maxW={"5xl"} as="article">
         <Stack

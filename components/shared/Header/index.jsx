@@ -89,23 +89,21 @@ export default function Header() {
           ml={{ base: -2 }}
           display={{ base: "flex", md: "none" }}
         >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? (
-                <CloseIcon w={3} h={3} fontSize={20} />
-              ) : (
-                <BiMenuAltRight w={5} h={5} fontSize={35} />
-              )
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
+          < >
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon w={3} h={3} fontSize={20} />
+                ) : (
+                  <BiMenuAltRight w={5} h={5} fontSize={35} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
+          </>
         </Flex>
-
-        {
-          //
-        }
 
         <Flex
           flex={{ base: 1 }}
@@ -149,8 +147,11 @@ export default function Header() {
         </HStack>
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity>
+      <Collapse id={'collapse'} in={isOpen} animateOpacity>
         <MobileNav />
+        <Flex direction={"column"}>
+          <SearchButton />
+        </Flex>
       </Collapse>
 
       <Flex display={{ base: "none", md: "flex" }}>
