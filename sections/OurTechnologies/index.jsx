@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import {
   Box,
-  Center,
   Text,
   Image as ChakraImage,
-  Tooltip,
   Heading,
   Flex,
-  HStack,
   Divider,
 } from "@chakra-ui/react";
 import { technologies } from "../../constants/technologies";
@@ -37,8 +34,8 @@ function OurTechnologies() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 7,
+          slidesToScroll: 7,
           infinite: true,
           draggable: true, 
         },
@@ -46,17 +43,25 @@ function OurTechnologies() {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 5,
           slidesToScroll: 2,
-          initialSlide: 2,
+          initialSlide: 4,
           draggable: true, 
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          draggable: true, 
+        },
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
           draggable: true, 
         },
       },
