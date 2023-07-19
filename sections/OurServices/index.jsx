@@ -24,8 +24,6 @@ const Services = (props) => {
   return (
     <Flex
       gap={5}
-      mt={2}
-      mx={5}
       direction={"column"}
       p={{ base: 3, md: 5, lg: 10 }}
     >
@@ -140,11 +138,7 @@ function OurServices({ targetId }) {
           </Flex>
         </Center>
 
-        <Box display={{ base: "none", lg: "initial" }}>
-          <Center>
-            <ScrollToIdButton targetId={targetId} />
-          </Center>
-        </Box>
+
       </Flex>
     </>
   );
