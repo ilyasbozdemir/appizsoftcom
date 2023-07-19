@@ -31,9 +31,6 @@ function UserLayout({ children }) {
       <Box as='main' scrollBehavior={"smooth"} w={"auto"} >
         <Box
           as={"header"}
-          position="sticky"
-          top={0}
-          right={0}
           w={"full"}
           zIndex={500}
         >

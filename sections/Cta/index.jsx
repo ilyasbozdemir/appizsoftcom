@@ -52,7 +52,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
       h="100vh" // Yüksekliği ekran yüksekliğine eşit
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
-      alignItems="center" // Dikeyde ortala
+      alignItems="self-start" // Dikeyde ortala
     >
       <Container maxW={"5xl"} as="article">
         <Stack

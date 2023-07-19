@@ -8,6 +8,56 @@ import React from "react";
 import Analytics from "../configuration/Analytics";
 import { site } from "../constants/site";
 
+const jsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "SiteNavigationElement",
+      name: "Ürünler",
+      url: "/tr/products",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Kurumsal",
+      url: null,
+      itemListElement: [
+        {
+          "@type": "SiteNavigationElement",
+          name: "Hakkımızda",
+          url: "/tr/about-appizsoft",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "Kariyer",
+          url: "/tr/careers",
+        },
+      ],
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Hizmetler",
+      url: "/tr/services",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Blog",
+      url: "/tr/blog",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Bize Ulaşın",
+      url: "/tr/contact",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Teklif İste",
+      url: "/tr/get-a-quote",
+    },
+  ],
+  "inLanguage": "tr" 
+};
+
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
@@ -18,9 +68,11 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta name="language" content="Turkish" />
-        
-          <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 
+          <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+          />
 
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="revisit-after" content="3 days" />
@@ -42,6 +94,11 @@ export default class MyDocument extends Document {
           <Analytics />
 
           <link rel="stylesheet" href="/styles/globals.css" />
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+          />
         </Head>
 
         <body style={{ bg: "#111" }}>

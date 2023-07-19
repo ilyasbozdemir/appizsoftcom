@@ -320,7 +320,7 @@ const FooterContent = () => {
 
 const Footer = () => {
   return (
-    <Flex direction={"column"} pos={"relative"} w="100%" h="auto" >
+    <Flex direction={"column"} pos={"relative"} w="100%" h="auto" display={'none'} >
       <Center>
         <Box pos={"relative"} style={{ top: "75px", zIndex: 2 }}>
           <FooterTopContent />

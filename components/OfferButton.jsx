@@ -10,6 +10,7 @@ function OfferButton({ lang = `tr`, platform }) {
       {platform === "mobile" ? (
         <>
           <Button
+            variant={"outline"}
             color="#fff"
             bg={"primary.100"}
             _hover={{
@@ -32,6 +33,8 @@ function OfferButton({ lang = `tr`, platform }) {
       ) : (
         <>
           <Button
+          
+            variant={"outline"}
             color="#fff"
             bg={"primary.100"}
             _hover={{ bg: "primary.200" }}
@@ -46,6 +49,8 @@ function OfferButton({ lang = `tr`, platform }) {
           >
             Teklif İste
           </Button>
+
+
         </>
       )}
     </>

@@ -74,109 +74,103 @@ const Header = ({ lang, isOpen, onOpen, onClose, onToggle, menus }) => {
   const bg = useColorModeValue("white", "gray.800");
 
   return (
-    <Flex w={"100%"}>
+    <>
       <Flex
         as="nav"
         bg={bg}
-        p={5}
         justify="space-between"
         align="center"
-        pos={"relative"}
-        position="sticky"
         boxShadow={isScrolled ? "0 4px 8px rgba(0, 0, 0, 0.3)" : "none"}
         transition="box-shadow 0.3s"
-        top={0}
-        right={0}
+   
         userSelect={"none"}
+        w="100%"
+        h="auto"
       >
-        <HStack spacing={5}>
-          <IconButton
-            icon={
-              isOpen ? (
-                <Icon as={CloseIcon} fontSize={20} />
-              ) : (
-                <Icon as={BiMenuAltRight} fontSize={35} />
-              )
-            }
-            onClick={onToggle}
-            size="md"
-            aria-label="Toggle Navigation"
-            bg="transparent"
-            _hover={{ bg: "transparent" }}
-            _active={{ bg: "transparent" }}
-          />
-        </HStack>
+        <Flex p={5} justify="space-between">
+          <HStack spacing={5}>
+            <IconButton
+              icon={
+                isOpen ? (
+                  <Icon as={CloseIcon} fontSize={20} />
+                ) : (
+                  <Icon as={BiMenuAltRight} fontSize={35} />
+                )
+              }
+              onClick={onToggle}
+              size="md"
+              aria-label="Toggle Navigation"
+              bg="transparent"
+              _hover={{ bg: "transparent" }}
+              _active={{ bg: "transparent" }}
+            />
+          </HStack>
+          <Logo platform={"mobile"} lang={lang} />
 
-        <Logo platform={"mobile"} lang={lang} />
-
-        <HStack spacing={5}>
-          <ThemeSwitcher />
-          <SearchButton />
-        </HStack>
+          <HStack spacing={5}>
+            <ThemeSwitcher />
+            <SearchButton />
+          </HStack>
+        </Flex>
       </Flex>
-      <Flex>
-        <Modal
-          size={"full"}
-          isOpen={isOpen}
-          onClose={onClose}
-          motionPreset="slideInBottom"
-        >
-          <ModalOverlay />
-          <ModalContent bg={"purple"}>
-            <ModalHeader>
-              <Flex p={5} justify="space-between">
-                <HStack spacing={5}>
-                  <IconButton
-                    icon={
-                      isOpen ? (
-                        <Icon as={CloseIcon} fontSize={20} />
-                      ) : (
-                        <Icon as={BiMenuAltRight} fontSize={35} />
-                      )
-                    }
-                    onClick={onToggle}
-                    size="md"
-                    aria-label="Toggle Navigation"
-                    bg="transparent"
-                    _hover={{ bg: "transparent" }}
-                    _active={{ bg: "transparent" }}
-                  />
-                </HStack>
-                <Logo platform={"mobile"} lang={lang} />
 
-                <HStack spacing={5}>
-                  <ThemeSwitcher />
-                  <SearchButton />
-                </HStack>
+      <Modal
+        size={"full"}
+        isOpen={isOpen}
+        onClose={onClose}
+        motionPreset="slideInBottom"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            <Flex p={5} justify="space-between">
+              <HStack spacing={5}>
+                <IconButton
+                  icon={
+                    isOpen ? (
+                      <Icon as={CloseIcon} fontSize={20} />
+                    ) : (
+                      <Icon as={BiMenuAltRight} fontSize={35} />
+                    )
+                  }
+                  onClick={onToggle}
+                  size="md"
+                  aria-label="Toggle Navigation"
+                  bg="transparent"
+                  _hover={{ bg: "transparent" }}
+                  _active={{ bg: "transparent" }}
+                />
+              </HStack>
+              <Logo platform={"mobile"} lang={lang} />
+
+              <HStack spacing={5}>
+                <ThemeSwitcher />
+                <SearchButton />
+              </HStack>
+            </Flex>
+          </ModalHeader>
+          <ModalBody>
+            <Box>
+              <Flex direction={"column"}>
+                {menus.map((menu) => (
+                  <React.Fragment key={menu.title}>
+                    <MenuLink title={menu.title} href={menu.href} lang={lang} />
+                  </React.Fragment>
+                ))}
+
+                <Center my={5}>
+                  <OfferButton platform={"mobile"} />
+                </Center>
+
+                <Box pos={"relative"}>
+                  <LanguageSwitcher lang={lang} />
+                </Box>
               </Flex>
-            </ModalHeader>
-            <ModalBody>
-              <Box>
-                <Flex direction={"column"}>
-                  {menus.map((menu) => (
-                    <React.Fragment key={menu.title}>
-                      <MenuLink
-                        title={menu.title}
-                        href={menu.href}
-                        lang={lang}
-                      />
-                    </React.Fragment>
-                  ))}
-
-                  <Center my={5}>
-                    <OfferButton platform={"mobile"} />
-                  </Center>
-
-                  <Box pos={"relative"}>
-                    <LanguageSwitcher lang={lang} />
-                  </Box>
-                </Flex>
-              </Box>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      </Flex>
-    </Flex>
+            </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 
