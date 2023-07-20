@@ -4,14 +4,11 @@ import { Box, Flex, Heading } from "@chakra-ui/react";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
-
 import Cta from "../../sections/Cta";
-
 
 const LazyCta = dynamic(() => import("../../sections/Cta"), {
   //loading: () => <p>Loading...</p>,
 });
-
 
 const LazyOurServices = dynamic(() => import("../../sections/OurServices"));
 const LazyAboutUs = dynamic(() => import("../../sections/AboutUs"));
@@ -85,7 +82,7 @@ function IndexPage() {
       <Flex direction={"column"} gap={5}>
         <Box id={"Cta"} as="section">
           {isMounted && <LazyCta lang={lang} targetId={"OurServices"} />}
-  
+
           <Cta lang={lang} targetId={"OurServices"} />
         </Box>
 
