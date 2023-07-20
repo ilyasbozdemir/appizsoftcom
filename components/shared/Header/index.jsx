@@ -191,6 +191,14 @@ export default function Navbar() {
           <Box pb={4} display={["inherit", "inherit", "none"]}>
             <Stack as="nav" spacing={2}>
               <>
+                <Text fontWeight="semibold" color="gray.500">
+                  Kurumsal
+                </Text>
+                <Stack pl={2} spacing={1} mt={"0 !important"}>
+                  {dropdownLinks.map((link, index) => (
+                    <NavLink key={index} {...link} onClose={onClose} />
+                  ))}
+                </Stack>
                 {navLinks.map((link, index) => (
                   <NavLink
                     key={index}
