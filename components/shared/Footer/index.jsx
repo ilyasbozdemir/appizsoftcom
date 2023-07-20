@@ -52,7 +52,6 @@ export default function LargeWithLogoCentered() {
                 <Link href={"#"}>Hakkımızda</Link>
                 <Link href={"#"}>Kariyer</Link>
                 <Link href={"#"}>Bize Ulaşın</Link>
-                <Link href={"#"}>Partnerlerimiz</Link>
               </Stack>
               <Stack align={"flex-start"}>
                 <ListHeader>Hizmetler</ListHeader>
