@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import {
   Center,
@@ -7,15 +7,18 @@ import {
   Heading,
   Text,
   Stack,
-  Container,
   Avatar,
   useColorModeValue,
   Divider,
+  Container,
+  chakra,
+  VStack,
 } from "@chakra-ui/react";
 
 import { HStack, Icon } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
-import Head from "next/head";
+
+import { ImQuotesLeft } from "react-icons/im";
 
 const Testimonial = ({ children }) => {
   return <Box w={"full"}>{children}</Box>;
@@ -93,7 +96,7 @@ const TestimonialText = ({ children }) => {
     </Text>
   );
 };
-const TestimonialAvatar = ({ src, name, title }) => {
+const TestimonialAvatar = ({ src, name, title, rating }) => {
   return (
     <Flex align={"center"} mt={8} direction={"column"}>
       <Avatar src={src} alt={name} mb={2} itemprop="image" />
@@ -122,6 +125,10 @@ const TestimonialAvatar = ({ src, name, title }) => {
     </Flex>
   );
 };
+
+import { testimonialsData } from "../../constants/testimonialsData";
+import { testimonialsData2 } from "../../constants/testimonialsData2";
+
 function WithSpeechBubbles() {
   return (
     <Box>
@@ -135,7 +142,7 @@ function WithSpeechBubbles() {
                 as="h2"
                 fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
               >
-              İnsanlar bizim hakkımızda ne diyor?
+                İnsanlar bizim hakkımızda ne diyor?
               </Heading>
             </Box>
             <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
@@ -180,73 +187,66 @@ function WithSpeechBubbles() {
   );
 }
 
-const Testimonials = () => {
+const TestimonialsSections = () => {
   return (
     <>
-      <>
-        <Head>
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Review",
-              review: testimonialsData.map((testimonial) => ({
-                "@type": "Review",
-                reviewRating: {
-                  "@type": "Rating",
-                  ratingValue: testimonial.rating,
-                },
-                author: {
-                  "@type": "Person",
-                  name: testimonial.author,
-                },
-                reviewBody: testimonial.review,
-                name: testimonial.reviewTitle,
-              })),
-            })}
-          </script>
-        </Head>
-      </>
-      <Center p={4}>
-        <WithSpeechBubbles />
-      </Center>
+      <Container maxW="5xl" p={{ base: 5, md: 10 }}>
+        <Flex justify="center" mb={8}>
+          <chakra.h3 fontSize="3xl" fontWeight="bold" mb={3}>
+            İnsanlar bizim hakkımızda ne diyor?
+          </chakra.h3>
+        </Flex>
+
+        {testimonialsData2.map((obj, index) => (
+          <Fragment key={index}>
+            <VStack spacing={3} pt={1} justify="center">
+              <Avatar
+                size="xl"
+                showBorder={true}
+                borderColor="green.400"
+                name="avatar"
+                src={obj.image}
+              />
+               <Box textAlign="center" maxW="4xl">
+                <Text fontSize="md" fontWeight="medium">
+                  <Rating defaultValue={obj.rating} size="lg" />
+                </Text>
+              </Box>
+              <Box textAlign="center">
+                <Text fontWeight="bold" fontSize="lg">
+                  {obj.name}
+                </Text>
+                <Text fontWeight="medium" fontSize="sm" color="gray.400">
+                  {obj.position}, {obj.company}
+                </Text>
+              </Box>
+              <Box textAlign="center" maxW="4xl">
+                <Text fontSize="md" fontWeight="medium">
+                  {obj.content}
+                </Text>
+              </Box>
+             
+            </VStack>
+            {testimonialsData2.length - 1 !== index && <Divider my={6} />}
+          </Fragment>
+        ))}
+      </Container>
     </>
   );
 };
 
-const testimonialsData = [
-  {
-    id: 1,
-    rating: 5,
-    author: "John Doe",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-    jobTitle: "CEO at XYZ Company",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-    reviewTitle: "Lorem ipsum dolor sit",
-  },
-  {
-    id: 2,
-    rating: 3,
-    author: "John Doe",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-    jobTitle: "CEO at XYZ Company",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-    reviewTitle: "Lorem ipsum dolor sit",
-  },
-  {
-    id: 3,
-    rating: 4,
-    author: "John Doe",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-    jobTitle: "CEO at XYZ Company",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-    reviewTitle: "Lorem ipsum dolor sit",
-  },
-];
+const Testimonials = () => {
+  return (
+    <>
+      <Center p={4}>
+        {/*
+            <WithSpeechBubbles />
+        */}
+
+        <TestimonialsSections />
+      </Center>
+    </>
+  );
+};
 
 export default Testimonials;

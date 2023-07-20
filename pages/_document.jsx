@@ -6,7 +6,7 @@ import ExternalFonts from "../fonts/ExternalFonts";
 import React from "react";
 import Analytics from "../configuration/Analytics";
 import { site } from "../constants/site";
-
+import { testimonialsData } from "../constants/testimonialsData";
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
@@ -35,6 +35,25 @@ export default class MyDocument extends Document {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema2) }}
           />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Review",
+              review: testimonialsData.map((testimonial) => ({
+                "@type": "Review",
+                reviewRating: {
+                  "@type": "Rating",
+                  ratingValue: testimonial.rating,
+                },
+                author: {
+                  "@type": "Person",
+                  name: testimonial.author,
+                },
+                reviewBody: testimonial.review,
+                name: testimonial.reviewTitle,
+              })),
+            })}
+          </script>
         </Head>
         <body>
           <GoogleTagManagerBody code={site.analyticsCodes.gtmCode} />
