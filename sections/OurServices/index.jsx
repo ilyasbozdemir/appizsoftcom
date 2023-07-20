@@ -16,13 +16,14 @@ import React from "react";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import ServicesFeature from "../../components/ServicesFeature";
 
 const Services = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
 
   return (
-    <Flex gap={5} direction={"column"} p={{ base: 3, md: 5, lg: 8 }} >
+    <Flex gap={5} direction={"column"} p={{ base: 3, md: 5, lg: 8 }}>
       <Flex
         direction={"column"}
         gap={5}
@@ -38,6 +39,9 @@ const Services = (props) => {
         _hover={{
           boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
         }}
+      
+        rounded="md"
+        marginInline="auto"
         onClick={() => {
           router.push("/tr/service/[id]", `/tr/service/${href}`, {
             shallow: true,
@@ -100,7 +104,14 @@ const Services = (props) => {
 function OurServices({ targetId }) {
   return (
     <>
-      <Flex as={"article"} direction={"column"} gap={5} w="100vw" h="auto" data-aos="zoom-in-up">
+      <Flex
+        as={"article"}
+        direction={"column"}
+        gap={5}
+        w="100vw"
+        h="auto"
+        data-aos="zoom-in-up"
+      >
         <Box mx={3} display="flex" alignItems="center">
           <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
           <Box flex="1" textAlign="center">

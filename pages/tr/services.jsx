@@ -108,45 +108,7 @@ const Services = (props) => {
 const OurServicesContent = () => {
   return (
     <>
-      <Flex as={"article"} direction={"column"} gap={5} w="100vw" h="auto">
-        <Box mx={3} display="flex" alignItems="center">
-          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-          <Box flex="1" textAlign="center">
-            <Heading
-              fontFamily={"Montserrat"}
-              as="h2"
-              fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
-            >
-              Size Özel Hizmetler
-            </Heading>
-          </Box>
-          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-        </Box>
-
-        <SimpleGrid
-          columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
-          spacing={2}
-          justify="center"
-        >
-          {services.map((service, i) => (
-            <Box key={service.id} p={5}>
-              <Services {...service} />
-            </Box>
-          ))}
-        </SimpleGrid>
-
-        <Center>
-          <Flex direction={"column"} gap={3}>
-            <Link href={"/tr/services"} passHref>
-              <Button variant={"outline"} color="primary.100" p={5}>
-                Hizmetlerimizi İncele
-              </Button>
-            </Link>
-
-            <Text>Diğer Hizmetlerimizi İnceleyin</Text>
-          </Flex>
-        </Center>
-      </Flex>
+    
     </>
   );
 };

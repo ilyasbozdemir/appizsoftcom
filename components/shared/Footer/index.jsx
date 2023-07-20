@@ -18,6 +18,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import SocialMediaIcon from "../SocialMediaIcon";
+
 const ListHeader = ({ children }) => {
   return (
     <Text
@@ -35,29 +37,16 @@ export default function LargeWithLogoCentered() {
   const googlePartnersUrl = `#`;
 
   return (
-    <Flex direction={"column"} pos={"relative"} w="100%" h="auto">
-      <Center>
-        <Box pos={"relative"} style={{ top: "25px", zIndex: 2 }}>
-          <FooterTopContent />
-        </Box>
-      </Center>
-
+    <Flex direction={"column"}>
       <Box
         bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
         color={useColorModeValue("white", "gray.200")}
         w="100vw"
         h="auto"
-        pos={"relative"}
-        style={{ zIndex: 1 }}
       >
         <Flex direction={"column"} justify={"center"} justifyContent={"center"}>
           <Container as={Stack} maxW={"8xl"} py={10}>
             <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-              <Stack align={"flex-start"}>
-                <ListHeader>Ürün</ListHeader>
-                <Link href={"#"}>Genel Bakış</Link>
-                <Link href={"#"}>Ücretlendirme</Link>
-              </Stack>
               <Stack align={"flex-start"}>
                 <ListHeader>Kurumsal</ListHeader>
                 <Link href={"#"}>Hakkımızda</Link>
@@ -66,6 +55,14 @@ export default function LargeWithLogoCentered() {
                 <Link href={"#"}>Partnerlerimiz</Link>
               </Stack>
               <Stack align={"flex-start"}>
+                <ListHeader>Hizmetler</ListHeader>
+                <Link href={"#"}>Yazılım Hizmetlerimiz</Link>
+                <Link href={"#"}>Dijital Hizmetlerimiz</Link>
+                <Link href={"#"}>E-ticaret Çözümleri</Link>
+              </Stack>
+              {/*
+
+<Stack align={"flex-start"}>
                 <ListHeader>Yazılım Hizmetlerimiz</ListHeader>
                 <Link href={"#"}>Web Tasarım ve Geliştirme</Link>
                 <Link href={"#"}>Mobil Uygulama Geliştirme</Link>
@@ -87,9 +84,12 @@ export default function LargeWithLogoCentered() {
                 <Link href={"#"}>Envanter Yönetimi</Link>
                 <Link href={"#"}>Müşteri İlişkileri Yönetimi</Link>
               </Stack>
+
+*/}
+
               <Stack align={"flex-start"}>
                 <ListHeader>Blog / RSS</ListHeader>
-                <Link href={"#"}>Blog Yazıları</Link>
+                <Link href={"#"}>Blog</Link>
                 <Link href={"#"}>RSS Aboneliği</Link>
               </Stack>
               <Stack align={"flex-start"}>
@@ -99,14 +99,6 @@ export default function LargeWithLogoCentered() {
                 <Link href={"#"}>KVKK</Link>
                 <Link href={"#"}>Satış Sözleşmesi</Link>
                 <Link href={"#"}>Gizlilik Sözleşmesi</Link>
-              </Stack>
-              <Stack align={"flex-start"}>
-                <ListHeader>Bizi takip edin</ListHeader>
-                <Link href={"#"}>Instagram</Link>
-                <Link href={"#"}>Facebook</Link>
-                <Link href={"#"}>Twitter</Link>
-                <Link href={"#"}>LinkedIn</Link>
-                <Link href={"#"}>Pinterest</Link>
               </Stack>
             </SimpleGrid>
           </Container>
@@ -146,6 +138,9 @@ export default function LargeWithLogoCentered() {
             >
               <Logo isLink={false} s={{ h: 125, w: 250 }} />
             </Flex>
+            <Text pt={6} fontSize={"sm"} textAlign={"center"}>
+              <SocialMediaIcon />
+            </Text>
             <Text pt={6} fontSize={"sm"} textAlign={"center"}>
               <FooterData />
             </Text>
