@@ -81,8 +81,6 @@ function IndexPage() {
 
       <Flex direction={"column"} gap={5}>
         <Box id={"Cta"} as="section">
-          {isMounted && <LazyCta lang={lang} targetId={"OurServices"} />}
-
           <Cta lang={lang} targetId={"OurServices"} />
         </Box>
 

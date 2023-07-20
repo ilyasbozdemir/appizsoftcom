@@ -22,7 +22,7 @@ const theme = extendTheme({
   fontWeights,
   lineHeights,
   letterSpacings,
-  breakpoints,
+  //breakpoints,
   shadows,
   space,
   sizes,

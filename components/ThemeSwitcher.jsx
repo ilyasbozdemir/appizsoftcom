@@ -1,7 +1,6 @@
-import { Icon, useColorMode } from "@chakra-ui/react";
+import { Icon, IconButton, useColorMode } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
-import { motion } from "framer-motion";
 
 function ThemeSwitcher() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -38,26 +37,14 @@ function ThemeSwitcher() {
     toggleColorMode();
     channelBroadcast();
   };
-  const iconAnimation = {
-    scale: [1, 0.8, 1.2, 1],
-    transition: {
-      duration: 0.3,
-    },
-  };
 
   return (
     <>
-      <motion.div
-        initial={{ scale: 1 }}
-        whileHover={iconAnimation} whileTap={iconAnimation}
-      >
-        <Icon
-          as={icon === darkIcon ? BsMoon : BsSun}
-          onClick={handleToggleColorMode}
-          cursor="pointer"
-          fontSize="lg"
-        />
-      </motion.div>
+      <IconButton
+        aria-label="Color Switcher"
+        onClick={handleToggleColorMode}
+        icon={<Icon as={icon === darkIcon ? BsMoon : BsSun} fontSize="lg" />}
+      />
     </>
   );
 }
