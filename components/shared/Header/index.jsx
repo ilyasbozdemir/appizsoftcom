@@ -88,7 +88,7 @@ export default function Navbar() {
         width="100%"
         top={0}
         left={0}
-        pos={'fixed'}
+        pos={"fixed"}
         bg={useColorModeValue("white", "gray.800")}
         zIndex={50}
       >
@@ -174,6 +174,7 @@ export default function Navbar() {
                   </>
                 )}
               </Menu>
+
               {navLinks.map((link, index) => (
                 <NavLink key={index} {...link} onClose={onClose} />
               ))}
@@ -189,9 +190,16 @@ export default function Navbar() {
         {isOpen ? (
           <Box pb={4} display={["inherit", "inherit", "none"]}>
             <Stack as="nav" spacing={2}>
-              {navLinks.map((link, index) => (
-                <NavLink key={index} {...link} onClose={onClose} lang={lang} />
-              ))}
+              <>
+                {navLinks.map((link, index) => (
+                  <NavLink
+                    key={index}
+                    {...link}
+                    onClose={onClose}
+                    lang={lang}
+                  />
+                ))}
+              </>
             </Stack>
           </Box>
         ) : null}
