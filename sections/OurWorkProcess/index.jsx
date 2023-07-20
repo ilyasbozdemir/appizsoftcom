@@ -5,6 +5,7 @@ import {
   Heading,
   SimpleGrid,
   Icon,
+  Center,
 } from "@chakra-ui/react";
 
 import React from "react";
@@ -20,42 +21,48 @@ const OurWorkProcessFeature = () => {
   const Feature = (props) => {
     return (
       <Box>
-        <Flex
-          alignItems="center"
-          justifyContent="center"
-          w={8}
-          h={8}
-          mb={4}
-          rounded="full"
-          color={`${props.color}.600`}
-          bg={`${props.color}.100`}
-          _dark={{
-            color: `${props.color}.200`,
-            bg: `${props.color}.800`,
-          }}
-          data-aos="fade-right"
-        >
-          <Icon
-            data-aos="fade-left"
-            as={props.icon}
-            boxSize={5}
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          />
-        </Flex>
-        <Box
-          as="h3"
-          mb={2}
-          fontWeight="semibold"
-          lineHeight="shorter"
-          _light={{
-            color: "gray.900",
-          }}
-          data-aos="fade-up"
-        >
-          {props.title}
-        </Box>
+        <Center>
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            w={8}
+            h={8}
+            mb={4}
+            rounded="full"
+            color={`${props.color}.600`}
+            bg={`${props.color}.100`}
+            _dark={{
+              color: `${props.color}.200`,
+              bg: `${props.color}.800`,
+            }}
+            data-aos="fade-right"
+          >
+            <Icon
+              data-aos="fade-left"
+              as={props.icon}
+              boxSize={5}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            />
+          </Flex>
+        </Center>
+
+        <Center>
+          <Box
+            as="h3"
+            mb={2}
+            fontWeight="semibold"
+            lineHeight="shorter"
+            _light={{
+              color: "gray.900",
+            }}
+            data-aos="fade-up"
+          >
+            {props.title}
+          </Box>
+        </Center>
+
         <Box
           as="p"
           fontSize="sm"
@@ -214,7 +221,6 @@ const OurWorkProcessFeature = () => {
             </div>
           ))}
         </SimpleGrid>
-
       </Box>
     </Flex>
   );
