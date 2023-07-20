@@ -97,8 +97,6 @@ export default function LargeWithLogoCentered() {
                 <Link href={"#"}>Çerez Politikası</Link>
                 <Link href={"#"}>Gizlilik Politikası</Link>
                 <Link href={"#"}>KVKK</Link>
-                <Link href={"#"}>Satış Sözleşmesi</Link>
-                <Link href={"#"}>Gizlilik Sözleşmesi</Link>
               </Stack>
             </SimpleGrid>
           </Container>
