@@ -55,33 +55,33 @@ const jsonLdSchema = {
       url: "/tr/get-a-quote",
     },
   ],
-  "inLanguage": "tr" 
+  inLanguage: "tr",
 };
 
 const jsonLdSchema2 = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Appizsoft",
-  "url": site.baseUrl,
-  "logo": site.image,
-  "description": site.description,
-  "address": {
+  name: "Appizsoft",
+  url: site.baseUrl,
+  logo: site.image,
+  description: site.description,
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": site.address.streetAddress,
-    "addressLocality": site.address.addressLocality,
-    "addressRegion": site.address.addressRegion,
-    "postalCode": site.address.postalCode,
-    "addressCountry": site.address.addressCountry,
+    streetAddress: site.address.streetAddress,
+    addressLocality: site.address.addressLocality,
+    addressRegion: site.address.addressRegion,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.addressCountry,
   },
-  "contactPoint": [
+  contactPoint: [
     {
       "@type": "ContactPoint",
-      "telephone": site.telephone,
-      "contactType": "customer support",
-      "availableLanguage": "Turkish",
+      telephone: site.telephone,
+      contactType: "customer support",
+      availableLanguage: "Turkish",
     },
   ],
-  "sameAs": site.sosyalMediaLinks.map((link) => link.link),
+  sameAs: site.sosyalMediaLinks.map((link) => link.link),
 };
 
 export default class MyDocument extends Document {
@@ -91,16 +91,13 @@ export default class MyDocument extends Document {
     return (
       <Html lang={langValue || site.lang}>
         <Head>
-          <title>Appizsoft • Özel Yazılım Geliştirme</title>
-
           <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta name="language" content="Turkish" />
 
-          <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1,maximum-scale=6,user-scalable=no"
-          />
+          <meta  name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1"/>
+
+          
 
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="revisit-after" content="3 days" />
@@ -127,7 +124,7 @@ export default class MyDocument extends Document {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
           />
-             <script
+          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema2) }}
           />

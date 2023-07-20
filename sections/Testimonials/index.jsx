@@ -135,7 +135,7 @@ function WithSpeechBubbles() {
                 as="h2"
                 fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
               >
-                Müşteri Yorumları
+              İnsanlar bizim hakkımızda ne diyor?
               </Heading>
             </Box>
             <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
