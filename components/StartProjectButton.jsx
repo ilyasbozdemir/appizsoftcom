@@ -9,20 +9,29 @@ function StartProjectButton() {
   return (
     <>
       <Button
-        rounded={"full"}
-        colorScheme={colorMode === "light" ? "black" : "white"}
-        _hover={{
-          boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
-        }}
-        fontFamily={"Nunito Sans"}
-        p={7}
-        fontSize={{ base: 14, md: 16, lg: 18 }}
-        variant={"outline"}
         onClick={() => {
           router.push(lang + "/get-a-quote");
         }}
+        w={["full", , "auto"]}
+        display="inline-flex"
+        alignItems="center"
+        justifyContent="center"
+        px={10}
+        py={7}
+        border="solid transparent"
+        fontWeight="bold"
+        rounded="md"
+        shadow="md"
+        _light={{
+          color: "white",
+        }}
+        bg={"primary.100"}
+        _hover={{
+          bg: "primary.200",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
+        }}
       >
-        Bizimle bir proje başlatın 🚀🚀🚀
+        Şimdi Teklif Al
       </Button>
     </>
   );

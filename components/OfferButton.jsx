@@ -27,13 +27,12 @@ function OfferButton({ lang = `tr`, platform }) {
             px={4}
             h={75}
           >
-            Teklif İste
+            Teklif Al
           </Button>
         </>
       ) : (
         <>
           <Button
-          
             variant={"outline"}
             color="#fff"
             bg={"primary.100"}
@@ -47,10 +46,8 @@ function OfferButton({ lang = `tr`, platform }) {
             fontSize={{ md: "13px", lg: "17px" }}
             zIndex={11}
           >
-            Teklif İste
+            Teklif Al
           </Button>
-
-
         </>
       )}
     </>
