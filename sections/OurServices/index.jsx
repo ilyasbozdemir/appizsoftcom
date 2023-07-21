@@ -16,7 +16,6 @@ import React from "react";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import ServicesFeature from "../../components/ServicesFeature";
 
 const Services = (props) => {
   const { id, img, href, title, content } = props;

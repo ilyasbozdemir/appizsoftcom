@@ -6,6 +6,7 @@ import {
   Flex,
   Heading,
   Icon,
+  SimpleGrid,
   Stack,
   Text,
   Wrap,
@@ -23,72 +24,62 @@ import {
   FaLightbulb,
 } from "react-icons/fa";
 
-
 function WhyChooseUs() {
   const Feature = (props) => {
     return (
       <>
-        <Center py={3} data-aos="zoom-in-up">
-          <Flex
-            direction={{ base: "column", lg: "column" }}
-            w={{ base: "full", lg: "250px" }}
-            h={{ base: "300px", lg: "350px" }}
-            bg={useColorModeValue("white", "gray.800")}
-            boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
-            rounded={"lg"}
-            overflow={"hidden"}
+        <Flex
+          direction={{ base: "column", lg: "column" }}
+          w={{ base: "full", lg: "250px" }}
+          h={{ base: "300px", lg: "350px" }}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
+          rounded={"lg"}
+          overflow={"hidden"}
+          data-aos="zoom-in-up"
+        >
+          <Stack
+            textAlign={"center"}
+            p={6}
+            color={useColorModeValue("gray.800", "white")}
+            align={"center"}
           >
-            <Stack
-              textAlign={"center"}
-              p={6}
-              color={useColorModeValue("gray.800", "white")}
-              align={"center"}
-            >
-              <Stack direction={"row"} align={"center"} justify={"center"}>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  w={16}
-                  h={16}
-                  mb={4}
-                  rounded="full"
-                  color={`${props.color}.600`}
-                  bg={`${props.color}.100`}
-                  _dark={{
-                    color: `${props.color}.200`,
-                    bg: `${props.color}.800`,
-                  }}
-                >
-                  <Icon
-                    as={props.icon}
-                    boxSize={10}
-                    aria-hidden="true"
-                  />
-                </Flex>
-              </Stack>
-
-              <Center>
-                <Heading
-                  fontFamily={"Montserrat"}
-                  as="h2"
-                  fontSize={"20px"}
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-bottom"
-                >
-                  {props.title}
-                </Heading>
-              </Center>
+            <Stack direction={"row"} align={"center"} justify={"center"}>
+              <Flex
+                alignItems="center"
+                justifyContent="center"
+                w={16}
+                h={16}
+                mb={4}
+                rounded="full"
+                color={`${props.color}.600`}
+                bg={`${props.color}.100`}
+                _dark={{
+                  color: `${props.color}.200`,
+                  bg: `${props.color}.800`,
+                }}
+              >
+                <Icon as={props.icon} boxSize={10} aria-hidden="true" />
+              </Flex>
             </Stack>
 
-            <Box
-              bg={useColorModeValue("gray.50", "gray.900")}
-              px={6}
-              py={10}
-            >
-              {props.content}
-            </Box>
-          </Flex>
-        </Center>
+            <Center>
+              <Heading
+                fontFamily={"Montserrat"}
+                as="h2"
+                fontSize={"20px"}
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+              >
+                {props.title}
+              </Heading>
+            </Center>
+          </Stack>
+
+          <Box px={6} py={10}>
+            {props.content}
+          </Box>
+        </Flex>
       </>
     );
   };
@@ -140,9 +131,6 @@ function WhyChooseUs() {
 
   return (
     <Flex
-      _dark={{
-        bg: "#3e3e3e",
-      }}
       p={{ md: 5, lg: 5 }}
       w="auto"
       justifyContent="center"
@@ -159,7 +147,6 @@ function WhyChooseUs() {
         mx="auto"
         borderRadius={"15px"}
       >
-
         <Flex
           direction={{ base: "column", lg: "row" }}
           align={"center"}
@@ -226,21 +213,23 @@ function WhyChooseUs() {
             </Center>
           </Box>
 
-          <Wrap alignItems="start" w={{ base: "90%", lg: "900px" }}>
+          <SimpleGrid
+            columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
+            spacing={3}
+            rowGap={5}
+            justify="center"
+          >
             {features.map((child) => (
-              <React.Fragment key={child.icon} >
-                <WrapItem mx={4}>
-                  <Feature
-                    color={child.color}
-                    title={child.title}
-                    icon={child.icon}
-                    content={child.content}
-                  />
-                </WrapItem>
+              <React.Fragment key={child.icon}>
+                <Feature
+                  color={child.color}
+                  title={child.title}
+                  icon={child.icon}
+                  content={child.content}
+                />
               </React.Fragment>
             ))}
-          </Wrap>
-          
+          </SimpleGrid>
         </Flex>
         <Center>
           <Box display={{ base: "initial", lg: "none" }} mt={10}>
@@ -259,9 +248,7 @@ function WhyChooseUs() {
             </Link>
           </Box>
         </Center>
-        
       </Box>
-      
     </Flex>
   );
 }
