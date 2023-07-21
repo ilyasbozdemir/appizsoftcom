@@ -49,7 +49,7 @@ const Services = (props) => {
         }}
       >
         <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
-          <Image id={id} height={70} width={70} src={img} draggable={false} />
+          <Image id={id} alt={title} height={70} width={70} src={img} draggable={false} />
         </Flex>
         <Flex justifyContent={"center"}>
           <Heading
