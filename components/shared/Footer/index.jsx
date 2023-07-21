@@ -12,6 +12,7 @@ import {
   useColorMode,
   useBreakpointValue,
   Button,
+  Divider,
 } from "@chakra-ui/react";
 import Logo from "../Logo";
 import Link from "next/link";
@@ -33,9 +34,67 @@ const ListHeader = ({ children }) => {
   );
 };
 
-export default function LargeWithLogoCentered() {
+const MetaBusinessPartner = () => {
+  return (
+    <>
+      <Link href="#" target="_blank" passHref>
+        <Image
+          src="https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_268,h_127,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png"
+          alt="Meta-Business-Partner_logo.png"
+          width={170}
+          height={95}
+          srcSet="https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_268,h_127,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png 1x, https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_536,h_254,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png 2x"
+          fetchPriority="high"
+        />
+      </Link>
+    </>
+  );
+};
+const GooglePartner = () => {
   const googlePartnersUrl = `#`;
+  return (
+    <>
+      <Link href={googlePartnersUrl} target="_blank" rel="noopener noreferrer">
+        <Image
+          src="https://www.gstatic.com/partners/badge/images/2022/PartnerBadgeClickable.svg"
+          alt="google-partner"
+          width={80}
+          height={80}
+          fetchPriority="high"
+        />
+      </Link>
+    </>
+  );
+};
+const Partners = () => {
+  return (
+    <>
+      <Container as={Stack} maxW={"4xl"} py={10}>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+          <Stack align={"center"}>
+            <Box px={2}>
+              <GooglePartner />
+            </Box>
+          </Stack>
+          <Stack align={"center"}>
+            <Box px={2}>
+              <MetaBusinessPartner />
+            </Box>
+          </Stack>
+          <Stack align={"center"}>
+            <Box px={2}></Box>
+          </Stack>
+          <Stack align={"center"}>
+            <Box px={2}></Box>
+          </Stack>
+        </SimpleGrid>
+        <Divider mt={3} display={{ base: "none", lg: "initial" }} />
+      </Container>
+    </>
+  );
+};
 
+export default function LargeWithLogoCentered() {
   return (
     <Flex direction={"column"}>
       <Box
@@ -45,6 +104,9 @@ export default function LargeWithLogoCentered() {
         h="auto"
       >
         <Flex direction={"column"} justify={"center"} justifyContent={"center"}>
+          <Box display={{ base: "none", lg: "initial" }}>
+            <Partners />
+          </Box>
           <Container as={Stack} maxW={"8xl"} py={10}>
             <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
               <Stack align={"flex-start"}>
@@ -99,20 +161,8 @@ export default function LargeWithLogoCentered() {
               </Stack>
             </SimpleGrid>
           </Container>
-
-          <Box py={10} display={"none"}>
-            <Link
-              href={googlePartnersUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="https://www.gstatic.com/partners/badge/images/2022/PartnerBadgeClickable.svg"
-                alt="google-partner"
-                width={80}
-                height={80}
-              />
-            </Link>
+          <Box display={{ base: "initial", lg: "none" }}>
+            <Partners />
           </Box>
 
           <Box py={10}>

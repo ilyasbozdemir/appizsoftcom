@@ -75,25 +75,23 @@ function IndexPage() {
     { id: "Blog", targetId: "" },
   ];
 
+
+
   return (
     <>
       <WindowTitleChanger />
-
       <Flex direction={"column"} gap={5}>
-        <Box id={"Cta"} as="section">
+        <Box id={"Cta"} as="section" >
           <Cta lang={lang} targetId={"OurServices"} />
         </Box>
-
         <Box id={"OurServices"} as="section">
           {isMounted && <LazyOurServices targetId={"Technologies"} />}
         </Box>
-
         <Box id={"Technologies"} as="section">
           {isMounted && (
             <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
           )}
         </Box>
-
         <Box id={"TrustedByDev"} as="section">
           {isMounted && (
             <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
@@ -104,24 +102,22 @@ function IndexPage() {
             <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
           )}
         </Box>
-
         <Box id={"OurWorkProcess"} as="section">
           {isMounted && (
             <LazyOurWorkProcess lang={lang} targetId={"Testimonials"} />
           )}
         </Box>
-
         <Box id={"Testimonials"} as="section">
           {isMounted && <LazyTestimonials lang={lang} targetId={"Partners"} />}
         </Box>
-
         <Box id={"Partners"} as="section">
           {isMounted && <LazyPartners lang={lang} targetId={"Blog"} />}
         </Box>
-
         <Box id={"Blog"} as="section">
           {isMounted && <LazyBlog lang={lang} />}
         </Box>
+
+        <div></div>
       </Flex>
     </>
   );

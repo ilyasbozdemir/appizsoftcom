@@ -154,7 +154,15 @@ function OurTechnologies() {
         </Box>
       </Box>
 
-
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        justifyContent={"space-between"}
+        p={3}
+      >
+        <>
+        [Technologies Section Component]
+        </>
+      </Flex>
     </>
   );
 }
