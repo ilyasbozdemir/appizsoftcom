@@ -63,9 +63,6 @@ function WhyChooseUs() {
                     as={props.icon}
                     boxSize={10}
                     aria-hidden="true"
-                    data-aos="zoom-out-right"
-                    data-aos-duration="2500"
-                    data-aos-easing="linear"
                   />
                 </Flex>
               </Stack>
@@ -87,8 +84,6 @@ function WhyChooseUs() {
               bg={useColorModeValue("gray.50", "gray.900")}
               px={6}
               py={10}
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-center"
             >
               {props.content}
             </Box>
@@ -111,7 +106,7 @@ function WhyChooseUs() {
       title: "SEO Uyumlu Çözümler",
       icon: FaSearch,
       content:
-        "SEO odaklı yaklaşımlarla web sitelerinizi ve uygulamalarınızı optimize eder, arama motorlarında yüksek sıralamalara ulaşmanıza yardımcı oluruz.",
+        "SEO odaklı yaklaşımlarla web sitelerinizi ve uygulamalarınızı optimize ederiz",
     },
     {
       color: "purple",

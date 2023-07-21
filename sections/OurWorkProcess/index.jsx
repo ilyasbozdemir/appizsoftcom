@@ -57,7 +57,6 @@ const OurWorkProcessFeature = () => {
             _light={{
               color: "gray.900",
             }}
-            data-aos="fade-up"
           >
             {props.title}
           </Box>
@@ -70,7 +69,6 @@ const OurWorkProcessFeature = () => {
           _dark={{
             color: "gray.400",
           }}
-          data-aos="fade-up-left"
         >
           {props.children}
         </Box>
