@@ -18,7 +18,8 @@ const dataList = [
       "Yazılım Geliştirme Süreçlerinde DevOps Yaklaşımı: İş Birliği ve Süreç Otomasyonu",
     authorName: "ilyas",
     content: `Bu blog yazısında, yazılım geliştirme süreçlerinde DevOps yaklaşımının önemi ve getirdiği faydalar ele alınmaktadır. Yazılım geliştirme ve işletme ekipleri arasındaki iş birliğinin artırılması, süreç otomasyonunun uygulanması ve sürekli entegrasyon/dağıtım (CI/CD) prensiplerinin benimsenmesi, yazılım projelerinin daha hızlı, güvenilir ve sürekli bir şekilde teslim edilmesine yardımcı olmaktadır. Bu makalede, DevOps'un temel prensipleri, en iyi uygulamalar ve popüler araçlar hakkında bilgi bulabilirsiniz`,
-    imageUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   },
   {
     id: 2,
@@ -60,15 +61,7 @@ const BlogCards = () => {
       {dataList.map((blog) => {
         return (
           <>
-            <Flex
-              _dark={{
-                bg: "#3e3e3e",
-              }}
-              p={50}
-              w="full"
-              alignItems="center"
-              justifyContent="center"
-            >
+            <Flex p={50} w="full" alignItems="center" justifyContent="center">
               <Box
                 bg="white"
                 _dark={{
@@ -164,7 +157,6 @@ const BlogCards = () => {
                 </Box>
               </Box>
             </Flex>
-            ;
           </>
         );
       })}

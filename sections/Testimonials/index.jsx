@@ -203,7 +203,7 @@ const TestimonialsSections = () => {
               <Avatar
                 size="xl"
                 showBorder={true}
-                borderColor="green.400"
+                borderColor="primary.200"
                 name="avatar"
                 src={obj.image}
               />
