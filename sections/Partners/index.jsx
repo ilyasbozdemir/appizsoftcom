@@ -10,7 +10,7 @@ function PartnersSection() {
         p={3}
       >
         <>
-        [References Section Component]
+      
         </>
       </Flex>
     </>
