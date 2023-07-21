@@ -214,9 +214,10 @@ function WhyChooseUs() {
           </Box>
 
           <SimpleGrid
-            columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
+            columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 3 }}
             spacing={3}
             rowGap={5}
+            columnGap={5}
             justify="center"
           >
             {features.map((child) => (
