@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
     const { langValue } = this.props;
 
     return (
-      <Html lang={langValue || site.lang}>
+      <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">
         <Head>
           <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />

@@ -6,13 +6,8 @@ import {
   Flex,
   Heading,
   Icon,
-  List,
-  ListIcon,
-  ListItem,
-  SimpleGrid,
   Stack,
   Text,
-  VStack,
   Wrap,
   WrapItem,
   useColorModeValue,
@@ -27,6 +22,8 @@ import {
   FaUsers,
   FaLightbulb,
 } from "react-icons/fa";
+
+
 function WhyChooseUs() {
   const Feature = (props) => {
     return (

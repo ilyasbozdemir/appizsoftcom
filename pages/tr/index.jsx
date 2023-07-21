@@ -23,6 +23,7 @@ const LazyOurWorkProcess = dynamic(() =>
 );
 const LazyBlog = dynamic(() => import("../../sections/Blog"));
 const LazyPartners = dynamic(() => import("../../sections/Partners"));
+const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 //
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -89,15 +90,21 @@ function IndexPage() {
 
         <Box id={"Technologies"} as="section">
           {isMounted && (
-            <LazyOurTechnologies lang={lang} targetId={"OurWorkProcess"} />
+            <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
           )}
         </Box>
 
+        <Box id={"TrustedByDev"} as="section">
+          {isMounted && (
+            <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
+          )}
+        </Box>
         <Box id={"WhyChooseUs"} as="section">
           {isMounted && (
             <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
           )}
         </Box>
+
         <Box id={"OurWorkProcess"} as="section">
           {isMounted && (
             <LazyOurWorkProcess lang={lang} targetId={"Testimonials"} />
@@ -117,6 +124,7 @@ function IndexPage() {
         </Box>
       
   */}
+
         <Box id={"Blog"} as="section">
           {isMounted && <LazyBlog lang={lang} />}
         </Box>
