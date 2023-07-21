@@ -50,7 +50,7 @@ const BrandStats = () => {
         spacing={{ base: 2, sm: 5 }}
       >
         {statData.map((data) => (
-          <Flex key={data.id} alignItems="center" justifyContent="center">
+          <React.Fragment key={data.id}>
             <Box>
               <Icon
                 as={data.icon}
@@ -59,7 +59,7 @@ const BrandStats = () => {
                 color={`${data.color}.300`}
               />
             </Box>
-            <Box p={{ base: 2, sm: 5 }} textAlign="center">
+            <Box p={{ base: 2, sm: 5 }} >
               <Text fontWeight="extrabold" fontSize="xx-large">
                 <AnimatedNumbers
                   animateToNumber={data.score}
@@ -73,10 +73,9 @@ const BrandStats = () => {
                   }}
                 />
               </Text>
-              <Text fontSize="sm">{data.label}</Text>
+              <Text fontSize="sm" justifyContent={'start'}>{data.label}</Text>
             </Box>
-            <Box></Box>
-          </Flex>
+          </React.Fragment>
         ))}
       </SimpleGrid>
     </Flex>
