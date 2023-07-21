@@ -229,7 +229,7 @@ function WhyChooseUs() {
           <Wrap alignItems="start" w={{ base: "90%", lg: "900px" }}>
             {features.map((child) => (
               <React.Fragment key={child.icon} >
-                <WrapItem mx={4} name='ilyas'>
+                <WrapItem mx={4}>
                   <Feature
                     color={child.color}
                     title={child.title}
