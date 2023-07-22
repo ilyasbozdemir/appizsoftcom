@@ -7,8 +7,8 @@ export const projects = [
       h: 100,
     },
     categories: [],
-    projectUrl:'',
-    description:'',
+    projectUrl: "",
+    description: "",
   },
   {
     id: "",
@@ -18,9 +18,10 @@ export const projects = [
       h: 100,
     },
     categories: [],
-    projectUrl:'',
-    description:'',
-  },  {
+    projectUrl: "",
+    description: "",
+  },
+  {
     id: "",
     logo: "/images/references/test-reference.png",
     logoSize: {
@@ -28,9 +29,10 @@ export const projects = [
       h: 100,
     },
     categories: [],
-    projectUrl:'',
-    description:'',
-  },  {
+    projectUrl: "",
+    description: "",
+  },
+  {
     id: "",
     logo: "/images/references/test-reference.png",
     logoSize: {
@@ -38,7 +40,29 @@ export const projects = [
       h: 100,
     },
     categories: [],
-    projectUrl:'',
-    description:'',
+    projectUrl: "",
+    description: "",
+  },
+  {
+    id: "",
+    logo: "/images/references/test-reference.png",
+    logoSize: {
+      w: 250,
+      h: 100,
+    },
+    categories: [],
+    projectUrl: "",
+    description: "",
+  },
+  {
+    id: "",
+    logo: "/images/references/test-reference.png",
+    logoSize: {
+      w: 250,
+      h: 100,
+    },
+    categories: [],
+    projectUrl: "",
+    description: "",
   },
 ];

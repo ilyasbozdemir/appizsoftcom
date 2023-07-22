@@ -1,8 +1,17 @@
-import { Box, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  SimpleGrid,
+  Divider,
+  Heading,
+  Center,
+  Button,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { projects } from "../../constants/projects";
+import Link from "next/link";
 
 const defaultWidth = 175;
 const defaultHeight = 75;
@@ -25,28 +34,37 @@ export default function OurReferences() {
 
   return (
     <Box>
-      <Flex overflow="hidden" bg={"#eee"} p={5}>
-        <motion.div
-          style={{
-            display: "flex",
-            width: `${references.length * 100}%`,
-            transition: "transform 0.2s",
-            transform: `translateX(-${
-              slideIndex * (100 / references.length)
-            }%)`,
+      <Box mx={3} display="flex" alignItems="center">
+        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+        <Box flex="1" textAlign="center">
+          <Heading
+            fontFamily={"Montserrat"}
+            as="h2"
+            fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
+          >
+            Referanslar
+          </Heading>
+        </Box>
+        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
+      </Box>
+
+      <Center>
+        <SimpleGrid
+          columns={{
+            base: 2,
+            sm: 3,
+            md: 4,
+            lg: 6,
           }}
+          spacingX={{
+            base: 16,
+            lg: 24,
+          }}
+          spacingY={20}
+          mt={6}
         >
           {references.map((ref) => (
-            <motion.div
-              key={ref.id}
-              style={{
-                width: `${100 / references.length}%`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              whileHover={{ scale: 1.1 }}
-            >
+            <div key={ref.id}>
               <Image
                 src={ref.logo}
                 alt={`Reference ${ref.id}`}
@@ -54,7 +72,7 @@ export default function OurReferences() {
                 height={defaultHeight}
                 mx={2}
                 opacity={0.7}
-                objectFit="contain"
+                style={{ objectFit: "contain", filter: "grayscale(1)" }}
                 sx={{
                   "@media (min-width: 768px)": {
                     width: `${ref.w}px`,
@@ -62,10 +80,17 @@ export default function OurReferences() {
                   },
                 }}
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </Flex>
+        </SimpleGrid>
+      </Center>
+      <Center mt={5}>
+        <Link href={"/tr/portfolio"} passHref>
+          <Button variant={"outline"} color="primary.100" p={5}>
+            Tüm Referanslar
+          </Button>
+        </Link>
+      </Center>
     </Box>
   );
 }

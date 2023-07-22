@@ -6,6 +6,8 @@ import {
   Heading,
   Flex,
   Divider,
+  Center,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { technologies } from "../../constants/technologies";
 import Slider from "react-slick";
@@ -80,7 +82,7 @@ function OurTechnologies() {
 
   return (
     <>
-      <Box mt={10} display={'none'}>
+      <Box mt={10} display={"none"}>
         <Box mx={3} display="flex" alignItems="center">
           <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
           <Box flex="1" textAlign="center">
@@ -154,15 +156,46 @@ function OurTechnologies() {
         </Box>
       </Box>
 
-      <Flex
-        direction={{ base: "column", md: "row" }}
-        justifyContent={"space-between"}
-        p={3}
-      >
-        <>
-        [Technologies Section Component]
-        </>
-      </Flex>
+      <Center>
+        <SimpleGrid
+          columns={{
+            base: 2,
+            sm: 4,
+            md: 6,
+            lg: 7,
+          }}
+          spacingX={{
+            base: 16,
+            lg: 24,
+          }}
+          spacingY={20}
+          mt={6}
+        >
+          {technologies.map((image, index) => (
+            <React.Fragment key={index}>
+              <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+              >
+                <Link href={`${lang}/technologies#${image.id}`} passHref>
+                  <Flex direction={"column"}>
+                    <ChakraImage
+                      id={image.id}
+                      src={image.imageUrl}
+                      alt={`${image.title}`}
+                      width={50}
+                      height={50}
+                      filter={"grayscale(99%)"}
+                    />
+                  </Flex>
+                </Link>
+              </div>
+            </React.Fragment>
+          ))}
+        </SimpleGrid>
+      </Center>
     </>
   );
 }
