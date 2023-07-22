@@ -13,12 +13,16 @@ import {
   useBreakpointValue,
   Button,
   Divider,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
 } from "@chakra-ui/react";
 import Logo from "../Logo";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
+import { AddIcon, ChevronDownIcon, MinusIcon } from "@chakra-ui/icons";
 import SocialMediaIcon from "../SocialMediaIcon";
 
 const ListHeader = ({ children }) => {
@@ -94,6 +98,131 @@ const Partners = () => {
   );
 };
 
+/*
+
+transition="all .25s ease-in-out"
+                          transform={isOpen ? "rotate(180deg)" : ""}
+*/
+
+const FooterAcordion = () => {
+  return (
+    <>
+      <Flex align={"center"} justify={"center"}>
+        <Container>
+          <Accordion
+            defaultIndex={[0]}
+            width="100%"
+            maxW="full"
+            rounded="lg"
+            allowToggle
+          >
+            <AccordionItem>
+              {({ isExpanded }) => (
+                <>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        Kurumsal
+                      </Box>
+                      {isExpanded ? (
+                        <MinusIcon fontSize="12px" />
+                      ) : (
+                        <AddIcon fontSize="12px" />
+                      )}
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    <Stack align={"flex-start"}>
+                      <Link href={"#"}>Hakkımızda</Link>
+                      <Link href={"#"}>Kariyer</Link>
+                      <Link href={"#"}>Bize Ulaşın</Link>
+                    </Stack>
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+
+            <AccordionItem>
+              {({ isExpanded }) => (
+                <>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        Hizmetler
+                      </Box>
+                      {isExpanded ? (
+                        <MinusIcon fontSize="12px" />
+                      ) : (
+                        <AddIcon fontSize="12px" />
+                      )}
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    <Stack align={"flex-start"}>
+                      <Link href={"#"}>Yazılım Hizmetlerimiz</Link>
+                      <Link href={"#"}>Dijital Hizmetlerimiz</Link>
+                      <Link href={"#"}>E-ticaret Çözümleri</Link>
+                    </Stack>
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+            <AccordionItem>
+              {({ isExpanded }) => (
+                <>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        Blog / RSS
+                      </Box>
+                      {isExpanded ? (
+                        <MinusIcon fontSize="12px" />
+                      ) : (
+                        <AddIcon fontSize="12px" />
+                      )}
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    <Stack align={"flex-start"}>
+                      <Link href={"#"}>Blog</Link>
+                      <Link href={"#"}>RSS Aboneliği</Link>
+                    </Stack>
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+            <AccordionItem>
+              {({ isExpanded }) => (
+                <>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        Legal
+                      </Box>
+                      {isExpanded ? (
+                        <MinusIcon fontSize="12px" />
+                      ) : (
+                        <AddIcon fontSize="12px" />
+                      )}
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    <Stack align={"flex-start"}>
+                      <Link href={"#"}>Çerez Politikası</Link>
+                      <Link href={"#"}>Gizlilik Politikası</Link>
+                      <Link href={"#"}>KVKK</Link>
+                    </Stack>
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+          </Accordion>
+        </Container>
+      </Flex>
+    </>
+  );
+};
+
 export default function LargeWithLogoCentered() {
   return (
     <Flex direction={"column"}>
@@ -107,65 +236,45 @@ export default function LargeWithLogoCentered() {
           <Box display={{ base: "none", lg: "initial" }}>
             <Partners />
           </Box>
-          <Container as={Stack} maxW={"8xl"} py={10}>
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-              <Stack align={"flex-start"}>
-                <ListHeader>Kurumsal</ListHeader>
-                <Link href={"#"}>Hakkımızda</Link>
-                <Link href={"#"}>Kariyer</Link>
-                <Link href={"#"}>Bize Ulaşın</Link>
-              </Stack>
-              <Stack align={"flex-start"}>
-                <ListHeader>Hizmetler</ListHeader>
-                <Link href={"#"}>Yazılım Hizmetlerimiz</Link>
-                <Link href={"#"}>Dijital Hizmetlerimiz</Link>
-                <Link href={"#"}>E-ticaret Çözümleri</Link>
-              </Stack>
-              {/*
+          <Container as={Stack} maxW={"8xl"} py={{ base: 5, sm: 10 }}>
+            <Box display={{ base: "none", sm: "initial" }}>
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+                <Stack align={"flex-start"}>
+                  <ListHeader>Kurumsal</ListHeader>
+                  <Link href={"#"}>Hakkımızda</Link>
+                  <Link href={"#"}>Kariyer</Link>
+                  <Link href={"#"}>Bize Ulaşın</Link>
+                </Stack>
+                <Stack align={"flex-start"}>
+                  <ListHeader>Hizmetler</ListHeader>
+                  <Link href={"#"}>Yazılım Hizmetlerimiz</Link>
+                  <Link href={"#"}>Dijital Hizmetlerimiz</Link>
+                  <Link href={"#"}>E-ticaret Çözümleri</Link>
+                </Stack>
 
-<Stack align={"flex-start"}>
-                <ListHeader>Yazılım Hizmetlerimiz</ListHeader>
-                <Link href={"#"}>Web Tasarım ve Geliştirme</Link>
-                <Link href={"#"}>Mobil Uygulama Geliştirme</Link>
-                <Link href={"#"}>Veritabanı Yönetimi</Link>
-                <Link href={"#"}>Bulut Bilişim Hizmetleri</Link>
-              </Stack>
-              <Stack align={"flex-start"}>
-                <ListHeader>Dijital Hizmetlerimiz</ListHeader>
-                <Link href={"#"}>Grafik Tasarım</Link>
-                <Link href={"#"}>Prodüksiyon Hizmetleri</Link>
-                <Link href={"#"}>Sosyal Medya Yönetimi</Link>
-                <Link href={"#"}>Dijital Pazarlama</Link>
-                <Link href={"#"}>SEO (Arama Motoru Optimizasyonu)</Link>
-              </Stack>
-              <Stack align={"flex-start"}>
-                <ListHeader>E-ticaret Çözümleri</ListHeader>
-                <Link href={"#"}>Sanal Mağaza Oluşturma</Link>
-                <Link href={"#"}>Ödeme Entegrasyonu</Link>
-                <Link href={"#"}>Envanter Yönetimi</Link>
-                <Link href={"#"}>Müşteri İlişkileri Yönetimi</Link>
-              </Stack>
+                <Stack align={"flex-start"}>
+                  <ListHeader>Blog / RSS</ListHeader>
+                  <Link href={"#"}>Blog</Link>
+                  <Link href={"#"}>RSS Aboneliği</Link>
+                </Stack>
+                <Stack align={"flex-start"}>
+                  <ListHeader>Legal</ListHeader>
+                  <Link href={"#"}>Çerez Politikası</Link>
+                  <Link href={"#"}>Gizlilik Politikası</Link>
+                  <Link href={"#"}>KVKK</Link>
+                </Stack>
+              </SimpleGrid>
+            </Box>
 
-*/}
-
-              <Stack align={"flex-start"}>
-                <ListHeader>Blog / RSS</ListHeader>
-                <Link href={"#"}>Blog</Link>
-                <Link href={"#"}>RSS Aboneliği</Link>
-              </Stack>
-              <Stack align={"flex-start"}>
-                <ListHeader>Legal</ListHeader>
-                <Link href={"#"}>Çerez Politikası</Link>
-                <Link href={"#"}>Gizlilik Politikası</Link>
-                <Link href={"#"}>KVKK</Link>
-              </Stack>
-            </SimpleGrid>
+            <Box display={{ base: "initial", sm: "none" }}>
+              <FooterAcordion />
+            </Box>
           </Container>
           <Box display={{ base: "initial", lg: "none" }}>
             <Partners />
           </Box>
 
-          <Box py={10}>
+          <Box py={{ base: 0, sm: 10 }}>
             <Flex
               align={"center"}
               _before={{
@@ -185,10 +294,10 @@ export default function LargeWithLogoCentered() {
             >
               <Logo isLink={false} s={{ h: 125, w: 250 }} />
             </Flex>
-            <Text pt={6} fontSize={"sm"} textAlign={"center"}>
+            <Text pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
               <SocialMediaIcon />
             </Text>
-            <Text pt={6} fontSize={"sm"} textAlign={"center"}>
+            <Text pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
               <FooterData />
             </Text>
           </Box>

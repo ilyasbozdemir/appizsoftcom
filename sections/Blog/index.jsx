@@ -134,7 +134,7 @@ const BlogCards = () => {
                       color: "gray.400",
                     }}
                   >
-                    {blog.content}
+                    {blog.content.substring(0,150)}...
                   </chakra.p>
 
                   <Box mt={8}>
