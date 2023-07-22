@@ -89,8 +89,8 @@ export default function Navbar() {
         top={0}
         left={0}
         pos={"fixed"}
-        bg={useColorModeValue("white", "gray.800")}
         zIndex={50}
+        backdropFilter="blur(9px)"
       >
         <Flex
           h={16}
@@ -231,7 +231,7 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
         rounded="md"
         _hover={{
           textDecoration: "none",
-          bg: link.bg,
+          // bg: link.bg,
           color: link.color,
         }}
         onClick={() => onClose()}
@@ -248,7 +248,7 @@ const MenuLink = ({ name, path, icon, onClose }) => {
       <MenuItem
         _hover={{
           color: "blue.400",
-          bg: useColorModeValue("gray.200", "gray.700"),
+          // bg: useColorModeValue("gray.200", "gray.700"),
         }}
       >
         <HStack>

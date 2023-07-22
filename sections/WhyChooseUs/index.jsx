@@ -151,7 +151,9 @@ function WhyChooseUs() {
           direction={{ base: "column", lg: "row" }}
           align={"center"}
           justifyContent={"center"}
+          gap={20}
         >
+
           <Box maxW={"450px"}>
             <Text
               as="h2"

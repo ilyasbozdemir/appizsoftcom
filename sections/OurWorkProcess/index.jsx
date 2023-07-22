@@ -35,10 +35,8 @@ const OurWorkProcessFeature = () => {
               color: `${props.color}.200`,
               bg: `${props.color}.800`,
             }}
-            data-aos="fade-right"
           >
             <Icon
-              data-aos="fade-left"
               as={props.icon}
               boxSize={5}
               viewBox="0 0 20 20"

@@ -53,7 +53,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
       h="100vh" // Yüksekliği ekran yüksekliğine eşit
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
-      alignItems={useBreakpointValue({base:'center', lg: "center" })}
+      alignItems={useBreakpointValue({ base: "center", lg: "center" })}
     >
       <Container maxW={"5xl"} as="article">
         <Stack
@@ -79,10 +79,11 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
             fontSize={{ base: "19px", md: "25px" }}
             fontFamily={"'Nunito Sans', sans-serif"}
           >
-            Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak
-            hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve
-            araştırmalarımızla, müşterilerimizin sektöründe öne çıkarak rekabet
-            avantajı elde etmelerini sağlıyoruz.
+            Müşterilerimize özel yaklaşımla yaratıcılığı buluşturarak
+            hedeflerine ulaşmalarına yardımcı oluyor, stratejik planlama ve
+            kapsamlı araştırmalarımızla sektörde öne çıkarak rekabet avantajı
+            elde etmelerini sağlıyoruz ve estetik çözümlerimizle işinize güç
+            katıyoruz!
           </Text>
           <Stack spacing={6} direction={"column"}>
             <StartProjectButton />

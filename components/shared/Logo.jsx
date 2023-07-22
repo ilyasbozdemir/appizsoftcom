@@ -21,6 +21,10 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
 
   size = ["desktop", "mobile"].includes(platform) ? size : s;
 
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
+
   return (
     <>
       <Image
@@ -35,6 +39,9 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
           if (isLink) router.push(`/${lang}?ref=${platform}-logo`);
         }}
         draggable={false}
+        //placeholder="blur"
+        loader={imageLoader}
+        loading = 'lazy'
       />
     </>
   );
