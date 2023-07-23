@@ -61,11 +61,12 @@ function OurTechnologies() {
             modules={[Autoplay, EffectFade]}
             spaceBetween={30}
             slidesPerView={10}
+            slide
             effect="fade"
             autoplay={{ delay: 100 }}
           >
             {technologies.map((image, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <Link href={`${lang}/technologies#${image.id}`} passHref>
                   <Flex direction={"column"}>
                     <ChakraImage

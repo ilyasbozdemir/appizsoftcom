@@ -315,7 +315,7 @@ export const technologies = [
   {
     id: "Selenium",
     title: "Selenium",
-    category: "",
+    category: "Otomasyon Test Araçları",
     imageUrl: "/images/technologies/selenium.svg",
     isMenuDisplay: true,
     description: ``,
@@ -327,7 +327,7 @@ export const technologies = [
   {
     id: "Appium",
     title: "Appium",
-    category: "",
+    category: "Otomasyon Test Araçları",
     imageUrl: "/images/technologies/appium.svg",
     isMenuDisplay: true,
     description: ``,

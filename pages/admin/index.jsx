@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import React from 'react'
-import Dashboard from '../../sections/Dashboard'
 function MainPage() {
   return (
     <>
@@ -10,7 +9,6 @@ function MainPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-      <Dashboard/>
       </>
     </>
   )
