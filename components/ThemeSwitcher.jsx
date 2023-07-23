@@ -44,6 +44,7 @@ function ThemeSwitcher() {
         aria-label="Color Switcher"
         onClick={handleToggleColorMode}
         icon={<Icon as={icon === darkIcon ? BsMoon : BsSun} fontSize="lg" />}
+        variant={'unstyled'}
       />
     </>
   );

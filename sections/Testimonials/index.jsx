@@ -191,12 +191,6 @@ const TestimonialsSections = () => {
   return (
     <>
       <Container maxW="5xl" p={{ base: 5, md: 10 }}>
-        <Flex justify="center" mb={8}>
-          <chakra.h3 fontSize="3xl" fontWeight="bold" mb={3}>
-            İnsanlar bizim hakkımızda ne diyor?
-          </chakra.h3>
-        </Flex>
-
         {testimonialsData2.map((obj, index) => (
           <Fragment key={index}>
             <VStack spacing={3} pt={1} justify="center">
@@ -207,7 +201,7 @@ const TestimonialsSections = () => {
                 name="avatar"
                 src={obj.image}
               />
-               <Box textAlign="center" maxW="4xl">
+              <Box textAlign="center" maxW="4xl">
                 <Text fontSize="md" fontWeight="medium">
                   <Rating defaultValue={obj.rating} size="lg" />
                 </Text>
@@ -225,7 +219,6 @@ const TestimonialsSections = () => {
                   {obj.content}
                 </Text>
               </Box>
-             
             </VStack>
             {testimonialsData2.length - 1 !== index && <Divider my={6} />}
           </Fragment>
@@ -238,6 +231,32 @@ const TestimonialsSections = () => {
 const Testimonials = () => {
   return (
     <>
+      <Flex
+        id="services-top"
+        direction={"row"}
+        justifyContent={"space-between"}
+        px={{ base: 10, md: 20 }}
+        py={5}
+      >
+        <Flex direction={"column"} justify={"center"} gap={3}>
+          <Heading
+            as="h2"
+            fontSize={24}
+            pos="relative"
+            _before={{
+              content: `""`,
+              borderRadius: "50px",
+              position: "absolute",
+              backgroundColor: "#000",
+              width: "4px",
+              height: "100%",
+              left: "-10px",
+            }}
+          >
+            İnsanlar bizim hakkımızda ne diyor?
+          </Heading>
+        </Flex>
+      </Flex>
       <Center p={4}>
         {/*
             <WithSpeechBubbles />

@@ -1,6 +1,3 @@
-
-
-
 export const technologies = [
   {
     id: "Kubernetes",
@@ -317,6 +314,29 @@ export const technologies = [
       height: 40,
     },
   },
-  
+  {
+    id: "Selenium",
+    title: "Selenium",
+    category: "",
+    imageUrl: "/images/technologies/selenium.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 40,
+      height: 40,
+    },
+  },
+  {
+    id: "Appium",
+    title: "Appium",
+    category: "",
+    imageUrl: "/images/technologies/appium.svg",
+    isMenuDisplay: true,
+    description: ``,
+    size: {
+      width: 60,
+      height: 60,
+    },
+  },
   //
 ];

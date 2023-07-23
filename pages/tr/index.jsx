@@ -121,14 +121,15 @@ function IndexPage() {
           {isMounted && <LazyTestimonials lang={lang} targetId={"Partners"} />}
         </Box>
         <Box id={"Partners"} as="section">
-          {isMounted && <LazyPartners lang={lang} targetId={"SSS"} />}
+          {isMounted && <LazyPartners lang={lang} targetId={"Blog"} />}
+        </Box>
+
+        <Box id={"Blog"} as="section">
+          {isMounted && <LazyBlog lang={lang}  targetId={"SSS"}/>}
         </Box>
 
         <Box id={"SSS"} as="section">
-          {isMounted && <LazySSS lang={lang} targetId={"Blog"} />}
-        </Box>
-        <Box id={"Blog"} as="section">
-          {isMounted && <LazyBlog lang={lang} />}
+          {isMounted && <LazySSS lang={lang} />}
         </Box>
       </Flex>
     </>

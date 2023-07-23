@@ -16,6 +16,7 @@ import { HiCode } from "react-icons/hi";
 import { AiOutlineBug } from "react-icons/ai";
 import { GrDeploy, GrIntegration } from "react-icons/gr";
 import { SlDoc } from "react-icons/sl";
+import { Link } from "react-scroll";
 
 const OurWorkProcessFeature = () => {
   const Feature = (props) => {
@@ -135,43 +136,42 @@ const OurWorkProcessFeature = () => {
 
   return (
     <Flex
-      bg="#edf3f8"
-      _dark={{
-        bg: "#3e3e3e",
-      }}
       p={{ md: 5, lg: 10 }}
       w="auto"
       justifyContent="center"
       alignItems="center"
     >
-      <Box
-        px={8}
-        py={20}
-        mx="auto"
-        bg="white"
-        _dark={{
-          bg: "gray.700",
-        }}
-        borderRadius={"15px"}
-      >
+      <Box px={8} py={20} mx="auto" borderRadius={"15px"}>
         <Box
           textAlign={{
             lg: "center",
           }}
         >
-          <Box mx={3} display="flex" alignItems="center">
-            <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-            <Box flex="1" textAlign="center">
+          <Flex
+            id="services-top"
+            direction={"row"}
+            justifyContent={"space-between"}
+            px={{ base: 10, md: 20 }}
+          >
+            <Flex direction={"column"} justify={"center"} gap={3}>
               <Heading
-                fontFamily={"Montserrat"}
                 as="h2"
-                fontSize={{ base: "18px", md: "22px", lg: "24px", xl: "28px" }}
+                fontSize={24}
+                pos="relative"
+                _before={{
+                  content: `""`,
+                  borderRadius: "50px",
+                  position: "absolute",
+                  backgroundColor: "#000",
+                  width: "4px",
+                  height: "100%",
+                  left: "-10px",
+                }}
               >
                 İş Sürecimiz
               </Heading>
-            </Box>
-            <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-          </Box>
+            </Flex>
+          </Flex>
 
           <Box
             as="p"

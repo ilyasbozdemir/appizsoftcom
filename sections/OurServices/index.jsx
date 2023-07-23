@@ -38,7 +38,6 @@ const Services = (props) => {
         _hover={{
           boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
         }}
-      
         rounded="md"
         marginInline="auto"
         onClick={() => {
@@ -48,7 +47,14 @@ const Services = (props) => {
         }}
       >
         <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
-          <Image id={id} alt={title} height={70} width={70} src={img} draggable={false} />
+          <Image
+            id={id}
+            alt={title}
+            height={70}
+            width={70}
+            src={img}
+            draggable={false}
+          />
         </Flex>
         <Flex justifyContent={"center"}>
           <Heading
@@ -104,6 +110,38 @@ function OurServices({ targetId }) {
   return (
     <>
       <Flex
+        id="services-top"
+        direction={"row"}
+        justifyContent={"space-between"}
+        px={{ base: 10, md: 20 }}
+      >
+        <Flex direction={"column"} justify={"center"} gap={3}>
+          <Text>Size Nasıl Yardımcı Olabiliriz?</Text>
+          <Heading
+            as="h2"
+            fontSize={24}
+            pos="relative"
+            _before={{
+              content: `""`,
+              borderRadius: "50px",
+              position: "absolute",
+              backgroundColor: "#000",
+              width: "4px",
+              height: "100%",
+              left: "-10px",
+            }}
+          >
+            Hizmetlerimiz
+          </Heading>
+        </Flex>
+        <Flex display={{ base: "none", md: "initial" }}>
+          <Link href={"/tr/services"} passHref>
+            <Button variant={"outline"}>Tüm Hizmetler</Button>
+          </Link>
+        </Flex>
+      </Flex>
+
+      <Flex
         as={"article"}
         direction={"column"}
         gap={5}
@@ -111,20 +149,6 @@ function OurServices({ targetId }) {
         h="auto"
         data-aos="zoom-in-up"
       >
-        <Box mx={3} display="flex" alignItems="center">
-          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-          <Box flex="1" textAlign="center">
-            <Heading
-              fontFamily={"Montserrat"}
-              as="h2"
-              fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
-            >
-              Size Özel Hizmetler
-            </Heading>
-          </Box>
-          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-        </Box>
-
         <SimpleGrid
           columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
           spacing={2}
@@ -141,14 +165,10 @@ function OurServices({ targetId }) {
         </SimpleGrid>
 
         <Center>
-          <Flex direction={"column"} gap={3}>
+          <Flex display={{ base: "initial", md: "none" }}>
             <Link href={"/tr/services"} passHref>
-              <Button variant={"outline"} color="primary.100" p={5}>
-                Hizmetlerimizi İncele
-              </Button>
+              <Button variant={"outline"}>Tüm Hizmetler</Button>
             </Link>
-
-            <Text>Diğer Hizmetlerimizi İnceleyin</Text>
           </Flex>
         </Center>
       </Flex>

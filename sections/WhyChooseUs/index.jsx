@@ -153,29 +153,33 @@ function WhyChooseUs() {
           justifyContent={"center"}
           gap={20}
         >
-
           <Box maxW={"450px"}>
-            <Text
-              as="h2"
-              mb={3}
-              fontSize={{
-                base: "3xl",
-                md: "4xl",
-              }}
-              fontWeight="extrabold"
-              textAlign={{
-                base: "center",
-                sm: "left",
-              }}
-              _light={{
-                color: "black",
-              }}
-              lineHeight="shorter"
-              letterSpacing="tight"
-              data-aos="fade-up"
+            <Flex
+              id="services-top"
+              direction={"row"}
+              justifyContent={"space-between"}
+              px={{ base: 10, md: 20 }}
             >
-              Neden bizi seçmelisiniz?
-            </Text>
+              <Flex direction={"column"} justify={"center"} gap={3}>
+                <Heading
+                  as="h2"
+                  fontSize={24}
+                  pos="relative"
+                  _before={{
+                    content: `""`,
+                    borderRadius: "50px",
+                    position: "absolute",
+                    backgroundColor: "#000",
+                    width: "4px",
+                    height: "100%",
+                    left: "-10px",
+                  }}
+                >
+                  Bizi Tercih Etmeniz İçin 5 Neden
+                </Heading>
+              </Flex>
+            </Flex>
+
             <Text
               as="p"
               mb={6}
@@ -205,7 +209,6 @@ function WhyChooseUs() {
                       base: "full",
                       sm: "auto",
                     }}
-                    colorScheme="teal"
                     size="lg"
                   >
                     Daha Fazlasını Gör

@@ -82,79 +82,31 @@ function OurTechnologies() {
 
   return (
     <>
-      <Box mt={10} display={"none"}>
-        <Box mx={3} display="flex" alignItems="center">
-          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-          <Box flex="1" textAlign="center">
-            <Heading
-              fontFamily={"Montserrat"}
-              as="h2"
-              fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
-            >
-              Teknolojiler
-            </Heading>
-          </Box>
-          <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-        </Box>
-
-        <Box
-          px={8}
-          py={20}
-          mx="auto"
-          bg="white"
-          _dark={{
-            bg: "gray.800",
-          }}
-        >
-          <Slider {...settings}>
-            {technologies.map((image, index) => (
-              <React.Fragment key={index}>
-                <div
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  onMouseDown={handleMouseDown}
-                  onMouseUp={handleMouseUp}
-                >
-                  <Link
-                    href={`${lang}/technologies#${image.id}`}
-                    passHref
-                    legacyBehavior
-                  >
-                    <a
-                      style={{
-                        pointerEvents: isDragging ? "none" : "auto",
-                        cursor: isDragging ? "grabbing" : "pointer",
-                      }}
-                    >
-                      <ChakraImage
-                        id={image.id}
-                        src={image.imageUrl}
-                        alt={`${image.title}`}
-                        width={50}
-                        height={50}
-                        filter={"grayscale(99%)"}
-                      />
-                    </a>
-                  </Link>
-                </div>
-              </React.Fragment>
-            ))}
-          </Slider>
-          <Flex mt={10} justify={"center"}>
-            <Text
-              onClick={() => {
-                router.push(`${lang}/technologies`);
-              }}
-              color={"blue"}
-              fontWeight={"semibold"}
-              mt={3}
-              cursor={"pointer"}
-            >
-              Tam hizmet teknolojilerimizi görüntüleyin →
-            </Text>
-          </Flex>
-        </Box>
-      </Box>
+      <Flex
+        id="services-top"
+        direction={"row"}
+        justifyContent={"space-between"}
+        px={{ base: 10, md: 20 }}
+      >
+        <Flex direction={"column"} justify={"center"} gap={3}>
+          <Heading
+            as="h2"
+            fontSize={24}
+            pos="relative"
+            _before={{
+              content: `""`,
+              borderRadius: "50px",
+              position: "absolute",
+              backgroundColor: "#000",
+              width: "4px",
+              height: "100%",
+              left: "-10px",
+            }}
+          >
+            Teknolojiler
+          </Heading>
+        </Flex>
+      </Flex>
 
       <Center>
         <SimpleGrid
@@ -187,7 +139,10 @@ function OurTechnologies() {
                       alt={`${image.title}`}
                       width={50}
                       height={50}
-                      filter={"grayscale(99%)"}
+                      filter={"saturate(.2)"}
+                      _hover={{
+                        filter: "none",
+                      }}
                     />
                   </Flex>
                 </Link>

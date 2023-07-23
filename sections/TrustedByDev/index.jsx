@@ -59,7 +59,7 @@ const BrandStats = () => {
                 color={`${data.color}.300`}
               />
             </Box>
-            <Box p={{ base: 2, sm: 5 }} >
+            <Box p={{ base: 2, sm: 5 }}>
               <Text fontWeight="extrabold" fontSize="xx-large">
                 <AnimatedNumbers
                   animateToNumber={data.score}
@@ -73,7 +73,9 @@ const BrandStats = () => {
                   }}
                 />
               </Text>
-              <Text fontSize="sm" justifyContent={'start'}>{data.label}</Text>
+              <Text fontSize="sm" justifyContent={"start"}>
+                {data.label}
+              </Text>
             </Box>
           </React.Fragment>
         ))}

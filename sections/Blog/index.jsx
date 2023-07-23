@@ -34,20 +34,32 @@ const dataList = [
 function Blog() {
   return (
     <>
-      <Box mx={3} display="flex" alignItems="center" mb={5}>
-        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-        <Box flex="1" textAlign="center">
+      <Flex
+        id="services-top"
+        direction={"row"}
+        justifyContent={"space-between"}
+        px={{ base: 10, md: 20 }}
+        py={5}
+      >
+        <Flex direction={"column"} justify={"center"} gap={3}>
           <Heading
-            fontFamily={"Montserrat"}
             as="h2"
-            fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
+            fontSize={24}
+            pos="relative"
+            _before={{
+              content: `""`,
+              borderRadius: "50px",
+              position: "absolute",
+              backgroundColor: "#000",
+              width: "4px",
+              height: "100%",
+              left: "-10px",
+            }}
           >
-            Blog
+            Teknoloji ve İş Dünyasıyla İlgili Güncel Haberler
           </Heading>
-        </Box>
-        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-      </Box>
-
+        </Flex>
+      </Flex>
       <>
         <BlogCards />
       </>
@@ -134,7 +146,7 @@ const BlogCards = () => {
                       color: "gray.400",
                     }}
                   >
-                    {blog.content.substring(0,150)}...
+                    {blog.content.substring(0, 150)}...
                   </chakra.p>
 
                   <Box mt={8}>

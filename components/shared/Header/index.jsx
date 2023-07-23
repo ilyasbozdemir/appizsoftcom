@@ -105,6 +105,7 @@ export default function Navbar() {
             aria-label="Open Menu"
             display={["inherit", "inherit", "none"]}
             onClick={isOpen ? onClose : onOpen}
+            variant={'unstyled'}
           />
           <HStack spacing={8} alignItems="center">
             <Logo

@@ -6,6 +6,7 @@ import {
   Heading,
   Center,
   Button,
+  Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -34,19 +35,36 @@ export default function OurReferences() {
 
   return (
     <Box>
-      <Box mx={3} display="flex" alignItems="center">
-        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-        <Box flex="1" textAlign="center">
+      <Flex
+        id="services-top"
+        direction={"row"}
+        justifyContent={"space-between"}
+        px={{ base: 10, md: 20 }}
+      >
+        <Flex direction={"column"} justify={"center"} gap={3}>
           <Heading
-            fontFamily={"Montserrat"}
             as="h2"
-            fontSize={{ base: "24px", md: "26px", lg: "28px", xl: "32px" }}
+            fontSize={24}
+            pos="relative"
+            _before={{
+              content: `""`,
+              borderRadius: "50px",
+              position: "absolute",
+              backgroundColor: "#000",
+              width: "4px",
+              height: "100%",
+              left: "-10px",
+            }}
           >
             Referanslar
           </Heading>
-        </Box>
-        <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
-      </Box>
+        </Flex>
+        <Flex display={{ base: "none", md: "initial" }}>
+          <Link href={"/tr/services"} passHref>
+            <Button variant={"outline"}>Tüm Referanslar</Button>
+          </Link>
+        </Flex>
+      </Flex>
 
       <Center>
         <SimpleGrid
@@ -72,7 +90,7 @@ export default function OurReferences() {
                 height={defaultHeight}
                 mx={2}
                 opacity={0.7}
-                style={{ objectFit: "contain", filter: "grayscale(1)" }}
+                style={{ objectFit: "contain", filter: "saturate(2)" }}
                 sx={{
                   "@media (min-width: 768px)": {
                     width: `${ref.w}px`,
@@ -84,12 +102,12 @@ export default function OurReferences() {
           ))}
         </SimpleGrid>
       </Center>
-      <Center mt={5}>
-        <Link href={"/tr/portfolio"} passHref>
-          <Button variant={"outline"} color="primary.100" p={5}>
-            Tüm Referanslar
-          </Button>
-        </Link>
+      <Center>
+        <Flex display={{ base: "initial", md: "none" }}>
+          <Link href={"/tr/services"} passHref>
+            <Button variant={"outline"}>Tüm Referanslar</Button>
+          </Link>
+        </Flex>
       </Center>
     </Box>
   );
