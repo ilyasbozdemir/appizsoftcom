@@ -2,7 +2,7 @@ export const technologies = [
   {
     id: "Kubernetes",
     title: "Kubernetes",
-    category: "Backend",
+    category: "Bulut ve Konteyner Yönetimi",
     imageUrl: "/images/technologies/kubernetes.svg",
     isMenuDisplay: true,
     description: `Kubernetes, konteyner tabanlı uygulamaların otomatik dağıtımını ve yönetimini sağlayan güçlü bir yazılım platformudur. Uygulamaların hızlı bir şekilde başlamasını, sorunsuz ölçeklenebilirliği ve kesintisiz hizmet sunmayı mümkün kılar. Deklaratif yapısıyla istenen durumu otomatik olarak gerçekleştirerek geliştiricilere büyük bir operasyonel kolaylık sağlar. Kubernetes, modern uygulama geliştirme süreçlerinde vazgeçilmez bir rol oynar.`,
@@ -14,7 +14,7 @@ export const technologies = [
   {
     id: "Docker",
     title: "Docker",
-    category: "Backend",
+    category: "Bulut ve Konteyner Yönetimi",
     imageUrl: "/images/technologies/docker.svg",
     isMenuDisplay: true,
     description: `Docker, konteynerleştirme teknolojisi olarak bilinen bir yazılım platformudur. Uygulamaları hafif ve taşınabilir konteynerler halinde paketlemek ve çalıştırmak için kullanılır. Docker, uygulamaların bağımsız olarak çalışmasını sağlar, sistemler arasında tutarlılığı sağlar ve hızlı dağıtım imkanı sunar. Bu sayede uygulama geliştirme ve dağıtım süreçlerinde büyük kolaylık sağlar ve yazılım ekosistemini standartlaştırır.`,
@@ -24,14 +24,12 @@ export const technologies = [
     },
   },
   {
-    id: ".NETCore7.0",
-    title: ".NET Core 7.0",
+    id: ".NETCore",
+    title: ".NET Core",
     category: "Backend",
     imageUrl: "/images/technologies/dot-net-6.0.svg",
     isMenuDisplay: true,
-    description: `.NET Core 7.0, Microsoft tarafından geliştirilen, açık kaynaklı ve çok platformlu bir yazılım geliştirme çerçevesidir. .NET Core, uygulama geliştiricilerine Windows, macOS ve Linux gibi farklı işletim sistemlerinde çalışabilen yüksek performanslı ve ölçeklenebilir uygulamalar oluşturma imkanı sunar.
-
-    .NET Core 7.0, .NET 7.0 olarak da bilinen son sürümüdür ve yeni ve geliştirilmiş özelliklerle birlikte gelir. Bu sürümde geliştiriciler, geliştirme süreçlerini hızlandıran, uygulama performansını iyileştiren ve daha fazla platform desteği sağlayan bir dizi yenilik bulacaklar.`,
+    description: ``,
     size: {
       width: 32,
       height: 32,
@@ -112,7 +110,7 @@ export const technologies = [
   {
     id: "GoogleAds",
     title: "Google Ads",
-    category: "İnternet Reklamları",
+    category: "Dijital Reklam ve Pazarlama",
     imageUrl: "/images/technologies/google-ads.svg",
     isMenuDisplay: true,
     description: ``,
@@ -124,7 +122,7 @@ export const technologies = [
   {
     id: "GoogleMyBusiness",
     title: "Google My Business",
-    category: "Dijital Yerel Pazarlama",
+    category: "Dijital Reklam ve Pazarlama",
     imageUrl: "/images/technologies/google-my-business.svg",
     isMenuDisplay: false,
     description: ``,
@@ -136,7 +134,7 @@ export const technologies = [
   {
     id: "GoogleMerchantCenter",
     title: "Google Merchant Center",
-    category: "Dijital Yerel Pazarlama",
+    category: "Dijital Reklam ve Pazarlama",
     imageUrl: "/images/technologies/google-merchant-center.svg",
     isMenuDisplay: false,
     description: ``,
@@ -149,7 +147,7 @@ export const technologies = [
   {
     id: "GoogleCloud",
     title: "Google Cloud",
-    category: "Backend",
+    category: "Bulut ve Konteyner Yönetimi",
     imageUrl: "/images/technologies/google-cloud.svg",
     isMenuDisplay: false,
     description: ``,
@@ -161,7 +159,7 @@ export const technologies = [
   {
     id: "GoogleDataStudio",
     title: "Google Data Studio",
-    category: "Dijital Yerel Pazarlama",
+    category: "Dijital Reklam ve Pazarlama",
     imageUrl: "/images/technologies/google-data-studio.svg",
     isMenuDisplay: true,
     description: ``,
@@ -173,7 +171,7 @@ export const technologies = [
   {
     id: "MetaBusinessSuite",
     title: "Meta Business Suite",
-    category: "Dijital Yerel Pazarlama",
+    category: "Dijital Reklam ve Pazarlama",
     imageUrl: "/images/technologies/meta-business-suite.svg",
     isMenuDisplay: true,
     description: ``,
@@ -293,7 +291,7 @@ export const technologies = [
   {
     id: "Plesk",
     title: "Plesk",
-    category: "Backend",
+    category: "Web Hosting ve Yönetim Panelleri",
     imageUrl: "/images/technologies/plesk.svg",
     isMenuDisplay: true,
     description: ``,
@@ -305,7 +303,7 @@ export const technologies = [
   {
     id: "cPanel",
     title: "cPanel",
-    category: "",
+    category: "Web Hosting ve Yönetim Panelleri",
     imageUrl: "/images/technologies/cPanel.svg",
     isMenuDisplay: true,
     description: ``,

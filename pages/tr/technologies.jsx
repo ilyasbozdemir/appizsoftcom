@@ -16,6 +16,12 @@ import {
   PopoverBody,
   PopoverHeader,
   PopoverContent,
+  SimpleGrid,
+  VStack,
+  HStack,
+  Stack,
+  Divider,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Head from "next/head";
@@ -23,11 +29,7 @@ import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import axios from "axios";
 
 const OurTechnologiesCTA = () => {
-  return (
-    <>
-    
-    </>
-  );
+  return <></>;
 };
 
 const OurTechnologiesContent = () => {
@@ -59,6 +61,7 @@ const OurTechnologiesContent = () => {
       } else {
         setIsMobile(false);
       }
+
     };
     const fetchData = async () => {
       try {
@@ -68,12 +71,15 @@ const OurTechnologiesContent = () => {
         handleCategoryAll();
       } catch (error) {}
     };
+
     fetchData();
     handleResize();
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+
   }, []);
 
   const handleCategoryChange = (event) => {
@@ -86,110 +92,106 @@ const OurTechnologiesContent = () => {
   };
 
   return (
-    <Box w="100vw" h={"auto"} as={"article"}>
-      {!isMobile && (
-        <>
-          <Center my={5}>
-            <Wrap maxH="100vh">
-              <WrapItem>
-                <Button onClick={() => handleCategoryAll()}>Tümü</Button>
-              </WrapItem>
-              {uniqueCategories.map((category) => (
-                <WrapItem key={category}>
-                  <Button onClick={() => handleCategoryFilter(category)}>
-                    {category}
-                  </Button>
-                </WrapItem>
-              ))}
-            </Wrap>
-          </Center>
-        </>
-      )}
+    <Box h={"auto"} as={"article"} mt={100}>
+      <Flex direction={"row"} justifyContent={"flex-start"} gap={5} my={5}>
+        <Flex w={{ base: 0, md: 300 }}   p={3}>
+          {!isMobile && (
+            <>
+              <VStack justify={"start"} align={'start'}>
+                <>
+                  <>
+                    <Button onClick={() => handleCategoryAll()}>Tümü</Button>
+                  </>
+                  {uniqueCategories.map((category) => (
+                    <WrapItem key={category}>
+                      <Button onClick={() => handleCategoryFilter(category)}>
+                        {category}
+                      </Button>
+                    </WrapItem>
+                  ))}
+                </>
+              </VStack>
+            </>
+          )}
+        </Flex>
 
-      {isMobile && (
-        <Center my={10}>
-          <Select onChange={handleCategoryChange} w={"85%"}>
-            {/*<option value="all">Tümü</option>*/}
-            {uniqueCategories.map((category) => (
-              <>
-                <option
-                  value={category}
-                  onClick={() => handleCategoryFilter(category)}
-                >
-                  {category}
-                </option>
-              </>
-            ))}
-          </Select>
-        </Center>
-      )}
-
-      <Popover isLazy>
-        <PopoverTrigger>
-          <Button>test</Button>
-        </PopoverTrigger>
-        <PopoverContent>
-          <PopoverHeader fontWeight="semibold">Popover placement</PopoverHeader>
-          <PopoverArrow />
-          <PopoverCloseButton />
-          <PopoverBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore.
-          </PopoverBody>
-        </PopoverContent>
-      </Popover>
-
-      <Wrap maxH="100vh" justify="center" align="center">
-        {filteredTechnologies.map((tech) => (
-          <Flex key={tech.id}>
-            <WrapItem p={5} cursor={"pointer"}>
-              <Flex direction={{ base: "column", lg: "row" }} gap={4}>
-                <Flex>
-                  <Box
-                    width="50%"
-                    bg={"#f3f4f6"}
-                    borderRadius={"4px"}
-                    p={".5rem"}
-                    gap={"1rem"}
-                    alignItems={"center"}
-                    boxSize={"50px"}
-                  >
-                    <Image
-                      id={tech.id}
-                      src={tech.imageUrl}
-                      alt={tech.id}
-                      width={200}
-                      height={200}
-                      mr={4}
-                    />
-                  </Box>
-                  <Flex mx={3} direction={"column"}>
-                    <Text
-                      mb={0}
-                      fontWeight={500}
-                      fontSize={"14px"}
-                      lineHeight={"20px"}
-                      isTruncated
+        <Flex direction={"column"} justifyContent={"flex-start"}>
+          {isMobile && (
+            <Center my={10}>
+              <Select onChange={handleCategoryChange}>
+                {/*<option value="all">Tümü</option>*/}
+                {uniqueCategories.map((category) => (
+                  <>
+                    <option
+                      value={category}
+                      onClick={() => handleCategoryFilter(category)}
                     >
-                      {tech.title}
-                    </Text>
-                    <Text
-                      mb={0}
-                      fontWeight={400}
-                      fontSize={"14px"}
-                      lineHeight={"20px"}
-                      isTruncated
-                      color={"gray.600"}
-                    >
-                      {tech.category}
-                    </Text>
+                      {category}
+                    </option>
+                  </>
+                ))}
+              </Select>
+            </Center>
+          )}
+
+          <Center>
+            <SimpleGrid
+              columns={{ sm: 2, md: 3, lg: 4, xl: 5, "2xl": 6 }}
+              spacing={2}
+              justify="center"
+              gap={5}
+            >
+              {filteredTechnologies.map((tech) => (
+                <Flex key={tech.id}>
+                  <Flex direction={{ base: "column", lg: "row" }} gap={4}>
+                    <Flex>
+                      <Box
+                        width="50%"
+                        bg={"#f3f4f6"}
+                        borderRadius={"4px"}
+                        p={".5rem"}
+                        gap={"1rem"}
+                        alignItems={"center"}
+                        boxSize={"50px"}
+                      >
+                        <Image
+                          id={tech.id}
+                          src={tech.imageUrl}
+                          alt={tech.id}
+                          width={200}
+                          height={200}
+                          mr={4}
+                        />
+                      </Box>
+                      <Flex mx={3} direction={"column"}>
+                        <Text
+                          mb={0}
+                          fontWeight={500}
+                          fontSize={"14px"}
+                          lineHeight={"20px"}
+                          isTruncated
+                        >
+                          {tech.title}
+                        </Text>
+                        <Text
+                          mb={0}
+                          fontWeight={400}
+                          fontSize={"14px"}
+                          lineHeight={"20px"}
+                          isTruncated
+                          color={"gray.600"}
+                        >
+                          {tech.category}
+                        </Text>
+                      </Flex>
+                    </Flex>
                   </Flex>
                 </Flex>
-              </Flex>
-            </WrapItem>
-          </Flex>
-        ))}
-      </Wrap>
+              ))}
+            </SimpleGrid>
+          </Center>
+        </Flex>
+      </Flex>
     </Box>
   );
 };

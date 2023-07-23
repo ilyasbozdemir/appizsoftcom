@@ -217,7 +217,7 @@ export default function Navbar() {
   );
 }
 
-const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
+const NavLink = ({ lang = `/tr/`, name, path, onClose }) => {
   const link = {
     bg: useColorModeValue("gray.200", "gray.700"),
     color: useColorModeValue("blue.500", "blue.200"),
@@ -243,9 +243,9 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
   );
 };
 
-const MenuLink = ({ name, path, icon, onClose }) => {
+const MenuLink = ({lang = `/tr/`, name, path, icon, onClose }) => {
   return (
-    <Link href={path} onClick={() => onClose()}>
+    <Link href={lang + path} onClick={() => onClose()}>
       <MenuItem
         _hover={{
           color: "blue.400",
