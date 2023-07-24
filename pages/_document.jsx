@@ -20,10 +20,11 @@ export default class MyDocument extends Document {
         <Head>
           {/*
              <base href={site.baseUrl} />
+                <link rel="canonical" href={site.baseUrl} />
              */}
 
           <meta charSet="utf-8" />
-          <link rel="canonical" href={site.baseUrl} />
+
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <meta name="language" content="Turkish" />
           <meta

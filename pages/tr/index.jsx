@@ -69,6 +69,7 @@ function IndexPage() {
           <meta name="og:type" content="website" />
           <meta property="og:site_name" content={site.title} />
           <meta property="og:image" content={site.image} />
+          
         </Head>
       </>
 
