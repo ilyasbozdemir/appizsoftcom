@@ -32,7 +32,7 @@ import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
- // { name: "Ürünler", path: "/products" },
+  // { name: "Ürünler", path: "/products" },
   //{ name: "Blog", path: "/blog" },
   { name: "Hizmetler", path: "/services" },
   { name: "Blog", path: "/blog" },
@@ -57,7 +57,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setSticky(window.scrollY >= 110);
+      setSticky(window.scrollY >= 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -86,23 +86,27 @@ export default function Navbar() {
       <Divider />
       <HeaderNav />
 
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
-        transition={{ duration: isSticky ? 0.4 : 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        style={{
-          position: isSticky ? "fixed" : "relative",
-          top: 0,
-          left: 0,
-          width: "100%",
-          zIndex: 50,
-          backdropFilter:'blur(15px)',
-          boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
-        }}
-      >
-        <HeaderNav />
-      </motion.div>
+      {isSticky && (
+        <>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
+            transition={{ duration: isSticky ? 0.4 : 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            style={{
+              position: isSticky ? "fixed" : "relative",
+              top: 0,
+              left: 0,
+              width: "100%",
+              zIndex: 50,
+              backdropFilter: "blur(15px)",
+              boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+            }}
+          >
+            <HeaderNav />
+          </motion.div>
+        </>
+      )}
     </>
   );
 }

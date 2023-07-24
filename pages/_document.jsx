@@ -42,6 +42,7 @@ export default class MyDocument extends Document {
           <meta name="revisit-after" content="3 days" />
           <link rel="icon" href="/favicon.png" type="image/png" />
           <meta name="theme-color" content={themeColor} />
+          
           <ExternalFonts />
           <Analytics />
           <link

@@ -3,7 +3,6 @@ import { Box, useDisclosure } from "@chakra-ui/react";
 import Footer from "../components/shared/Footer";
 import ScrollToTop from "../components/shared/ScrollToTop";
 import Header from "../components/shared/Header";
-import Head from "next/head";
 
 function UserLayout({ children }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();

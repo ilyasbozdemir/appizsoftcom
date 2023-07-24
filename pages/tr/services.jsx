@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
@@ -22,7 +22,57 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const OurServicesCTA = () => {
-  return <></>;
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // İlk renderda ekran boyutuna göre kontrol yapılır
+    handleWindowSize();
+
+    // Ekran boyutu değiştiğinde kontrol yapılır
+    window.addEventListener("resize", handleWindowSize);
+
+    // Temizleme fonksiyonu
+    return () => {
+      window.removeEventListener("resize", handleWindowSize);
+    };
+  }, []);
+
+  const handleWindowSize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  return (
+    <>
+      <Flex direction={"column"}>
+        {!isMobile && (
+          <>
+            <Flex
+              as="section"
+              h={"350px"}
+              bg="primary.100"
+              w="100%"
+              color="white"
+              justify={"center"}
+            >
+              <Center>
+                <Flex direction={"column"}>
+                  <Text fontSize={65}>Hizmetler</Text>
+                  <Center>
+                    <PagesBreadcrumb currentPage={"Hizmetler"} />
+                  </Center>
+                </Flex>
+              </Center>
+            </Flex>
+          </>
+        )}
+
+        {isMobile && (
+          <Box mx={3}>
+            <PagesBreadcrumb currentPage={"Teklif Al"} />
+          </Box>
+        )}
+      </Flex>
+    </>
+  );
 };
 
 const Services = (props) => {
@@ -106,14 +156,10 @@ const Services = (props) => {
 };
 
 const OurServicesContent = () => {
-  return (
-    <>
-    
-    </>
-  );
+  return <></>;
 };
 
-function OurServicesPage() {
+function ServicesPage() {
   return (
     <>
       <Head>
@@ -121,11 +167,11 @@ function OurServicesPage() {
       </Head>
 
       <main>
-        <OurServicesCTA />
+        {/*<OurServicesCTA />*/}
         <OurServicesContent />
       </main>
     </>
   );
 }
 
-export default OurServicesPage;
+export default ServicesPage;
