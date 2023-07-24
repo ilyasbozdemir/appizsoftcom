@@ -6,7 +6,7 @@ import GoogleAnalytics from "../plugins/GoogleAnalytics";
 import FacebookPixel from "../plugins/FacebookPixel";
 import GoogleTagManager from "../plugins/GoogleTagManager";
 import TiktokPixel from "../plugins/TiktokPixel";
-
+//bos bunlar ondan hata fırlatrır consol üzerinde
 function Analytics() {
   return (
     <>

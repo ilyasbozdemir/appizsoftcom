@@ -6,6 +6,7 @@ import {
   Flex,
   Text,
   Button,
+  Image
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -100,7 +101,6 @@ const BlogCards = () => {
                     lg: "50%",
                   }}
                 >
-
                   <Box
                     h={{
                       base: 64,
@@ -109,13 +109,22 @@ const BlogCards = () => {
                     rounded={{
                       lg: "lg",
                     }}
-                    bgSize="cover"
                     style={{
                       backgroundImage: `url(${blog.imageUrl})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
                     }}
-                  ></Box>
-                  
-
+                  >
+                    <Image
+                      src={blog.imageUrl}
+                      alt="Blog Image"
+                      w="100%"
+                      h="100%"
+                      objectFit="cover"
+                      borderRadius="lg"
+                    />
+                  </Box>
                 </Box>
 
                 <Box

@@ -46,8 +46,8 @@ const MetaBusinessPartner = () => {
         <Image
           src="https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_268,h_127,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png"
           alt="Meta-Business-Partner_logo.png"
-          width={170}
-          height={95}
+          width={170}//268
+          height={95}//127
           srcSet="https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_268,h_127,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png 1x, https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_536,h_254,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png 2x"
           fetchPriority="high"
         />
