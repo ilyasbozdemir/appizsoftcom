@@ -109,13 +109,7 @@ const FooterAcordion = () => {
     <>
       <Flex align={"center"} justify={"center"}>
         <Container>
-          <Accordion
-            defaultIndex={[0]}
-            width="100%"
-            maxW="full"
-            rounded="lg"
-            allowToggle
-          >
+          <Accordion width="100%" maxW="full" rounded="lg" allowToggle>
             <AccordionItem>
               {({ isExpanded }) => (
                 <>

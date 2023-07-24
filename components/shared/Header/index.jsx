@@ -14,6 +14,7 @@ import {
   useDisclosure,
   useColorModeValue,
   useBreakpointValue,
+  Divider,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -28,6 +29,7 @@ import ThemeSwitcher from "../../ThemeSwitcher";
 import OfferButton from "../../OfferButton";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
   { name: "Ürünler", path: "/products" },
@@ -51,19 +53,11 @@ const dropdownLinks = [
 ];
 
 export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [lang, setLang] = React.useState("");
-  useEffect(() => {
-    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
-    if (browserLanguage.startsWith("tr")) setLang(`/tr`);
-    if (browserLanguage.startsWith("en")) setLang(`/en`);
-  }, []);
-
   const [isSticky, setSticky] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setSticky(window.scrollY >= 65);
+      setSticky(window.scrollY >= 110);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -72,12 +66,54 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const [lang, setLang] = React.useState("");
+  useEffect(() => {
+    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
+    if (browserLanguage.startsWith("tr")) setLang(`/tr`);
+    if (browserLanguage.startsWith("en")) setLang(`/en`);
+  }, []);
+
+  return (
+    <>
+      <Flex
+        bg={useColorModeValue("white", "gray.800")}
+        color={useColorModeValue("gray.600", "white")}
+        justifyContent={"flex-end"}
+        display={{ base: "none", md: "flex" }}
+      >
+        <LanguageSwitcher lang={lang} />
+      </Flex>
+      <Divider />
+      <HeaderNav />
+
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isSticky ? 1 : 0, y: isSticky ? 0 : -20 }}
+        transition={{ duration: isSticky ? 0.4 : 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        style={{
+          position: isSticky ? "fixed" : "relative",
+          top: 0,
+          left: 0,
+          width: "100%",
+          zIndex: 50,
+          backdropFilter:'blur(15px)',
+          boxShadow: isSticky ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+        }}
+      >
+        <HeaderNav />
+      </motion.div>
+    </>
+  );
+}
+
+const HeaderNav = ({ lang }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const menuProps = {
     bg: useColorModeValue("gray.200", "gray.700"),
     color: useColorModeValue("blue.500", "blue.200"),
   };
-
   return (
     <>
       <Box
@@ -86,9 +122,6 @@ export default function Navbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         width="100%"
-        top={0}
-        left={0}
-        pos={"sticky"}
         backdropFilter="blur(9px)"
       >
         <Flex
@@ -214,7 +247,7 @@ export default function Navbar() {
       </Box>
     </>
   );
-}
+};
 
 const NavLink = ({ lang = `/tr/`, name, path, onClose }) => {
   const link = {

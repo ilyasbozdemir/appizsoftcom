@@ -8,6 +8,7 @@ import {
   Divider,
   Center,
   SimpleGrid,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { technologies } from "../../constants/technologies";
 import { useRouter } from "next/router";
@@ -58,31 +59,40 @@ function OurTechnologies() {
       <Center>
         <Box my={5} w={"85%"} userSelect={"none"}>
           <Swiper
-            modules={[Autoplay, EffectFade]}
+            modules={[Autoplay]}
             spaceBetween={30}
-            slidesPerView={10}
-            slide
-            effect="fade"
-            autoplay={{ delay: 100 }}
+            slidesPerView={useBreakpointValue({
+              base: 4,
+              md: 6,
+              lg: 7,
+              xl: 8,
+              "2xl": 9,
+              "3xl": 10,
+              "4xl": 11,
+              "5xl": 12,
+            })}
+            autoplay={{ delay: 250 }}
           >
             {technologies.map((image, index) => (
-              <SwiperSlide key={index}>
-                <Link href={`${lang}/technologies#${image.id}`} passHref>
-                  <Flex direction={"column"}>
-                    <ChakraImage
-                      id={image.id}
-                      src={image.imageUrl}
-                      alt={`${image.title}`}
-                      width={50}
-                      height={50}
-                      filter={"saturate(.2)"}
-                      _hover={{
-                        filter: "none",
-                      }}
-                    />
-                  </Flex>
-                </Link>
-              </SwiperSlide>
+              <>
+                <SwiperSlide key={index}>
+                  <Link href={`${lang}/technologies#${image.id}`} passHref>
+                    <Flex direction={"column"}>
+                      <ChakraImage
+                        id={image.id}
+                        src={image.imageUrl}
+                        alt={`${image.title}`}
+                        width={50}
+                        height={50}
+                        filter={"saturate(.2)"}
+                        _hover={{
+                          filter: "none",
+                        }}
+                      />
+                    </Flex>
+                  </Link>
+                </SwiperSlide>
+              </>
             ))}
           </Swiper>
         </Box>

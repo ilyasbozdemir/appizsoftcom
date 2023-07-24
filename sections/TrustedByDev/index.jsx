@@ -45,39 +45,47 @@ const statData = [
 const BrandStats = () => {
   return (
     <Flex alignItems="center" justifyContent="center">
-      <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 4 }}
-        spacing={{ base: 2, sm: 5 }}
-      >
+      <SimpleGrid columns={{ base: 2, lg: 4 }} spacing={{ base: 2, sm: 5 }}>
         {statData.map((data) => (
-          <React.Fragment key={data.id}>
-            <Box>
-              <Icon
-                as={data.icon}
-                boxSize={20}
-                aria-hidden="true"
-                color={`${data.color}.300`}
-              />
-            </Box>
-            <Box p={{ base: 2, sm: 5 }}>
-              <Text fontWeight="extrabold" fontSize="xx-large">
-                <AnimatedNumbers
-                  animateToNumber={data.score}
-                  fontStyle={{ fontSize: 32 }}
-                  configs={(number, index) => {
-                    return {
-                      mass: 1,
-                      tension: 230 * (index + 1),
-                      friction: 140,
-                    };
-                  }}
+          <>
+            <Flex key={data.id} direction={"row"}>
+              <Flex align={"center"} justify={"center"}>
+                <Icon
+                  as={data.icon}
+                  w={58}
+                  h={58}
+                  aria-hidden="true"
+                  color={`${data.color}.300`}
                 />
-              </Text>
-              <Text fontSize="sm" justifyContent={"start"}>
-                {data.label}
-              </Text>
-            </Box>
-          </React.Fragment>
+              </Flex>
+              <Flex
+                p={{ base: 2, sm: 5 }}
+                justifyContent={"center"}
+                direction={"column"}
+              >
+                <Flex>
+                  <Text fontWeight="extrabold" fontSize="xx-large">
+                    <AnimatedNumbers
+                      animateToNumber={data.score}
+                      fontStyle={{ fontSize: 32 }}
+                      configs={(number, index) => {
+                        return {
+                          mass: 1,
+                          tension: 230 * (index + 1),
+                          friction: 140,
+                        };
+                      }}
+                    />
+                  </Text>
+                </Flex>
+                <Flex>
+                  <Text fontSize="sm" justifyContent={"start"}>
+                    {data.label}
+                  </Text>
+                </Flex>
+              </Flex>
+            </Flex>
+          </>
         ))}
       </SimpleGrid>
     </Flex>

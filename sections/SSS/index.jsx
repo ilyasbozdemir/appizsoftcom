@@ -92,7 +92,6 @@ function SSS() {
       <Flex align={"center"} justify={"center"} my={18}>
         <Container maxW={"7xl"}>
           <Accordion
-            defaultIndex={[0]}
             width="100%"
             maxW="full"
             rounded="lg"
@@ -101,7 +100,7 @@ function SSS() {
           >
             {sss.map((s, index) => (
               <>
-                <AccordionItem fontSize={25}>
+                <AccordionItem fontSize="18px">
                   {({ isExpanded }) => (
                     <>
                       <h2>
