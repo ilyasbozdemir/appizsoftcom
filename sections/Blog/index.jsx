@@ -100,6 +100,7 @@ const BlogCards = () => {
                     lg: "50%",
                   }}
                 >
+
                   <Box
                     h={{
                       base: 64,
@@ -113,6 +114,8 @@ const BlogCards = () => {
                       backgroundImage: `url(${blog.imageUrl})`,
                     }}
                   ></Box>
+                  
+
                 </Box>
 
                 <Box

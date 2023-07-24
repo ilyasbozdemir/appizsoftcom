@@ -77,7 +77,15 @@ function IndexPage() {
           <meta property="og:image:height" content="506" />
           <meta property="og:locale" content="tr_TR" />
 
-          
+          {
+            /*
+            
+            json ld dosyası ile breadcrumb organizasyoın 
+            sss rewiev
+            gibi yapıları da ekle
+            
+            */
+          }
         </Head>
       </>
 
