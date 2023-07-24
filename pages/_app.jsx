@@ -1,7 +1,9 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import UserLayout from "../layouts/UserLayout";
-import AdminLayout from "../layouts/AdminLayout";
-import ErrorLayout from "../layouts/ErrorLayout";
+import dynamic from "next/dynamic";
+// Dynamic imports for layout components
+const UserLayout = dynamic(() => import("../layouts/UserLayout"));
+const AdminLayout = dynamic(() => import("../layouts/AdminLayout"));
+const ErrorLayout = dynamic(() => import("../layouts/ErrorLayout"));
 
 import theme from "../src/theme";
 import "../styles/globals.css";
@@ -30,58 +32,6 @@ function MyApp({ Component, pageProps, statusCode }) {
     });
     AOS.refresh();
   }, []);
-
-
-  const [scrollPositions, setScrollPositions] = useState({});
-
-  useEffect(() => {
-    const handleRouteChangeStart = (url) => {
-      // Sayfa değiştiğinde scroll konumunu kaydetmek
-      setScrollPositions((prevPositions) => ({
-        ...prevPositions,
-        [url]: window.scrollY,
-      }));
-    };
-
-    const handleRouteChangeComplete = () => {
-      // Scroll konumunu geri yükleme
-      const scrollPosition = scrollPositions[router.pathname];
-      if (scrollPosition) {
-        window.scrollTo(0, scrollPosition);
-      } else {
-        window.scrollTo(0, 0);
-      }
-    };
-
-    router.events.on('routeChangeStart', handleRouteChangeStart);
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-  }, [scrollPositions]);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      // Sayfa yeniden yüklendiğinde veya kapatıldığında scroll konumunu kaydetmek
-      const currentPath = router.pathname;
-      const currentScrollPosition = window.scrollY;
-      setScrollPositions((prevPositions) => ({
-        ...prevPositions,
-        [currentPath]: currentScrollPosition,
-      }));
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
-
-
-  
 
   return (
     <>
