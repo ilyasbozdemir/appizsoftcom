@@ -81,6 +81,9 @@ function IndexPage() {
 
   return (
     <>
+
+
+    
       <WindowTitleChanger />
       <Flex direction={"column"} gap={5}>
         <Box id={"Cta"} as="section">
@@ -125,7 +128,7 @@ function IndexPage() {
         </Box>
 
         <Box id={"Blog"} as="section">
-          {isMounted && <LazyBlog lang={lang}  targetId={"SSS"}/>}
+          {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
         </Box>
 
         <Box id={"SSS"} as="section">
