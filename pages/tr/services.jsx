@@ -13,6 +13,7 @@ import {
   SimpleGrid,
   Button,
   Divider,
+  Stack,
 } from "@chakra-ui/react";
 
 import { BsArrowRight } from "react-icons/bs";
@@ -75,7 +76,89 @@ const OurServicesCTA = () => {
   );
 };
 
-const Services = (props) => {
+const OurServicesContent = () => {
+  return (
+    <>
+      <Flex
+        bg={"gray.200"}
+        justifyContent={"center"}
+        h={50}
+        align={"center"}
+        overflowX={"auto"}
+      >
+        <Stack direction="row" spacing={4} align="center" >
+          <Button variant="ghost">Yazılım Hizmetlerimiz</Button>
+          <Button variant="ghost">Dijital Hizmetlerimiz</Button>
+          <Button variant="ghost">E-ticaret Çözümleri</Button>
+        </Stack>
+      </Flex>
+
+      <Flex
+        id="services-top"
+        direction={"row"}
+        justifyContent={"space-between"}
+        px={{ base: 10, md: 20 }}
+      >
+        <Flex direction={"column"} justify={"center"} gap={3}>
+          <Text>
+            Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret
+            çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler
+            sunuyoruz.
+          </Text>
+          <Heading
+            as="h2"
+            fontSize={24}
+            pos="relative"
+            _before={{
+              content: `""`,
+              borderRadius: "50px",
+              position: "absolute",
+              backgroundColor: "#000",
+              width: "4px",
+              height: "100%",
+              left: "-10px",
+            }}
+          >
+            Hizmetlerimiz
+          </Heading>
+        </Flex>
+      </Flex>
+
+      <SimpleGrid
+        columns={{
+          base: 1,
+          sm: 1,
+          md: 2,
+          lg: 4,
+        }}
+        spacingX={{
+          base: 16,
+          lg: 24,
+        }}
+        spacingY={20}
+        mt={6}
+      >
+        {/*features.map((child) => (
+            <div key={child.icon}>
+              <Feature
+                color={child.color}
+                title={child.title}
+                icon={child.icon}
+              >
+                {child.content}
+              </Feature>
+            </div>
+          ))*/}
+
+        <ServicesCard />
+        <ServicesCard />
+        <ServicesCard />
+      </SimpleGrid>
+    </>
+  );
+};
+
+const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
 
@@ -96,14 +179,23 @@ const Services = (props) => {
         _hover={{
           boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
         }}
+        rounded="md"
+        marginInline="auto"
         onClick={() => {
           router.push("/tr/service/[id]", `/tr/service/${href}`, {
             shallow: true,
           });
         }}
       >
-        <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
-          <Image id={id} height={70} width={70} src={img} draggable={false} />
+        <Flex justifyContent={"center"} data-aos={"zoom-out"}>
+          <Image
+            id={id}
+            alt={title}
+            height={70}
+            width={70}
+            src={img}
+            draggable={false}
+          />
         </Flex>
         <Flex justifyContent={"center"}>
           <Heading
@@ -153,10 +245,6 @@ const Services = (props) => {
       </Flex>
     </Flex>
   );
-};
-
-const OurServicesContent = () => {
-  return <></>;
 };
 
 function ServicesPage() {
