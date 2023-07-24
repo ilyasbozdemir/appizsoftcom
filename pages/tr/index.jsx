@@ -76,6 +76,8 @@ function IndexPage() {
           <meta property="og:image:width" content="1012" />
           <meta property="og:image:height" content="506" />
           <meta property="og:locale" content="tr_TR" />
+
+          
         </Head>
       </>
 
