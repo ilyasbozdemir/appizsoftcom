@@ -12,7 +12,13 @@ const gtmCode = ``;
 const ttCode = `CIEJ1LJC77U441D19LNG`;
 
 export const site = {
-  title: `Appizsoft • Özel Yazılım Geliştirme`,
+  title: `Appizsoft | 
+  Özel Yazılım Geliştirme 
+  • Dijital Pazarlama 
+  • E-ticaret Çözümleri 
+  • Prodüksiyon & Tasarım
+  • Oyun Tasarım
+  `,
   baseUrl: baseUrl,
   publisher: `Appizsoft`,
   image: baseUrl + "/logo.svg",
