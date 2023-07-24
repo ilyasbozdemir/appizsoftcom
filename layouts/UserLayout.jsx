@@ -28,7 +28,7 @@ function UserLayout({ children }) {
 
   return (
     <Box as="main" scrollBehavior={"smooth"}>
-      <>
+   
         <Box as={"header"} >
           <Header
             onOpen={onOpen}
@@ -46,7 +46,7 @@ function UserLayout({ children }) {
         </Box>
 
         <ScrollToTop />
-      </>
+ 
     </Box>
   );
 }

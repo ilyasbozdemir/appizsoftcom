@@ -31,7 +31,7 @@ import { motion } from "framer-motion";
 
 const navLinks = [
   { name: "Ürünler", path: "/products" },
-  { name: "Blog", path: "/blog" },
+  //{ name: "Blog", path: "/blog" },
   { name: "Hizmetler", path: "/services" },
   { name: "Blog", path: "/blog" },
   { name: "Bize Ulaşın", path: "/contact" },
@@ -88,8 +88,7 @@ export default function Navbar() {
         width="100%"
         top={0}
         left={0}
-        pos={"fixed"}
-        zIndex={50}
+        pos={"sticky"}
         backdropFilter="blur(9px)"
       >
         <Flex
@@ -105,7 +104,7 @@ export default function Navbar() {
             aria-label="Open Menu"
             display={["inherit", "inherit", "none"]}
             onClick={isOpen ? onClose : onOpen}
-            variant={'unstyled'}
+            variant={"unstyled"}
           />
           <HStack spacing={8} alignItems="center">
             <Logo
@@ -243,7 +242,7 @@ const NavLink = ({ lang = `/tr/`, name, path, onClose }) => {
   );
 };
 
-const MenuLink = ({lang = `/tr/`, name, path, icon, onClose }) => {
+const MenuLink = ({ lang = `/tr/`, name, path, icon, onClose }) => {
   return (
     <Link href={lang + path} onClick={() => onClose()}>
       <MenuItem

@@ -73,7 +73,6 @@ function SSS() {
           <Text>Sıkça Sorulan Sorular</Text>
           <Heading
             as="h2"
-            fontSize={24}
             pos="relative"
             _before={{
               content: `""`,

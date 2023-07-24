@@ -1,5 +1,5 @@
 export const config = {
-  initialColorMode: "system",
+  initialColorMode: "light",
   useSystemColorMode: true,
   cssVarPrefix: "appiz-software",
 };
