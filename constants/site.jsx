@@ -2,9 +2,10 @@ import theme from "../src/theme";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://appizsoft.com"
+    ? "appizsoftcom.vercel.app"
     : "http://localhost:3000";
-
+//https://appizsoft.com
+//appizsoftcom.vercel.app
 const pinterestAnalyticsCode = `7f9464b7cba4c1e15e8dfb587b8ef00d`;
 const googleAnalyticsCode = ``;
 const facebookPixelCode = ``;
