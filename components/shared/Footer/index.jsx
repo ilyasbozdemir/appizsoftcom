@@ -42,6 +42,7 @@ const MetaBusinessPartner = () => {
   return (
     <>
       <Link href="#" target="_blank" passHref>
+        
         <Image
           src="https://static.wixstatic.com/media/69d2f2_2e649605d69c49b589b0b83296065e4e~mv2.png/v1/fill/w_268,h_127,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Meta-Business-Partner_logo.png"
           alt="Meta-Business-Partner_logo.png"
@@ -74,31 +75,27 @@ const Partners = () => {
   const state = false;
   return (
     <>
-      {state ?? (
-        <>
-          <Container as={Stack} maxW={"4xl"} py={10} display={"none"}>
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-              <Stack align={"center"}>
-                <Box px={2}>
-                  <GooglePartner />
-                </Box>
-              </Stack>
-              <Stack align={"center"}>
-                <Box px={2}>
-                  <MetaBusinessPartner />
-                </Box>
-              </Stack>
-              <Stack align={"center"}>
-                <Box px={2}></Box>
-              </Stack>
-              <Stack align={"center"}>
-                <Box px={2}></Box>
-              </Stack>
-            </SimpleGrid>
-            <Divider mt={3} display={{ base: "none", lg: "initial" }} />
-          </Container>
-        </>
-      )}
+        <Container as={Stack} maxW={"4xl"} py={10}>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+            <Stack align={"center"}>
+              <Box px={2}>
+                <GooglePartner />
+              </Box>
+            </Stack>
+            <Stack align={"center"}>
+              <Box px={2}>
+                <MetaBusinessPartner />
+              </Box>
+            </Stack>
+            <Stack align={"center"}>
+              <Box px={2}></Box>
+            </Stack>
+            <Stack align={"center"}>
+              <Box px={2}></Box>
+            </Stack>
+          </SimpleGrid>
+          <Divider mt={3} display={{ base: "none", lg: "initial" }} />
+        </Container>
     </>
   );
 };
