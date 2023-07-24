@@ -6,7 +6,7 @@ import GoogleAnalytics from "../plugins/GoogleAnalytics";
 import FacebookPixel from "../plugins/FacebookPixel";
 import GoogleTagManager from "../plugins/GoogleTagManager";
 import TiktokPixel from "../plugins/TiktokPixel";
-//bos bunlar ondan hata fırlatrır consol üzerinde
+
 function Analytics() {
   return (
     <>
@@ -14,7 +14,11 @@ function Analytics() {
       <GoogleAnalytics code={site.analyticsCodes.googleAnalyticsCode} />
       <FacebookPixel code={site.analyticsCodes.facebookPixelCode} />
       <GoogleTagManager code={site.analyticsCodes.gtmCode} />
-      <TiktokPixel code={site.analyticsCodes.ttCode} />
+
+      {/*
+        <TiktokPixel code={site.analyticsCodes.ttCode} />
+      */}
+    
       
     </>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from 'react';
 
 function TiktokPixel({ code }) {
   const script = `
@@ -53,6 +54,7 @@ function TiktokPixel({ code }) {
     ttq.page();
   })(window, document, "ttq");
 `;
+
   return (
     <>
       <script dangerouslySetInnerHTML={{ __html: script }} />
