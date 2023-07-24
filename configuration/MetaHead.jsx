@@ -17,8 +17,6 @@ function MetaHead({
   return (
     <>
       <title>{pageTitle}</title>
-      <link rel="icon" type="image/x-icon" href="/favicon.png" />
-      <link rel="canonical" href={site.baseUrl} />
 
       <meta itemprop="name" content={pageTitle} />
       <meta itemprop="description" content={description} />
@@ -44,10 +42,8 @@ function MetaHead({
       <meta name="og:type" content="website" />
       <meta property="og:site_name" content={pageTitle} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="300" />
-      <meta property="og:image:height" content="60" />
-
-     
+      <meta property="og:image:width" content="500" />
+      <meta property="og:image:height" content="348" />
     </>
   );
 }

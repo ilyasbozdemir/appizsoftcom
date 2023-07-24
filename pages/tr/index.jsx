@@ -51,9 +51,7 @@ function IndexPage() {
     <>
       <>
         <Head>
-          <MetaHead
 
-           />
         </Head>
       </>
 

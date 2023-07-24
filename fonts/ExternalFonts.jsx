@@ -4,8 +4,14 @@ function ExternalFonts() {
   return (
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
+      
       <link rel="preconnect" href="https://www.dafontfree.net" />
+      <link rel="dns-prefetch" href="https://www.dafontfree.net" />
+
       <link
         rel="preload"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"

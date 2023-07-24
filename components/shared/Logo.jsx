@@ -28,6 +28,8 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
   return (
     <>
       <Image
+        rel="preload"
+        as="image"
         src={logo}
         alt="Logo"
         width={size.w}
@@ -41,7 +43,7 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
         draggable={false}
         //placeholder="blur"
         loader={imageLoader}
-        loading = 'lazy'
+        loading="lazy"
       />
     </>
   );
