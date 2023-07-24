@@ -73,7 +73,7 @@ const GooglePartner = () => {
 const Partners = () => {
   return (
     <>
-      <Container as={Stack} maxW={"4xl"} py={10}>
+      <Container as={Stack} maxW={"4xl"} py={10} display={'none'}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"center"}>
             <Box px={2}>
