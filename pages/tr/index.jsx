@@ -5,6 +5,8 @@ import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
 import Cta from "../../sections/Cta";
+import MetaHead from "../../configuration/MetaHead";
+import Head from "next/head";
 
 const LazyCta = dynamic(() => import("../../sections/Cta"), {
   //loading: () => <p>Loading...</p>,
@@ -42,48 +44,17 @@ function IndexPage() {
     setIsMounted(true);
   }, []);
 
-  const RenderLazyComponent = (id, lang = `tr`, targetId) => {
-    switch (id) {
-      case "Cta":
-        return <LazyCta lang={lang} targetId={targetId} />;
-      case "OurServices":
-        return <LazyOurServices targetId={targetId} />;
-      case "AboutUs":
-        return <LazyAboutUs lang={lang} targetId={targetId} />;
-      case "OurTechnologies":
-        return <LazyOurTechnologies lang={lang} targetId={targetId} />;
-      case "OurWorkProcess":
-        return <LazyOurWorkProcess lang={lang} targetId={targetId} />;
-      case "LazyWhyChooseUs":
-        return <LazyWhyChooseUs lang={lang} targetId={targetId} />;
-      case "Testimonials":
-        return <LazyTestimonials lang={lang} targetId={targetId} />;
-      case "Partners":
-        return <LazyPartners lang={lang} targetId={targetId} />;
-      case "Blog":
-        return <LazyBlog lang={lang} targetId={targetId} />;
-      default:
-        return null;
-    }
-  };
-
-  const priorityOrder = [
-    { id: "Cta", targetId: "OurServices" },
-    { id: "OurServices", targetId: "AboutUs" },
-    { id: "AboutUs", targetId: "OurTechnologies" },
-    { id: "OurTechnologies", targetId: "OurWorkProcess" },
-    { id: "OurWorkProcess", targetId: "WhyChooseUs" },
-    { id: "WhyChooseUs", targetId: "Testimonials" },
-    { id: "Testimonials", targetId: "Partners" },
-    { id: "Partners", targetId: "Blog" },
-    { id: "Blog", targetId: "" },
-  ];
 
   return (
     <>
+      <>
+        <Head>
+          <MetaHead
+          
+           />
+        </Head>
+      </>
 
-
-    
       <WindowTitleChanger />
       <Flex direction={"column"} gap={5}>
         <Box id={"Cta"} as="section">
