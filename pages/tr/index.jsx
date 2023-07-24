@@ -31,6 +31,8 @@ const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 
 const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
+
+
 function IndexPage() {
   const [lang, setLang] = React.useState("");
   useEffect(() => {
@@ -50,7 +52,7 @@ function IndexPage() {
       <>
         <Head>
           <MetaHead
-          
+
            />
         </Head>
       </>
