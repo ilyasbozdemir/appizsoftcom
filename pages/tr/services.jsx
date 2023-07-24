@@ -86,7 +86,7 @@ const OurServicesContent = () => {
         align={"center"}
         overflowX={"auto"}
       >
-        <Stack direction="row" spacing={4} align="center" >
+        <Stack direction="row" spacing={4} align="center">
           <Button variant="ghost">Yazılım Hizmetlerimiz</Button>
           <Button variant="ghost">Dijital Hizmetlerimiz</Button>
           <Button variant="ghost">E-ticaret Çözümleri</Button>
@@ -100,11 +100,6 @@ const OurServicesContent = () => {
         px={{ base: 10, md: 20 }}
       >
         <Flex direction={"column"} justify={"center"} gap={3}>
-          <Text>
-            Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret
-            çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler
-            sunuyoruz.
-          </Text>
           <Heading
             as="h2"
             fontSize={24}
@@ -121,6 +116,11 @@ const OurServicesContent = () => {
           >
             Hizmetlerimiz
           </Heading>
+          <Text>
+            Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret
+            çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler
+            sunuyoruz.
+          </Text>
         </Flex>
       </Flex>
 
@@ -149,10 +149,6 @@ const OurServicesContent = () => {
               </Feature>
             </div>
           ))*/}
-
-        <ServicesCard />
-        <ServicesCard />
-        <ServicesCard />
       </SimpleGrid>
     </>
   );
