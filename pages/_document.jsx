@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../src/theme";
+import {colors} from "../src/foundations/colors";
 import { ColorModeScript } from "@chakra-ui/react";
 import GoogleTagManagerBody from "../plugins/GoogleTagManagerBody";
 import ExternalFonts from "../fonts/ExternalFonts";
@@ -7,6 +8,9 @@ import React from "react";
 import Analytics from "../configuration/Analytics";
 import { site } from "../constants/site";
 import { testimonialsData } from "../constants/testimonialsData";
+
+
+const themeColor= colors.primary[100];
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
@@ -14,12 +18,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">
         <Head>
-          {
-            /*
+          {/*
              <base href={site.baseUrl} />
-             */
-          }
-         
+             */}
 
           <meta charSet="utf-8" />
           <link rel="canonical" href={site.baseUrl} />
@@ -35,13 +36,19 @@ export default class MyDocument extends Document {
             name="google-site-verification"
             content={googleSiteVerification}
           />
+          <link rel="manifest" href="/manifest.json" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="revisit-after" content="3 days" />
           <link rel="icon" href="/favicon.png" type="image/png" />
-
+          <meta name="theme-color" content={themeColor} />
           <ExternalFonts />
           <Analytics />
-          <link rel="stylesheet" href="/styles/globals.css" />
+          <link
+            href="/styles/globals.css"
+            rel="preload"
+            as="style"
+            onLoad="this.onload=null;this.rel='stylesheet'"
+          />
         </Head>
         <body>
           <GoogleTagManagerBody code={site.analyticsCodes.gtmCode} />

@@ -32,6 +32,7 @@ const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
 
+import { site } from "../../constants/site";
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -46,12 +47,27 @@ function IndexPage() {
     setIsMounted(true);
   }, []);
 
-
+  const publisher = `Appizsoft`;
   return (
     <>
       <>
         <Head>
+          <title>{site.title}</title>
+          <meta itemprop="description" content={site.description} />
+          <meta name="description" content={site.description} />
+          <meta name="publisher" content={publisher} />
 
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:title" content={site.title} />
+          <meta name="twitter:description" content={site.description} />
+          <meta name="twitter:site" content="@appizsoftcom" />
+          <meta name="twitter:image" content={site.image} />
+
+          <meta name="og:title" content={site.title} />
+          <meta name="og:description" content={site.description} />
+          <meta name="og:type" content="website" />
+          <meta property="og:site_name" content={site.title} />
+          <meta property="og:image" content={site.image} />
         </Head>
       </>
 
