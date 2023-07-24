@@ -56,6 +56,7 @@ function IndexPage() {
           <meta itemprop="description" content={site.description} />
           <meta name="description" content={site.description} />
           <meta name="publisher" content={publisher} />
+          <meta name="robots" content={"index, follow"} />
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={site.title} />
