@@ -67,12 +67,11 @@ function SosyalMediaIcon() {
           itemprop="sameAs"
         >
           <IconButton
-            as="i"
             cursor={"pointer"}
             aria-label="Instagram"
             icon={<FaInstagram fontSize="1.25rem" />}
             bg={"transparent"}
-            color={useColorModeValue("", "white")}
+            color={useColorModeValue("white", "white")}
           />
           <VisuallyHidden aria-label="Instagram">Instagram</VisuallyHidden>
         </LinkWrapper>
@@ -84,13 +83,12 @@ function SosyalMediaIcon() {
           itemprop="sameAs"
         >
           <IconButton
-            as="i"
             cursor={"pointer"}
             aria-label="Facebook"
             icon={<FaFacebook fontSize="1.25rem" />}
             bg={"transparent"}
             children={<VisuallyHidden>Facebook</VisuallyHidden>}
-            color={useColorModeValue("", "white")}
+            color={useColorModeValue("white", "white")}
           />
         </LinkWrapper>
 
@@ -101,13 +99,12 @@ function SosyalMediaIcon() {
           itemprop="sameAs"
         >
           <IconButton
-            as="i"
             aria-label="FaTwitter"
             cursor={"pointer"}
             icon={<FaTwitter fontSize="1.25rem" />}
             bg={"transparent"}
             children={<VisuallyHidden>Twitter</VisuallyHidden>}
-            color={useColorModeValue("", "white")}
+            color={useColorModeValue("white", "white")}
           />
         </LinkWrapper>
 
@@ -118,13 +115,12 @@ function SosyalMediaIcon() {
           itemprop="sameAs"
         >
           <IconButton
-            as="i"
             aria-label="Linkedin"
             cursor={"pointer"}
             icon={<FaYoutube fontSize="1.25rem" />}
             bg={"transparent"}
             children={<VisuallyHidden>Youtube</VisuallyHidden>}
-            color={useColorModeValue("", "white")}
+            color={useColorModeValue("white", "white")}
           />
         </LinkWrapper>
 
@@ -135,13 +131,12 @@ function SosyalMediaIcon() {
           itemprop="sameAs"
         >
           <IconButton
-            as="i"
             aria-label="Linkedin"
             cursor={"pointer"}
             icon={<FaLinkedin fontSize="1.25rem" />}
             bg={"transparent"}
             children={<VisuallyHidden>Linkedin</VisuallyHidden>}
-            color={useColorModeValue("", "white")}
+            color={useColorModeValue("white", "white")}
           />
         </LinkWrapper>
       </ButtonGroup>

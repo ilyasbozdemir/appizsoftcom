@@ -32,7 +32,7 @@ import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
-  { name: "Ürünler", path: "/products" },
+ // { name: "Ürünler", path: "/products" },
   //{ name: "Blog", path: "/blog" },
   { name: "Hizmetler", path: "/services" },
   { name: "Blog", path: "/blog" },
