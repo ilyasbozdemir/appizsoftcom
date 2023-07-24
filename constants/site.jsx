@@ -2,7 +2,7 @@ import theme from "../src/theme";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "appizsoftcom.vercel.app"
+    ? "https://appizsoft.com"
     : "http://localhost:3000";
 //https://appizsoft.com
 //appizsoftcom.vercel.app
