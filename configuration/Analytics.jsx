@@ -10,16 +10,16 @@ import TiktokPixel from "../plugins/TiktokPixel";
 function Analytics() {
   return (
     <>
+      {/* 
+      
       <PinterestAnalytics code={site.analyticsCodes.pinterestAnalyticsCode} />
       <GoogleAnalytics code={site.analyticsCodes.googleAnalyticsCode} />
       <FacebookPixel code={site.analyticsCodes.facebookPixelCode} />
       <GoogleTagManager code={site.analyticsCodes.gtmCode} />
 
-      {/*
+     
         <TiktokPixel code={site.analyticsCodes.ttCode} />
       */}
-    
-      
     </>
   );
 }
