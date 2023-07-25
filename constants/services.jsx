@@ -10,7 +10,7 @@
     isServicesComponentDisplay: boolean,
 
 */
-export const services = [
+export const  services = [
   {
     id: 7001,
     href: "web-design-development", //[id].jsx

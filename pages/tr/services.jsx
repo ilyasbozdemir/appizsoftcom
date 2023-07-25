@@ -14,6 +14,10 @@ import {
   Button,
   Divider,
   Stack,
+  Card,
+  CardBody,
+  CardFooter,
+  Container,
 } from "@chakra-ui/react";
 
 import { BsArrowRight } from "react-icons/bs";
@@ -21,6 +25,66 @@ import { BsArrowRight } from "react-icons/bs";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
+
+const ServicesCard = (props) => {
+  const { id, img, href, title, content } = props;
+  const router = useRouter();
+
+  return (
+    <>
+      <Card maxW="sm" h={475} role={"group"}>
+        <CardBody
+          onClick={() => {
+            router.push("/tr/service/[id]", `/tr/service/${href}`, {
+              shallow: true,
+            });
+          }}
+          cursor="pointer"
+        >
+          <Flex justifyContent={"center"}>
+            <Image
+              id={id}
+              alt={title}
+              height={70}
+              width={70}
+              src={img}
+              draggable={false}
+            />
+          </Flex>
+          <Stack mt="6" spacing="3">
+            <Heading size="md">{title}</Heading>
+            <Text>{content}</Text>
+          </Stack>
+        </CardBody>
+        <CardFooter>
+          <Flex justifyContent={"center"} mt={4} justify={"center"} my={2}>
+            <Stack>
+              <Link
+                href="/tr/service/[id]"
+                as={`/tr/service/${href}`}
+                shallow={true}
+                passHref
+              >
+                <Button
+                  variant={"outline"}
+                  color="primary.100"
+                  rightIcon={<BsArrowRight />}
+                  w={"full"}
+                  h={"50px"}
+                  _groupHover={{
+                    boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
+                  }}
+                >
+                  İncele
+                </Button>
+              </Link>
+            </Stack>
+          </Flex>
+        </CardFooter>
+      </Card>
+    </>
+  );
+};
 
 const OurServicesCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -77,8 +141,35 @@ const OurServicesCTA = () => {
 };
 
 const OurServicesContent = () => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  let filteredData = services.filter((item) => {
+    if (selectedCategory === "all") {
+      return true;
+    } else {
+      return item.serviceCategory === selectedCategory;
+    }
+  });
+
+  useEffect(() => {
+    filteredData = services.filter((item) => {
+      if (selectedCategory === "all") {
+        return true;
+      } else {
+        return item.serviceCategory === selectedCategory;
+      }
+    });
+  }, [selectedCategory]);
+
+  const uniqueCategories = new Set(
+    services.map((item) => item.serviceCategory)
+  );
+
+  /*
+
+*/
   return (
-    <>
+    <Container maxW="8xl" p={{ base: 5, md: 10 }}>
       <Flex
         bg={"gray.200"}
         justifyContent={"center"}
@@ -87,9 +178,33 @@ const OurServicesContent = () => {
         overflowX={"auto"}
       >
         <Stack direction="row" spacing={4} align="center">
-          <Button variant="ghost">Yazılım Hizmetlerimiz</Button>
-          <Button variant="ghost">Dijital Hizmetlerimiz</Button>
-          <Button variant="ghost">E-ticaret Çözümleri</Button>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              setSelectedCategory("all");
+            }}
+          >
+            Tümü
+          </Button>
+          {[...uniqueCategories].map((category) => (
+            <>
+              <Button
+                key={category}
+                variant="ghost"
+                onClick={() => {
+                  setSelectedCategory(category);
+                }}
+              >
+                {category === "software" ? (
+                  <>Yazılım Hizmetlerimiz</>
+                ) : category === "digital marketing" ? (
+                  <>Dijital Hizmetlerimiz</>
+                ) : (
+                  <></>
+                )}
+              </Button>
+            </>
+          ))}
         </Stack>
       </Flex>
 
@@ -100,123 +215,29 @@ const OurServicesContent = () => {
           </Heading>
         </Flex>
       </Center>
-
-      <SimpleGrid
-        columns={{
-          base: 1,
-          sm: 1,
-          md: 2,
-          lg: 4,
-        }}
-        spacingX={{
-          base: 16,
-          lg: 24,
-        }}
-        spacingY={20}
-        mt={6}
-      >
-        {/*features.map((child) => (
-            <div key={child.icon}>
-              <Feature
-                color={child.color}
-                title={child.title}
-                icon={child.icon}
-              >
-                {child.content}
-              </Feature>
-            </div>
-          ))*/}
-      </SimpleGrid>
-    </>
-  );
-};
-
-const ServicesCard = (props) => {
-  const { id, img, href, title, content } = props;
-  const router = useRouter();
-
-  return (
-    <Flex gap={5} direction={"column"} p={{ base: 3, md: 5, lg: 8 }}>
-      <Flex
-        direction={"column"}
-        gap={5}
-        mt={2}
-        mx={5}
-        userSelect={"none"}
-        p={5}
-        //bg={useColorModeValue("#F5F5F5", "#fff")}
-        boxShadow={"rgba(17, 17, 26, 0.1) 0px 0px 16px;"}
-        borderRadius={"10px"}
-        cursor="pointer"
-        role={"group"}
-        _hover={{
-          boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
-        }}
-        rounded="md"
-        marginInline="auto"
-        onClick={() => {
-          router.push("/tr/service/[id]", `/tr/service/${href}`, {
-            shallow: true,
-          });
-        }}
-      >
-        <Flex justifyContent={"center"} data-aos={"zoom-out"}>
-          <Image
-            id={id}
-            alt={title}
-            height={70}
-            width={70}
-            src={img}
-            draggable={false}
-          />
-        </Flex>
-        <Flex justifyContent={"center"}>
-          <Heading
-            as={"h2"}
-            data-aos="zoom-in"
-            textTransform={"uppercase"}
-            fontSize={{ base: "15px", md: "16px" }}
-            isTruncated
-          >
-            {title}
-          </Heading>
-        </Flex>
-
-        <Text
-          data-aos="zoom-in-up"
-          fontSize={{ base: "15px", md: "16px" }}
-          p={3}
-          fontFamily={"'Open Sans', sans-serif, Arial, Helvetica"}
+      <Center>
+        <SimpleGrid
+          columns={{
+            base: 1,
+            sm: 1,
+            md: 2,
+            lg: 4,
+          }}
+          spacingX={{
+            base: 16,
+            lg: 24,
+          }}
+          spacingY={20}
+          mt={6}
         >
-          {content}
-        </Text>
-
-        <Flex justifyContent={"center"} mt={4}>
-          <Link
-            href="/tr/service/[id]"
-            as={`/tr/service/${href}`}
-            shallow={true}
-            passHref
-          >
-            <Button
-              variant={"outline"}
-              color="primary.100"
-              rightIcon={<BsArrowRight />}
-              w={"full"}
-              h={"50px"}
-              _groupHover={{
-                boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
-              }}
-            >
-              İncele
-            </Button>
-          </Link>
-        </Flex>
-        <Text mt={2} textAlign="center" fontSize="sm">
-          Size Özel Çözümlerimizle İşinizi Dijital Dünyada Öne Çıkarıyoruz!
-        </Text>
-      </Flex>
-    </Flex>
+          {filteredData.map((child) => (
+            <>
+              <ServicesCard {...child} />
+            </>
+          ))}
+        </SimpleGrid>
+      </Center>
+    </Container>
   );
 };
 
