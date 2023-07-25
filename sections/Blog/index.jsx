@@ -6,11 +6,12 @@ import {
   Flex,
   Text,
   Button,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import React from "react";
 
 import Link from "next/link";
+import Slider from "react-slick";
 
 const dataList = [
   {
@@ -69,8 +70,26 @@ function Blog() {
 }
 
 const BlogCards = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    lazyLoad: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
-    <>
+    <Slider {...settings}>
       {dataList.map((blog) => {
         return (
           <>
@@ -184,7 +203,7 @@ const BlogCards = () => {
           </>
         );
       })}
-    </>
+    </Slider>
   );
 };
 
