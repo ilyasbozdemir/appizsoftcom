@@ -150,99 +150,93 @@ function WhyChooseUs() {
       w="auto"
       justifyContent="center"
       alignItems="center"
+      direction={{ base: "column", lg: "row" }}
     >
-      <Box
-        shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;"
-        px={8}
-        py={20}
-        mx="auto"
-        borderRadius={"15px"}
+      <Flex
+        align={"center"}
+        justify={"center"}
+        gap={3}
+        direction={{ base: "column", lg: "row" }}
       >
-        <Flex
-          direction={{ base: "column", lg: "row" }}
-          align={"center"}
-          justifyContent={"center"}
-          gap={20}
-        >
-          <Box maxW={"450px"}>
-            <Heading
-              as="h2"
-              fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }}
-              pos="relative"
-            >
-              Bizi Tercih Etmeniz İçin 5 Neden
-            </Heading>
-
-            <Text
-              as="p"
-              mb={6}
-              fontSize={{
-                base: "lg",
-                md: "xl",
-              }}
-              textAlign={{
-                base: "center",
-                sm: "left",
-              }}
-              color="gray.600"
-              _dark={{
-                color: "gray.500",
-              }}
-              data-aos="zoom-in-right"
-            >
-              Minimum 6 aylık destek, haftalık güncellemeler ve size özel
-              hizmetlerimizle buradayız. Başarıya giden yolda yanınızdayız.
-            </Text>
-            <Center>
-              <Box display={{ base: "none", lg: "initial" }}>
-                <Link href={"/tr/about-appizsoft"}>
-                  <Button
-                    variant="solid"
-                    w={{
-                      base: "full",
-                      sm: "auto",
-                    }}
-                    size="lg"
-                  >
-                    Daha Fazlasını Gör
-                  </Button>
-                </Link>
-              </Box>
-            </Center>
-          </Box>
-
-          <SimpleGrid
-            columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 3 }}
-            spacing={3}
-            rowGap={5}
-            columnGap={5}
-            justify="center"
+        <Box maxW={"450px"}>
+          <Heading
+            as="h2"
+            fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }}
+            pos="relative"
           >
-            {features.map((child) => (
-              <React.Fragment key={child.icon}>
-                <Feature {...child} />
-              </React.Fragment>
-            ))}
-          </SimpleGrid>
-        </Flex>
-        <Center>
-          <Box display={{ base: "initial", lg: "none" }} mt={10}>
-            <Link href={"/tr/about-appizsoft"}>
-              <Button
-                variant="solid"
-                w={{
-                  base: "full",
-                  sm: "auto",
-                }}
-                colorScheme="teal"
-                size="lg"
-              >
-                Daha Fazlasını Gör
-              </Button>
-            </Link>
-          </Box>
-        </Center>
-      </Box>
+            Bizi Tercih Etmeniz İçin 5 Neden
+          </Heading>
+
+          <Text
+            as="p"
+            mb={6}
+            fontSize={{
+              base: "lg",
+              md: "xl",
+            }}
+            textAlign={{
+              base: "center",
+              sm: "left",
+            }}
+            color="gray.600"
+            _dark={{
+              color: "gray.500",
+            }}
+            data-aos="zoom-in-right"
+          >
+            Minimum 6 aylık destek, haftalık güncellemeler ve size özel
+            hizmetlerimizle buradayız. Başarıya giden yolda yanınızdayız.
+          </Text>
+          <Center>
+            <Box display={{ base: "none", lg: "initial" }}>
+              <Link href={"/tr/about-appizsoft"}>
+                <Button
+                  variant="solid"
+                  w={{
+                    base: "full",
+                    sm: "auto",
+                  }}
+                  size="lg"
+                >
+                  Daha Fazlasını Gör
+                </Button>
+              </Link>
+            </Box>
+          </Center>
+        </Box>
+
+        <SimpleGrid
+          columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 3 }}
+          spacing={3}
+          rowGap={5}
+          columnGap={5}
+          justify="center"
+        >
+          {features.map((child) => (
+            <React.Fragment key={child.icon}>
+              <Feature {...child} />
+            </React.Fragment>
+          ))}
+        </SimpleGrid>
+      </Flex>
+
+      <Center>
+        <Box display={{ base: "initial", lg: "none" }} mt={10}>
+          <Link href={"/tr/about-appizsoft"}>
+            <Button
+              variant="solid"
+              w={{
+                base: "full",
+                sm: "auto",
+              }}
+              colorScheme="teal"
+              size="lg"
+            >
+              Daha Fazlasını Gör
+            </Button>
+          </Link>
+        </Box>
+      </Center>
     </Flex>
   );
 }

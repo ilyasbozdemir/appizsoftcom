@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   Divider,
+  Container,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -74,7 +75,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
+    <Container maxW="8xl" >
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -107,7 +108,7 @@ export default function Navbar() {
           </motion.div>
         </>
       )}
-    </>
+    </Container>
   );
 }
 
