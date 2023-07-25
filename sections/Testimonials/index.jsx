@@ -197,7 +197,7 @@ const TestimonialsSections = () => {
     infinite: true,
     lazyLoad: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
 
@@ -213,10 +213,10 @@ const TestimonialsSections = () => {
 
   return (
     <>
-      <Container maxW="5xl" p={{ base: 5, md: 10 }}>
+      <Container maxW="7xl" p={{ base: 5, md: 10 }}>
         <Slider {...settings}>
           {testimonialsData2.map((obj, index) => (
-            <VStack key={index} spacing={3} pt={1} justify="center">
+            <VStack key={index} spacing={3} pt={1} justify="center" spacing={3}>
               <Box textAlign="center">
                 <Avatar
                   size="xl"
@@ -241,7 +241,7 @@ const TestimonialsSections = () => {
                 </Text>
               </Box>
               <Box textAlign="center" maxW="4xl">
-                <Text fontSize="md" fontWeight="medium" p={2}>
+                <Text fontSize="md" fontWeight="medium" p={2} h={250}>
                   {obj.content}
                 </Text>
               </Box>
