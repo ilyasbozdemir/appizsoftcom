@@ -200,7 +200,7 @@ const TestimonialsSections = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 768,

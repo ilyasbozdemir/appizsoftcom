@@ -74,11 +74,11 @@ const BlogCards = () => {
     dots: true,
     infinite: true,
     lazyLoad: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 768,

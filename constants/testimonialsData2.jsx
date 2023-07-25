@@ -24,7 +24,7 @@ export const testimonialsData2 = [
     company: "TestPro",
     rating: 4,
     content:
-      "Olpers ile yaptığımız proje, kalite kontrol süreçlerimizdeki katkılarıyla önemli bir başarıydı. Ekip, yazılımın testlerini titizlikle yürüttü ve hataları düzeltmek için hızlı bir şekilde geri bildirim sağladı. Proje sonunda, kullanıcı deneyimini önemli ölçüde geliştiren güvenilir bir ürün sunduk.",
+      "Appzisoft ile yaptığımız proje, kalite kontrol süreçlerimizdeki katkılarıyla önemli bir başarıydı. Ekip, yazılımın testlerini titizlikle yürüttü ve hataları düzeltmek için hızlı bir şekilde geri bildirim sağladı. Proje sonunda, kullanıcı deneyimini önemli ölçüde geliştiren güvenilir bir ürün sunduk.",
   },
   {
     name: "Ahmet Demir",
@@ -32,6 +32,6 @@ export const testimonialsData2 = [
     company: "SmartSolutions",
     rating: 5,
     content:
-      "Olpers projesi, yazılım mimarisini oluşturmak ve uygulamak açısından büyük bir başarıydı. Ekip, güçlü teknik bilgisi ve projeye olan bağlılığıyla süreci yönetti. Sonuçta, yüksek kaliteli, ölçeklenebilir ve performanslı bir yazılım elde ettik. Olpers ekibine teşekkür ederiz!",
+      "Appzisoft ekibi, yazılım mimarisini oluşturmak ve uygulamak açısından büyük bir başarıydı. Ekip, güçlü teknik bilgisi ve projeye olan bağlılığıyla süreci yönetti. Sonuçta, yüksek kaliteli, ölçeklenebilir ve performanslı bir yazılım elde ettik. Olpers ekibine teşekkür ederiz!",
   },
 ];
