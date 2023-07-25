@@ -168,7 +168,7 @@ const FooterAcordion = () => {
                   <h2>
                     <AccordionButton>
                       <Box as="span" flex="1" textAlign="left">
-                        Blog / RSS
+                        Faydalı Kaynak
                       </Box>
                       {isExpanded ? (
                         <MinusIcon fontSize="12px" />

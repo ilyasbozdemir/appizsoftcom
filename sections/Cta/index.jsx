@@ -52,7 +52,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
       h="100vh" // Yüksekliği ekran yüksekliğine eşit
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
-      alignItems={useBreakpointValue({ base: "center", lg: "center" })}
+      alignItems={useBreakpointValue({ base: "center", lg: "start" })}
       as="article"
     >
       <Container maxW={"4xl"} as="article">

@@ -28,7 +28,7 @@ const Services = (props) => {
       mt={2}
       mx={5}
       userSelect={"none"}
-      h={550}
+      h={600}
       p={5}
       //bg={useColorModeValue("#F5F5F5", "#fff")}
       boxShadow={"rgba(17, 17, 26, 0.1) 0px 0px 16px;"}

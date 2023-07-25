@@ -216,15 +216,21 @@ const TestimonialsSections = () => {
       <Container maxW="8xl" p={{ base: 5, md: 10 }}>
         <Slider {...settings}>
           {testimonialsData2.map((obj, index) => (
-            <Flex direction={'column'}  key={index} gap={10} pt={1} justify="center">
+            <Flex
+              direction={"column"}
+              key={index}
+              gap={10}
+              pt={1}
+              justify="center"
+            >
               <Box textAlign="center">
                 <Avatar
                   size="xl"
                   showBorder={true}
                   borderColor="primary.200"
                   name={obj.name}
-                  bg='teal.800'
-                  color='white'
+                  bg="teal.800"
+                  color="white"
                   src={obj.image ?? obj.image}
                 />
                 <Flex justifyContent="center" maxW="4xl">
@@ -257,32 +263,14 @@ const TestimonialsSections = () => {
 const Testimonials = () => {
   return (
     <>
-      <Flex
-        id="services-top"
-        direction={"row"}
-        justifyContent={"space-between"}
-        px={{ base: 10, md: 20 }}
-        py={5}
-      >
-        <Flex direction={"column"} justify={"center"} gap={3}>
-          <Heading
-            as="h2"
-            fontSize={24}
-            pos="relative"
-            _before={{
-              content: `""`,
-              borderRadius: "50px",
-              position: "absolute",
-              backgroundColor: "#000",
-              width: "4px",
-              height: "100%",
-              left: "-10px",
-            }}
-          >
+      <Center>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={24} pos="relative">
             İnsanlar bizim hakkımızda ne diyor?
           </Heading>
         </Flex>
-      </Flex>
+      </Center>
+
       <Center p={4}>
         {/*
             <WithSpeechBubbles />

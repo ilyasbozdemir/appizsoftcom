@@ -76,7 +76,7 @@ export const services = [
     "title": "Test Otomasyonu",
     "img": "/images/test_automation.png", //services componenti için
     "desc": "Müşteri memnuniyetini artırmak ve hataları en aza indirmek için test süreçlerini otomatikleştirmeye hazır mısınız? Selenium ve Appium test otomasyonu çözümlerimizle tüm uygulamalarınızı kapsamlı bir şekilde test edin.",
-    "content": "Selenium ve Appium, günümüzde en popüler test otomasyon araçları arasında yer almaktadır. Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin. Size özel test senaryoları oluşturarak güvenilir ve tekrarlanabilir testler gerçekleştirin.",
+    "content": "Selenium ve Appium, günümüzde en popüler test otomasyon araçları arasında yer almaktadır. Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin",
     "serviceCategory": "software",
     "isServicesComponentDisplay": true
   },

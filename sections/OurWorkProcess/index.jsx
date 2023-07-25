@@ -147,31 +147,13 @@ const OurWorkProcessFeature = () => {
             lg: "center",
           }}
         >
-          <Flex
-            id="services-top"
-            direction={"row"}
-            justifyContent={"space-between"}
-            px={{ base: 10, md: 20 }}
-          >
-            <Flex direction={"column"} justify={"center"} gap={3}>
-              <Heading
-                as="h2"
-                fontSize={24}
-                pos="relative"
-                _before={{
-                  content: `""`,
-                  borderRadius: "50px",
-                  position: "absolute",
-                  backgroundColor: "#000",
-                  width: "4px",
-                  height: "100%",
-                  left: "-10px",
-                }}
-              >
+          <Center>
+            <Flex direction={"column"} justifyContent={"center"} gap={3}>
+              <Heading as="h2" fontSize={24} pos="relative">
                 İş Sürecimiz
               </Heading>
             </Flex>
-          </Flex>
+          </Center>
 
           <Box
             as="p"
