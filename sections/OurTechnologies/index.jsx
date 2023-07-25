@@ -71,7 +71,7 @@ function OurTechnologies() {
               "4xl": 11,
               "5xl": 12,
             })}
-            autoplay={{ delay: 250 }}
+            autoplay={{ delay: 500 }}
           >
             {technologies.map((image, index) => (
               <>
