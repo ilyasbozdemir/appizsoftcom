@@ -49,13 +49,13 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
 
   return (
     <Box
-      w="100vw" // Genişliği ekran genişliğine eşit
       h="100vh" // Yüksekliği ekran yüksekliğine eşit
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems={useBreakpointValue({ base: "center", lg: "center" })}
+      as="article"
     >
-      <Container maxW={"5xl"} as="article">
+      <Container maxW={"4xl"} as="article">
         <Stack
           textAlign={"center"}
           align={"center"}

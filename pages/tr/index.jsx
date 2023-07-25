@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading ,Container} from "@chakra-ui/react";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
@@ -33,6 +33,7 @@ const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
 
 import { site } from "../../constants/site";
+
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -87,55 +88,59 @@ function IndexPage() {
       <WindowTitleChanger />
 
       <Flex direction={"column"} gap={10}>
-        <Box id={"Cta"} as="section">
-          <Cta lang={lang} targetId={"OurServices"} />
-        </Box>
-        <Box id={"OurServices"} as="section">
-          {isMounted && <LazyOurServices targetId={"Technologies"} />}
-        </Box>
+        <Container maxW="8xl" p={{ base: 5, md: 10 }}>
+          <Box id={"Cta"} as="section">
+            <Cta lang={lang} targetId={"OurServices"} />
+          </Box>
+          <Box id={"OurServices"} as="section">
+            {isMounted && <LazyOurServices targetId={"Technologies"} />}
+          </Box>
 
-        <Box id={"OurReferences"} as="section">
-          {isMounted && (
-            <LazyOurReferences lang={lang} targetId={"Testimonials"} />
-          )}
-        </Box>
+          <Box id={"OurReferences"} as="section">
+            {isMounted && (
+              <LazyOurReferences lang={lang} targetId={"Testimonials"} />
+            )}
+          </Box>
 
-        <Box id={"WhyChooseUs"} as="section">
-          {isMounted && (
-            <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
-          )}
-        </Box>
-        <Box id={"Technologies"} as="section">
-          {isMounted && (
-            <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
-          )}
-        </Box>
-        <Box id={"OurWorkProcess"} as="section">
-          {isMounted && (
-            <LazyOurWorkProcess lang={lang} targetId={"OurReferences"} />
-          )}
-        </Box>
-        
-        <Box id={"WhyChooseUs"} as="section">
-          {isMounted && (
-            <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
-          )}
-        </Box>
+          <Box id={"WhyChooseUs"} as="section">
+            {isMounted && (
+              <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
+            )}
+          </Box>
+          <Box id={"Technologies"} as="section">
+            {isMounted && (
+              <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
+            )}
+          </Box>
+          <Box id={"OurWorkProcess"} as="section">
+            {isMounted && (
+              <LazyOurWorkProcess lang={lang} targetId={"OurReferences"} />
+            )}
+          </Box>
 
-        <Box id={"Testimonials"} as="section">
-          {isMounted && <LazyTestimonials lang={lang} targetId={"Partners"} />}
-        </Box>
-        <Box id={"Partners"} as="section">
-          {isMounted && <LazyPartners lang={lang} targetId={"Blog"} />}
-        </Box>
+          <Box id={"WhyChooseUs"} as="section">
+            {isMounted && (
+              <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
+            )}
+          </Box>
 
-        <Box id={"Blog"} as="section">
-          {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
-        </Box>
+          <Box id={"Testimonials"} as="section">
+            {isMounted && (
+              <LazyTestimonials lang={lang} targetId={"Partners"} />
+            )}
+          </Box>
+          <Box id={"Partners"} as="section">
+            {isMounted && <LazyPartners lang={lang} targetId={"Blog"} />}
+          </Box>
 
-        <Box id={"SSS"} as="section">
-          {isMounted && <LazySSS lang={lang} />}
-        </Box>
+          <Box id={"Blog"} as="section">
+            {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
+          </Box>
+
+          <Box id={"SSS"} as="section">
+            {isMounted && <LazySSS lang={lang} />}
+          </Box>
+        </Container>
       </Flex>
     </>
   );

@@ -93,36 +93,13 @@ const OurServicesContent = () => {
         </Stack>
       </Flex>
 
-      <Flex
-        id="services-top"
-        direction={"row"}
-        justifyContent={"space-between"}
-        px={{ base: 10, md: 20 }}
-      >
-        <Flex direction={"column"} justify={"center"} gap={3}>
-          <Heading
-            as="h2"
-            fontSize={24}
-            pos="relative"
-            _before={{
-              content: `""`,
-              borderRadius: "50px",
-              position: "absolute",
-              backgroundColor: "#000",
-              width: "4px",
-              height: "100%",
-              left: "-10px",
-            }}
-          >
-            Hizmetlerimiz
+      <Center mt={5}>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={24} pos="relative">
+            Hizmetler
           </Heading>
-          <Text>
-            Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret
-            çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler
-            sunuyoruz.
-          </Text>
         </Flex>
-      </Flex>
+      </Center>
 
       <SimpleGrid
         columns={{
