@@ -8,8 +8,10 @@ import {
   SimpleGrid,
   Button,
   Divider,
+  Stack,
+  ButtonGroup,
 } from "@chakra-ui/react";
-
+import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { BsArrowRight } from "react-icons/bs";
 
 import React from "react";
@@ -17,91 +19,63 @@ import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const Services = (props) => {
+const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
 
   return (
-    <Flex
-      direction={"column"}
-      gap={5}
-      mt={2}
-      mx={5}
-      userSelect={"none"}
-      h={600}
-      p={5}
-      //bg={useColorModeValue("#F5F5F5", "#fff")}
-      boxShadow={"rgba(17, 17, 26, 0.1) 0px 0px 16px;"}
-      borderRadius={"10px"}
-      cursor="pointer"
-      role={"group"}
-      _hover={{
-        boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
-      }}
-      rounded="md"
-      marginInline="auto"
-      onClick={() => {
-        router.push("/tr/service/[id]", `/tr/service/${href}`, {
-          shallow: true,
-        });
-      }}
-    >
-      <Flex justifyContent={"flex-start"} data-aos={"zoom-out"}>
-        <Image
-          id={id}
-          alt={title}
-          height={70}
-          width={70}
-          src={img}
-          draggable={false}
-        />
-      </Flex>
-      <Flex justifyContent={"center"}>
-        <Heading
-          as={"h2"}
-          data-aos="zoom-in"
-          textTransform={"uppercase"}
-          fontSize={{ base: "15px", md: "16px" }}
-          isTruncated
+    <>
+      <Card maxW="sm" h={450} role={"group"}>
+        <CardBody
+          onClick={() => {
+            router.push("/tr/service/[id]", `/tr/service/${href}`, {
+              shallow: true,
+            });
+          }}
+          cursor="pointer"
         >
-          {title}
-        </Heading>
-      </Flex>
-
-      <Text
-        data-aos="zoom-in-up"
-        fontSize={{ base: "15px", md: "16px" }}
-        p={3}
-        fontFamily={"'Open Sans', sans-serif, Arial, Helvetica"}
-      >
-        {content}
-      </Text>
-
-      <Flex justifyContent={"center"} mt={4}>
-        <Link
-          href="/tr/service/[id]"
-          as={`/tr/service/${href}`}
-          shallow={true}
-          passHref
-        >
-          <Button
-            variant={"outline"}
-            color="primary.100"
-            rightIcon={<BsArrowRight />}
-            w={"full"}
-            h={"50px"}
-            _groupHover={{
-              boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
-            }}
-          >
-            İncele
-          </Button>
-        </Link>
-      </Flex>
-      <Text mt={2} textAlign="center" fontSize="sm">
-        Size Özel Çözümlerimizle İşinizi Dijital Dünyada Öne Çıkarıyoruz!
-      </Text>
-    </Flex>
+          <Flex justifyContent={"center"}>
+            <Image
+              id={id}
+              alt={title}
+              height={70}
+              width={70}
+              src={img}
+              draggable={false}
+            />
+          </Flex>
+          <Stack mt="6" spacing="3">
+            <Heading size="md">{title}</Heading>
+            <Text>{content}</Text>
+          </Stack>
+        </CardBody>
+        <CardFooter>
+          <Flex justifyContent={"center"} mt={4} justify={"center"} my={2}>
+            <Stack>
+              <Link
+                href="/tr/service/[id]"
+                as={`/tr/service/${href}`}
+                shallow={true}
+                passHref
+              >
+                <Button
+                  variant={"outline"}
+                  color="primary.100"
+                  rightIcon={<BsArrowRight />}
+                  w={"full"}
+                  h={"50px"}
+                  _groupHover={{
+                    boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
+                  }}
+                >
+                  İncele
+                </Button>
+              </Link>
+            </Stack>
+          </Flex>
+        </CardFooter>
+      </Card>
+    </>
   );
 };
 
@@ -154,7 +128,7 @@ function OurServices({ targetId }) {
             (service, i) =>
               service.isServicesComponentDisplay === true && (
                 <Box key={service.id} p={5}>
-                  <Services {...service} />
+                  <ServicesCard {...service} />
                 </Box>
               )
           )}
