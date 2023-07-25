@@ -41,7 +41,6 @@ function PartnersSection() {
         h: 50,
       },
     },
-    
   ]);
   return (
     <>
@@ -74,7 +73,6 @@ function PartnersSection() {
                   mx={2}
                   opacity={0.7}
                   style={{ objectFit: "contain", filter: "saturate(2)" }}
-             
                 />
               </div>
             ))}

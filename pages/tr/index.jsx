@@ -86,7 +86,7 @@ function IndexPage() {
 
       <WindowTitleChanger />
 
-      <Flex direction={"column"} gap={5}>
+      <Flex direction={"column"} gap={10}>
         <Box id={"Cta"} as="section">
           <Cta lang={lang} targetId={"OurServices"} />
         </Box>

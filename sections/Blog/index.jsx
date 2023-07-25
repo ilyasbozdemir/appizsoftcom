@@ -7,6 +7,8 @@ import {
   Text,
   Button,
   Image,
+  Center,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -36,32 +38,14 @@ const dataList = [
 function Blog() {
   return (
     <>
-      <Flex
-        id="services-top"
-        direction={"row"}
-        justifyContent={"space-between"}
-        px={{ base: 10, md: 20 }}
-        py={5}
-      >
-        <Flex direction={"column"} justify={"center"} gap={3}>
-          <Heading
-            as="h2"
-            fontSize={24}
-            pos="relative"
-            _before={{
-              content: `""`,
-              borderRadius: "50px",
-              position: "absolute",
-              backgroundColor: "#000",
-              width: "4px",
-              height: "100%",
-              left: "-10px",
-            }}
-          >
+      <Center>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={25} pos="relative">
             Teknoloji ve İş Dünyasıyla İlgili Güncel Haberler
           </Heading>
         </Flex>
-      </Flex>
+      </Center>
+
       <>
         <BlogCards />
       </>

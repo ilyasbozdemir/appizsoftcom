@@ -6,11 +6,13 @@ import {
   AccordionPanel,
   Box,
   Button,
+  Center,
   Container,
   Flex,
   Heading,
   Stack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
@@ -63,31 +65,15 @@ function SSS() {
           }}
         />
       </Head>
-      <Flex
-        id="services-top"
-        direction={"row"}
-        justifyContent={"space-between"}
-        px={{ base: 10, md: 20 }}
-      >
-        <Flex direction={"column"} justify={"center"} gap={3}>
-          <Text>Sıkça Sorulan Sorular</Text>
-          <Heading
-            as="h2"
-            pos="relative"
-            _before={{
-              content: `""`,
-              borderRadius: "50px",
-              position: "absolute",
-              backgroundColor: "#000",
-              width: "4px",
-              height: "100%",
-              left: "-10px",
-            }}
-          >
-            SSS
+      <Center>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={35} pos="relative">
+          Sıkça Sorulan Sorular
           </Heading>
+          <Text  textAlign={'center'} fontSize={30} color={useColorModeValue('gray.500','gray.200')}>Soru ve cevap</Text>
+
         </Flex>
-      </Flex>
+      </Center>
 
       <Flex align={"center"} justify={"center"} my={18}>
         <Container maxW={"7xl"}>
