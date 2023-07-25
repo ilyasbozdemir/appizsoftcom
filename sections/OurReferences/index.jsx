@@ -24,15 +24,15 @@ export default function OurReferences() {
     infinite: true,
     lazyLoad: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    easing: 'easeOutElastic',
+    easing: "easeOutElastic",
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
         },
       },
     ],
@@ -64,11 +64,6 @@ export default function OurReferences() {
             >
               Referanslar
             </Heading>
-          </Flex>
-          <Flex display={{ base: "none", md: "initial" }}>
-            <Link href={"/tr/services"} passHref>
-              <Button variant={"outline"}>Tüm Referanslar</Button>
-            </Link>
           </Flex>
         </Flex>
 
