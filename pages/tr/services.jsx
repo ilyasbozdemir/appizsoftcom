@@ -198,7 +198,7 @@ const OurServicesContent = () => {
                 {category === "software" ? (
                   <>Yazılım Hizmetlerimiz</>
                 ) : category === "digital marketing" ? (
-                  <>Dijital Hizmetlerimiz</>
+                  <>Dijital Pazarlama  Hizmetlerimiz</>
                 ) : (
                   <></>
                 )}

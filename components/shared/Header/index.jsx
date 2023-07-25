@@ -34,7 +34,7 @@ import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
   // { name: "Ürünler", path: "/products" },
-  //{ name: "Blog", path: "/blog" },
+  { name: "Portfolyo", path: "/portfolio" },
   { name: "Hizmetler", path: "/services" },
   { name: "Blog", path: "/blog" },
   { name: "Bize Ulaşın", path: "/contact" },
