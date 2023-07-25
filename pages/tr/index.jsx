@@ -76,16 +76,16 @@ function IndexPage() {
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
 
-        {/*
+        {/**
             
             json ld dosyası ile breadcrumb organizasyoın 
             sss rewiev
             gibi yapıları da ekle
-            
-            */}
+             */}
       </Head>
 
       <WindowTitleChanger />
+
       <Flex direction={"column"} gap={5}>
         <Box id={"Cta"} as="section">
           <Cta lang={lang} targetId={"OurServices"} />
@@ -115,6 +115,7 @@ function IndexPage() {
             <LazyOurWorkProcess lang={lang} targetId={"OurReferences"} />
           )}
         </Box>
+        
         <Box id={"WhyChooseUs"} as="section">
           {isMounted && (
             <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
@@ -139,6 +140,10 @@ function IndexPage() {
     </>
   );
 }
-
+export async function generateMetadata({ params }) {
+  return {
+    title: "test",
+  };
+}
 
 export default IndexPage;

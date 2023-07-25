@@ -1,0 +1,1 @@
+ export const pinterestAnalyticsCode = `7f9464b7cba4c1e15e8dfb587b8ef00d`;

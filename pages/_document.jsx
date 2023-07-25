@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../src/theme";
-import {colors} from "../src/foundations/colors";
+import { colors } from "../src/foundations/colors";
 import { ColorModeScript } from "@chakra-ui/react";
 import GoogleTagManagerBody from "../plugins/GoogleTagManagerBody";
 import ExternalFonts from "../fonts/ExternalFonts";
@@ -8,13 +8,12 @@ import React from "react";
 import Analytics from "../configuration/Analytics";
 import { site } from "../constants/site";
 import { testimonialsData } from "../constants/testimonialsData";
+import { googleSiteVerification } from "../lib/googleSiteVerification";
 
-
-const themeColor= colors.primary[100];
+const themeColor = colors.primary[100];
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
-    const googleSiteVerification = ``;
     return (
       <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">
         <Head>
@@ -31,8 +30,15 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width,minimum-scale=1,initial-scale=1"
           />
+
+          <link
+            rel="alternate"
+            hreflang="x-default"
+            href={`${site.baseUrl}/tr`}
+          />
           <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
           <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
+
           <meta
             name="google-site-verification"
             content={googleSiteVerification}
@@ -42,7 +48,7 @@ export default class MyDocument extends Document {
           <meta name="revisit-after" content="3 days" />
           <link rel="icon" href="/favicon.png" type="image/png" />
           <meta name="theme-color" content={themeColor} />
-          
+
           <ExternalFonts />
           <Analytics />
           <link

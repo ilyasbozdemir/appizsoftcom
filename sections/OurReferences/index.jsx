@@ -8,7 +8,6 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { projects } from "../../constants/projects";
@@ -18,20 +17,8 @@ const defaultWidth = 175;
 const defaultHeight = 75;
 
 export default function OurReferences() {
-  const [slideIndex, setSlideIndex] = useState(0);
   const [references, setReferences] = useState(projects);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndex((prevIndex) =>
-        prevIndex === references.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
 
   return (
     <Box>

@@ -13,6 +13,7 @@ import {
   WrapItem,
   useColorModeValue,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {
@@ -37,12 +38,14 @@ function WhyChooseUs() {
           rounded={"lg"}
           overflow={"hidden"}
           data-aos="zoom-in-up"
+          zIndex={19}
         >
           <Stack
             textAlign={"center"}
             p={6}
             color={useColorModeValue("gray.800", "white")}
             align={"center"}
+            zIndex={20}
           >
             <Stack direction={"row"} align={"center"} justify={"center"}>
               <Flex
@@ -52,14 +55,24 @@ function WhyChooseUs() {
                 h={16}
                 mb={4}
                 rounded="full"
+                zIndex={20}
+                
                 color={`${props.color}.600`}
                 bg={`${props.color}.100`}
                 _dark={{
                   color: `${props.color}.200`,
                   bg: `${props.color}.800`,
                 }}
+
               >
-                <Icon as={props.icon} boxSize={10} aria-hidden="true" />
+                
+
+                <Icon
+                  as={props.icon}
+                  boxSize={10}
+                  aria-hidden="true"
+                  zIndex={21}
+                />
               </Flex>
             </Stack>
 
@@ -76,7 +89,7 @@ function WhyChooseUs() {
             </Center>
           </Stack>
 
-          <Box px={6} py={10}>
+          <Box px={6} py={10} zIndex={22}>
             {props.content}
           </Box>
         </Flex>
@@ -91,6 +104,7 @@ function WhyChooseUs() {
       icon: FaRocket,
       content:
         "Projelerinizi hızlı bir şekilde tamamlarız. İleri düzeyde verimlilikle çalışarak zamanınızı tasarruf ederiz.",
+      bgImage: "/images/bgImage1.svg",
     },
     {
       color: "blue",
@@ -98,6 +112,7 @@ function WhyChooseUs() {
       icon: FaSearch,
       content:
         "SEO odaklı yaklaşımlarla web sitelerinizi ve uygulamalarınızı optimize ederiz",
+      bgImage: "/images/bgImage2.svg",
     },
     {
       color: "purple",
@@ -105,6 +120,7 @@ function WhyChooseUs() {
       icon: FaClock,
       content:
         "Projelerinizi zamanında ve beklenen sürede teslim ederiz. Sorunsuz bir şekilde ilerleyerek iş süreçlerinizi hızlandırırız.",
+      bgImage: "/images/bgImage3.svg",
     },
     {
       color: "yellow",
@@ -112,6 +128,7 @@ function WhyChooseUs() {
       icon: FaShieldAlt,
       content:
         "Müşteri memnuniyeti için garanti sağlarız ve memnun kalmamanız durumunda para iadesi sunarız.",
+      bgImage: "/images/bgImage4.svg",
     },
     {
       color: "orange",
@@ -119,6 +136,7 @@ function WhyChooseUs() {
       icon: FaUsers,
       content:
         "İhtiyaçlarınızı anlamak ve beklentilerinizi karşılamak için esnek ve müşteri odaklı bir yaklaşım benimseriz.",
+      bgImage: "/images/bgImage4.svg",
     },
     {
       color: "pink",
@@ -126,6 +144,7 @@ function WhyChooseUs() {
       icon: FaLightbulb,
       content:
         "Güncel teknolojilerle projelerinizi destekleriz, en yeni çözümleri sunarak rekabet avantajı sağlamanızı sağlarız.",
+      bgImage: "/images/bgImage5.svg",
     },
   ];
 
@@ -227,12 +246,7 @@ function WhyChooseUs() {
           >
             {features.map((child) => (
               <React.Fragment key={child.icon}>
-                <Feature
-                  color={child.color}
-                  title={child.title}
-                  icon={child.icon}
-                  content={child.content}
-                />
+                <Feature {...child} />
               </React.Fragment>
             ))}
           </SimpleGrid>

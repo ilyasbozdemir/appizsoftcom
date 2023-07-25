@@ -1,16 +1,18 @@
 import theme from "../src/theme";
 
+import { ttCode } from "../lib/ttCode";
+import { gtmCode } from "../lib/gtmCode";
+import { pinterestAnalyticsCode } from "../lib/pinterestAnalyticsCode";
+import { googleAnalyticsCode } from "../lib/googleAnalyticsCode";
+import { facebookPixelCode } from "../lib/facebookPixelCode";
+
 const baseUrl =
   process.env.NODE_ENV === "production"
     ? "https://appizsoft.com"
     : "http://localhost:3000";
+    
 //https://appizsoft.com
 //appizsoftcom.vercel.app
-const pinterestAnalyticsCode = `7f9464b7cba4c1e15e8dfb587b8ef00d`;
-const googleAnalyticsCode = ``;
-const facebookPixelCode = ``;
-const gtmCode = ``;
-const ttCode = `CIEJ1LJC77U441D19LNG`;
 
 export const site = {
   title: `Appizsoft | 
