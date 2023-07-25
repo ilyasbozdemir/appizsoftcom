@@ -213,10 +213,10 @@ const TestimonialsSections = () => {
 
   return (
     <>
-      <Container maxW="7xl" p={{ base: 5, md: 10 }}>
+      <Container maxW="8xl" p={{ base: 5, md: 10 }}>
         <Slider {...settings}>
           {testimonialsData2.map((obj, index) => (
-            <VStack key={index} spacing={3} pt={1} justify="center" spacing={3}>
+            <Flex direction={'column'}  key={index} gap={10} pt={1} justify="center">
               <Box textAlign="center">
                 <Avatar
                   size="xl"
@@ -246,7 +246,7 @@ const TestimonialsSections = () => {
                 </Text>
               </Box>
               <Divider my={6} />
-            </VStack>
+            </Flex>
           ))}
         </Slider>
       </Container>
