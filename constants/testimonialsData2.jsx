@@ -1,23 +1,22 @@
 export const testimonialsData2 = [
+ 
   {
-    name: 'Ben Parker',
-    position: 'CEO',
-    company: 'Foodtesla',
+    name: 'Emre Yılmaz',
+    position: 'Lead Developer',
+    company: 'CodeMasterTech',
     rating: 5,
-    image:
-      'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80',
-    content: `Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-      rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-      risus at semper`
+    content: 'Appzisoft  ile birlikte çalıştığımız proje, gerçekten harika bir deneyimdi. Jena Karlis ve ekibi, isteklerimizi anlamak ve ihtiyaçlarımıza uygun bir çözüm sunmak için sürekli çaba gösterdiler. Proje süresince sağlam bir iletişim ve proaktif bir yaklaşım sergilediler. Sonuç, kullanıcı dostu ve sorunsuz bir yazılım oldu. Kesinlikle memnun kaldık ve gelecekteki projelerde tekrar birlikte çalışmayı dört gözle bekliyoruz.',
+    image:'',
   },
   {
-    name: 'Jena Karlis',
-    position: 'GM',
-    company: 'Olpers',
+    name: 'Ayşe Kaya',
+    position: 'Proje Yöneticisi',
+    company: 'SoftSolutions Ltd.',
     rating: 4,
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
-    content: `Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-      rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.`
-  }
+    content: 'Appzisoft  ekibi, proje sürecinde ihtiyaçlarımıza uygun bir yazılım geliştirmek için önemli bir özveri gösterdi. İşbirlikçi yaklaşımları ve esnekliği sayesinde, projenin yönünü belirlemek ve gerektiğinde değişiklik yapmak kolaydı. Projenin sonuçları oldukça tatmin ediciydi ve kullanıcıların geri bildirimleri de olumlu oldu.',
+    image:'',
+  },
+  
+  
+
 ];

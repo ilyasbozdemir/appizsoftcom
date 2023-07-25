@@ -11,9 +11,12 @@ import {
   useColorModeValue,
   Divider,
   Container,
-  chakra,
   VStack,
 } from "@chakra-ui/react";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { HStack, Icon } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
@@ -128,6 +131,7 @@ const TestimonialAvatar = ({ src, name, title, rating }) => {
 
 import { testimonialsData } from "../../constants/testimonialsData";
 import { testimonialsData2 } from "../../constants/testimonialsData2";
+import { AiOutlineUser } from "react-icons/ai";
 
 function WithSpeechBubbles() {
   return (
@@ -188,24 +192,46 @@ function WithSpeechBubbles() {
 }
 
 const TestimonialsSections = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    lazyLoad: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <Container maxW="5xl" p={{ base: 5, md: 10 }}>
-        {testimonialsData2.map((obj, index) => (
-          <Fragment key={index}>
-            <VStack spacing={3} pt={1} justify="center">
-              <Avatar
-                size="xl"
-                showBorder={true}
-                borderColor="primary.200"
-                name="avatar"
-                src={obj.image}
-              />
-              <Box textAlign="center" maxW="4xl">
-                <Text fontSize="md" fontWeight="medium">
+        <Slider {...settings}>
+          {testimonialsData2.map((obj, index) => (
+            <VStack key={index} spacing={3} pt={1} justify="center">
+              <Box textAlign="center">
+                <Avatar
+                  size="xl"
+                  showBorder={true}
+                  borderColor="primary.200"
+                  name={obj.name}
+                  bg='teal.800'
+                  color='white'
+                  src={obj.image ?? obj.image}
+                />
+                <Flex justifyContent="center" maxW="4xl">
                   <Rating defaultValue={obj.rating} size="lg" />
-                </Text>
+                </Flex>
               </Box>
+
               <Box textAlign="center">
                 <Text fontWeight="bold" fontSize="lg">
                   {obj.name}
@@ -215,14 +241,14 @@ const TestimonialsSections = () => {
                 </Text>
               </Box>
               <Box textAlign="center" maxW="4xl">
-                <Text fontSize="md" fontWeight="medium">
+                <Text fontSize="md" fontWeight="medium" p={2}>
                   {obj.content}
                 </Text>
               </Box>
+              <Divider my={6} />
             </VStack>
-            {testimonialsData2.length - 1 !== index && <Divider my={6} />}
-          </Fragment>
-        ))}
+          ))}
+        </Slider>
       </Container>
     </>
   );

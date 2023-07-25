@@ -16,7 +16,7 @@ import { Link } from "react-scroll";
 function PartnersSection() {
   const defaultWidth = 175;
   const defaultHeight = 75;
-  const [references, setReferences] = useState([
+  const [partners, setPartners] = useState([
     {
       id: "openAI",
       logo: "/images/partners/openAI.svg",
@@ -41,6 +41,7 @@ function PartnersSection() {
         h: 50,
       },
     },
+    
   ]);
   return (
     <>
@@ -58,12 +59,12 @@ function PartnersSection() {
             columns={{
               base: 2,
               sm: 3,
-              md: 4,
-              lg: 5,
+              md: 3,
+              lg: 3,
             }}
             gap={5}
           >
-            {references.map((ref) => (
+            {partners.map((ref) => (
               <div key={ref.id}>
                 <Image
                   src={ref.logo}
