@@ -44,7 +44,7 @@ const DOurServiceDetailCTA = ({ currentService }) => {
     <>
       {isMobile && (
         <>
-          <PagesBreadcrumb currentPage={"Teklif Al"} />
+          <PagesBreadcrumb currentPage={currentService.title} />
         </>
       )}
       {!isMobile && (
