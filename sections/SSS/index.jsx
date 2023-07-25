@@ -67,11 +67,20 @@ function SSS() {
       </Head>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={35} pos="relative">
-          Sıkça Sorulan Sorular
+          <Heading
+            as="h2"
+            fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }}
+            pos="relative"
+          >
+            Sıkça Sorulan Sorular
           </Heading>
-          <Text  textAlign={'center'} fontSize={30} color={useColorModeValue('gray.500','gray.200')}>Soru ve cevap</Text>
-
+          <Text
+            textAlign={"center"}
+            fontSize={30}
+            color={useColorModeValue("gray.500", "gray.200")}
+          >
+            Soru ve cevap
+          </Text>
         </Flex>
       </Center>
 

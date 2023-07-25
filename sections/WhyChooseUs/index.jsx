@@ -56,17 +56,13 @@ function WhyChooseUs() {
                 mb={4}
                 rounded="full"
                 zIndex={20}
-                
                 color={`${props.color}.600`}
                 bg={`${props.color}.100`}
                 _dark={{
                   color: `${props.color}.200`,
                   bg: `${props.color}.800`,
                 }}
-
               >
-                
-
                 <Icon
                   as={props.icon}
                   boxSize={10}
@@ -157,10 +153,6 @@ function WhyChooseUs() {
     >
       <Box
         shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;"
-        bg="white"
-        _dark={{
-          bg: "gray.800",
-        }}
         px={8}
         py={20}
         mx="auto"
@@ -173,31 +165,13 @@ function WhyChooseUs() {
           gap={20}
         >
           <Box maxW={"450px"}>
-            <Flex
-              id="services-top"
-              direction={"row"}
-              justifyContent={"space-between"}
-              px={{ base: 10, md: 20 }}
+            <Heading
+              as="h2"
+              fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }}
+              pos="relative"
             >
-              <Flex direction={"column"} justify={"center"} gap={3}>
-                <Heading
-                  as="h2"
-                  fontSize={24}
-                  pos="relative"
-                  _before={{
-                    content: `""`,
-                    borderRadius: "50px",
-                    position: "absolute",
-                    backgroundColor: "#000",
-                    width: "4px",
-                    height: "100%",
-                    left: "-10px",
-                  }}
-                >
-                  Bizi Tercih Etmeniz İçin 5 Neden
-                </Heading>
-              </Flex>
-            </Flex>
+              Bizi Tercih Etmeniz İçin 5 Neden
+            </Heading>
 
             <Text
               as="p"

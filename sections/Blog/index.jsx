@@ -40,7 +40,7 @@ function Blog() {
     <>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={25} pos="relative">
+          <Heading as="h2"  fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }} pos="relative">
             Teknoloji ve İş Dünyasıyla İlgili Güncel Haberler
           </Heading>
         </Flex>

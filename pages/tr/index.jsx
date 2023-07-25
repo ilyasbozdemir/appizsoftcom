@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
-import { Box, Flex, Heading ,Container} from "@chakra-ui/react";
+import { Box, Flex, Heading, Container } from "@chakra-ui/react";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
@@ -33,7 +33,6 @@ const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
 
 import { site } from "../../constants/site";
-
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -87,8 +86,8 @@ function IndexPage() {
 
       <WindowTitleChanger />
 
-      <Flex direction={"column"} gap={10}>
-        <Container maxW="8xl" p={{ base: 5, md: 10 }}>
+      <Container maxW="8xl" p={{ base: 5, md: 10 }}>
+        <Flex direction={"column"} gap={10}>
           <Box id={"Cta"} as="section">
             <Cta lang={lang} targetId={"OurServices"} />
           </Box>
@@ -140,8 +139,8 @@ function IndexPage() {
           <Box id={"SSS"} as="section">
             {isMounted && <LazySSS lang={lang} />}
           </Box>
-        </Container>
-      </Flex>
+        </Flex>
+      </Container>
     </>
   );
 }
