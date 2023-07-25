@@ -38,6 +38,14 @@ export default class MyDocument extends Document {
           />
           <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
           <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            href="/rss.xml"
+            title="React Native RSS Feed"
+          />
+
+          <meta name="copyright" content="Appizsoft" />
 
           <meta
             name="google-site-verification"

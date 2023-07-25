@@ -119,20 +119,22 @@ function OurServices({ targetId }) {
       </Flex>
 
       <Flex as={"article"} direction={"column"} gap={5} data-aos="zoom-in-up">
-        <SimpleGrid
-          columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
-          spacing={2}
-          justify="center"
-        >
-          {services.map(
-            (service, i) =>
-              service.isServicesComponentDisplay === true && (
-                <Box key={service.id} p={5}>
-                  <ServicesCard {...service} />
-                </Box>
-              )
-          )}
-        </SimpleGrid>
+        <Center>
+          <SimpleGrid
+            columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
+            spacing={2}
+            justify="center"
+          >
+            {services.map(
+              (service, i) =>
+                service.isServicesComponentDisplay === true && (
+                  <Box key={service.id} p={5}>
+                    <ServicesCard {...service} />
+                  </Box>
+                )
+            )}
+          </SimpleGrid>
+        </Center>
 
         <Center>
           <Flex display={{ base: "initial", md: "none" }}>

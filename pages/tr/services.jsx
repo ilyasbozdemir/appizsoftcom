@@ -18,6 +18,9 @@ import {
   CardBody,
   CardFooter,
   Container,
+  useMediaQuery,
+  useBreakpointValue,
+  Select,
 } from "@chakra-ui/react";
 
 import { BsArrowRight } from "react-icons/bs";
@@ -165,48 +168,59 @@ const OurServicesContent = () => {
     services.map((item) => item.serviceCategory)
   );
 
-  /*
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
-*/
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
-      <Flex
-        bg={"gray.200"}
-        justifyContent={"center"}
-        h={50}
-        align={"center"}
-        overflowX={"auto"}
-      >
-        <Stack direction="row" spacing={4} align="center">
-          <Button
-            variant="ghost"
-            onClick={() => {
-              setSelectedCategory("all");
-            }}
+      {!isMobile && (
+        <>
+          <Flex
+            bg={"gray.200"}
+            justifyContent={"center"}
+            h={50}
+            align={"center"}
+            w={"100%"}
           >
-            Tümü
-          </Button>
-          {[...uniqueCategories].map((category) => (
-            <>
-              <Button
-                key={category}
-                variant="ghost"
-                onClick={() => {
-                  setSelectedCategory(category);
-                }}
-              >
-                {category === "software" ? (
-                  <>Yazılım Hizmetlerimiz</>
-                ) : category === "digital marketing" ? (
-                  <>Dijital Pazarlama  Hizmetlerimiz</>
-                ) : (
-                  <></>
-                )}
-              </Button>
-            </>
-          ))}
-        </Stack>
-      </Flex>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                setSelectedCategory("all");
+              }}
+            >
+              Tümü
+            </Button>
+            {[...uniqueCategories].map((category) => (
+              <>
+                <Button
+                  key={category}
+                  variant="ghost"
+                  onClick={() => {
+                    setSelectedCategory(category);
+                  }}
+                >
+                  {category === "software" ? (
+                    <>Yazılım Hizmetlerimiz</>
+                  ) : category === "digital marketing" ? (
+                    <>Dijital Pazarlama Hizmetlerimiz</>
+                  ) : (
+                    <></>
+                  )}
+                </Button>
+              </>
+            ))}
+          </Flex>
+        </>
+      )}
+
+      {isMobile && (
+        <>
+          <Select placeholder="Select option" icon={''}>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </Select>
+        </>
+      )}
 
       <Center mt={5}>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>

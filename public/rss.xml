@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Next.js Haberler</title>
+    <description>Next.js ile ilgili güncel haberler</description>
+    <link>https://www.nextjs-example.com/</link>
+    <atom:link href="https://www.nextjs-example.com/rss.xml" rel="self" type="application/rss+xml" />
+
+    <!-- Örnek bir haber öğesi -->
+    <item>
+      <title>Next.js 10 Sürümü Yayınlandı</title>
+      <link>https://www.nextjs-example.com/haberler/nextjs-10-yayinlandi</link>
+      <description>Next.js'in son sürümü olan 10 yayınlandı. Yenilikler ve geliştirmeler hakkında bilgi içeren haber.</description>
+      <pubDate>Tue, 25 Jul 2023 12:00:00 GMT</pubDate>
+    </item>
+
+    <!-- Yeni haber öğeleri buraya eklenebilir -->
+    
+  </channel>
+</rss>
