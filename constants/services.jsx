@@ -67,10 +67,21 @@ export const services = [
     sunuyoruz. Yaratıcı fikirlerimiz ve oyun geliştirme konusundaki
     tecrübemizle sizin için en iyi oyun yazılımlarını tasarlıyoruz. `,
     serviceCategory: "software",
-    isServicesComponentDisplay: true,
+    isServicesComponentDisplay: false,
+  },
+
+  {
+    "id": 7006,
+    "href": "test-otomasyonu", //[id].jsx
+    "title": "Test Otomasyonu",
+    "img": "/images/test_automation.png", //services componenti için
+    "desc": "Müşteri memnuniyetini artırmak ve hataları en aza indirmek için test süreçlerini otomatikleştirmeye hazır mısınız? Selenium ve Appium test otomasyonu çözümlerimizle tüm uygulamalarınızı kapsamlı bir şekilde test edin.",
+    "content": "Selenium ve Appium, günümüzde en popüler test otomasyon araçları arasında yer almaktadır. Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin. Size özel test senaryoları oluşturarak güvenilir ve tekrarlanabilir testler gerçekleştirin.",
+    "serviceCategory": "software",
+    "isServicesComponentDisplay": true
   },
   {
-    id: 7101,
+    id: 7007,
     href: "production-design",
     title: "Prodüksiyon & Tasarım",
     img: "/images/production.png",
@@ -81,4 +92,6 @@ export const services = [
     serviceCategory: "digital marketing",
     isServicesComponentDisplay: true,
   },
+  
+  
 ];

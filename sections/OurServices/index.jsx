@@ -116,7 +116,6 @@ function OurServices({ targetId }) {
         px={{ base: 10, md: 20 }}
       >
         <Flex direction={"column"} justify={"center"} gap={3}>
-         
           <Heading
             as="h2"
             fontSize={24}
@@ -133,7 +132,11 @@ function OurServices({ targetId }) {
           >
             Hizmetlerimiz
           </Heading>
-          <Text>Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler sunuyoruz.</Text>
+          <Text>
+            Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret
+            çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler
+            sunuyoruz.
+          </Text>
         </Flex>
         <Flex display={{ base: "none", md: "initial" }}>
           <Link href={"/tr/services"} passHref>
