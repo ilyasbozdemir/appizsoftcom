@@ -1,13 +1,15 @@
 module.exports = {
-  /*
+  /* 
   i18n: {
     locales: ["en", "tr"],
     defaultLocale: "tr",
-  },
-  */
+    localeDetection: false,
+  },*/
+
   env: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
   },
+
   async headers() {
     return [
       {
@@ -21,6 +23,7 @@ module.exports = {
       },
     ];
   },
+
   images: {
     domains: ["static.wixstatic.com"],
   },

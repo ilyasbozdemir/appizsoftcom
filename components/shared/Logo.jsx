@@ -38,7 +38,7 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
           cursor: cursor,
         }}
         onClick={() => {
-          if (isLink) router.push(`/${lang}?ref=${platform}-logo`);
+          if (isLink) router.push(`/${lang}`);
         }}
         draggable={false}
         //placeholder="blur"

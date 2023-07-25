@@ -1,0 +1,6 @@
+{
+    "Index": {
+      "title": "Anasayfa",
+      "description": "Bu sayfa, <code>./messages/index/{locale}.json</code> ve <code>./messages/shared/{locale}.json</code> kaynaklı mesajları kullanır. Hakkında sayfasından ve diğer yerel ayarlardan gelen mesajlar yüklenmez."
+    }
+  }

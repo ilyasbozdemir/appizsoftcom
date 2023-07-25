@@ -50,44 +50,40 @@ function IndexPage() {
   const publisher = `Appizsoft`;
   return (
     <>
-      <>
-        <Head>
-          <title>{site.title}</title>
-          <meta itemprop="description" content={site.description} />
-          <meta name="description" content={site.description} />
-          <meta name="publisher" content={publisher} />
-          <meta name="robots" content={"index, follow"} />
+      <Head>
+        <title>{site.title}</title>
+        <meta itemprop="description" content={site.description} />
+        <meta name="description" content={site.description} />
+        <meta name="publisher" content={publisher} />
+        <meta name="robots" content={"index, follow"} />
 
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={site.title} />
-          <meta name="twitter:description" content={site.description} />
-          <meta name="twitter:site" content="@appizsoftcom" />
-          <meta name="twitter:creator" content="@appizsoftcom" />
-          <meta name="twitter:image" content={site.twImage} />
-          <meta name="twitter:image:alt" content={site.title} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={site.title} />
+        <meta name="twitter:description" content={site.description} />
+        <meta name="twitter:site" content="@appizsoftcom" />
+        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:image" content={site.twImage} />
+        <meta name="twitter:image:alt" content={site.title} />
 
-          <meta property="og:title" content={site.title} />
-          <meta property="og:url" content={`${site.baseUrl}/tr`} />
-          <meta property="og:description" content={site.description} />
-          <meta property="og:type" content="website" />
-          <meta property="og:site_name" content={site.title} />
-          <meta property="og:image" content={site.ogImage} />
-          <meta property="og:image:alt" content={site.title} />
-          <meta property="og:image:width" content="1012" />
-          <meta property="og:image:height" content="506" />
-          <meta property="og:locale" content="tr_TR" />
+        <meta property="og:title" content={site.title} />
+        <meta property="og:url" content={`${site.baseUrl}/tr`} />
+        <meta property="og:description" content={site.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.title} />
+        <meta property="og:image" content={site.ogImage} />
+        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image:width" content="1012" />
+        <meta property="og:image:height" content="506" />
+        <meta property="og:locale" content="tr_TR" />
 
-          {
-            /*
+        {/*
             
             json ld dosyası ile breadcrumb organizasyoın 
             sss rewiev
             gibi yapıları da ekle
             
-            */
-          }
-        </Head>
-      </>
+            */}
+      </Head>
 
       <WindowTitleChanger />
       <Flex direction={"column"} gap={5}>
@@ -143,5 +139,6 @@ function IndexPage() {
     </>
   );
 }
+
 
 export default IndexPage;
