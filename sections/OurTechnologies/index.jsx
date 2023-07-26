@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
-  Text,
   Heading,
   Flex,
-  Divider,
   Center,
-  SimpleGrid,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { technologies } from "../../constants/technologies";
@@ -19,18 +16,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
 const lang = `tr`;
 
-const TechnologyComponent = ({ id }) => {
-  const Component = lazy(() => import(`./${id}`));
-
-  return <></>;
-};
-
-//
 
 function OurTechnologies() {
   const router = useRouter();
