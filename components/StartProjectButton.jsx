@@ -25,9 +25,9 @@ function StartProjectButton() {
         _light={{
           color: "white",
         }}
-        bg={"primary.100"}
+        bg={"black"}
         _hover={{
-          bg: "primary.200",
+          bg: "blackAlpha.900",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
         }}
       >

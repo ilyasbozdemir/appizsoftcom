@@ -35,8 +35,8 @@ function OfferButton({ lang = `tr`, platform }) {
           <Button
             variant={"outline"}
             color="#fff"
-            bg={"primary.100"}
-            _hover={{ bg: "primary.200" }}
+            bg={"black"}
+            _hover={{ bg: "blackAlpha.900" }}
             size="md"
             onClick={() => {
               router.push(`/${lang}/get-a-quote`);
