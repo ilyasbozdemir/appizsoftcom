@@ -74,25 +74,23 @@ function OurTechnologies() {
             autoplay={{ delay: 500 }}
           >
             {technologies.map((image, index) => (
-              <>
-                <SwiperSlide key={index}>
-                  <Link href={`${lang}/technologies#${image.id}`} passHref>
-                    <Flex direction={"column"}>
-                      <ChakraImage
-                        id={image.id}
-                        src={image.imageUrl}
-                        alt={`${image.title}`}
-                        width={50}
-                        height={50}
-                        filter={"saturate(.2)"}
-                        _hover={{
-                          filter: "none",
-                        }}
-                      />
-                    </Flex>
-                  </Link>
-                </SwiperSlide>
-              </>
+              <SwiperSlide key={index}>
+                <Link href={`${lang}/technologies#${image.id}`} passHref>
+                  <Flex direction={"column"}>
+                    <ChakraImage
+                      id={image.id}
+                      src={image.imageUrl}
+                      alt={`${image.title}`}
+                      width={50}
+                      height={50}
+                      filter={"saturate(.2)"}
+                      _hover={{
+                        filter: "none",
+                      }}
+                    />
+                  </Flex>
+                </Link>
+              </SwiperSlide>
             ))}
           </Swiper>
         </Box>

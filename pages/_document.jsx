@@ -59,13 +59,8 @@ export default class MyDocument extends Document {
 
           <ExternalFonts />
           <Analytics />
-          
-          <link
-            href="/styles/globals.css"
-            rel="preload"
-            as="style"
-            onLoad="this.onload=null;this.rel='stylesheet'"
-          />
+
+          <link href="/styles/globals.css" />
         </Head>
         <body>
           <GoogleTagManagerBody code={site.analyticsCodes.gtmCode} />

@@ -94,27 +94,25 @@ function SSS() {
             fontSize={25}
           >
             {sss.map((s, index) => (
-              <>
-                <AccordionItem fontSize="18px">
-                  {({ isExpanded }) => (
-                    <>
-                      <h2>
-                        <AccordionButton>
-                          <Box as="span" flex="1" textAlign="left">
-                            {s.Question}
-                          </Box>
-                          {isExpanded ? (
-                            <MinusIcon fontSize="12px" />
-                          ) : (
-                            <AddIcon fontSize="12px" />
-                          )}
-                        </AccordionButton>
-                      </h2>
-                      <AccordionPanel pb={4}> {s.Answer}</AccordionPanel>
-                    </>
-                  )}
-                </AccordionItem>
-              </>
+              <AccordionItem key={index} fontSize="18px">
+                {({ isExpanded }) => (
+                  <>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                          {s.Question}
+                        </Box>
+                        {isExpanded ? (
+                          <MinusIcon fontSize="12px" />
+                        ) : (
+                          <AddIcon fontSize="12px" />
+                        )}
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}> {s.Answer}</AccordionPanel>
+                  </>
+                )}
+              </AccordionItem>
             ))}
           </Accordion>
         </Container>

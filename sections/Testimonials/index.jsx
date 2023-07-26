@@ -68,7 +68,7 @@ const Rating = (props) => {
   const color = useColorModeValue("gray.200", "gray.600");
   const activeColor = useColorModeValue("primary.100", "primary.200");
   return (
-    <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+    <div itemprop="reviewRating" itemscope itemType="http://schema.org/Rating">
       <HStack spacing="0.5" {...rootProps}>
         {Array.from({
           length: max,
@@ -108,7 +108,7 @@ const TestimonialAvatar = ({ src, name, title, rating }) => {
         align={"center"}
         itemprop="author"
         itemscope
-        itemtype="http://schema.org/Person"
+        itemType="http://schema.org/Person"
       >
         <Text
           fontWeight={600}
@@ -159,7 +159,7 @@ function WithSpeechBubbles() {
         >
           {testimonialsData.map((testimonial) => (
             <React.Fragment key={testimonial.id}>
-              <Testimonial itemscope itemtype="http://schema.org/Review">
+              <Testimonial itemscope itemType="http://schema.org/Review">
                 <TestimonialContent>
                   <Rating defaultValue={testimonial.rating} size="lg" />
                   <TestimonialHeading>

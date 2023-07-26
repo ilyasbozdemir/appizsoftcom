@@ -40,7 +40,11 @@ function Blog() {
     <>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2"  fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }} pos="relative">
+          <Heading
+            as="h2"
+            fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }}
+            pos="relative"
+          >
             Teknoloji ve İş Dünyasıyla İlgili Güncel Haberler
           </Heading>
         </Flex>
@@ -76,115 +80,119 @@ const BlogCards = () => {
     <Slider {...settings}>
       {dataList.map((blog) => {
         return (
-          <>
-            <Flex p={50} w="full" alignItems="center" justifyContent="center">
+          <Flex
+            key={blog.id}
+            p={50}
+            w="full"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Box
+              bg="white"
+              _dark={{
+                bg: "gray.800",
+              }}
+              mx={{
+                lg: 8,
+              }}
+              display={{
+                lg: "flex",
+              }}
+              maxW={{
+                lg: "5xl",
+              }}
+              shadow={{
+                lg: "lg",
+              }}
+              rounded={{
+                lg: "lg",
+              }}
+            >
               <Box
-                bg="white"
-                _dark={{
-                  bg: "gray.800",
-                }}
-                mx={{
-                  lg: 8,
-                }}
-                display={{
-                  lg: "flex",
-                }}
-                maxW={{
-                  lg: "5xl",
-                }}
-                shadow={{
-                  lg: "lg",
-                }}
-                rounded={{
-                  lg: "lg",
+                w={{
+                  lg: "50%",
                 }}
               >
                 <Box
-                  w={{
-                    lg: "50%",
+                  h={{
+                    base: 64,
+                    lg: "full",
+                  }}
+                  rounded={{
+                    lg: "lg",
+                  }}
+                  style={{
+                    backgroundImage: `url(${blog.imageUrl})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                   }}
                 >
-                  <Box
-                    h={{
-                      base: 64,
-                      lg: "full",
-                    }}
-                    rounded={{
-                      lg: "lg",
-                    }}
-                    style={{
-                      backgroundImage: `url(${blog.imageUrl})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                    }}
-                  >
-                    <Image
-                      src={blog.imageUrl}
-                      alt="Blog Image"
-                      w="100%"
-                      h="100%"
-                      objectFit="cover"
-                      borderRadius="lg"
-                    />
-                  </Box>
-                </Box>
-
-                <Box
-                  py={12}
-                  px={6}
-                  maxW={{
-                    base: "xl",
-                    lg: "5xl",
-                  }}
-                  w={{
-                    lg: "50%",
-                  }}
-                >
-                  <chakra.h2
-                    fontSize={{
-                      base: "2xl",
-                      md: "3xl",
-                    }}
-                    color="gray.800"
-                    _dark={{
-                      color: "white",
-                    }}
-                    fontWeight="bold"
-                  >
-                    {blog.title}
-                  </chakra.h2>
-                  <chakra.p
-                    mt={4}
-                    color="gray.600"
-                    _dark={{
-                      color: "gray.400",
-                    }}
-                  >
-                    {blog.content.substring(0, 150)}...
-                  </chakra.p>
-
-                  <Box mt={8}>
-                    <Link href={"#"} passHref>
-                      <Text
-                        bg="gray.900"
-                        color="gray.100"
-                        px={5}
-                        py={3}
-                        fontWeight="semibold"
-                        rounded="lg"
-                        _hover={{
-                          bg: "gray.800",
-                        }}
-                      >
-                        Devamını Oku
-                      </Text>
-                    </Link>
-                  </Box>
+                  <Image
+                    src={blog.imageUrl}
+                    alt="Blog Image"
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
+                    borderRadius="lg"
+                  />
                 </Box>
               </Box>
-            </Flex>
-          </>
+
+              <Box
+                py={12}
+                px={6}
+                maxW={{
+                  base: "xl",
+                  lg: "5xl",
+                }}
+                w={{
+                  lg: "50%",
+                }}
+              >
+                <chakra.h2
+                  fontSize={{
+                    base: "2xl",
+                    md: "3xl",
+                  }}
+                  color="gray.800"
+                  _dark={{
+                    color: "white",
+                  }}
+                  fontWeight="bold"
+                >
+                  {blog.title}
+                </chakra.h2>
+                <chakra.p
+                  mt={4}
+                  color="gray.600"
+                  _dark={{
+                    color: "gray.400",
+                  }}
+                >
+                  {blog.content.substring(0, 150)}...
+                </chakra.p>
+
+                <Box mt={8}>
+                  <Link href={"#"} passHref>
+                    <Text
+                      bg="gray.900"
+                      color="gray.100"
+                      px={5}
+                      py={3}
+                      fontWeight="semibold"
+                      rounded="lg"
+                      _hover={{
+                        bg: "gray.800",
+                      }}
+                    >
+                      Devamını Oku
+                    </Text>
+                  </Link>
+                </Box>
+              </Box>
+            </Box>
+          </Flex>
         );
       })}
     </Slider>

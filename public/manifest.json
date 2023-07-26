@@ -4,8 +4,8 @@
   "start_url": "/tr",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#fff",
-  "icons": [
+  "theme_color": "#54BEC3",
+ "icons": [
     {
       "src": "/icon-192x192.png",
       "sizes": "192x192",
@@ -17,6 +17,7 @@
       "type": "image/png"
     }
   ],
+
   "description": "Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve araştırmalarımızla, müşterilerimizin sektöründe öne çıkarak rekabet avantajı elde etmelerini sağlıyoruz.",
   "lang": "tr-TR"
 }

@@ -36,7 +36,6 @@ const RainbowText = ({ text }) => (
       color="transparent"
       animation={`${rainbowAnimation} 4s ease-out infinite`}
       bgSize="400% 100%"
-      animationIterationCount="infinite"
       w="fit-content"
     >
       {text}
@@ -63,19 +62,16 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
           py={{ base: 10, md: 14 }}
         >
           <Heading
-            as={"h1"}
             fontWeight={600}
             fontSize={{ base: "30px", md: "50px" }}
             textTransform={"uppercase"}
             fontFamily={"Montserrat"}
-            data-aos="fade-up"
           >
             Markanızı öne çıkarmak için yaratıcılığı
             <RainbowText text={" Teknolojiyle "} /> birleştiriyoruz.
           </Heading>
           <Text
             maxW={"3xl"}
-            data-aos="fade-up"
             fontSize={{ base: "19px", md: "25px" }}
             fontFamily={"'Nunito Sans', sans-serif"}
           >

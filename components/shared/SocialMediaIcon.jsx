@@ -15,27 +15,6 @@ import {
 import { site } from "../../constants/site";
 import Link from "next/link";
 
-const SocialButton = ({ children, label, href }) => {
-  return (
-    <Button
-      rounded={"full"}
-      w={15}
-      h={15}
-      href={href}
-      display={"inline-flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      transition={"background 0.3s ease"}
-      _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </Button>
-  );
-};
-
 const LinkWrapper = (props) => {
   const { children, href, ...rest } = props;
 
@@ -57,14 +36,14 @@ function SosyalMediaIcon() {
     <>
       <ButtonGroup
         itemscope="itemscope"
-        itemtype="https://schema.org/Organization"
+        itemType="https://schema.org/Organization"
       >
         <LinkWrapper
           href={
             site.sosyalMediaLinks.find((item) => item.label === "instagram")
               .link
           }
-          itemprop="sameAs"
+          itemProp="sameAs"
         >
           <IconButton
             cursor={"pointer"}
@@ -80,7 +59,7 @@ function SosyalMediaIcon() {
           href={
             site.sosyalMediaLinks.find((item) => item.label === "facebook").link
           }
-          itemprop="sameAs"
+          itemProp="sameAs"
         >
           <IconButton
             cursor={"pointer"}
@@ -96,7 +75,7 @@ function SosyalMediaIcon() {
           href={
             site.sosyalMediaLinks.find((item) => item.label === "twitter").link
           }
-          itemprop="sameAs"
+          itemProp="sameAs"
         >
           <IconButton
             aria-label="FaTwitter"
@@ -112,7 +91,7 @@ function SosyalMediaIcon() {
           href={
             site.sosyalMediaLinks.find((item) => item.label === "youtube").link
           }
-          itemprop="sameAs"
+          itemProp="sameAs"
         >
           <IconButton
             aria-label="Linkedin"
@@ -128,7 +107,7 @@ function SosyalMediaIcon() {
           href={
             site.sosyalMediaLinks.find((item) => item.label === "linkedin").link
           }
-          itemprop="sameAs"
+          itemProp="sameAs"
         >
           <IconButton
             aria-label="Linkedin"

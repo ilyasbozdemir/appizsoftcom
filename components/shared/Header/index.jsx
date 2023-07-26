@@ -254,7 +254,7 @@ const HeaderNav = ({ lang }) => {
   );
 };
 
-const NavLink = ({ lang = `/tr/`, name, path, onClose }) => {
+const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
   const link = {
     bg: useColorModeValue("gray.200", "gray.700"),
     color: useColorModeValue("blue.500", "blue.200"),

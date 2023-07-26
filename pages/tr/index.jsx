@@ -145,10 +145,5 @@ function IndexPage() {
     </>
   );
 }
-export async function generateMetadata({ params }) {
-  return {
-    title: "test",
-  };
-}
 
 export default IndexPage;

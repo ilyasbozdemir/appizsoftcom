@@ -47,7 +47,6 @@ const MetaBusinessPartner = () => {
           alt="Meta-Business-Partner_logo.png"
           width={100}
           height={100}
-          fetchPriority="high"
           draggable='false'
         />
       </Link>
@@ -64,7 +63,6 @@ const GooglePartner = () => {
           alt="google-partner"
           width={100}
           height={100}
-          fetchPriority="high"
           draggable='false'
         />
       </Link>
@@ -409,5 +407,5 @@ const FooterData = () => {
   } else {
     yearText = `${startYear}`;
   }
-  return <Text> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</Text>;
+  return <> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</>;
 };
