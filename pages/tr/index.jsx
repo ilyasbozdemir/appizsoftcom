@@ -42,6 +42,7 @@ function IndexPage() {
     const browserLanguage = detectBrowserLanguage(supportedLanguages);
     setLang(browserLanguage);
   }, []);
+  
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

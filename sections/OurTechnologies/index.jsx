@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Text,
@@ -27,17 +27,18 @@ const lang = `tr`;
 const TechnologyComponent = ({ id }) => {
   const Component = lazy(() => import(`./${id}`));
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Component />
-    </Suspense>
-  );
+  return <></>;
 };
 
 //
 
 function OurTechnologies() {
   const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <>
@@ -66,24 +67,28 @@ function OurTechnologies() {
             })}
             autoplay={{ delay: 500 }}
           >
-            {technologies.map((image, index) => (
-              <SwiperSlide key={index}>
-                <Link href={`${lang}/technologies#${image.id}`} passHref>
-                  <Flex direction={"column"}>
-                    <Image
-                      id={image.id}
-                      src={image.imageUrl}
-                      alt={`${image.title}`}
-                      width={50}
-                      height={50}
-                      style={{
-                        filter: "saturate(.2)",
-                      }}
-                    />
-                  </Flex>
-                </Link>
-              </SwiperSlide>
-            ))}
+            {isMounted && (
+              <>
+                {technologies.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <Link href={`${lang}/technologies#${image.id}`} passHref>
+                      <Flex direction={"column"}>
+                        <Image
+                          id={image.id}
+                          src={image.imageUrl}
+                          alt={`${image.title}`}
+                          width={50}
+                          height={50}
+                          style={{
+                            filter: "saturate(.2)",
+                          }}
+                        />
+                      </Flex>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </>
+            )}
           </Swiper>
         </Box>
       </Center>
