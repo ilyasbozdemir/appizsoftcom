@@ -17,6 +17,28 @@ import Slider from "react-slick";
 const defaultWidth = 175;
 const defaultHeight = 75;
 
+const ServicesSlideComponent = () => {
+  return (
+    <>
+      <Slider {...settings}>
+        {references.map((ref) => (
+          <div key={ref.id}>
+            <Image
+              src={ref.logo}
+              alt={`Reference ${ref.id}`}
+              width={defaultWidth}
+              height={defaultHeight}
+              mx={2}
+              opacity={0.7}
+              style={{ objectFit: "contain", filter: "saturate(2)" }}
+            />
+          </div>
+        ))}
+      </Slider>
+    </>
+  );
+};
+
 export default function OurReferences() {
   const [references, setReferences] = useState(projects);
   const settings = {
@@ -48,22 +70,11 @@ export default function OurReferences() {
             </Heading>
           </Flex>
         </Center>
-
-        <Slider {...settings}>
-          {references.map((ref) => (
-            <div key={ref.id}>
-              <Image
-                src={ref.logo}
-                alt={`Reference ${ref.id}`}
-                width={defaultWidth}
-                height={defaultHeight}
-                mx={2}
-                opacity={0.7}
-                style={{ objectFit: "contain", filter: "saturate(2)" }}
-              />
-            </div>
-          ))}
-        </Slider>
+        {false ?? (
+          <>
+            <ServicesSlideComponent />
+          </>
+        )}
 
         <></>
 

@@ -20,8 +20,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
+import dynamic from "next/dynamic";
 
 const lang = `tr`;
+
+const TechnologyComponent = ({ id }) => {
+  const Component = lazy(() => import(`./${id}`));
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component />
+    </Suspense>
+  );
+};
 
 //
 
@@ -30,31 +41,13 @@ function OurTechnologies() {
 
   return (
     <>
-      <Flex
-        id="services-top"
-        direction={"row"}
-        justifyContent={"space-between"}
-        px={{ base: 10, md: 20 }}
-      >
-        <Flex direction={"column"} justify={"center"} gap={3}>
-          <Heading
-            as="h2"
-            fontSize={24}
-            pos="relative"
-            _before={{
-              content: `""`,
-              borderRadius: "50px",
-              position: "absolute",
-              backgroundColor: "#000",
-              width: "4px",
-              height: "100%",
-              left: "-10px",
-            }}
-          >
+      <Center>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={24} pos="relative">
             Teknolojiler
           </Heading>
         </Flex>
-      </Flex>
+      </Center>
 
       <Center>
         <Box my={5} w={"85%"} userSelect={"none"}>
