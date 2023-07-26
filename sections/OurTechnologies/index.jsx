@@ -17,7 +17,6 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 
 const lang = `tr`;

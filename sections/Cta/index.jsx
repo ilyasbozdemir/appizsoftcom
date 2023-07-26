@@ -30,11 +30,10 @@ const RainbowText = ({ text }) => (
   <>
     <Text
       as="span"
-      bgGradient="linear(to left, #61A5C2, #5298AD, #61A5C2, #5874B7, #61A5C2, #5298AD)"
+      bgGradient="linear(to left, #61A5C2, #00ff00, #61A5C2, #5874B7, #61A5C2, #5298AD)"
       //bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
       bgClip="text"
       color="transparent"
-      animation={`${rainbowAnimation} 4s ease-out infinite`}
       bgSize="400% 100%"
       w="fit-content"
     >
