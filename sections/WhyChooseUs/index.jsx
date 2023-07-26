@@ -229,7 +229,6 @@ function WhyChooseUs() {
                 base: "full",
                 sm: "auto",
               }}
-              colorScheme="teal"
               size="lg"
             >
               Daha Fazlasını Gör
