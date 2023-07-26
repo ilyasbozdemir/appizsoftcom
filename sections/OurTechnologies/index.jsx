@@ -24,6 +24,10 @@ import dynamic from "next/dynamic";
 
 const lang = `tr`;
 
+
+
+
+
 const TechnologyComponent = ({ id }) => {
   const Component = lazy(() => import(`./${id}`));
 

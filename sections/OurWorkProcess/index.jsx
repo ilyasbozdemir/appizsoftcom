@@ -48,15 +48,7 @@ const OurWorkProcessFeature = () => {
         </Center>
 
         <Center>
-          <Box
-            as="h3"
-            mb={2}
-            fontWeight="semibold"
-            lineHeight="shorter"
-            _light={{
-              color: "gray.900",
-            }}
-          >
+          <Box as="h3" mb={2} fontWeight="semibold" lineHeight="shorter">
             {props.title}
           </Box>
         </Center>
@@ -64,7 +56,6 @@ const OurWorkProcessFeature = () => {
         <Box
           as="p"
           fontSize="sm"
-          color="gray.500"
           _dark={{
             color: "gray.400",
           }}
