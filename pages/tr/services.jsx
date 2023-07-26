@@ -21,6 +21,7 @@ import {
   useMediaQuery,
   useBreakpointValue,
   Select,
+  Icon,
 } from "@chakra-ui/react";
 
 import { BsArrowRight } from "react-icons/bs";
@@ -28,6 +29,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { PiArrowsDownUpLight } from "react-icons/pi";
 
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
@@ -168,6 +170,10 @@ const OurServicesContent = () => {
     services.map((item) => item.serviceCategory)
   );
 
+  const onChangeHandled = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
@@ -214,10 +220,21 @@ const OurServicesContent = () => {
 
       {isMobile && (
         <>
-          <Select placeholder="Select option" icon={''}>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+          <Select onChange={onChangeHandled}  icon={<Icon as={PiArrowsDownUpLight} />}>
+            <option value="all">Tümü</option>
+            {[...uniqueCategories].map((category) => (
+              <>
+                <option key={category} value={category}>
+                  {category === "software" ? (
+                    <>Yazılım Hizmetlerimiz</>
+                  ) : category === "digital marketing" ? (
+                    <>Dijital Pazarlama Hizmetlerimiz</>
+                  ) : (
+                    <></>
+                  )}
+                </option>
+              </>
+            ))}
           </Select>
         </>
       )}

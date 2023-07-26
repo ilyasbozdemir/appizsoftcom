@@ -42,7 +42,7 @@ export default class MyDocument extends Document {
             rel="alternate"
             type="application/rss+xml"
             href="/rss.xml"
-            title="React Native RSS Feed"
+            title="Appizsoft Blog RSS Feed"
           />
 
           <meta name="copyright" content="Appizsoft" />
