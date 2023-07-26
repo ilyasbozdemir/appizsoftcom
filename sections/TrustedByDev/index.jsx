@@ -63,7 +63,7 @@ const BrandStats = () => {
               direction={"column"}
             >
               <Flex>
-                <Text fontWeight="extrabold" fontSize="xx-large">
+                <Box fontWeight="extrabold" fontSize="xx-large">
                   <AnimatedNumbers
                     animateToNumber={data.score}
                     fontStyle={{ fontSize: 32 }}
@@ -75,7 +75,7 @@ const BrandStats = () => {
                       };
                     }}
                   />
-                </Text>
+                </Box>
               </Flex>
               <Flex>
                 <Text fontSize="sm" justifyContent={"start"}>

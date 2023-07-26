@@ -1,11 +1,17 @@
 {
   "name": "Appizsoft Yazılım",
+  "categories": [
+    "Shopping",
+    "E-commerce",
+    "Software Development Service",
+    "Mobile App Development Service"
+  ],
+  "prefer_related_applications": false,
   "short_name": "WebSite",
   "start_url": "/tr",
-  "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#54BEC3",
- "icons": [
+  "icons": [
     {
       "src": "/icon-192x192.png",
       "sizes": "192x192",

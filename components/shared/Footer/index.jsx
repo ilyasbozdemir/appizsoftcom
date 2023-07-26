@@ -282,9 +282,9 @@ export default function LargeWithLogoCentered() {
             >
               <Logo isLink={false} s={{ h: 125, w: 250 }} />
             </Flex>
-            <Text pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
+            <Box pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
               <SocialMediaIcon />
-            </Text>
+            </Box>
             <Text pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
               <FooterData />
             </Text>

@@ -68,7 +68,7 @@ const Rating = (props) => {
   const color = useColorModeValue("gray.200", "gray.600");
   const activeColor = useColorModeValue("primary.100", "primary.200");
   return (
-    <div itemprop="reviewRating" itemscope itemType="http://schema.org/Rating">
+    <div itemProp="reviewRating" itemScope itemType="http://schema.org/Rating">
       <HStack spacing="0.5" {...rootProps}>
         {Array.from({
           length: max,
@@ -83,7 +83,7 @@ const Rating = (props) => {
             />
           ))}
       </HStack>
-      <meta itemprop="ratingValue" content={defaultValue} />
+      <meta itemProp="ratingValue" content={defaultValue} />
     </div>
   );
 };
@@ -93,7 +93,7 @@ const TestimonialText = ({ children }) => {
       textAlign={"center"}
       color={useColorModeValue("gray.600", "gray.400")}
       fontSize={"sm"}
-      itemprop="reviewBody"
+      itemProp="reviewBody"
     >
       {children}
     </Text>
@@ -102,25 +102,25 @@ const TestimonialText = ({ children }) => {
 const TestimonialAvatar = ({ src, name, title, rating }) => {
   return (
     <Flex align={"center"} mt={8} direction={"column"}>
-      <Avatar src={src} alt={name} mb={2} itemprop="image" />
+      <Avatar src={src} alt={name} mb={2} itemProp="image" />
       <Stack
         spacing={-1}
         align={"center"}
-        itemprop="author"
-        itemscope
+        itemProp="author"
+        itemScope
         itemType="http://schema.org/Person"
       >
         <Text
           fontWeight={600}
           color={useColorModeValue("gray.600", "gray.800")}
-          itemprop="name"
+          itemProp="name"
         >
           {name}
         </Text>
         <Text
           fontSize={"sm"}
           color={useColorModeValue("gray.600", "gray.800")}
-          itemprop="jobTitle"
+          itemProp="jobTitle"
         >
           {title}
         </Text>
@@ -159,7 +159,7 @@ function WithSpeechBubbles() {
         >
           {testimonialsData.map((testimonial) => (
             <React.Fragment key={testimonial.id}>
-              <Testimonial itemscope itemType="http://schema.org/Review">
+              <Testimonial itemScope itemType="http://schema.org/Review">
                 <TestimonialContent>
                   <Rating defaultValue={testimonial.rating} size="lg" />
                   <TestimonialHeading>
