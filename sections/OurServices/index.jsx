@@ -82,46 +82,18 @@ const ServicesCard = (props) => {
 function OurServices({ targetId }) {
   return (
     <>
-      <Flex
-        id="services-top"
-        direction={"row"}
-        justifyContent={"space-between"}
-        px={{ base: 10, md: 20 }}
-      >
-        <Flex direction={"column"} justify={"center"} gap={3}>
-          <Heading
-            as="h2"
-            fontSize={24}
-            pos="relative"
-            _before={{
-              content: `""`,
-              borderRadius: "50px",
-              position: "absolute",
-              backgroundColor: "#000",
-              width: "4px",
-              height: "100%",
-              left: "-10px",
-            }}
-          >
+      <Center>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={24} pos="relative">
             Hizmetlerimiz
           </Heading>
-          <Text>
-            Yazılım Hizmetlerimiz, dijital hizmetlerimiz ve e-ticaret
-            çözümlerimizle müşterilerimize kapsamlı ve özelleştirilmiş çözümler
-            sunuyoruz.
-          </Text>
         </Flex>
-        <Flex display={{ base: "none", md: "initial" }}>
-          <Link href={"/tr/services"} passHref>
-            <Button variant={"outline"}>Tüm Hizmetler</Button>
-          </Link>
-        </Flex>
-      </Flex>
+      </Center>
 
       <Flex as={"article"} direction={"column"} gap={5} data-aos="zoom-in-up">
         <Center>
           <SimpleGrid
-            columns={{ sm: 1, md: 2, lg: 2, xl: 2, "2xl": 4 }}
+            columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
             spacing={2}
             justify="center"
           >

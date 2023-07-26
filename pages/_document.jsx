@@ -59,6 +59,7 @@ export default class MyDocument extends Document {
 
           <ExternalFonts />
           <Analytics />
+          
           <link
             href="/styles/globals.css"
             rel="preload"

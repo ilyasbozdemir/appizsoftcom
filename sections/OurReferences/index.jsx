@@ -44,7 +44,7 @@ export default function OurReferences() {
         <Center>
           <Flex direction={"column"} justifyContent={"center"} gap={3}>
             <Heading as="h2" fontSize={24} pos="relative">
-              Referanslar
+              Portfolyo
             </Heading>
           </Flex>
         </Center>
@@ -65,9 +65,11 @@ export default function OurReferences() {
           ))}
         </Slider>
 
+        <></>
+
         <Center>
           <Flex display={{ base: "initial", md: "none" }}>
-            <Link href={"/tr/services"} passHref>
+            <Link href={"/tr/portfolio"} passHref>
               <Button variant={"outline"}>Tüm Referanslar</Button>
             </Link>
           </Flex>

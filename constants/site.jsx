@@ -10,22 +10,16 @@ const baseUrl =
   process.env.NODE_ENV === "production"
     ? "https://appizsoft.com"
     : "http://localhost:3000";
-    
+
 //https://appizsoft.com
 //appizsoftcom.vercel.app
 
 export const site = {
-  title: `Appizsoft | 
-  Özel Yazılım Geliştirme 
-  • Dijital Pazarlama 
-  • E-ticaret Çözümleri 
-  • Prodüksiyon & Tasarım
-  • Oyun Tasarım
-  `,
+  title: `Appizsoft |  Özel Yazılım Geliştirme • Dijital Pazarlama  • E-ticaret Çözümleri • Prodüksiyon & Tasarım • Oyun Tasarım `,
   baseUrl: baseUrl,
   publisher: `Appizsoft`,
-  ogImage:  "appizsoftcom.vercel.app/images/og-image.png",
-  twImage:  "appizsoftcom.vercel.app/images/og-image.png/images/tw-image.png",
+  ogImage: "appizsoftcom.vercel.app/images/og-image.png",
+  twImage: "appizsoftcom.vercel.app/images/og-image.png/images/tw-image.png",
   imageAlt: "site-logo-png",
   description: `Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve araştırmalarımızla, müşterilerimizin sektöründe öne çıkarak rekabet avantajı elde etmelerini sağlıyoruz.`,
   name: ``,

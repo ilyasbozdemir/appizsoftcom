@@ -5,7 +5,6 @@ import { Box, Flex, Heading, Container } from "@chakra-ui/react";
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
-
 import Cta from "../../sections/Cta";
 import MetaHead from "../../configuration/MetaHead";
 import Head from "next/head";
@@ -33,8 +32,6 @@ const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 
 const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
-
-
 
 import { site } from "../../constants/site";
 

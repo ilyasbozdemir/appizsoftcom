@@ -37,7 +37,7 @@ const ServicesCard = (props) => {
 
   return (
     <>
-      <Card maxW="sm" h={475} role={"group"}>
+      <Card maxW="sm"  role={"group"}>
         <CardBody
           onClick={() => {
             router.push("/tr/service/[id]", `/tr/service/${href}`, {
@@ -175,6 +175,8 @@ const OurServicesContent = () => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const categories = ["all", "software", "digital marketing"]; 
+  const selectedIndex = categories.indexOf(selectedCategory);
 
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
@@ -193,7 +195,7 @@ const OurServicesContent = () => {
                 setSelectedCategory("all");
               }}
             >
-              Tümü
+              Tüm Hizmetler
             </Button>
             {[...uniqueCategories].map((category) => (
               <>
@@ -220,8 +222,8 @@ const OurServicesContent = () => {
 
       {isMobile && (
         <>
-          <Select onChange={onChangeHandled}  icon={<Icon as={PiArrowsDownUpLight} />}>
-            <option value="all">Tümü</option>
+          <Select onChange={onChangeHandled}   icon={<Icon as={PiArrowsDownUpLight} />}>
+            <option value="all">Tüm Hizmetler</option>
             {[...uniqueCategories].map((category) => (
               <>
                 <option key={category} value={category}>
@@ -252,7 +254,8 @@ const OurServicesContent = () => {
             base: 1,
             sm: 1,
             md: 2,
-            lg: 4,
+            lg: 3,
+            xl: 4,
           }}
           spacingX={{
             base: 16,
