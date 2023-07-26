@@ -45,8 +45,8 @@ const MetaBusinessPartner = () => {
         <Image
           src="/images/meta-partner.webp"
           alt="Meta-Business-Partner_logo.png"
-          width={100}
-          height={100 * 1.05}
+          width={128}
+          height={122}
           draggable="false"
           style={{
             objectFit: "contain",
@@ -64,8 +64,8 @@ const GooglePartner = () => {
         <Image
           src="/images/google-partner.webp"
           alt="google-partner"
-          width={100}
-          height={100 * 1.05}
+          width={128}
+          height={122}
           draggable="false"
           style={{
             objectFit: "contain",
