@@ -34,6 +34,7 @@ const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
 
 import { site } from "../../constants/site";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -42,7 +43,7 @@ function IndexPage() {
     const browserLanguage = detectBrowserLanguage(supportedLanguages);
     setLang(browserLanguage);
   }, []);
-  
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

@@ -75,7 +75,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <Container maxW="8xl" >
+    <Container maxW="8xl">
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -246,6 +246,36 @@ const HeaderNav = ({ lang }) => {
                   />
                 ))}
               </>
+
+              <Flex direction={"row"} justifyContent={"center"} my={4}>
+                <Button
+                  variant={"outline"}
+                  color="#fff"
+                  bg={"primary.100"}
+                  _hover={{
+                    bg: "primary.200",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
+                  }}
+                  size="md"
+                  onClick={() => {
+                    router.push(`/${lang}/get-a-quote`);
+                  }}
+                  fontSize={"2xl"}
+                  fontFamily={"Poppins"}
+                  w="90%"
+                  px={4}
+                  h={75}
+                >
+                  Teklif Al
+                </Button>
+              </Flex>
+
+              <Flex direction={"row"}>
+                <HStack>
+                  <Text>Select Language : </Text>
+                  <LanguageSwitcher />
+                </HStack>
+              </Flex>
             </Stack>
           </Box>
         ) : null}
