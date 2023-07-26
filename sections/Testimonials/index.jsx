@@ -139,7 +139,6 @@ function WithSpeechBubbles() {
       <Container maxW={"full"} py={16} as={Stack} spacing={12}>
         <Flex direction={"column"} w={"full"}>
           <Box mx={3} display="flex" alignItems="center">
-            <Divider flex="1" borderWidth="1px" borderColor="gray.300" />
             <Box flex="1" textAlign="center">
               <Heading
                 fontFamily={"Montserrat"}
@@ -196,7 +195,7 @@ const TestimonialsSections = () => {
     dots: true,
     infinite: true,
     lazyLoad: true,
-    speed: 500,
+    speed: 3000,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -242,7 +241,7 @@ const TestimonialsSections = () => {
                 <Text fontWeight="bold" fontSize="lg">
                   {obj.name}
                 </Text>
-                <Text fontWeight="medium" fontSize="sm" color="gray.400">
+                <Text fontWeight="medium" fontSize="sm" color={useColorModeValue('gray.900','gray.200')}>
                   {obj.position}, {obj.company}
                 </Text>
               </Box>
