@@ -37,7 +37,7 @@ const ServicesCard = (props) => {
 
   return (
     <>
-      <Card maxW="sm"  role={"group"}>
+      <Card maxW="sm" role={"group"}>
         <CardBody
           onClick={() => {
             router.push("/tr/service/[id]", `/tr/service/${href}`, {
@@ -175,11 +175,19 @@ const OurServicesContent = () => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const categories = ["all", "software", "digital marketing"]; 
+  const categories = ["all", "software", "digital marketing"];
   const selectedIndex = categories.indexOf(selectedCategory);
 
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
+      <Center mb={5} mt={2}>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={24} pos="relative">
+            Hizmetler
+          </Heading>
+        </Flex>
+      </Center>
+
       {!isMobile && (
         <>
           <Flex
@@ -222,7 +230,10 @@ const OurServicesContent = () => {
 
       {isMobile && (
         <>
-          <Select onChange={onChangeHandled}   icon={<Icon as={PiArrowsDownUpLight} />}>
+          <Select
+            onChange={onChangeHandled}
+            icon={<Icon as={PiArrowsDownUpLight} />}
+          >
             <option value="all">Tüm Hizmetler</option>
             {[...uniqueCategories].map((category) => (
               <>
@@ -241,13 +252,6 @@ const OurServicesContent = () => {
         </>
       )}
 
-      <Center mt={5}>
-        <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
-            Hizmetler
-          </Heading>
-        </Flex>
-      </Center>
       <Center>
         <SimpleGrid
           columns={{

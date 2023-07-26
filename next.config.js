@@ -25,7 +25,7 @@ module.exports = {
   },
 
   images: {
-    domains: ["static.wixstatic.com"],
+    domains: ["static.wixstatic.com", "images.unsplash.com"],
   },
   reactStrictMode: true,
 

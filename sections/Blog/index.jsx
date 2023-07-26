@@ -6,7 +6,6 @@ import {
   Flex,
   Text,
   Button,
-  Image,
   Center,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -14,6 +13,7 @@ import React from "react";
 
 import Link from "next/link";
 import Slider from "react-slick";
+import Image from "next/image";
 
 const dataList = [
   {
@@ -121,20 +121,15 @@ const BlogCards = () => {
                   rounded={{
                     lg: "lg",
                   }}
-                  style={{
-                    backgroundImage: `url(${blog.imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
+                  pos={'relative'}
                 >
                   <Image
                     src={blog.imageUrl}
                     alt="Blog Image"
-                    w="100%"
-                    h="100%"
-                    objectFit="cover"
-                    borderRadius="lg"
+                    fill
+                    style={{
+                      objectFit: "cover",
+                    }}
                   />
                 </Box>
               </Box>
