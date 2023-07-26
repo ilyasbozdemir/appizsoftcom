@@ -163,9 +163,9 @@ const OurWorkProcessFeature = () => {
             mx={{
               lg: "auto",
             }}
-            color="gray.500"
+            color="gray.800"
             _dark={{
-              color: "gray.400",
+              color: "gray.200",
             }}
           >
             İş sürecimiz, projelerimizi başarılı bir şekilde tamamlamak için
