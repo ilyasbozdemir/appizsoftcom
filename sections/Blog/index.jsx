@@ -58,26 +58,8 @@ function Blog() {
 }
 
 const BlogCards = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    lazyLoad: true,
-    speed: 1500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
   return (
-    <Slider {...settings}>
+    <>
       {dataList.map((blog) => {
         return (
           <Flex
@@ -121,7 +103,7 @@ const BlogCards = () => {
                   rounded={{
                     lg: "lg",
                   }}
-                  pos={'relative'}
+                  pos={"relative"}
                 >
                   <Image
                     src={blog.imageUrl}
@@ -190,7 +172,7 @@ const BlogCards = () => {
           </Flex>
         );
       })}
-    </Slider>
+    </>
   );
 };
 
