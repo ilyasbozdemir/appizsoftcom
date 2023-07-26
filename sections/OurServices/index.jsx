@@ -1,7 +1,6 @@
 import {
   Flex,
   Text,
-  Image,
   Heading,
   Box,
   Center,
@@ -18,6 +17,7 @@ import React from "react";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
@@ -41,7 +41,9 @@ const ServicesCard = (props) => {
               height={70}
               width={70}
               src={img}
-              draggable={false}
+              style={{
+                draggable: false,
+              }}
             />
           </Flex>
           <Stack mt="6" spacing="3">
