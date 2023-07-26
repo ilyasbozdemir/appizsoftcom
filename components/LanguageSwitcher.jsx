@@ -18,24 +18,24 @@ function LanguageSwitcher({ lang: defaultLanguage }) {
         <Stack direction={"row"}>
           <Button
             cursor={"default"}
-            color="#54bec3"
+            color="text.200"
             bg="transparent"
             p={2}
-            fontSize="sm"
+            fontSize="md"
             onClick={() => handleLanguageChange("tr")}
             mr={2}
-            _hover={{ color: "#54bec3" }}
             variant={"link"}
+            textDecoration={'underline'}
           >
             TR
           </Button>
           <Button
             cursor={"default"}
-            color="#888"
+            color="text.200"
             bg="transparent"
             border="none"
             p={2}
-            fontSize="sm"
+            fontSize="md"
             mr={2}
             variant={"unstyled"}
           >

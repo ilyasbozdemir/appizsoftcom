@@ -12,7 +12,6 @@ import {
 import React from "react";
 
 import Link from "next/link";
-import Slider from "react-slick";
 import Image from "next/image";
 
 const dataList = [
