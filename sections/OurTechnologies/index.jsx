@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Box,
   Text,
-  Image as ChakraImage,
   Heading,
   Flex,
   Divider,
@@ -21,12 +20,9 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const lang = `tr`;
-
-
-
-
 
 const TechnologyComponent = ({ id }) => {
   const Component = lazy(() => import(`./${id}`));
@@ -74,15 +70,14 @@ function OurTechnologies() {
               <SwiperSlide key={index}>
                 <Link href={`${lang}/technologies#${image.id}`} passHref>
                   <Flex direction={"column"}>
-                    <ChakraImage
+                    <Image
                       id={image.id}
                       src={image.imageUrl}
                       alt={`${image.title}`}
                       width={50}
                       height={50}
-                      filter={"saturate(.2)"}
-                      _hover={{
-                        filter: "none",
+                      style={{
+                        filter: "saturate(.2)",
                       }}
                     />
                   </Flex>
