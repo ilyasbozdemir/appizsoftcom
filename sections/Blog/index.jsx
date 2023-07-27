@@ -14,7 +14,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const baseImagePath = "https://appizsoft-static-api.vercel.app/";
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 const dataList = [
   {
@@ -112,7 +112,7 @@ const BlogCards = () => {
                       objectFit: "cover",
                     }}
                     loader={({ src, width, quality }) => {
-                      return `${baseImagePath}/${src}?w=${width}&q=${
+                      return `${baseImagePath}${src}?w=${width}&q=${
                         quality || 75
                       }`;
                     }}

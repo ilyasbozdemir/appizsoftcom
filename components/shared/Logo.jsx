@@ -6,7 +6,6 @@ import React from "react";
 function Logo({ platform, lang = `tr`, isLink = true, s }) {
   const router = useRouter();
   const cursor = isLink === true ? "pointer" : "default";
-  //const logo = platform === "mobile" ? "/logo-mobile.png" : "/logo.png";
   const logo = "/logo.png";
 
   const logoSize = {
@@ -21,9 +20,8 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
 
   size = ["desktop", "mobile"].includes(platform) ? size : s;
 
-  const imageLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
+  const baseImagePath = "https://appizsoft-static-api.vercel.app";
+
 
   return (
     <>
@@ -42,7 +40,11 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
         }}
         draggable={false}
         //placeholder="blur"
-        loader={imageLoader}
+        loader={({ src, width, quality }) => {
+          return `${baseImagePath}${src}?w=${width}&q=${
+            quality || 75
+          }`;
+        }}
         loading="lazy"
       />
     </>
