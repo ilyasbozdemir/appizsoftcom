@@ -25,7 +25,7 @@ module.exports = {
   },
 
   images: {
-    domains: ["static.wixstatic.com", "images.unsplash.com","appizsoft-static-api.vercel.app/"],
+    domains: ["appizsoft-static-api.vercel.app/"],
   },
   reactStrictMode: true,
 

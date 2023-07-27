@@ -14,6 +14,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
+
 const dataList = [
   {
     id: 1,
@@ -21,16 +23,14 @@ const dataList = [
       "Yazılım Geliştirme Süreçlerinde DevOps Yaklaşımı: İş Birliği ve Süreç Otomasyonu",
     authorName: "ilyas",
     content: `Bu blog yazısında, yazılım geliştirme süreçlerinde DevOps yaklaşımının önemi ve getirdiği faydalar ele alınmaktadır. Yazılım geliştirme ve işletme ekipleri arasındaki iş birliğinin artırılması, süreç otomasyonunun uygulanması ve sürekli entegrasyon/dağıtım (CI/CD) prensiplerinin benimsenmesi, yazılım projelerinin daha hızlı, güvenilir ve sürekli bir şekilde teslim edilmesine yardımcı olmaktadır. Bu makalede, DevOps'un temel prensipleri, en iyi uygulamalar ve popüler araçlar hakkında bilgi bulabilirsiniz`,
-    imageUrl:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    imageUrl: "/images/blog/blog.webp",
   },
   {
     id: 2,
     title: "Geleceğin Yazılım Geliştirme Trendleri",
     authorName: "murat",
     content: `Bu blog yazısı, yazılım geliştirme dünyasında hızla yayılan yapay zeka ve blokzincir teknolojilerinin gelecekteki rolüne odaklanmaktadır. Yapay zekanın, yazılım süreçlerini otomatikleştirmek, veri analizi ve öngörü yeteneklerini artırmak için nasıl kullanıldığını öğreneceksiniz. Aynı şekilde, blokzincirin verilerin güvenliği, şeffaflığı ve merkezi olmayan uygulamaların geliştirilmesi üzerindeki etkisi incelenecektir. Bu yazıda, geleceğin yazılım geliştirme trendlerini anlayarak, teknoloji dünyasında bir adım önde olmanız için bilgi edineceksiniz.`,
-    imageUrl:
-      "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    imageUrl: "/images/blog/blog-2.webp",
   },
 ];
 
@@ -110,6 +110,11 @@ const BlogCards = () => {
                     fill
                     style={{
                       objectFit: "cover",
+                    }}
+                    loader={({ src, width, quality }) => {
+                      return `${baseImagePath}/${src}?w=${width}&q=${
+                        quality || 75
+                      }`;
                     }}
                   />
                 </Box>
