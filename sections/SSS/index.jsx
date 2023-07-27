@@ -9,7 +9,12 @@ import {
   Center,
   Container,
   Flex,
+  FormControl,
   Heading,
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -26,7 +31,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Script from "next/script";
 import React from "react";
-
+import { AiOutlineClose } from "react-icons/ai";
 function SSS() {
   const sss = [
     {
@@ -52,8 +57,12 @@ function SSS() {
     },
   ];
 
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
+  const [nameSurname, setNameSurname] = React.useState("");
+  const [mail, setMail] = React.useState("");
+  const [message, setMessage] = React.useState("");
 
   return (
     <Box my={10}>
@@ -96,8 +105,11 @@ function SSS() {
             textAlign={"center"}
             fontSize={20}
             color={useColorModeValue("gray.500", "gray.200")}
-            cursor={'pointer'}
+            cursor={"pointer"}
             onClick={onOpen}
+            _hover={{
+              textDecoration: "underline",
+            }}
           >
             Soru sor
           </Text>
@@ -138,18 +150,63 @@ function SSS() {
         </Container>
       </Flex>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Soru Sor</ModalHeader>
+          <ModalHeader>Bağlantıda Kalalım</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-       
+            <Text as="small">
+              Appizsoft ile ilgili tüm sorularınız için bizlere ulaşabilirsiniz.
+              Bu sayfadaki soru cevap kısmını incelemenizi de öneririz. Sizden
+              haber bekliyoruz!
+            </Text>
+            <FormControl my={5}>
+              <InputGroup>
+                <Input
+                  type={"text"}
+                  value={nameSurname}
+                  onChange={(e) => {
+                    setNameSurname(e.target.value);
+                  }}
+                  ref={initialRef}
+                  placeholder="İsim Soyisim :"
+                />
+              </InputGroup>
+            </FormControl>
+            <FormControl my={5}>
+              <InputGroup>
+                <Input
+                  type={"text"}
+                  value={mail}
+                  onChange={(e) => {
+                    setMail(e.target.value);
+                  }}
+                  placeholder="Email Adresiniz"
+                />
+              </InputGroup>
+            </FormControl>
+            <FormControl my={5}>
+              <InputGroup>
+                <Input
+                  type={"text"}
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                  }}
+                  placeholder="Mesajınız"
+                />
+              </InputGroup>
+            </FormControl>
+            <Flex justify={"center"}>
+              <Button bg={'primary.100'} color={'white'} w={'full'}>Gönder</Button>
+            </Flex>
           </ModalBody>
-
-          <ModalFooter>
-           
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </Box>
