@@ -37,6 +37,7 @@ const ListHeader = ({ children }) => {
     </Text>
   );
 };
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 
 const MetaBusinessPartner = () => {
   return (
@@ -48,6 +49,11 @@ const MetaBusinessPartner = () => {
           width={128}
           height={122}
           draggable="false"
+          loader={({ src, width, quality }) => {
+            return `${baseImagePath}/${src}?w=${width}&q=${
+              quality || 75
+            }`;
+          }}
           style={{
             objectFit: "contain",
           }}
@@ -67,6 +73,11 @@ const GooglePartner = () => {
           width={128}
           height={122}
           draggable="false"
+          loader={({ src, width, quality }) => {
+            return `${baseImagePath}/${src}?w=${width}&q=${
+              quality || 75
+            }`;
+          }}
           style={{
             objectFit: "contain",
           }}

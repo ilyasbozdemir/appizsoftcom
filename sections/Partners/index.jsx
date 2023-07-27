@@ -12,6 +12,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-scroll";
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 
 function PartnersSection() {
   const defaultWidth = 175;
@@ -70,6 +71,11 @@ function PartnersSection() {
                   alt={`Reference ${ref.id}`}
                   width={ref.logoSize.w}
                   height={ref.logoSize.h}
+                  loader={({ src, width, quality }) => {
+                    return `${baseImagePath}/${src}?w=${width}&q=${
+                      quality || 75
+                    }`;
+                  }}
                   mx={2}
                   opacity={0.7}
                   style={{ objectFit: "contain", filter: "saturate(2)" }}
