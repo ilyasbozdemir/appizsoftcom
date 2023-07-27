@@ -177,7 +177,7 @@ function SSS() {
                     setNameSurname(e.target.value);
                   }}
                   ref={initialRef}
-                  placeholder="İsim Soyisim :"
+                  placeholder="İsim Soyisim"
                 />
               </InputGroup>
             </FormControl>
@@ -206,7 +206,7 @@ function SSS() {
               </InputGroup>
             </FormControl>
             <Flex justify={"center"}>
-              <Button bg={'primary.100'} color={'white'} w={'full'}
+              <Button bg={'primary.100'} _hover={{bg:'primary.200'}} color={'white'} w={'full'}
               onClick={() =>
                 toast({
                   title: 'Meajınız Başarıyla Alındı!',
