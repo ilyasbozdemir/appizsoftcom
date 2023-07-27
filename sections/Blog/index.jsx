@@ -107,7 +107,7 @@ const BlogCards = () => {
                   />
                 </Flex>
                 <Flex mt={15} fontFamily={"Montserrat"} direction={"column"} cursor={'pointer'}>
-                  <Text>{blog.title}</Text>
+                  <Text fontWeight={'extrabold'} fontSize={20}>{blog.title}</Text>
                   <Text mt={15}>{blog.content}</Text>
                 </Flex>
               </Flex>
