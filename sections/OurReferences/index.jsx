@@ -36,7 +36,11 @@ export default function OurReferences() {
             justify="center"
           >
             {projects.map((p, index) => (
-              <Flex key={p.id} direction={"column"}>
+              <Flex
+                key={p.id}
+                direction={"column"}
+                cursor={"pointer"}
+              >
                 <Image
                   src={p.portfolio}
                   alt={p.name}
@@ -57,6 +61,7 @@ export default function OurReferences() {
                     md: 16,
                     lg: 18,
                   }}
+              
                 >
                   {p.name}
                 </Text>
