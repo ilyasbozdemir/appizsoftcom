@@ -12,54 +12,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { projects } from "../../constants/projects";
 import Link from "next/link";
-import Slider from "react-slick";
 
-const defaultWidth = 175;
-const defaultHeight = 75;
-
-const ServicesSlideComponent = () => {
-  return (
-    <>
-      <Slider {...settings}>
-        {references.map((ref) => (
-          <div key={ref.id}>
-            <Image
-              src={ref.logo}
-              alt={`Reference ${ref.id}`}
-              width={defaultWidth}
-              height={defaultHeight}
-              mx={2}
-              opacity={0.7}
-              style={{ objectFit: "contain", filter: "saturate(2)" }}
-            />
-          </div>
-        ))}
-      </Slider>
-    </>
-  );
-};
+const defaultWidth = 675; //1000
+const defaultHeight = 386; //667
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 export default function OurReferences() {
-  const [references, setReferences] = useState(projects);
-  const settings = {
-    dots: false,
-    infinite: true,
-    lazyLoad: true,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,
-    easing: "easeOutElastic",
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <Box>
@@ -70,13 +28,42 @@ export default function OurReferences() {
             </Heading>
           </Flex>
         </Center>
-        {false ?? (
-          <>
-            <ServicesSlideComponent />
-          </>
-        )}
 
-        <></>
+        <Center my={5}>
+          <SimpleGrid
+            columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
+            gap={4}
+            justify="center"
+          >
+            {projects.map((p, index) => (
+              <Flex key={p.id} direction={"column"}>
+                <Image
+                  src={p.portfolio}
+                  alt={p.name}
+                  height={p.portfolioSize.h}
+                  width={p.portfolioSize.w}
+                  loader={({ src, width, quality }) => {
+                    return `${baseImagePath}${src}?w=${width}&q=${
+                      quality || 75
+                    }`;
+                  }}
+                />
+                <Text
+                  fontFamily={"monospace"}
+                  textAlign={"center"}
+                  fontWeight={"semibold"}
+                  fontSize={{
+                    base: 14,
+                    md: 16,
+                    lg: 18,
+                  }}
+                >
+                  {p.name}
+                </Text>
+              </Flex>
+            ))}
+          </SimpleGrid>
+        </Center>
 
         <Center>
           <Flex display={{ base: "initial", md: "none" }}>

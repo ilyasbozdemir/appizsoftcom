@@ -196,7 +196,7 @@ const TestimonialsSections = () => {
     infinite: true,
     lazyLoad: true,
     speed: 1500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
     responsive: [
@@ -214,14 +214,8 @@ const TestimonialsSections = () => {
       <Container maxW="8xl" p={{ base: 0, md: 10 }}>
         <Slider {...settings}>
           {testimonialsData2.map((obj, index) => (
-            <Flex
-              direction={"column"}
-              key={index}
-              gap={10}
-              pt={1}
-              justify="center"
-            >
-              <Box textAlign="center">
+            <Flex direction={"column"} key={index}>
+              <Flex textAlign="center" direction={"row"}>
                 <Avatar
                   size="xl"
                   showBorder={true}
@@ -234,13 +228,17 @@ const TestimonialsSections = () => {
                 <Flex justifyContent="center" maxW="4xl">
                   <Rating defaultValue={obj.rating} size="lg" />
                 </Flex>
-              </Box>
+              </Flex>
 
               <Box textAlign="center">
                 <Text fontWeight="bold" fontSize="lg">
                   {obj.name}
                 </Text>
-                <Text fontWeight="medium" fontSize="sm" color={useColorModeValue('gray.900','gray.200')}>
+                <Text
+                  fontWeight="medium"
+                  fontSize="sm"
+                  color={useColorModeValue("gray.900", "gray.200")}
+                >
                   {obj.position}, {obj.company}
                 </Text>
               </Box>
@@ -250,6 +248,12 @@ const TestimonialsSections = () => {
                 </Text>
               </Box>
               <Divider my={6} />
+
+              <>
+
+              
+              
+              </>
             </Flex>
           ))}
         </Slider>
