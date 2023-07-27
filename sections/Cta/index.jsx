@@ -8,11 +8,13 @@ import {
   useColorModeValue,
   useBreakpointValue,
   Center,
+  Flex,
 } from "@chakra-ui/react";
 import Router, { useRouter } from "next/router";
 
 import StartProjectButton from "../../components/StartProjectButton";
 import ScrollToIdButton from "../../components/ScrollToIdButton ";
+import JoinTeam from "../../components/JoinTeam";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -53,7 +55,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
       alignItems={useBreakpointValue({ base: "center", lg: "start" })}
       as="article"
     >
-      <Container maxW={"4xl"} as="article">
+      <Container maxW={"5xl"} as="article">
         <Stack
           textAlign={"center"}
           align={"center"}
@@ -80,19 +82,46 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
             elde etmelerini sağlıyoruz ve estetik çözümlerimizle işinize güç
             katıyoruz!
           </Text>
-          <Stack spacing={6} direction={"column"}>
+          <Stack spacing={6} direction={"row"}>
             <StartProjectButton />
-
-            {/*
- <Box display={{ base: "none", lg: "initial" }}>
-              <Center>
-                <ScrollToIdButton targetId={targetId} />
-              </Center>
-            </Box>
-
-*/}
+            <JoinTeam />
           </Stack>
         </Stack>
+
+        {false && (
+          <>
+            <Flex
+              mt={50}
+              justifyContent={"space-around"}
+              flexWrap={"wrap"}
+              gap={5}
+              align={"center"}
+              justify={"center"}
+            >
+              {[
+                "Web Tasarımı ve Geliştirme",
+                " Mobil Uygulama Geliştirme",
+                "Test Otomasyonu",
+                "Prodüksiyon & Tasarım",
+                "Oyun Tasarımı",
+                "E-ticaret Çözümleri",
+                "Yapay Zeka",
+                "Veritabanı",
+              ].map((x) => (
+                <Box key={x} border={"1px solid #000"} borderRadius={"10px"}>
+                  <Text
+                    p={2}
+                    fontWeight={"semibold"}
+                    fontSize={{ base: 17, md: 20 }}
+                    fontFamily={"Montserrat"}
+                  >
+                    {x}
+                  </Text>
+                </Box>
+              ))}
+            </Flex>
+          </>
+        )}
       </Container>
     </Box>
   );

@@ -8,11 +8,21 @@ import {
   Button,
   Center,
   useColorModeValue,
+  useBreakpointValue,
+  Icon,
+  HStack,
 } from "@chakra-ui/react";
 import React from "react";
-
+import { HiMiniArrowLongRight } from "react-icons/hi2";
 import Link from "next/link";
 import Image from "next/image";
+
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Router, useRouter } from "next/router";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
@@ -57,59 +67,37 @@ function Blog() {
 }
 
 const BlogCards = () => {
+  const router = useRouter();
   return (
-    <>
-      {dataList.map((blog) => {
-        return (
-          <Flex
-            key={blog.id}
-            p={50}
-            w="full"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Box
-              bg="white"
-              _dark={{
-                bg: "gray.800",
-              }}
-              mx={{
-                lg: 8,
-              }}
-              display={{
-                lg: "flex",
-              }}
-              maxW={{
-                lg: "5xl",
-              }}
-              shadow={{
-                lg: "lg",
-              }}
-              rounded={{
-                lg: "lg",
-              }}
-            >
-              <Box
-                w={{
-                  lg: "50%",
-                }}
+    <Box mt={25}  cursor={'grab'}>
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={useBreakpointValue({
+          base: 1,
+          md: 1,
+          lg: 2,
+          xl: 3,
+        })}
+      >
+        {dataList.map((blog) => {
+          return (
+            <SwiperSlide key={blog.id}>
+              <Flex
+                p={5}
+                w="full"
+                alignItems="center"
+                justifyContent="center"
+                direction={"column"}
               >
-                <Box
-                  h={{
-                    base: 64,
-                    lg: "full",
-                  }}
-                  rounded={{
-                    lg: "lg",
-                  }}
-                  pos={"relative"}
-                >
+                <Flex>
                   <Image
                     src={blog.imageUrl}
                     alt="Blog Image"
-                    fill
+                    height={350}
+                    width={450}
                     style={{
                       objectFit: "cover",
+                      borderRadius: "15px",
                     }}
                     loader={({ src, width, quality }) => {
                       return `${baseImagePath}${src}?w=${width}&q=${
@@ -117,66 +105,29 @@ const BlogCards = () => {
                       }`;
                     }}
                   />
-                </Box>
-              </Box>
-
-              <Box
-                py={12}
-                px={6}
-                maxW={{
-                  base: "xl",
-                  lg: "5xl",
-                }}
-                w={{
-                  lg: "50%",
-                }}
-              >
-                <chakra.h2
-                  fontSize={{
-                    base: "2xl",
-                    md: "3xl",
-                  }}
-                  color="gray.800"
-                  _dark={{
-                    color: "white",
-                  }}
-                  fontWeight="bold"
-                >
-                  {blog.title}
-                </chakra.h2>
-                <chakra.p
-                  mt={4}
-                  color="gray.600"
-                  _dark={{
-                    color: "gray.400",
-                  }}
-                >
-                  {blog.content.substring(0, 150)}...
-                </chakra.p>
-
-                <Box mt={8}>
-                  <Link href={"#"} passHref>
-                    <Text
-                      bg="gray.900"
-                      color="gray.100"
-                      px={5}
-                      py={3}
-                      fontWeight="semibold"
-                      rounded="lg"
-                      _hover={{
-                        bg: "gray.800",
-                      }}
-                    >
-                      Devamını Oku
-                    </Text>
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-          </Flex>
-        );
-      })}
-    </>
+                </Flex>
+                <Flex mt={15} fontFamily={"Montserrat"} direction={"column"} cursor={'pointer'}>
+                  <Text>{blog.title}</Text>
+                  <Text mt={15}>{blog.content}</Text>
+                </Flex>
+              </Flex>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      <HStack fontFamily={"fantasy"} mt={15}>
+        <Icon as={HiMiniArrowLongRight} boxSize={35} />
+        <Text
+          fontSize={25}
+          cursor={"pointer"}
+          onClick={() => {
+            router.push("/tr/blog");
+          }}
+        >
+          Daha Fazla
+        </Text>
+      </HStack>
+    </Box>
   );
 };
 

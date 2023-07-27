@@ -10,9 +10,17 @@ import {
   Container,
   Flex,
   Heading,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Stack,
   Text,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
@@ -43,6 +51,9 @@ function SSS() {
         "Müşteri bilgilerini ve projeleri gizli tutma konusuna büyük önem veriyoruz. Tüm projelerimizde gizlilik sözleşmeleri imzalanır ve müşteri verileri güvenli bir şekilde korunur. Ayrıca, projelerimizde güvenlik önlemleri alarak veri sızıntılarına ve kötü amaçlı saldırılara karşı koruma sağlarız. Yazılım projelerinin tamamlanmasıyla birlikte müşteriye ait olan tüm kaynak kodları ve dosyalar teslim edilir ve firmamızda depolanmaz. Gizlilik ve güvenlik konusundaki detaylı politikalarımız hakkında daha fazla bilgi almak için lütfen bizimle iletişime geçin.",
     },
   ];
+
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Box my={10}>
@@ -81,6 +92,15 @@ function SSS() {
           >
             Soru ve cevap
           </Text>
+          <Text
+            textAlign={"center"}
+            fontSize={20}
+            color={useColorModeValue("gray.500", "gray.200")}
+            cursor={'pointer'}
+            onClick={onOpen}
+          >
+            Soru sor
+          </Text>
         </Flex>
       </Center>
 
@@ -117,6 +137,21 @@ function SSS() {
           </Accordion>
         </Container>
       </Flex>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Soru Sor</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+       
+          </ModalBody>
+
+          <ModalFooter>
+           
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }

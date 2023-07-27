@@ -1,8 +1,8 @@
-import { Button, useColorMode } from "@chakra-ui/react";
+import { Button, Icon, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
 import { BiChevronRight } from "react-icons/bi";
-function StartProjectButton() {
+function JoinTeam() {
   const { colorMode } = useColorMode();
   const router = useRouter();
   const lang = `tr`;
@@ -10,7 +10,7 @@ function StartProjectButton() {
     <>
       <Button
         onClick={() => {
-          router.push(lang + "/get-a-quote");
+          router.push(lang + "/careers");
         }}
         w={["full", , "auto"]}
         display="inline-flex"
@@ -22,14 +22,14 @@ function StartProjectButton() {
         rounded="lg"
         borderRadius={"20px"}
         shadow="md"
-        rightIcon={<BiChevronRight />}
+        rightIcon={<Icon as={BiChevronRight} w={19}  h={19}  />}
         variant={"outline"}
-        colorScheme="black"
+        colorScheme="teal"
       >
-        Proje Başlat
+        Appizsofta Katıl
       </Button>
     </>
   );
 }
 
-export default StartProjectButton;
+export default JoinTeam;

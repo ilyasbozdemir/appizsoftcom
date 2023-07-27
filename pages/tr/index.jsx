@@ -110,7 +110,7 @@ function IndexPage() {
             )}
           </Box>
           <Box id={"Technologies"} as="section">
-            {isMounted && (
+            {false && (
               <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
             )}
           </Box>
@@ -121,7 +121,7 @@ function IndexPage() {
           </Box>
 
           <Box id={"WhyChooseUs"} as="section">
-            {isMounted && (
+            {false && (
               <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
             )}
           </Box>

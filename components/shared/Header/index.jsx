@@ -20,7 +20,7 @@ import {
 // Here we have used react-icons package for the icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose, AiTwotoneThunderbolt } from "react-icons/ai";
-import { BiChevronDown } from "react-icons/bi";
+import { BiChevronDown, BiChevronRight, BiChevronRightCircle } from "react-icons/bi";
 import { MdTimeline } from "react-icons/md";
 import Logo from "../Logo";
 import { useEffect, useState } from "react";
@@ -33,7 +33,7 @@ import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
-  // { name: "Ürünler", path: "/products" },
+  { name: "Ürünler", path: "#" },
   { name: "Portfolyo", path: "/portfolio" },
   { name: "Hizmetler", path: "/services" },
   { name: "Blog", path: "/blog" },
@@ -216,8 +216,19 @@ const HeaderNav = ({ lang }) => {
               {navLinks.map((link, index) => (
                 <NavLink key={index} {...link} onClose={onClose} />
               ))}
-
-              <OfferButton />
+              <Link href={"/tr" + "/get-a-quote"}>
+                <Text
+                  p={6}
+                  textAlign={"center"}
+                  lineHeight="inherit"
+                  rounded="md"
+                  bg={"black"}
+                  color="white"
+                  rightIcon={<BiChevronRight />}
+                >
+                  Proje Başlat
+                </Text>
+              </Link>
             </HStack>
           </HStack>
 
@@ -245,30 +256,22 @@ const HeaderNav = ({ lang }) => {
                     lang={lang}
                   />
                 ))}
-              </>
 
-              <Flex direction={"row"} justifyContent={"center"} my={4}>
-                <Button
-                  variant={"outline"}
-                  color="#fff"
-                  bg={"primary.100"}
-                  _hover={{
-                    bg: "primary.200",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.6)",
-                  }}
-                  size="md"
-                  onClick={() => {
-                    router.push(`/${lang}/get-a-quote`);
-                  }}
-                  fontSize={"2xl"}
-                  fontFamily={"Poppins"}
-                  w="90%"
-                  px={4}
-                  h={75}
-                >
-                  Teklif Al
-                </Button>
-              </Flex>
+                <Link href={lang + "/get-a-quote"}>
+                  <Text
+                    p={6}
+                    textAlign={"center"}
+                    lineHeight="inherit"
+                    rounded="md"
+                    bg={"teal.500"}
+                    color="white"
+                    onClick={() => onClose()}
+                    rightIcon={<BiChevronRight />}
+                  >
+                    Proje Başlat
+                  </Text>
+                </Link>
+              </>
 
               <Flex direction={"row"}>
                 <HStack>
