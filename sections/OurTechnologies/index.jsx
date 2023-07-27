@@ -26,7 +26,6 @@ const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 function OurTechnologies() {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
-
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -62,12 +61,17 @@ function OurTechnologies() {
               <>
                 {technologies.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <Link href={`${baseImagePath}/technologies#${image.id}`} passHref>
+                    <Link href={`${lang}/technologies#${image.id}`} passHref>
                       <Flex direction={"column"}>
                         <Image
                           id={image.id}
                           src={image.imageUrl}
                           alt={`${image.title}`}
+                          loader={({ src, width, quality }) => {
+                            return `${baseImagePath}/${src}?w=${width}&q=${
+                              quality || 75
+                            }`;
+                          }}
                           width={50}
                           height={50}
                           style={{
