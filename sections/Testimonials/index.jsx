@@ -195,11 +195,10 @@ const TestimonialsSections = () => {
     dots: true,
     infinite: true,
     lazyLoad: true,
-    speed: 3000,
+    speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
-    cssEase: "linear",
+    autoplay: false,
     responsive: [
       {
         breakpoint: 768,
@@ -212,7 +211,7 @@ const TestimonialsSections = () => {
 
   return (
     <>
-      <Container maxW="8xl" p={{ base: 5, md: 10 }}>
+      <Container maxW="8xl" p={{ base: 0, md: 10 }}>
         <Slider {...settings}>
           {testimonialsData2.map((obj, index) => (
             <Flex
