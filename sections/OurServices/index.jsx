@@ -19,6 +19,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
+
+
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
+
+
+
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
   const router = useRouter();
@@ -43,6 +49,11 @@ const ServicesCard = (props) => {
               src={img}
               style={{
                 draggable: false,
+              }}
+              loader={({ src, width, quality }) => {
+                return `${baseImagePath}/${src}?w=${width}&q=${
+                  quality || 75
+                }`;
               }}
             />
           </Flex>
