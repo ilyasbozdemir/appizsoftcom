@@ -21,6 +21,7 @@ import Image from "next/image";
 
 const lang = `tr`;
 
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 
 function OurTechnologies() {
   const router = useRouter();
@@ -61,7 +62,7 @@ function OurTechnologies() {
               <>
                 {technologies.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <Link href={`${lang}/technologies#${image.id}`} passHref>
+                    <Link href={`${baseImagePath}/technologies#${image.id}`} passHref>
                       <Flex direction={"column"}>
                         <Image
                           id={image.id}
