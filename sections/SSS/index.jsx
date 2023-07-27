@@ -26,6 +26,7 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
@@ -63,7 +64,7 @@ function SSS() {
   const [nameSurname, setNameSurname] = React.useState("");
   const [mail, setMail] = React.useState("");
   const [message, setMessage] = React.useState("");
-
+  const toast = useToast()
   return (
     <Box my={10}>
       <Head>
@@ -155,6 +156,7 @@ function SSS() {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        isCentered
       >
         <ModalOverlay />
         <ModalContent>
@@ -204,7 +206,18 @@ function SSS() {
               </InputGroup>
             </FormControl>
             <Flex justify={"center"}>
-              <Button bg={'primary.100'} color={'white'} w={'full'}>Gönder</Button>
+              <Button bg={'primary.100'} color={'white'} w={'full'}
+              onClick={() =>
+                toast({
+                  title: 'Meajınız Başarıyla Alındı!',
+                  description: "En kısa sürede dönüş yapacağız",
+                  status: 'success',
+                  position:'top',
+                  duration: 2500,
+                  isClosable: true,
+                })
+              }
+              >Gönder</Button>
             </Flex>
           </ModalBody>
         </ModalContent>
