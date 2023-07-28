@@ -34,7 +34,6 @@ const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
 
 import { site } from "../../constants/site";
-import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 function IndexPage() {
   const [lang, setLang] = React.useState("");
@@ -51,6 +50,21 @@ function IndexPage() {
   }, []);
 
   const publisher = `Appizsoft`;
+
+  const [runTour, setRunTour] = useState(true);
+
+  const handleJoyrideCallback = (data) => {
+    if (
+      [
+        LazyReactJoyride.STEP_BEFORE,
+        LazyReactJoyride.TARGET_NOT_FOUND,
+      ].includes(data.action)
+    ) {
+      // Rehberlik tamamlandığında burada uygun durumu güncelleyebilirsiniz.
+      setRunTour(false);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -110,9 +124,7 @@ function IndexPage() {
             )}
           </Box>
           <Box id={"Technologies"} as="section">
-            {false && (
-              <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
-            )}
+            {false && <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />}
           </Box>
           <Box id={"OurWorkProcess"} as="section">
             {isMounted && (
@@ -120,7 +132,7 @@ function IndexPage() {
             )}
           </Box>
 
-          <Box id={"WhyChooseUs"} as="section">
+          <Box id={"Technologies"} as="section">
             {false && (
               <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
             )}
