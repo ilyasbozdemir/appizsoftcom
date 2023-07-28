@@ -36,7 +36,7 @@ const RainbowText = ({ text }) => (
       //bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
       bgClip="text"
       color="transparent"
-      bgSize="400% 100%"
+      bgSize="300% 100%"
       w="fit-content"
     >
       {text}

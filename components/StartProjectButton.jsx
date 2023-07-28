@@ -16,8 +16,8 @@ function StartProjectButton() {
         display="inline-flex"
         alignItems="center"
         justifyContent="center"
-        px={10}
-        py={7}
+        px={{ base: 5, lg: 10 }}
+        py={{ base: 5, lg: 7 }}
         fontWeight="bold"
         rounded="lg"
         borderRadius={"20px"}

@@ -2,7 +2,7 @@ import { Box, Button, Stack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-function LanguageSwitcher({ lang: defaultLanguage='tr' }) {
+function LanguageSwitcher({ lang: defaultLanguage = "tr" }) {
   const router = useRouter();
 
   defaultLanguage = defaultLanguage.replace(/^\/|\/$/g, "");
@@ -14,21 +14,21 @@ function LanguageSwitcher({ lang: defaultLanguage='tr' }) {
   };
 
   const Lang = () => {
-    const [lngText, setLngText] = useState('TR');
+    const [lngText, setLngText] = useState("TR");
     const [isTurkish, setIsTurkish] = useState(true);
 
     useEffect(() => {
-      if(isTurkish){
-        setLngText('EN')
-      }
-      else{
-        setLngText('TR')
+      if (isTurkish) {
+        setLngText("EN");
+      } else {
+        setLngText("TR");
       }
     }, [isTurkish]);
 
     return (
       <>
         <Button
+          id="lang-switcher"
           color="text.200"
           bg="transparent"
           p={2}
@@ -36,11 +36,11 @@ function LanguageSwitcher({ lang: defaultLanguage='tr' }) {
           onClick={() => setIsTurkish(!isTurkish)}
           mr={2}
           variant={"link"}
-        _hover={{
-          textDecoration:'none',
-          color:'primary.100'
-        }}
-          cursor={'pointer'}
+          _hover={{
+            textDecoration: "none",
+            color: "primary.100",
+          }}
+          cursor={"pointer"}
         >
           {lngText}
         </Button>

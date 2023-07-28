@@ -20,7 +20,11 @@ import {
 // Here we have used react-icons package for the icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose, AiTwotoneThunderbolt } from "react-icons/ai";
-import { BiChevronDown, BiChevronRight, BiChevronRightCircle } from "react-icons/bi";
+import {
+  BiChevronDown,
+  BiChevronRight,
+  BiChevronRightCircle,
+} from "react-icons/bi";
 import { MdTimeline } from "react-icons/md";
 import Logo from "../Logo";
 import { useEffect, useState } from "react";
@@ -33,9 +37,10 @@ import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
+  { name: "Hizmetler", path: "/services" },
   { name: "Ürünler", path: "#" },
   { name: "Portfolyo", path: "/portfolio" },
-  { name: "Hizmetler", path: "/services" },
+
   { name: "Blog", path: "/blog" },
   { name: "Bize Ulaşın", path: "/contact" },
 ];
@@ -218,13 +223,13 @@ const HeaderNav = ({ lang }) => {
               ))}
               <Link href={"/tr" + "/get-a-quote"}>
                 <Text
+                  id={"start-project"}
                   p={6}
                   textAlign={"center"}
                   lineHeight="inherit"
                   rounded="md"
                   bg={"black"}
                   color="white"
-                  rightIcon={<BiChevronRight />}
                 >
                   Proje Başlat
                 </Text>
@@ -259,6 +264,7 @@ const HeaderNav = ({ lang }) => {
 
                 <Link href={lang + "/get-a-quote"}>
                   <Text
+                    id={"start-project"}
                     p={6}
                     textAlign={"center"}
                     lineHeight="inherit"
@@ -266,7 +272,6 @@ const HeaderNav = ({ lang }) => {
                     bg={"teal.500"}
                     color="white"
                     onClick={() => onClose()}
-                    rightIcon={<BiChevronRight />}
                   >
                     Proje Başlat
                   </Text>

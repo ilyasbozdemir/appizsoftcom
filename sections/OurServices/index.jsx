@@ -19,11 +19,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
-
-
 const baseImagePath = "https://appizsoft-static-api.vercel.app/";
-
-
 
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
@@ -51,9 +47,7 @@ const ServicesCard = (props) => {
                 draggable: false,
               }}
               loader={({ src, width, quality }) => {
-                return `${baseImagePath}/${src}?w=${width}&q=${
-                  quality || 75
-                }`;
+                return `${baseImagePath}/${src}?w=${width}&q=${quality || 75}`;
               }}
             />
           </Flex>
@@ -94,10 +88,10 @@ const ServicesCard = (props) => {
 
 function OurServices({ targetId }) {
   return (
-    <>
+    <Box>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
+          <Heading  as="h2" fontSize={24} pos="relative">
             Hizmetlerimiz
           </Heading>
         </Flex>
@@ -129,7 +123,7 @@ function OurServices({ targetId }) {
           </Flex>
         </Center>
       </Flex>
-    </>
+    </Box>
   );
 }
 
