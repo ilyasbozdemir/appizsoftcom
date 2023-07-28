@@ -13,6 +13,6 @@ export const tourSteps = [
   },
   {
     target: "#Blog",
-    content: "Bu alandan  blog yazılarımızı görüntüleyebilirsiniz. Daha fazlası için sola kaydırım",
+    content: "Bu alandan  blog yazılarımızı görüntüleyebilirsiniz. Daha fazlası için sola kaydırın",
   },
 ];
