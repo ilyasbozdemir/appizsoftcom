@@ -80,7 +80,7 @@ const ServicesCard = (props) => {
                     boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
                   }}
                 >
-                  İncele
+                  Devamını Oku
                 </Button>
               </Link>
             </Stack>
@@ -206,23 +206,21 @@ const OurServicesContent = () => {
               Tüm Hizmetler
             </Button>
             {[...uniqueCategories].map((category) => (
-              <>
-                <Button
-                  key={category}
-                  variant="ghost"
-                  onClick={() => {
-                    setSelectedCategory(category);
-                  }}
-                >
-                  {category === "software" ? (
-                    <>Yazılım Hizmetlerimiz</>
-                  ) : category === "digital marketing" ? (
-                    <>Dijital Pazarlama Hizmetlerimiz</>
-                  ) : (
-                    <></>
-                  )}
-                </Button>
-              </>
+              <Button
+                key={category}
+                variant="ghost"
+                onClick={() => {
+                  setSelectedCategory(category);
+                }}
+              >
+                {category === "software" ? (
+                  <>Yazılım Hizmetlerimiz</>
+                ) : category === "digital marketing" ? (
+                  <>Dijital Pazarlama Hizmetlerimiz</>
+                ) : (
+                  <></>
+                )}
+              </Button>
             ))}
           </Flex>
         </>

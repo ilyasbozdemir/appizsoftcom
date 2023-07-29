@@ -10,7 +10,7 @@ function StartProjectButton() {
     <>
       <Button
         onClick={() => {
-          router.push(lang + "/get-a-quote");
+          router.push(lang + "/start-project");
         }}
         w={["full", , "auto"]}
         display="inline-flex"

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import { Alert, AlertIcon, Center, Flex } from "@chakra-ui/react";
+import { Alert, AlertIcon, Center, Container, Flex } from "@chakra-ui/react";
 import Head from "next/head";
 
 import { Box, Text } from "@chakra-ui/react";
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import StartProjectStepper from "../../components/StartProjectStepper";
 
 const GetAQuoteCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -61,9 +62,9 @@ const GetAQuoteCTA = () => {
 
 const GetAQuoteContent = () => {
   return (
-    <>
-      <></>
-    </>
+    <Container maxW={'7xl'}>
+      <StartProjectStepper/>
+    </Container>
   );
 };
 
@@ -78,7 +79,7 @@ function GetAQuote() {
         <meta itemprop="description" content={""} />
       </Head>
 
-      <Flex direction={"column"} gap={3}>
+      <Flex direction={"column"} gap={3} >
         <Box>
           <GetAQuoteCTA />
         </Box>

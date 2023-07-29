@@ -35,6 +35,7 @@ import OfferButton from "../../OfferButton";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
+import { useRouter } from "next/router";
 
 const navLinks = [
   { name: "Ürünler", path: "/products" },
@@ -120,6 +121,8 @@ export default function Navbar() {
 
 const HeaderNav = ({ lang }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+  const currentPath = router.pathname;
 
   const menuProps = {
     bg: useColorModeValue("gray.200", "gray.700"),
@@ -139,18 +142,19 @@ const HeaderNav = ({ lang }) => {
         <Flex
           h={16}
           alignItems="center"
-          justify={'center'}
+          justify={"center"}
           justifyContent="space-between"
           maxW={1000}
           mx="auto"
         >
           <IconButton
-            size="md"
+            size="lg"
             icon={isOpen ? <AiOutlineClose /> : <GiHamburgerMenu />}
             aria-label="Open Menu"
             display={["inherit", "inherit", "none"]}
             onClick={isOpen ? onClose : onOpen}
             variant={"unstyled"}
+
           />
           <HStack spacing={8} alignItems="center">
             <Logo
@@ -225,7 +229,7 @@ const HeaderNav = ({ lang }) => {
                 <NavLink key={index} {...link} onClose={onClose} />
               ))}
 
-              <Link href={"/tr" + "/get-a-quote"}>
+              <Link href={"/tr" + "/start-project"}>
                 <Text
                   id={"start-project"}
                   p={6}
@@ -241,7 +245,6 @@ const HeaderNav = ({ lang }) => {
                   Proje Başlat
                 </Text>
               </Link>
-              
             </HStack>
           </HStack>
 
@@ -270,7 +273,7 @@ const HeaderNav = ({ lang }) => {
                   />
                 ))}
 
-                <Link href={lang + "/get-a-quote"}>
+                <Link href={"/tr/start-project"}>
                   <Text
                     id={"start-project"}
                     p={6}
@@ -300,10 +303,16 @@ const HeaderNav = ({ lang }) => {
 };
 
 const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
+  const router = useRouter();
+  const currentPath = router.pathname;
+
   const link = {
     bg: useColorModeValue("gray.200", "gray.700"),
     color: useColorModeValue("blue.500", "blue.200"),
   };
+
+
+
 
   return (
     <Link href={lang + path}>
@@ -311,9 +320,9 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
         px={3}
         py={1}
         lineHeight="inherit"
-        rounded="md"
         _hover={{
-          textDecoration: "none",
+          borderBottom: "1px solid #54BEC3",
+          rounded: "none",
           // bg: link.bg,
           color: link.color,
         }}
@@ -325,7 +334,11 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
   );
 };
 
-const MenuLink = ({ lang = `/tr/`, name, path, icon, onClose }) => {
+const MenuLink = ({ lang = `/tr`, name, path, icon, onClose }) => {
+  const router = useRouter();
+  const currentPath = router.pathname;
+
+
   return (
     <Link href={lang + path} onClick={() => onClose()}>
       <MenuItem
