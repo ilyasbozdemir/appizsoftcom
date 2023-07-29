@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -29,7 +29,7 @@ function LanguageSwitcher({ lang: defaultLanguage = "tr" }) {
       <>
         <Button
           id="lang-switcher"
-          color="text.200"
+          color={useColorModeValue("text.200", "textD.200")}
           bg="transparent"
           p={2}
           fontSize="lg"

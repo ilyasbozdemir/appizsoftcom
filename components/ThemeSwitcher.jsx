@@ -41,11 +41,11 @@ function ThemeSwitcher() {
   return (
     <>
       <IconButton
-      id={'theme-switcher'}
+        id={"theme-switcher"}
         aria-label="Color Switcher"
         onClick={handleToggleColorMode}
         icon={<Icon as={icon === darkIcon ? BsMoon : BsSun} fontSize="lg" />}
-       p={3}
+        p={3}
       />
     </>
   );
