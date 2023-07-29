@@ -124,7 +124,7 @@ function IndexPage() {
             )}
           </Box>
           <Box id={"Technologies"} as="section">
-            {false && <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />}
+            {isMounted && <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />}
           </Box>
           <Box id={"OurWorkProcess"} as="section">
             {isMounted && (

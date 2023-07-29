@@ -1,5 +1,18 @@
 import * as React from "react";
-import { Text, SimpleGrid, Box, Flex, Icon } from "@chakra-ui/react";
+import {
+  Text,
+  SimpleGrid,
+  Box,
+  Flex,
+  Icon,
+  useMediaQuery,
+  useBreakpointValue,
+  Grid,
+  GridItem,
+  Wrap,
+  WrapItem,
+  Center,
+} from "@chakra-ui/react";
 import { FaSmile } from "react-icons/fa";
 import { IoDiamondSharp } from "react-icons/io5";
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -43,49 +56,131 @@ const statData = [
 ];
 
 const BrandStats = () => {
+  const [isSmallerThan550] = useMediaQuery("(max-width: 550px)");
+  const [isLargerThan550] = useMediaQuery("(min-width: 550px)");
+
+  const gridColumns = useBreakpointValue({ base: 1, md: 3 });
+  const isMobile = useBreakpointValue({ base: false, md: true });
+
   return (
-    <Flex alignItems="center" justifyContent="center">
-      <SimpleGrid columns={{ base: 2, lg: 4 }} spacing={{ base: 2, sm: 5 }}>
-        {statData.map((data) => (
-          <Flex key={data.id} direction={"row"}>
-            <Flex align={"center"} justify={"center"}>
-              <Icon
-                as={data.icon}
-                w={58}
-                h={58}
-                aria-hidden="true"
-                color={`${data.color}.300`}
-              />
-            </Flex>
-            <Flex
-              p={{ base: 2, sm: 5 }}
-              justifyContent={"center"}
-              direction={"column"}
-            >
-              <Flex>
-                <Box fontWeight="extrabold" fontSize="xx-large">
-                  <AnimatedNumbers
-                    animateToNumber={data.score}
-                    fontStyle={{ fontSize: 32 }}
-                    configs={(number, index) => {
-                      return {
-                        mass: 1,
-                        tension: 230 * (index + 1),
-                        friction: 140,
-                      };
-                    }}
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      direction={"column"}
+      gap={10}
+    >
+      {isMobile && (
+        <>
+          <SimpleGrid
+            columns={{ base: 1, md: 2, lg: 4 }}
+            spacing={{ base: 0, sm: 10 }}
+          >
+            {statData.map((data) => (
+              <Flex
+                key={data.id}
+                direction={"row"}
+                bg={`${data.color}.400`}
+                color={"white"}
+                p={10}
+              >
+                <Flex align={"center"} justify={"center"}>
+                  <Icon
+                    as={data.icon}
+                    w={58}
+                    h={58}
+                    aria-hidden="true"
+                    color={`${data.color}.300`}
                   />
-                </Box>
+                </Flex>
+                <Flex
+                  align={"center"}
+                  justify={"center"}
+                  p={{ base: 2, sm: 5 }}
+                  justifyContent={"center"}
+                  direction={"column"}
+                >
+                  <Flex>
+                    <Box fontWeight="extrabold" fontSize="xx-large">
+                      <AnimatedNumbers
+                        animateToNumber={data.score}
+                        fontStyle={{ fontSize: 32 }}
+                        configs={(number, index) => {
+                          return {
+                            mass: 1,
+                            tension: 230 * (index + 1),
+                            friction: 140,
+                          };
+                        }}
+                      />
+                    </Box>
+                  </Flex>
+                  <Flex>
+                    <Text fontSize="sm" justifyContent={"start"}>
+                      {data.label}
+                    </Text>
+                  </Flex>
+                </Flex>
               </Flex>
-              <Flex>
-                <Text fontSize="sm" justifyContent={"start"}>
-                  {data.label}
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-        ))}
-      </SimpleGrid>
+            ))}
+          </SimpleGrid>
+        </>
+      )}
+      {!isMobile && (
+        <>
+          <Wrap spacing={10}>
+            {statData.map((data) => (
+              <WrapItem key={data.id} h="80px" w={"full"}>
+                <Flex
+                  bg={`${data.color}.400`}
+                  color={"white"}
+                  align={"center"}
+                  justify={"center"}
+                  w={"full"}
+               
+                >
+                  <Flex align={"center"} justify={"center"}>
+                    <Icon
+                      as={data.icon}
+                      w={58}
+                      h={58}
+                      aria-hidden="true"
+                      color={`${data.color}.300`}
+                    />
+                  </Flex>
+                  <Flex
+                    align={"center"}
+                    justify={"center"}
+                    p={{ base: 2, sm: 5 }}
+                    justifyContent={"center"}
+                    direction={"column"}
+                  >
+                    <Flex>
+                      <Box fontWeight="extrabold" fontSize="xx-large">
+                        <AnimatedNumbers
+                          animateToNumber={data.score}
+                          fontStyle={{ fontSize: 32 }}
+                          configs={(number, index) => {
+                            return {
+                              mass: 1,
+                              tension: 230 * (index + 1),
+                              friction: 140,
+                            };
+                          }}
+                        />
+                      </Box>
+                    </Flex>
+                    <Flex>
+                      <Text fontSize="sm" justifyContent={"start"}>
+                        {data.label}
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </WrapItem>
+            ))}
+          </Wrap>
+        </>
+      )}
     </Flex>
   );
 };
