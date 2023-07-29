@@ -65,7 +65,7 @@ function PartnersSection() {
             gap={5}
           >
             {partners.map((ref) => (
-              <div key={ref.id}>
+              <Box key={ref.id} p={10}>
                 <Image
                   src={ref.logo}
                   alt={`Reference ${ref.id}`}
@@ -80,7 +80,7 @@ function PartnersSection() {
                   opacity={0.7}
                   style={{ objectFit: "contain", filter: "saturate(2)" }}
                 />
-              </div>
+              </Box>
             ))}
           </SimpleGrid>
         </Center>

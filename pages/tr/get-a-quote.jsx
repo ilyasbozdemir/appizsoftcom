@@ -40,9 +40,9 @@ const GetAQuoteCTA = () => {
           >
             <Center>
               <Flex direction={"column"}>
-                <Text fontSize={65}>Teklif Al</Text>
+                <Text fontSize={65}>Proje Başlat</Text>
                 <Center>
-                  <PagesBreadcrumb currentPage={"Teklif Al"} />
+                  <PagesBreadcrumb currentPage={"Proje Başlat"} />
                 </Center>
               </Flex>
             </Center>
@@ -52,7 +52,7 @@ const GetAQuoteCTA = () => {
 
       {isMobile && (
         <Box my={5} mx={3}>
-          <PagesBreadcrumb currentPage={"Teklif Al"} />
+          <PagesBreadcrumb currentPage={"Proje Başlat"} />
         </Box>
       )}
     </Flex>
@@ -71,10 +71,10 @@ function GetAQuote() {
   return (
     <>
       <Head>
-        <title>Hemen Teklif Al • Appizsoft</title>
-        <meta property="og:title" content={"Hemen Teklif Al • Appizsoft"} />
+        <title>Proje Başlat • Appizsoft</title>
+        <meta property="og:title" content={"Proje Başlat • Appizsoft"} />
 
-        <meta name="twitter:title" content={"Hemen Teklif Al • Appizsoft"} />
+        <meta name="twitter:title" content={"Proje Başlat• Appizsoft"} />
         <meta itemprop="description" content={""} />
       </Head>
 

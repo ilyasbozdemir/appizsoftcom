@@ -33,14 +33,14 @@ const statData = [
   },
   {
     id: 2,
-    label: "Mutlu Müşteri",
+    label: "Mutlu Müşteriler",
     score: "100",
     icon: FaSmile,
     color: "yellow",
   },
   {
     id: 3,
-    label: "Proje",
+    label: "Biten Proje",
     score: "99",
     icon: AiFillCheckCircle,
     color: "green",
@@ -127,9 +127,9 @@ const BrandStats = () => {
       )}
       {!isMobile && (
         <>
-          <Wrap spacing={10}>
+          <Wrap spacing={5}>
             {statData.map((data) => (
-              <WrapItem key={data.id} h="80px" w={"full"}>
+              <WrapItem key={data.id} h="120px" w={"full"}>
                 <Flex
                   bg={`${data.color}.400`}
                   color={"white"}

@@ -124,7 +124,9 @@ function IndexPage() {
             )}
           </Box>
           <Box id={"Technologies"} as="section">
-            {isMounted && <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />}
+            {isMounted && (
+              <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
+            )}
           </Box>
           <Box id={"OurWorkProcess"} as="section">
             {isMounted && (
@@ -137,14 +139,13 @@ function IndexPage() {
               <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
             )}
           </Box>
-
-          <Box id={"Testimonials"} as="section">
+          <Box id={"Partners"} as="section">
             {isMounted && (
-              <LazyTestimonials lang={lang} targetId={"Partners"} />
+              <LazyPartners lang={lang} targetId={"Testimonials"} />
             )}
           </Box>
-          <Box id={"Partners"} as="section">
-            {isMounted && <LazyPartners lang={lang} targetId={"Blog"} />}
+          <Box id={"Testimonials"} as="section">
+            {isMounted && <LazyTestimonials lang={lang} targetId={"Blog"} />}
           </Box>
 
           <Box id={"Blog"} as="section">

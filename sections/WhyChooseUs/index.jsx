@@ -164,7 +164,7 @@ function WhyChooseUs() {
             fontSize={{ base: 20, md: 22, lg: 24, xl: 26 }}
             pos="relative"
           >
-            Bizi Tercih Etmeniz İçin 5 Neden
+            Bizi Tercih Etmeniz İçin 6 Neden
           </Heading>
 
           <Text

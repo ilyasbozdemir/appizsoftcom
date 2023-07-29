@@ -64,7 +64,7 @@ function SSS() {
   const [nameSurname, setNameSurname] = React.useState("");
   const [mail, setMail] = React.useState("");
   const [message, setMessage] = React.useState("");
-  const toast = useToast()
+  const toast = useToast();
   return (
     <Box my={10}>
       <Head>
@@ -111,6 +111,7 @@ function SSS() {
             _hover={{
               textDecoration: "underline",
             }}
+            id="ask-question"
           >
             Soru sor
           </Text>
@@ -165,8 +166,7 @@ function SSS() {
           <ModalBody>
             <Text as="small">
               Appizsoft ile ilgili tüm sorularınız için bizlere ulaşabilirsiniz.
-              Bu sayfadaki soru cevap kısmını incelemenizi de öneririz. Sizden
-              haber bekliyoruz!
+              Bu sayfadaki soru cevap kısmını incelemenizi de öneririz.
             </Text>
             <FormControl my={5}>
               <InputGroup>
@@ -206,18 +206,24 @@ function SSS() {
               </InputGroup>
             </FormControl>
             <Flex justify={"center"}>
-              <Button bg={'primary.100'} _hover={{bg:'primary.200'}} color={'white'} w={'full'}
-              onClick={() =>
-                toast({
-                  title: 'Meajınız Başarıyla Alındı!',
-                  description: "En kısa sürede dönüş yapacağız",
-                  status: 'success',
-                  position:'top',
-                  duration: 2500,
-                  isClosable: true,
-                })
-              }
-              >Gönder</Button>
+              <Button
+                bg={"primary.100"}
+                _hover={{ bg: "primary.200" }}
+                color={"white"}
+                w={"full"}
+                onClick={() =>
+                  toast({
+                    title: "Meajınız Başarıyla Alındı!",
+                    description: "En kısa sürede dönüş yapacağız",
+                    status: "success",
+                    position: "top",
+                    duration: 2500,
+                    isClosable: true,
+                  })
+                }
+              >
+                Gönder
+              </Button>
             </Flex>
           </ModalBody>
         </ModalContent>

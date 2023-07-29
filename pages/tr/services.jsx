@@ -286,10 +286,10 @@ function ServicesPage() {
         <title>Hizmetler • Appizsoft</title>
       </Head>
 
-      <main>
-        {/*<OurServicesCTA />*/}
+      <Box>
+        <OurServicesCTA />
         <OurServicesContent />
-      </main>
+      </Box>
     </>
   );
 }

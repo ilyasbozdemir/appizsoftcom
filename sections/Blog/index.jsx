@@ -69,7 +69,7 @@ function Blog() {
 const BlogCards = () => {
   const router = useRouter();
   return (
-    <Box mt={25}  cursor={'grab'}>
+    <Box mt={25} cursor={"grab"}>
       <Swiper
         spaceBetween={30}
         slidesPerView={useBreakpointValue({
@@ -106,8 +106,15 @@ const BlogCards = () => {
                     }}
                   />
                 </Flex>
-                <Flex mt={15} fontFamily={"Montserrat"} direction={"column"} cursor={'pointer'}>
-                  <Text fontWeight={'extrabold'} fontSize={20}>{blog.title}</Text>
+                <Flex
+                  mt={15}
+                  fontFamily={"Montserrat"}
+                  direction={"column"}
+                  cursor={"pointer"}
+                >
+                  <Text fontWeight={"extrabold"} fontSize={20}>
+                    {blog.title}
+                  </Text>
                   <Text mt={15}>{blog.content}</Text>
                 </Flex>
               </Flex>
@@ -117,15 +124,11 @@ const BlogCards = () => {
       </Swiper>
       <HStack fontFamily={"fantasy"} mt={15}>
         <Icon as={HiMiniArrowLongRight} boxSize={35} />
-        <Text
-          fontSize={25}
-          cursor={"pointer"}
-          onClick={() => {
-            router.push("/tr/blog");
-          }}
-        >
-          Daha Fazla
-        </Text>
+        <Link href={"/tr/blog"}>
+          <Text fontSize={25} cursor={"pointer"}>
+            Daha Fazla
+          </Text>
+        </Link>
       </HStack>
     </Box>
   );

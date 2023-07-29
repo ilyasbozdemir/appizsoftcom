@@ -190,7 +190,7 @@ const FooterAcordion = () => {
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
                       <Link href={"#"}>Blog</Link>
-                      <Link href={"#"}>RSS Aboneliği</Link>
+                      <Link href={"/rss.xml"}>RSS</Link>
                     </Stack>
                   </AccordionPanel>
                 </>
@@ -260,7 +260,7 @@ export default function LargeWithLogoCentered() {
                 <Stack align={"flex-start"}>
                   <ListHeader>Blog / RSS</ListHeader>
                   <Link href={"#"}>Blog</Link>
-                  <Link href={"#"}>RSS Aboneliği</Link>
+                  <Link href={"/rss.xml"}>RSS</Link>
                 </Stack>
                 <Stack align={"flex-start"}>
                   <ListHeader>Legal</ListHeader>

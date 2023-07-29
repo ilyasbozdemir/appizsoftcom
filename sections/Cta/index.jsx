@@ -49,7 +49,6 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
 
   return (
     <Box
-      h="100vh" // Yüksekliği ekran yüksekliğine eşit
       display="flex" // İçeriği yatay ve dikey olarak ortalamak için flex kullanıyoruz
       justifyContent="center" // Yatayda ortala
       alignItems={useBreakpointValue({ base: "center", lg: "start" })}

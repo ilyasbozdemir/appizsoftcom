@@ -37,8 +37,9 @@ import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navLinks = [
+  { name: "Ürünler", path: "/products" },
   { name: "Hizmetler", path: "/services" },
-  { name: "Ürünler", path: "#" },
+
   { name: "Portfolyo", path: "/portfolio" },
 
   { name: "Blog", path: "/blog" },
@@ -132,11 +133,13 @@ const HeaderNav = ({ lang }) => {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         width="100%"
+        py={3}
         backdropFilter="blur(9px)"
       >
         <Flex
           h={16}
           alignItems="center"
+          justify={'center'}
           justifyContent="space-between"
           maxW={1000}
           mx="auto"
@@ -221,6 +224,7 @@ const HeaderNav = ({ lang }) => {
               {navLinks.map((link, index) => (
                 <NavLink key={index} {...link} onClose={onClose} />
               ))}
+
               <Link href={"/tr" + "/get-a-quote"}>
                 <Text
                   id={"start-project"}
@@ -228,12 +232,16 @@ const HeaderNav = ({ lang }) => {
                   textAlign={"center"}
                   lineHeight="inherit"
                   rounded="md"
-                  bg={"black"}
-                  color="white"
+                  _hover={{
+                    textDecoration: "none",
+                    //bg: useColorModeValue("gray.200", "gray.700"),
+                    color: useColorModeValue("blue.500", "blue.200"),
+                  }}
                 >
                   Proje Başlat
                 </Text>
               </Link>
+              
             </HStack>
           </HStack>
 
@@ -271,7 +279,6 @@ const HeaderNav = ({ lang }) => {
                     rounded="md"
                     bg={"teal.500"}
                     color="white"
-                    onClick={() => onClose()}
                   >
                     Proje Başlat
                   </Text>

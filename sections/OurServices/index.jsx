@@ -116,7 +116,7 @@ function OurServices({ targetId }) {
         </Center>
 
         <Center>
-          <Flex display={{ base: "initial", md: "none" }}>
+          <Flex display={{ base: "initial" }}>
             <Link href={"/tr/services"} passHref>
               <Button variant={"outline"}>Tüm Hizmetler</Button>
             </Link>
