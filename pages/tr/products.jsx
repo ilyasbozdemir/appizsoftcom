@@ -49,7 +49,7 @@ const ProductsCTA = () => {
 
         {isMobile && (
           <Box mx={3}>
-            <PagesBreadcrumb currentPage={"Teklif Al"} />
+            <PagesBreadcrumb currentPage={"Ürünler"} />
           </Box>
         )}
       </Flex>

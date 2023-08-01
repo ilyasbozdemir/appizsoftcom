@@ -62,8 +62,8 @@ const GetAQuoteCTA = () => {
 
 const GetAQuoteContent = () => {
   return (
-    <Container maxW={'7xl'}>
-      <StartProjectStepper/>
+    <Container maxW={"7xl"} >
+      <StartProjectStepper />
     </Container>
   );
 };
@@ -79,7 +79,7 @@ function GetAQuote() {
         <meta itemprop="description" content={""} />
       </Head>
 
-      <Flex direction={"column"} gap={3} >
+      <Flex direction={"column"} gap={3}>
         <Box>
           <GetAQuoteCTA />
         </Box>

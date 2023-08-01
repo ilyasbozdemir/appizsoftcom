@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -27,6 +27,9 @@ import {
   useRadioGroup,
   useSteps,
   Input,
+  useColorModeValue,
+  chakra,
+  useColorMode,
 } from "@chakra-ui/react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
@@ -36,10 +39,26 @@ function RadioServiceCard(props) {
   const { service } = props;
   const input = getInputProps();
   const checkbox = getRadioProps();
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const [boxShadow, setBoxShadow] = useState("");
+
+  useEffect(() => {
+    if (colorMode === "dark") {
+      setBoxShadow(
+        "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"
+      );
+    } else if (colorMode === "light") {
+      setBoxShadow(
+        "rgba(0, 0, 0, 0.1) 0px 1px 1px 0px inset, rgba(255, 255, 255, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px;"
+      );
+    }
+  }, [colorMode]);
 
   return (
-    <Box as="label" w="full" h={"auto"}>
+    <Box as="label" w="full" h={"auto"} onClick={null}>
       <input {...input} />
+
       <Flex
         {...checkbox}
         userSelect={"none"}
@@ -47,11 +66,11 @@ function RadioServiceCard(props) {
         borderWidth="1px"
         borderRadius="md"
         boxShadow="md"
-        borderColor={`${service.bg}.500`}
+        //borderColor={`${service.bg}.500`}
         _checked={{
           bg: `${service.bg}.500`,
           color: "white",
-          borderColor: `${service.bg}.500`,
+          boxShadow: { boxShadow },
         }}
         direction={"column"}
         justifyContent={"center"}
@@ -67,12 +86,20 @@ function RadioServiceCard(props) {
   );
 }
 
-const FirstStep = () => {
+const FirstStep = forwardRef((props, ref) => {
+  const [selectedService, setSelectedService] = useState("");
+
   const services = [
     {
       id: 1,
-      title: "Web",
+      title: "Web Sitesi",
       bg: "red",
+      icon: "",
+    },
+    {
+      id: 3,
+      title: "E Ticaret",
+      bg: "green",
       icon: "",
     },
     {
@@ -87,12 +114,7 @@ const FirstStep = () => {
       bg: "blue",
       icon: BsFillRocketTakeoffFill,
     },
-    {
-      id: 3,
-      title: "E Ticaret",
-      bg: "green",
-      icon: "",
-    },
+
     {
       id: 4,
       title: "Prodüksiyon",
@@ -125,57 +147,69 @@ const FirstStep = () => {
     },
   ];
 
+  const handleClick = () => {
+    ref?.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "Services",
     defaultValue: services[0],
-    onChange: console.log,
+    onChange: setSelectedService,
   });
 
   const group = getRootProps();
 
-  const handleScrollToElement = () => {
-    scroll.scrollTo("#next-prev-button-component", {
-      duration: 500,
-      smooth: true,
-      offset: -50,
-    });
-  };
-
-  return (
-    <Center>
-      <Wrap {...group} p={5}>
-        {services.map((service) => {
-          const radio = getRadioProps({ value: service.title });
-          return (
-            <WrapItem
-              key={service.id}
-              w={{ base: "100%", md: 300 }}
-              //onClick={handleScrollToElement}
-            >
-              <RadioServiceCard {...radio} service={service}>
-                {service.title}
-              </RadioServiceCard>
-            </WrapItem>
-          );
-        })}
-      </Wrap>
-    </Center>
-  );
-};
-
-const SecondStep = () => {
-  const [messages, setMessages] = useState('');
   return (
     <>
-      <FormControl p={5}>
+      <Flex direction={"column"}>
+        <Wrap {...group} p={5}>
+          {services.map((service) => {
+            const radio = getRadioProps({ value: service.title });
+            return (
+              <WrapItem
+                key={service.id}
+                w={{ base: "100%", md: 250 }}
+                my={3}
+                mx={5}
+                onClick={handleClick}
+              >
+                <RadioServiceCard {...radio} service={service}>
+                  {service.title}
+                </RadioServiceCard>
+              </WrapItem>
+            );
+          })}
+        </Wrap>
+
+        <Flex direction={"column"}>
+     
+        </Flex>
+      </Flex>
+    </>
+  );
+});
+
+const SecondStep = () => {
+  const [messages, setMessages] = useState("");
+  return (
+    <>
+      <FormControl p={7}>
         <FormLabel>
           Bize projenizden / ihtiyaçlarınızdan bahseder misiniz?
         </FormLabel>
-        <Input as="textarea" value={messages} onChange={(e)=>{setMessages(e.target.value)}} h={150}/>
+        <Input
+          as="textarea"
+          value={messages}
+          onChange={(e) => {
+            setMessages(e.target.value);
+          }}
+          h={150}
+        />
       </FormControl>
     </>
   );
 };
+
 const ThirdStep = () => {
   return <>ThirdStep</>;
 };
@@ -184,32 +218,29 @@ const FourthStep = () => {
 };
 
 function StartProjectStepper() {
+  const ref = useRef(null);
+
   const steps = [
     {
       id: 1,
       title: "Hizmet Seçimi",
-      description: "Size sunulan hizmetler arasından tercih yapın.",
-      component: <FirstStep />,
+      description: "Hangi alanda hizmet almak istiyorsunuz",
+      Component: FirstStep,
     },
+
     {
       id: 2,
-      title: "Proje Açıklaması",
-      description: "Projeleriniz hakkında bize daha fazla bilgi verin.",
-      component: <SecondStep />,
+      title: "İletişim Bilgileri",
+      description: "İletişime geçebileceğimiz bilgilerinizi bize iletin.",
+      Component: ThirdStep,
     },
     {
       id: 3,
-      title: "İletişim Bilgileri",
-      description: "İletişime geçebileceğimiz bilgilerinizi bize iletin.",
-      component: <ThirdStep />,
-    },
-    /* {
-      id: 4,
       title: "Teşekkürler!",
       description:
         "Başvurunuz başarıyla alındı. Size en kısa sürede dönüş yapacağız..",
-      component: <FourthStep />,
-    },*/
+      Component: FourthStep,
+    },
   ];
 
   const {
@@ -228,7 +259,7 @@ function StartProjectStepper() {
   const step = steps.find((s) => activeStep === s.id) || null;
 
   return (
-    <Box>
+    <Box textAlign={"center"}>
       <Box border={"1px solid #ded"} borderRadius={"15px"} p={6} m={3} gap={3}>
         <Flex
           direction={"column"}
@@ -242,7 +273,7 @@ function StartProjectStepper() {
 
           <Stepper index={activeStep} mt={4}>
             {steps.map((step, index) => (
-              <Step key={index + "asfasdf"}>
+              <Step key={index}>
                 <StepIndicator>
                   <StepStatus
                     complete={<StepIcon />}
@@ -257,18 +288,10 @@ function StartProjectStepper() {
           </Stepper>
         </Flex>
       </Box>
-      <Flex
-        direction={"column"}
-        m={4}
-        border={"1px solid #ded"}
-        borderRadius={"15px"}
-        justify={"center"}
-        align={"center"}
-        justifyContent={"center"}
-      >
-        {step?.component}
+      <Flex w={"full"} direction={"column"} m={4} borderRadius={"15px"}>
+        <step.Component ref={ref} />
       </Flex>
-      <ButtonGroup p={3} m={3} id={"next-prev-button-component"}>
+      <ButtonGroup p={3} m={3} ref={ref}>
         <Button
           p={6}
           colorScheme="gray"
