@@ -158,34 +158,25 @@ const FirstStep = () => {
   return (
     <>
       <Flex direction={"column"}>
-        <ScrollLink
-          to="service-desc-content"
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          <Wrap {...group} p={5}>
-            {services.map((service) => {
-              const radio = getRadioProps({ value: service.title });
-              return (
-                <WrapItem
-                  key={service.id}
-                  w={{ base: "100%", md: 250 }}
-                  my={3}
-                  mx={5}
-                >
-                  <RadioServiceCard {...radio} service={service}>
-                    {service.title}
-                  </RadioServiceCard>
-                </WrapItem>
-              );
-            })}
-          </Wrap>
-        </ScrollLink>
+        <Wrap {...group} p={5}>
+          {services.map((service) => {
+            const radio = getRadioProps({ value: service.title });
+            return (
+              <WrapItem
+                key={service.id}
+                w={{ base: "100%", md: 250 }}
+                my={3}
+                mx={5}
+              >
+                <RadioServiceCard {...radio} service={service}>
+                  {service.title}
+                </RadioServiceCard>
+              </WrapItem>
+            );
+          })}
+        </Wrap>
 
-        <Flex mt={15} direction={"column"} id={"service-desc-content"}>
-   
-        </Flex>
+        <Flex mt={15} direction={"column"} id={"service-desc-content"}></Flex>
       </Flex>
     </>
   );
