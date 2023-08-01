@@ -86,7 +86,7 @@ function RadioServiceCard(props) {
   );
 }
 
-const FirstStep = forwardRef((props, ref) => {
+const FirstStep = () => {
   const [selectedService, setSelectedService] = useState("");
 
   const services = [
@@ -147,10 +147,6 @@ const FirstStep = forwardRef((props, ref) => {
     },
   ];
 
-  const handleClick = () => {
-    ref?.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "Services",
     defaultValue: services[0],
@@ -162,32 +158,38 @@ const FirstStep = forwardRef((props, ref) => {
   return (
     <>
       <Flex direction={"column"}>
-        <Wrap {...group} p={5}>
-          {services.map((service) => {
-            const radio = getRadioProps({ value: service.title });
-            return (
-              <WrapItem
-                key={service.id}
-                w={{ base: "100%", md: 250 }}
-                my={3}
-                mx={5}
-                onClick={handleClick}
-              >
-                <RadioServiceCard {...radio} service={service}>
-                  {service.title}
-                </RadioServiceCard>
-              </WrapItem>
-            );
-          })}
-        </Wrap>
+        <ScrollLink
+          to="service-desc-content"
+          smooth={true}
+          offset={-100}
+          duration={500}
+        >
+          <Wrap {...group} p={5}>
+            {services.map((service) => {
+              const radio = getRadioProps({ value: service.title });
+              return (
+                <WrapItem
+                  key={service.id}
+                  w={{ base: "100%", md: 250 }}
+                  my={3}
+                  mx={5}
+                >
+                  <RadioServiceCard {...radio} service={service}>
+                    {service.title}
+                  </RadioServiceCard>
+                </WrapItem>
+              );
+            })}
+          </Wrap>
+        </ScrollLink>
 
-        <Flex direction={"column"}>
-     
+        <Flex mt={15} direction={"column"} id={"service-desc-content"}>
+   
         </Flex>
       </Flex>
     </>
   );
-});
+};
 
 const SecondStep = () => {
   const [messages, setMessages] = useState("");
@@ -289,9 +291,9 @@ function StartProjectStepper() {
         </Flex>
       </Box>
       <Flex w={"full"} direction={"column"} m={4} borderRadius={"15px"}>
-        <step.Component ref={ref} />
+        <step.Component /*ref={ref} */ />
       </Flex>
-      <ButtonGroup p={3} m={3} ref={ref}>
+      <ButtonGroup p={3} m={3}>
         <Button
           p={6}
           colorScheme="gray"
