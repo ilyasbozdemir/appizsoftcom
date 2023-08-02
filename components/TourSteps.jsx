@@ -13,10 +13,15 @@ export const tourSteps = [
   },
   {
     target: "#Blog",
-    content: "Bu alandan son  blog yazılarımızı görüntüleyebilirsiniz. Daha fazlası için sola kaydırın",
+    content:
+      "Bu alandan son  blog yazılarımızı görüntüleyebilirsiniz. Daha fazlası için sola kaydırın",
   },
   {
     target: "#ask-question",
     content: "Buraya dokunarak bize sorular sorabilirsiniz.",
+  },
+  {
+    target: "#start-project-services-list",
+    content: "Bu alandan hangi hizmetimizden faydalanmak istediğniiz seçebilirsiniz",
   },
 ];

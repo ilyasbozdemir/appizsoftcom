@@ -30,9 +30,19 @@ import {
   useColorModeValue,
   chakra,
   useColorMode,
+  RadioGroup,
+  Stack,
+  Radio,
+  CheckboxGroup,
+  Checkbox,
 } from "@chakra-ui/react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
+import { MdWeb, MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { PiBasket } from "react-icons/pi";
+import { TfiMobile } from "react-icons/tfi";
+import { SiPytest } from "react-icons/si";
+import { FaPenNib } from "react-icons/fa";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -86,64 +96,195 @@ function RadioServiceCard(props) {
   );
 }
 
+const WebSiteComponent = () => {
+  const [value, setValue] = React.useState("");
+  const [projectType, setProjectType] = React.useState("");
+
+  const [modules, setModules] = React.useState([
+    { val: "user-management", title: "Kullanıcı Yönetimi" },
+    { val: "email-subscription", title: "E-posta Abonelik" },
+    { val: "image-gallery", title: "Resim Galerisi" },
+    { val: "comments-feedback", title: "Yorum ve Geribildirim" },
+    { val: "search-functionality", title: "Arama Fonksiyonu" },
+    { val: "social-media-sharing", title: "Sosyal Medya Paylaşım" },
+    { val: "e-commerce", title: "E-ticaret" },
+    { val: "google-analytics", title: "Google Analytics Entegrasyonu" },
+    { val: "seo-optimization", title: "SEO Optimizasyonu" },
+    { val: "contact-form", title: "İletişim Formu" },
+    { val: "about-us-page", title: "Hakkımızda Sayfası" },
+    { val: "blog-module", title: "Blog Modülü" },
+    { val: "faq-module", title: "Sıkça Sorulan Sorular (FAQ) Modülü" },
+    { val: "language-support", title: "Dil Desteği" },
+    { val: "security-module", title: "Güvenlik Modülü" },
+  ]);
+  
+  return (
+    <Flex direction={"column"} gap={4}>
+      <FormControl isRequired>
+        <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
+        <RadioGroup onChange={setValue} value={value}>
+          <Stack direction="row">
+            <Radio value="new-website">Yeni bir web sitesi istiyorum</Radio>
+            <Radio value="restore-website">
+              Bir web sitem var, yenilemek istiyorum
+            </Radio>
+          </Stack>
+        </RadioGroup>
+      </FormControl>
+
+      {value === "new-website" && (
+        <>
+          <FormControl isRequired>
+            <FormLabel>
+              Websitesi için hangisi sizin ihtiyacınızı karşılıyor
+            </FormLabel>
+            <RadioGroup onChange={setProjectType} value={projectType}>
+              <Stack direction="row">
+                <Radio value="individual">Bireysel - Portfolyo </Radio>
+                <Radio value="institutional">Kurumsal - Şirket</Radio>
+                <Radio value="e-commerce">E-ticaret , Pazaryeri</Radio>
+                <Radio value="other">Diğer</Radio>
+              </Stack>
+            </RadioGroup>
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>
+              Projenizde olmasını istediğiniz dil seçenekleri nelerdir?
+            </FormLabel>
+
+            <CheckboxGroup>
+              <Stack spacing={[1, 5]} direction={["column", "row"]}>
+                <Checkbox value="tr">Türkçe</Checkbox>
+                <Checkbox value="de">Almanca</Checkbox>
+                <Checkbox value="en">İngilizce</Checkbox>
+                <Checkbox value="fr">Fransızca</Checkbox>
+                <Checkbox value="es">İspanyolca</Checkbox>
+
+                <Checkbox value="other">Diğer</Checkbox>
+              </Stack>
+            </CheckboxGroup>
+          </FormControl>
+          <FormControl>
+            <FormLabel>
+              Eğer varsa yeni web sitenizde modül ihityaçlarınız nelerdir?
+            </FormLabel>
+
+            <CheckboxGroup>
+              <Stack
+                spacing={[1, 5]}
+                direction={["column", "row"]}
+                flexWrap={"wrap"}
+              >
+                {modules.map((module) => (
+                  <>
+                    <Checkbox value={module.val}>{module.title}</Checkbox>
+                  </>
+                ))}
+
+                <Checkbox value="other">Diğer</Checkbox>
+              </Stack>
+            </CheckboxGroup>
+          </FormControl>
+        </>
+      )}
+      {value === "restore-website" && <>---</>}
+    </Flex>
+  );
+};
+
+const MobileAppComponent = () => {
+  return <Box>MobileApp</Box>;
+};
+
+const StartupSolutionsComponent = () => {
+  return <Box>StartupSolutions</Box>;
+};
+const ProductionComponent = () => {
+  return <Box>ProductionComponent</Box>;
+};
+const CorporateIdentityStudyComponent = () => {
+  return <Box>CorporateIdentityStudyComponent</Box>;
+};
+const TestOtomationComponent = () => {
+  return <Box>TestOtomationComponent</Box>;
+};
+
+const LogoStudyComponent = () => {
+  return <Box>LogoStudyComponent</Box>;
+};
+const DigitalMarketingComponent = () => {
+  return <Box>DigitalMarketingComponent</Box>;
+};
+
 const FirstStep = () => {
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedService, setSelectedService] = useState(null);
+  const [service, setService] = useState(null);
+
+  useEffect(() => {
+    const service = services.find((s) => s.title === selectedService);
+    setService(service);
+
+    console.table(service);
+  }, [selectedService]);
 
   const services = [
     {
       id: 1,
       title: "Web Sitesi",
       bg: "red",
-      icon: "",
-    },
-    {
-      id: 3,
-      title: "E Ticaret",
-      bg: "green",
-      icon: "",
+      icon: MdWeb,
+      dependenciesComponent: [WebSiteComponent],
     },
     {
       id: 2,
       title: "Mobil Uygulama",
       bg: "gray",
-      icon: "",
+      icon: TfiMobile,
+      dependenciesComponent: [MobileAppComponent],
     },
     {
       id: 9,
       title: "Startup  Çözümleri",
       bg: "blue",
       icon: BsFillRocketTakeoffFill,
+      dependenciesComponent: [StartupSolutionsComponent],
     },
 
     {
       id: 4,
       title: "Prodüksiyon",
       bg: "purple",
-      icon: "",
+      icon: MdOutlineProductionQuantityLimits,
+      dependenciesComponent: [ProductionComponent],
     },
     {
       id: 5,
       title: "Kurumsal Kimlik Çalışması",
       bg: "yellow",
       icon: "",
+      dependenciesComponent: [CorporateIdentityStudyComponent],
     },
     {
       id: 6,
       title: "Test Otomasyon",
-      bg: "blue",
-      icon: "",
+      bg: "green",
+      icon: SiPytest,
+      dependenciesComponent: [TestOtomationComponent],
     },
     {
       id: 7,
       title: "Logo Çalışması",
       bg: "pink",
-      icon: "",
+      icon: FaPenNib,
+      dependenciesComponent: [LogoStudyComponent],
     },
     {
       id: 8,
       title: "Dijital Pazarlama",
       bg: "red",
       icon: "",
+      dependenciesComponent: [DigitalMarketingComponent],
     },
   ];
 
@@ -158,7 +299,7 @@ const FirstStep = () => {
   return (
     <>
       <Flex direction={"column"}>
-        <Wrap {...group} p={5}>
+        <Wrap {...group} p={5} id={"start-project-services-list"}>
           {services.map((service) => {
             const radio = getRadioProps({ value: service.title });
             return (
@@ -176,7 +317,14 @@ const FirstStep = () => {
           })}
         </Wrap>
 
-        <Flex mt={15} direction={"column"} id={"service-desc-content"}></Flex>
+        <Flex mt={15} direction={"column"} id={"service-desc-content"} gap={5}>
+          {service &&
+            service.dependenciesComponent.map((Component) => (
+              <React.Fragment key={Component}>
+                <Component />
+              </React.Fragment>
+            ))}
+        </Flex>
       </Flex>
     </>
   );
