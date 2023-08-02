@@ -126,7 +126,7 @@ const WebSiteComponent = () => {
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
         <RadioGroup onChange={setValue} value={value}>
-          <Stack direction="row">
+          <Stack direction={{ base: "column", md: "row" }}>
             <Radio value="new-website">Yeni bir web sitesi istiyorum</Radio>
             <Radio value="restore-website">
               Bir web sitem var, yenilemek istiyorum
@@ -142,7 +142,7 @@ const WebSiteComponent = () => {
               Websitesi için hangisi sizin ihtiyacınızı karşılıyor
             </FormLabel>
             <RadioGroup onChange={setProjectType} value={projectType}>
-              <Stack direction="row">
+              <Stack direction={{ base: "column", md: "row" }}>
                 <Radio value="individual">Bireysel - Portfolyo </Radio>
                 <Radio value="institutional">Kurumsal - Şirket</Radio>
                 <Radio value="e-commerce">E-ticaret , Pazaryeri</Radio>
