@@ -35,6 +35,9 @@ import {
   Radio,
   CheckboxGroup,
   Checkbox,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
 } from "@chakra-ui/react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
@@ -117,7 +120,7 @@ const WebSiteComponent = () => {
     { val: "language-support", title: "Dil Desteği" },
     { val: "security-module", title: "Güvenlik Modülü" },
   ]);
-  
+
   return (
     <Flex direction={"column"} gap={4}>
       <FormControl isRequired>
@@ -188,7 +191,29 @@ const WebSiteComponent = () => {
           </FormControl>
         </>
       )}
-      {value === "restore-website" && <>---</>}
+      {value === "restore-website" && (
+        <>
+          <FormControl w={{ base: "full", md: "450px" }}>
+            <FormLabel>Mevcut web sitenizin adresi nedir?</FormLabel>
+            <InputGroup size="sm">
+              <InputLeftAddon children="https://" />
+              <Input placeholder="example: appizsoft.com" />
+            </InputGroup>
+          </FormControl>
+          <FormControl w={{ base: "full", md: "450px" }}>
+            <FormLabel>
+              Mevcut web sitenizde memnun olmadığınız noktalar:
+            </FormLabel>
+            <Input as="textarea" maxH={100} h={100} />
+          </FormControl>
+          <FormControl w={{ base: "full", md: "450px" }}>
+            <FormLabel>
+              Mevcut sitenize ek olarak olmasını istediğiniz özellikler:
+            </FormLabel>
+            <Input as="textarea" maxH={100} h={100} />
+          </FormControl>
+        </>
+      )}
     </Flex>
   );
 };
