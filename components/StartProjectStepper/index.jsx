@@ -38,6 +38,7 @@ import {
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
@@ -46,6 +47,7 @@ import { PiBasket } from "react-icons/pi";
 import { TfiMobile } from "react-icons/tfi";
 import { SiPytest } from "react-icons/si";
 import { FaPenNib } from "react-icons/fa";
+import axios from "axios";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -101,25 +103,37 @@ function RadioServiceCard(props) {
 
 const WebSiteComponent = () => {
   const [value, setValue] = React.useState("");
-  const [projectType, setProjectType] = React.useState("");
+  const [url, setUrl] = React.useState("");
+  const [urlErrorMessage, setUrlErrorMessage] = useState(false);
+  const [isUrlValid, setIsUrlValid] = useState(false);
+  const isError = url === "";
 
   const [modules, setModules] = React.useState([
-    { val: "user-management", title: "Kullanıcı Yönetimi" },
-    { val: "email-subscription", title: "E-posta Abonelik" },
-    { val: "image-gallery", title: "Resim Galerisi" },
-    { val: "comments-feedback", title: "Yorum ve Geribildirim" },
-    { val: "search-functionality", title: "Arama Fonksiyonu" },
-    { val: "social-media-sharing", title: "Sosyal Medya Paylaşım" },
-    { val: "e-commerce", title: "E-ticaret" },
-    { val: "google-analytics", title: "Google Analytics Entegrasyonu" },
-    { val: "seo-optimization", title: "SEO Optimizasyonu" },
-    { val: "contact-form", title: "İletişim Formu" },
-    { val: "about-us-page", title: "Hakkımızda Sayfası" },
-    { val: "blog-module", title: "Blog Modülü" },
-    { val: "faq-module", title: "Sıkça Sorulan Sorular (FAQ) Modülü" },
-    { val: "language-support", title: "Dil Desteği" },
-    { val: "security-module", title: "Güvenlik Modülü" },
+    { val: "user-management", title: "Kullanıcı Yönetimi", support: ["individual", "institutional"] },
+    { val: "email-subscription", title: "E-posta Abonelik", support: ["individual"] },
+    { val: "image-gallery", title: "Resim Galerisi", support: ["individual", "porpolyo"] },
+    { val: "comments-feedback", title: "Yorum ve Geribildirim", support: ["individual", "institutional"] },
+    { val: "search-functionality", title: "Arama Fonksiyonu", support: ["individual", "institutional"] },
+    { val: "social-media-sharing", title: "Sosyal Medya Paylaşım", support: ["individual", "institutional"] },
+    { val: "google-analytics", title: "Google Analytics Entegrasyonu", support: ["individual", "institutional"] },
+    { val: "seo-optimization", title: "SEO Optimizasyonu", support: ["individual", "institutional", "porpolyo"] },
+    { val: "contact-form", title: "İletişim Formu", support: ["individual", "institutional", "porpolyo"] },
+    { val: "about-us-page", title: "Hakkımızda Sayfası", support: ["individual", "institutional"] },
+    { val: "blog-module", title: "Blog Modülü", support: ["individual", "institutional", "porpolyo"] },
+    { val: "faq-module", title: "Sıkça Sorulan Sorular (FAQ) Modülü", support: ["individual", "institutional"] },
+    { val: "language-support", title: "Dil Desteği", support: ["individual", "institutional", "porpolyo"] },
+    { val: "security-module", title: "Güvenlik Modülü", support: ["individual", "institutional", "porpolyo"] },
+    { val: "newsletter-subscription", title: "Bülten Aboneliği", support: ["individual", "institutional", "porpolyo"] },
+    { val: "event-calendar", title: "Etkinlik Takvimi", support: ["individual", "porpolyo"] },
+    { val: "video-player", title: "Video Oynatıcı", support: ["individual", "porpolyo"] },
+    { val: "photo-editor", title: "Fotoğraf Editörü", support: ["individual", "porpolyo"] },
+    { val: "file-upload", title: "Dosya Yükleme", support: ["individual", "porpolyo"] },
+    { val: "weather-widget", title: "Hava Durumu Widget'ı", support: ["individual", "porpolyo"] },
   ]);
+
+  const [projectType, setProjectType] = useState("individual");
+  const filteredModules = modules.filter((module) => module.support.includes(projectType));
+
 
   return (
     <Flex direction={"column"} gap={4}>
@@ -134,7 +148,6 @@ const WebSiteComponent = () => {
           </Stack>
         </RadioGroup>
       </FormControl>
-
       {value === "new-website" && (
         <>
           <FormControl isRequired>
@@ -153,23 +166,6 @@ const WebSiteComponent = () => {
 
           <FormControl>
             <FormLabel>
-              Projenizde olmasını istediğiniz dil seçenekleri nelerdir?
-            </FormLabel>
-
-            <CheckboxGroup>
-              <Stack spacing={[1, 5]} direction={["column", "row"]}>
-                <Checkbox value="tr">Türkçe</Checkbox>
-                <Checkbox value="de">Almanca</Checkbox>
-                <Checkbox value="en">İngilizce</Checkbox>
-                <Checkbox value="fr">Fransızca</Checkbox>
-                <Checkbox value="es">İspanyolca</Checkbox>
-
-                <Checkbox value="other">Diğer</Checkbox>
-              </Stack>
-            </CheckboxGroup>
-          </FormControl>
-          <FormControl>
-            <FormLabel>
               Eğer varsa yeni web sitenizde modül ihityaçlarınız nelerdir?
             </FormLabel>
 
@@ -179,10 +175,10 @@ const WebSiteComponent = () => {
                 direction={["column", "row"]}
                 flexWrap={"wrap"}
               >
-                {modules.map((module) => (
-                  <>
-                    <Checkbox value={module.val}>{module.title}</Checkbox>
-                  </>
+                {filteredModules.map((module) => (
+                  <Checkbox key={module.val} value={module.val}>
+                    {module.title}
+                  </Checkbox>
                 ))}
 
                 <Checkbox value="other">Diğer</Checkbox>
@@ -193,12 +189,13 @@ const WebSiteComponent = () => {
       )}
       {value === "restore-website" && (
         <>
-          <FormControl w={{ base: "full", md: "450px" }}>
+          <FormControl w={{ base: "full", md: "450px" }} isInvalid={isError}>
             <FormLabel>Mevcut web sitenizin adresi nedir?</FormLabel>
             <InputGroup size="sm">
               <InputLeftAddon children="https://" />
-              <Input placeholder="example: appizsoft.com" />
+              <Input placeholder="example: appizsoft.com" value={url} />
             </InputGroup>
+            <FormErrorMessage>{urlErrorMessage}</FormErrorMessage>
           </FormControl>
           <FormControl w={{ base: "full", md: "450px" }}>
             <FormLabel>
@@ -296,13 +293,6 @@ const FirstStep = () => {
       bg: "green",
       icon: SiPytest,
       dependenciesComponent: [TestOtomationComponent],
-    },
-    {
-      id: 7,
-      title: "Logo Çalışması",
-      bg: "pink",
-      icon: FaPenNib,
-      dependenciesComponent: [LogoStudyComponent],
     },
     {
       id: 8,
