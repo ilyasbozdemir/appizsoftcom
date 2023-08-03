@@ -272,12 +272,15 @@ const WebSiteComponent = () => {
               Websitesi için hangisi sizin ihtiyacınızı karşılıyor
             </FormLabel>
             <RadioGroup onChange={setProjectType} value={projectType}>
-              <Stack direction={{ base: "column", md: "row" }}>
+              <Flex
+                justifyContent={"space-between"}
+                direction={{ base: "column", md: "row" }}
+              >
                 <Radio value="individual">Bireysel - Portfolyo </Radio>
                 <Radio value="institutional">Kurumsal - Şirket</Radio>
                 <Radio value="e-commerce">E-ticaret , Pazaryeri</Radio>
                 <Radio value="other">Diğer</Radio>
-              </Stack>
+              </Flex>
             </RadioGroup>
           </FormControl>
 
@@ -288,6 +291,7 @@ const WebSiteComponent = () => {
 
             <CheckboxGroup>
               <Stack
+                justifyContent={"space-between"}
                 spacing={[1, 5]}
                 direction={["column", "row"]}
                 flexWrap={"wrap"}
@@ -394,7 +398,102 @@ const WebSiteComponent = () => {
 };
 
 const MobileAppComponent = () => {
-  return <Box>MobileApp</Box>;
+  const [platform, setPlatform] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleRemoveClick = (e) => {
+    e.stopPropagation();
+    setSelectedFile(null);
+  };
+
+  return (
+    <Flex direction={"column"} gap={4}>
+      <FormControl isRequired>
+        <FormLabel>
+          Projenizin hangi platformlarda yer almasını istiyorsunuz?
+        </FormLabel>
+        <RadioGroup onChange={setPlatform} value={platform}>
+          <Flex
+            justifyContent={"space-between"}
+            direction={{ base: "column", md: "row" }}
+          >
+            <Radio value="ios-platfrom">App Store (iOS)</Radio>
+            <Radio value="android-platfrom">Google Play Store (Android)</Radio>
+            <Radio value="all-platform">E-ticaret , Pazaryeri</Radio>
+          </Flex>
+        </RadioGroup>
+      </FormControl>
+      <FormControl>
+        <FormLabel>Projenize ait dosya varsa ekleyiniz.</FormLabel>
+
+        <Flex
+          direction="column"
+          align="center"
+          justify="center"
+          p="6"
+          border="2px dashed #ccc"
+          borderRadius="8px"
+          cursor="pointer"
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
+          <FormLabel htmlFor="fileInput">
+            <Text fontSize="lg">
+              Projenize ait dosya varsa ekleyiniz veya sürükleyip bırakınız.
+            </Text>
+          </FormLabel>
+          <Input
+            id="fileInput"
+            type="file"
+            display={"none"}
+            onChange={handleFileChange}
+          />
+        </Flex>
+
+        {selectedFile ? (
+          <Flex
+            justifyContent={"flex-start"}
+            gap={5}
+            mt={10}
+            direction="column"
+            p="6"
+          >
+            <Flex direction={"column"}>
+              <Text fontSize="lg" fontWeight="bold">
+                Seçili dosya
+              </Text>
+
+              <Text fontSize="lg" fontWeight="bold">
+                • {selectedFile.name}
+              </Text>
+            </Flex>
+            <Box>
+              <Button colorScheme="red" onClick={handleRemoveClick}>
+                Kaldır
+              </Button>
+            </Box>
+          </Flex>
+        ) : (
+          <></>
+        )}
+      </FormControl>
+    </Flex>
+  );
 };
 
 const StartupSolutionsComponent = () => {
