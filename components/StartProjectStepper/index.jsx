@@ -109,31 +109,148 @@ const WebSiteComponent = () => {
   const isError = url === "";
 
   const [modules, setModules] = React.useState([
-    { val: "user-management", title: "Kullanıcı Yönetimi", support: ["individual", "institutional"] },
-    { val: "email-subscription", title: "E-posta Abonelik", support: ["individual"] },
-    { val: "image-gallery", title: "Resim Galerisi", support: ["individual", "porpolyo"] },
-    { val: "comments-feedback", title: "Yorum ve Geribildirim", support: ["individual", "institutional"] },
-    { val: "search-functionality", title: "Arama Fonksiyonu", support: ["individual", "institutional"] },
-    { val: "social-media-sharing", title: "Sosyal Medya Paylaşım", support: ["individual", "institutional"] },
-    { val: "google-analytics", title: "Google Analytics Entegrasyonu", support: ["individual", "institutional"] },
-    { val: "seo-optimization", title: "SEO Optimizasyonu", support: ["individual", "institutional", "porpolyo"] },
-    { val: "contact-form", title: "İletişim Formu", support: ["individual", "institutional", "porpolyo"] },
-    { val: "about-us-page", title: "Hakkımızda Sayfası", support: ["individual", "institutional"] },
-    { val: "blog-module", title: "Blog Modülü", support: ["individual", "institutional", "porpolyo"] },
-    { val: "faq-module", title: "Sıkça Sorulan Sorular (FAQ) Modülü", support: ["individual", "institutional"] },
-    { val: "language-support", title: "Dil Desteği", support: ["individual", "institutional", "porpolyo"] },
-    { val: "security-module", title: "Güvenlik Modülü", support: ["individual", "institutional", "porpolyo"] },
-    { val: "newsletter-subscription", title: "Bülten Aboneliği", support: ["individual", "institutional", "porpolyo"] },
-    { val: "event-calendar", title: "Etkinlik Takvimi", support: ["individual", "porpolyo"] },
-    { val: "video-player", title: "Video Oynatıcı", support: ["individual", "porpolyo"] },
-    { val: "photo-editor", title: "Fotoğraf Editörü", support: ["individual", "porpolyo"] },
-    { val: "file-upload", title: "Dosya Yükleme", support: ["individual", "porpolyo"] },
-    { val: "weather-widget", title: "Hava Durumu Widget'ı", support: ["individual", "porpolyo"] },
+    {
+      val: "user-management",
+      title: "Kullanıcı Yönetimi",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "email-subscription",
+      title: "E-posta Abonelik",
+      support: ["individual"],
+    },
+    {
+      val: "image-gallery",
+      title: "Resim Galerisi",
+      support: ["individual", "porpolyo"],
+    },
+    {
+      val: "comments-feedback",
+      title: "Yorum ve Geribildirim",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "search-functionality",
+      title: "Arama Fonksiyonu",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "social-media-sharing",
+      title: "Sosyal Medya Paylaşım",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "google-analytics",
+      title: "Google Analytics Entegrasyonu",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "seo-optimization",
+      title: "SEO Optimizasyonu",
+      support: ["individual", "institutional", "porpolyo"],
+    },
+    {
+      val: "contact-form",
+      title: "İletişim Formu",
+      support: ["individual", "institutional", "porpolyo"],
+    },
+    {
+      val: "about-us-page",
+      title: "Hakkımızda Sayfası",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "blog-module",
+      title: "Blog Modülü",
+      support: ["individual", "institutional", "porpolyo"],
+    },
+    {
+      val: "faq-module",
+      title: "Sıkça Sorulan Sorular (FAQ) Modülü",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "meeting-module",
+      title: "Randevu Modülü",
+      support: ["individual", "institutional"],
+    },
+    {
+      val: "language-support",
+      title: "Dil Desteği",
+      support: ["individual", "institutional", "porpolyo"],
+    },
+    {
+      val: "security-module",
+      title: "Güvenlik Modülü",
+      support: ["individual", "institutional", "porpolyo"],
+    },
+    {
+      val: "newsletter-subscription",
+      title: "Bülten Aboneliği",
+      support: ["individual", "institutional", "porpolyo"],
+    },
+    {
+      val: "event-calendar",
+      title: "Etkinlik Takvimi",
+      support: ["individual", "porpolyo"],
+    },
+    {
+      val: "video-player",
+      title: "Video Oynatıcı",
+      support: ["individual", "porpolyo"],
+    },
+    {
+      val: "photo-editor",
+      title: "Fotoğraf Editörü",
+      support: ["individual", "porpolyo"],
+    },
+    {
+      val: "file-upload",
+      title: "Dosya Yükleme",
+      support: ["individual", "porpolyo"],
+    },
+    {
+      val: "basket-pay-manager",
+      title: "Sepet ve Ödeme Yönetimi",
+      support: ["e-commerce"],
+    },
+    {
+      val: "product-list-filter",
+      title: "Ürün Listeleme ve Filtreleme",
+      support: ["e-commerce"],
+    },
+    {
+      val: "category-manager",
+      title: "Kategori Yönetimi",
+      support: ["e-commerce"],
+    },
   ]);
 
   const [projectType, setProjectType] = useState("individual");
-  const filteredModules = modules.filter((module) => module.support.includes(projectType));
+  const filteredModules = modules.filter((module) =>
+    module.support.includes(projectType)
+  );
+  const [selectedFile, setSelectedFile] = useState(null);
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleRemoveClick = (e) => {
+    e.stopPropagation();
+    setSelectedFile(null);
+  };
 
   return (
     <Flex direction={"column"} gap={4}>
@@ -185,6 +302,61 @@ const WebSiteComponent = () => {
               </Stack>
             </CheckboxGroup>
           </FormControl>
+
+          <FormControl>
+            <FormLabel>Projenize ait dosya varsa ekleyiniz.</FormLabel>
+
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              p="6"
+              border="2px dashed #ccc"
+              borderRadius="8px"
+              cursor="pointer"
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+            >
+              <FormLabel htmlFor="fileInput">
+                <Text fontSize="lg">
+                  Projenize ait dosya varsa ekleyiniz veya sürükleyip bırakınız.
+                </Text>
+              </FormLabel>
+              <Input
+                id="fileInput"
+                type="file"
+                display={"none"}
+                onChange={handleFileChange}
+              />
+            </Flex>
+
+            {selectedFile ? (
+              <Flex
+                justifyContent={"flex-start"}
+                gap={5}
+                mt={10}
+                direction="column"
+                p="6"
+              >
+                <Flex direction={"column"}>
+                  <Text fontSize="lg" fontWeight="bold">
+                    Seçili dosya
+                  </Text>
+
+                  <Text fontSize="lg" fontWeight="bold">
+                    • {selectedFile.name}
+                  </Text>
+                </Flex>
+                <Box>
+                  <Button colorScheme="red" onClick={handleRemoveClick}>
+                    Kaldır
+                  </Button>
+                </Box>
+              </Flex>
+            ) : (
+              <></>
+            )}
+          </FormControl>
         </>
       )}
       {value === "restore-website" && (
@@ -193,7 +365,13 @@ const WebSiteComponent = () => {
             <FormLabel>Mevcut web sitenizin adresi nedir?</FormLabel>
             <InputGroup size="sm">
               <InputLeftAddon children="https://" />
-              <Input placeholder="example: appizsoft.com" value={url} />
+              <Input
+                placeholder="example: appizsoft.com"
+                value={url}
+                onChange={(e) => {
+                  setUrl(e.target.value);
+                }}
+              />
             </InputGroup>
             <FormErrorMessage>{urlErrorMessage}</FormErrorMessage>
           </FormControl>
@@ -246,8 +424,6 @@ const FirstStep = () => {
   useEffect(() => {
     const service = services.find((s) => s.title === selectedService);
     setService(service);
-
-    console.table(service);
   }, [selectedService]);
 
   const services = [
@@ -332,7 +508,14 @@ const FirstStep = () => {
           })}
         </Wrap>
 
-        <Flex mt={15} direction={"column"} id={"service-desc-content"} gap={5}>
+        <Flex
+          mt={15}
+          direction={"column"}
+          id={"service-desc-content"}
+          gap={5}
+          justify={"center"}
+          justifyContent={"center"}
+        >
           {service &&
             service.dependenciesComponent.map((Component) => (
               <React.Fragment key={Component}>
