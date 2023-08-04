@@ -48,6 +48,7 @@ import { TfiMobile } from "react-icons/tfi";
 import { SiPytest } from "react-icons/si";
 import { FaPenNib } from "react-icons/fa";
 import axios from "axios";
+import FileUpload from "./components/FileUpload";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -230,27 +231,7 @@ const WebSiteComponent = () => {
   const filteredModules = modules.filter((module) =>
     module.support.includes(projectType)
   );
-  const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    setSelectedFile(file);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
-  const handleRemoveClick = (e) => {
-    e.stopPropagation();
-    setSelectedFile(null);
-  };
+  
 
   return (
     <Flex direction={"column"} gap={4}>
@@ -307,60 +288,7 @@ const WebSiteComponent = () => {
             </CheckboxGroup>
           </FormControl>
 
-          <FormControl>
-            <FormLabel>Projenize ait dosya varsa ekleyiniz.</FormLabel>
-
-            <Flex
-              direction="column"
-              align="center"
-              justify="center"
-              p="6"
-              border="2px dashed #ccc"
-              borderRadius="8px"
-              cursor="pointer"
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-            >
-              <FormLabel htmlFor="fileInput">
-                <Text fontSize="lg">
-                  Projenize ait dosya varsa ekleyiniz veya sürükleyip bırakınız.
-                </Text>
-              </FormLabel>
-              <Input
-                id="fileInput"
-                type="file"
-                display={"none"}
-                onChange={handleFileChange}
-              />
-            </Flex>
-
-            {selectedFile ? (
-              <Flex
-                justifyContent={"flex-start"}
-                gap={5}
-                mt={10}
-                direction="column"
-                p="6"
-              >
-                <Flex direction={"column"}>
-                  <Text fontSize="lg" fontWeight="bold">
-                    Seçili dosya
-                  </Text>
-
-                  <Text fontSize="lg" fontWeight="bold">
-                    • {selectedFile.name}
-                  </Text>
-                </Flex>
-                <Box>
-                  <Button colorScheme="red" onClick={handleRemoveClick}>
-                    Kaldır
-                  </Button>
-                </Box>
-              </Flex>
-            ) : (
-              <></>
-            )}
-          </FormControl>
+          <FileUpload />
         </>
       )}
       {value === "restore-website" && (
@@ -864,7 +792,6 @@ const DigitalMarketingComponent = () => {
   );
 };
 
-
 const FirstStep = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [service, setService] = useState(null);
@@ -1019,7 +946,7 @@ function StartProjectStepper() {
       id: 2,
       title: "İletişim Bilgileri",
       description: "İletişime geçebileceğimiz bilgilerinizi bize iletin.",
-      Component: ThirdStep,
+      Component: SecondStep,
     },
     {
       id: 3,
