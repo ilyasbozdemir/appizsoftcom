@@ -399,28 +399,6 @@ const WebSiteComponent = () => {
 
 const MobileAppComponent = () => {
   const [platform, setPlatform] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    setSelectedFile(file);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
-  const handleRemoveClick = (e) => {
-    e.stopPropagation();
-    setSelectedFile(null);
-  };
-
   return (
     <Flex direction={"column"} gap={4}>
       <FormControl isRequired>
@@ -438,83 +416,454 @@ const MobileAppComponent = () => {
           </Flex>
         </RadioGroup>
       </FormControl>
-      <FormControl>
-        <FormLabel>Projenize ait dosya varsa ekleyiniz.</FormLabel>
-
-        <Flex
-          direction="column"
-          align="center"
-          justify="center"
-          p="6"
-          border="2px dashed #ccc"
-          borderRadius="8px"
-          cursor="pointer"
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-        >
-          <FormLabel htmlFor="fileInput">
-            <Text fontSize="lg">
-              Projenize ait dosya varsa ekleyiniz veya sürükleyip bırakınız.
-            </Text>
-          </FormLabel>
-          <Input
-            id="fileInput"
-            type="file"
-            display={"none"}
-            onChange={handleFileChange}
-          />
-        </Flex>
-
-        {selectedFile ? (
-          <Flex
-            justifyContent={"flex-start"}
-            gap={5}
-            mt={10}
-            direction="column"
-            p="6"
-          >
-            <Flex direction={"column"}>
-              <Text fontSize="lg" fontWeight="bold">
-                Seçili dosya
-              </Text>
-
-              <Text fontSize="lg" fontWeight="bold">
-                • {selectedFile.name}
-              </Text>
-            </Flex>
-            <Box>
-              <Button colorScheme="red" onClick={handleRemoveClick}>
-                Kaldır
-              </Button>
-            </Box>
-          </Flex>
-        ) : (
-          <></>
-        )}
-      </FormControl>
     </Flex>
   );
 };
 
 const StartupSolutionsComponent = () => {
-  return <Box>StartupSolutions</Box>;
-};
-const ProductionComponent = () => {
-  return <Box>ProductionComponent</Box>;
-};
-const CorporateIdentityStudyComponent = () => {
-  return <Box>CorporateIdentityStudyComponent</Box>;
-};
-const TestOtomationComponent = () => {
-  return <Box>TestOtomationComponent</Box>;
+  const [value, setValue] = React.useState("");
+  const [services, setServices] = React.useState([
+    {
+      val: "business-idea-validation",
+      title: "İş Fikri Doğrulama",
+    },
+    {
+      val: "market-research-analysis",
+      title: "Pazar Araştırması ve Analizi",
+    },
+    {
+      val: "product-prototype-development",
+      title: "Ürün Prototip Geliştirme",
+    },
+    {
+      val: "minimum-viable-product",
+      title: "Minimum Olası Ürün (MVP) Geliştirme",
+    },
+    {
+      val: "user-interface-design",
+      title: "Kullanıcı Arayüzü Tasarımı",
+    },
+    {
+      val: "web-mobile-development",
+      title: "Web ve Mobil Uygulama Geliştirme",
+    },
+    {
+      val: "cloud-infrastructure-setup",
+      title: "Bulut Altyapı Kurulumu",
+    },
+    {
+      val: "user-feedback-analytics",
+      title: "Kullanıcı Geri Bildirimleri ve Analitiği",
+    },
+    {
+      val: "marketing-strategy",
+      title: "Pazarlama Stratejisi ve Planlaması",
+    },
+    {
+      val: "sales-funnel-optimization",
+      title: "Satış Hunisi Optimizasyonu",
+    },
+    {
+      val: "growth-hacking",
+      title: "Büyüme Odaklı Pazarlama (Growth Hacking)",
+    },
+    {
+      val: "funding-assistance",
+      title: "Finansman Destek ve Danışmanlık",
+    },
+    {
+      val: "legal-compliance",
+      title: "Yasal Uyumluluk ve Danışmanlık",
+    },
+    {
+      val: "human-resources-solutions",
+      title: "İnsan Kaynakları Çözümleri",
+    },
+    {
+      val: "scaling-strategy",
+      title: "Ölçeklendirme Stratejisi",
+    },
+  ]);
+  return (
+    <Flex justifyContent={"center"} direction={"column"}>
+      <FormControl isRequired>
+        <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
+        <CheckboxGroup>
+          <Flex
+            justifyContent={"space-between"}
+            spacing={[1, 5]}
+            direction={["column"]}
+            gap={2.4}
+          >
+            {services.map((module) => (
+              <Checkbox key={module.val} value={module.val}>
+                {module.title}
+              </Checkbox>
+            ))}
+
+            <Checkbox value="other">Diğer</Checkbox>
+          </Flex>
+        </CheckboxGroup>
+      </FormControl>
+    </Flex>
+  );
 };
 
-const LogoStudyComponent = () => {
-  return <Box>LogoStudyComponent</Box>;
+const ProductionComponent = () => {
+  const [value, setValue] = React.useState("");
+  const [services, setServices] = React.useState([
+    {
+      val: "digital-ad-production",
+      title: "Dijital Reklam Prodüksiyonu",
+    },
+    {
+      val: "promo-video-animation",
+      title: "Tanıtım Videoları ve Animasyonlar",
+    },
+    {
+      val: "corporate-video-production",
+      title: "Kurumsal Videolar ve Şirket Tanıtımları",
+    },
+    {
+      val: "educational-video-production",
+      title: "Eğitim Videoları ve E-Öğrenme İçerikleri",
+    },
+    {
+      val: "live-event-production",
+      title: "Canlı Yayın ve Etkinlik Prodüksiyonu",
+    },
+    {
+      val: "music-video-production",
+      title: "Sanatsal Müzik Videoları ve Görsel Efektler",
+    },
+    {
+      val: "radio-ad-production",
+      title: "Radyo ve Sesli Reklam Prodüksiyonu",
+    },
+    {
+      val: "podcast-production",
+      title: "Podcast Prodüksiyon ve Ses Düzenlemesi",
+    },
+    {
+      val: "3d-modeling-visualization",
+      title: "3D Modelleme ve Görselleştirme Hizmetleri",
+    },
+    {
+      val: "tv-web-series-production",
+      title: "TV ve Online Dizi Prodüksiyonu",
+    },
+    {
+      val: "digital-marketing-content",
+      title: "Dijital Pazarlama Kampanyaları için Görsel İçerikler",
+    },
+    {
+      val: "stage-design-visuals",
+      title: "Sahne Tasarımı ve Görsel Şovlar",
+    },
+    {
+      val: "product-presentation-videos",
+      title: "Ürün Tanıtım Videoları ve Tanıtım Filmleri",
+    },
+    {
+      val: "documentary-production",
+      title: "Belgesel Yapım ve Belgesel İçerik Üretimi",
+    },
+    {
+      val: "character-animation",
+      title: "Karakter Tasarımı ve Animasyonları",
+    },
+  ]);
+
+  return (
+    <Flex justifyContent={"center"} direction={"column"}>
+      <FormControl isRequired>
+        <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
+        <CheckboxGroup>
+          <Flex
+            justifyContent={"space-between"}
+            spacing={[1, 5]}
+            direction={["column"]}
+            gap={2.4}
+          >
+            {services.map((module) => (
+              <Checkbox key={module.val} value={module.val}>
+                {module.title}
+              </Checkbox>
+            ))}
+
+            <Checkbox value="other">Diğer</Checkbox>
+          </Flex>
+        </CheckboxGroup>
+      </FormControl>
+    </Flex>
+  );
 };
+const CorporateIdentityStudyComponent = () => {
+  const [value, setValue] = React.useState("");
+  const [services, setServices] = React.useState([
+    {
+      val: "logo-design",
+      title: "Logo Tasarımı",
+    },
+    {
+      val: "color-palette",
+      title: "Renk Paleti",
+    },
+    {
+      val: "typography",
+      title: "Tipografi",
+    },
+    {
+      val: "stationery-design",
+      title: "Kartvizit ve Mektup Kağıdı Tasarımı",
+    },
+    {
+      val: "corporate-documents",
+      title: "Kurumsal Dökümanlar",
+    },
+    {
+      val: "website-design",
+      title: "Web Sitesi ve Diğer Dijital Varlıklar",
+    },
+    {
+      val: "packaging-design",
+      title: "Ambalaj Tasarımı",
+    },
+    {
+      val: "marketing-materials",
+      title: "Reklam ve Pazarlama Malzemeleri",
+    },
+    {
+      val: "social-media-content",
+      title: "Sosyal Medya ve İçerik Yönetimi",
+    },
+    {
+      val: "corporate-communication-tone",
+      title: "Kurumsal İletişim ve Tonu",
+    },
+    {
+      val: "brand-guidelines",
+      title: "Marka Kılavuzu",
+    },
+    {
+      val: "visual-identity",
+      title: "Görsel Kimlik",
+    },
+    {
+      val: "brand-storytelling",
+      title: "Marka Hikayesi Anlatımı",
+    },
+    {
+      val: "brand-audit",
+      title: "Marka Denetimi",
+    },
+    {
+      val: "brand-positioning",
+      title: "Marka Konumlandırma",
+    },
+  ]);
+  return (
+    <Flex justifyContent={"center"} direction={"column"}>
+      <FormControl isRequired>
+        <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
+        <CheckboxGroup>
+          <Flex
+            justifyContent={"space-between"}
+            spacing={[1, 5]}
+            direction={["column"]}
+            gap={2.4}
+          >
+            {services.map((module) => (
+              <Checkbox key={module.val} value={module.val}>
+                {module.title}
+              </Checkbox>
+            ))}
+
+            <Checkbox value="other">Diğer</Checkbox>
+          </Flex>
+        </CheckboxGroup>
+      </FormControl>
+    </Flex>
+  );
+};
+const TestOtomationComponent = () => {
+  const [value, setValue] = React.useState("");
+  const [services, setServices] = React.useState([
+    {
+      val: "test-strategy",
+      title: "Test Stratejisi Geliştirme",
+    },
+    {
+      val: "test-case-design",
+      title: "Test Senaryo Tasarımı",
+    },
+    {
+      val: "test-automation-framework",
+      title: "Test Otomasyon Çerçevesi",
+    },
+    {
+      val: "automated-testing-scripts",
+      title: "Otomatik Test Scriptleri",
+    },
+    {
+      val: "continuous-integration",
+      title: "Sürekli Entegrasyon",
+    },
+    {
+      val: "performance-testing",
+      title: "Performans Testleri",
+    },
+    {
+      val: "security-testing",
+      title: "Güvenlik Testleri",
+    },
+    {
+      val: "load-testing",
+      title: "Yük Testleri",
+    },
+    {
+      val: "mobile-app-testing",
+      title: "Mobil Uygulama Testleri",
+    },
+    {
+      val: "cross-browser-testing",
+      title: "Çapraz Tarayıcı Testleri",
+    },
+    {
+      val: "test-data-management",
+      title: "Test Verisi Yönetimi",
+    },
+    {
+      val: "test-environment-setup",
+      title: "Test Ortamı Kurulumu",
+    },
+    {
+      val: "defect-tracking",
+      title: "Hata İzleme ve Takibi",
+    },
+    {
+      val: "test-reporting",
+      title: "Test Raporlama",
+    },
+    {
+      val: "test-automation-tools",
+      title: "Test Otomasyon Araçları",
+    },
+  ]);
+  return (
+    <Flex justifyContent={"center"} direction={"column"}>
+      <FormControl isRequired>
+        <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
+        <CheckboxGroup>
+          <Flex
+            justifyContent={"space-between"}
+            spacing={[1, 5]}
+            direction={["column"]}
+            gap={2.4}
+          >
+            {services.map((module) => (
+              <Checkbox key={module.val} value={module.val}>
+                {module.title}
+              </Checkbox>
+            ))}
+
+            <Checkbox value="other">Diğer</Checkbox>
+          </Flex>
+        </CheckboxGroup>
+      </FormControl>
+    </Flex>
+  );
+};
+
 const DigitalMarketingComponent = () => {
-  return <Box>DigitalMarketingComponent</Box>;
+  const [value, setValue] = React.useState("");
+  const [services, setServices] = React.useState([
+    {
+      val: "digital-marketing-strategy",
+      title: "Dijital Pazarlama Stratejisi",
+    },
+    {
+      val: "search-engine-optimization",
+      title: "Arama Motoru Optimizasyonu (SEO)",
+    },
+    {
+      val: "pay-per-click-advertising",
+      title: "Tıklama Başına Ödeme Reklamcılığı (PPC)",
+    },
+    {
+      val: "content-marketing",
+      title: "İçerik Pazarlama",
+    },
+    {
+      val: "social-media-marketing",
+      title: "Sosyal Medya Pazarlama",
+    },
+    {
+      val: "email-marketing",
+      title: "E-posta Pazarlama",
+    },
+    {
+      val: "influencer-marketing",
+      title: "Etkileyici Pazarlama",
+    },
+    {
+      val: "affiliate-marketing",
+      title: "Satış Ortaklığı Pazarlama",
+    },
+    {
+      val: "online-advertising",
+      title: "Online Reklamcılık",
+    },
+    {
+      val: "video-marketing",
+      title: "Video Pazarlama",
+    },
+    {
+      val: "web-analytics",
+      title: "Web Analitiği",
+    },
+    {
+      val: "conversion-rate-optimization",
+      title: "Dönüşüm Oranı Optimizasyonu (CRO)",
+    },
+    {
+      val: "marketing-automation",
+      title: "Pazarlama Otomasyonu",
+    },
+    {
+      val: "mobile-marketing",
+      title: "Mobil Pazarlama",
+    },
+    {
+      val: "customer-relationship-management",
+      title: "Müşteri İlişkileri Yönetimi (CRM)",
+    },
+  ]);
+  return (
+    <Flex justifyContent={"center"} direction={"column"}>
+      <FormControl isRequired>
+        <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
+        <CheckboxGroup>
+          <Flex
+            justifyContent={"space-between"}
+            spacing={[1, 5]}
+            direction={["column"]}
+            gap={2.4}
+          >
+            {services.map((module) => (
+              <Checkbox key={module.val} value={module.val}>
+                {module.title}
+              </Checkbox>
+            ))}
+
+            <Checkbox value="other">Diğer</Checkbox>
+          </Flex>
+        </CheckboxGroup>
+      </FormControl>
+    </Flex>
+  );
 };
+
 
 const FirstStep = () => {
   const [selectedService, setSelectedService] = useState(null);
