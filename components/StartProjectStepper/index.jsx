@@ -101,6 +101,10 @@ function RadioServiceCard(props) {
 const WebSiteComponent = () => {
   const [selectedOption, setSelectedOption] = useState("new-website");
 
+  const [projectType, setProjectType] = useState("individual");
+  const [checkedItems, setCheckedItems] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
+
   const [modules, setModules] = React.useState([
     {
       val: "user-management",
@@ -219,9 +223,6 @@ const WebSiteComponent = () => {
     },
   ]);
 
-  const [projectType, setProjectType] = useState("individual");
-  const [checkedItems, setCheckedItems] = useState([]);
-
   const filteredModules = modules.filter((module) =>
     module.support.includes(projectType)
   );
@@ -236,6 +237,7 @@ const WebSiteComponent = () => {
       title: "Bir web sitem var, yenilemek istiyorum",
     },
   ];
+
   const optionsProjectTypes = [
     {
       value: "individual",
@@ -254,6 +256,7 @@ const WebSiteComponent = () => {
       title: "Diğer",
     },
   ];
+
   const optionsCheckedItems = [
     {
       value: "individual",
@@ -308,7 +311,10 @@ const WebSiteComponent = () => {
             />
           </FormControl>
 
-          <FileUpload />
+          <FileUpload
+            selectedFile={selectedFile}
+            setSelectedFile={setSelectedFile}
+          />
         </>
       )}
       {selectedOption === "restore-website" && (
@@ -335,22 +341,32 @@ const WebSiteComponent = () => {
 
 const MobileAppComponent = () => {
   const [platform, setPlatform] = useState("");
+  const options = [
+    {
+      value: "ios-platfrom",
+      title: "App Store (iOS",
+    },
+    {
+      value: "android-platfrom",
+      title: "Google Play Store (Android)",
+    },
+    {
+      value: "all-platform",
+      title: "Tümü",
+    },
+  ];
   return (
     <Flex direction={"column"} gap={4}>
       <FormControl isRequired>
         <FormLabel>
           Projenizin hangi platformlarda yer almasını istiyorsunuz?
         </FormLabel>
-        <RadioGroup onChange={setPlatform} value={platform}>
-          <Flex
-            justifyContent={"space-between"}
-            direction={{ base: "column", md: "row" }}
-          >
-            <Radio value="ios-platfrom">App Store (iOS)</Radio>
-            <Radio value="android-platfrom">Google Play Store (Android)</Radio>
-            <Radio value="all-platform">E-ticaret , Pazaryeri</Radio>
-          </Flex>
-        </RadioGroup>
+
+        <ServiceSelectionRadioCard
+          name="SelectPlatform"
+          options={options}
+          setSelectedOption={setPlatform}
+        />
       </FormControl>
     </Flex>
   );
@@ -1011,7 +1027,7 @@ function StartProjectStepper() {
         </Flex>
       </Box>
       <Flex w={"full"} direction={"column"} m={4} borderRadius={"15px"}>
-        <step.Component /*ref={ref} */ />
+        <step.Component ref={ref} />
       </Flex>
       <ButtonGroup p={3} m={3}>
         <Button

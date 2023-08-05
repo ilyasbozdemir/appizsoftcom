@@ -5,7 +5,7 @@ import { Flex, useRadioGroup } from "@chakra-ui/react";
 function ServiceSelectionRadioCard({name, options, setSelectedOption }) {
   const { getRootProps, getRadioProps } = useRadioGroup({
     name,
-    defaultValue: options[0],
+    defaultValue: options[0].value,
     onChange: setSelectedOption,
   });
   const group = getRootProps();

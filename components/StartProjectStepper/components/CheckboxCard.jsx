@@ -36,8 +36,8 @@ function CustomCheckbox(props) {
       <Flex
         alignItems="center"
         justifyContent="center"
-        border="2px solid"
-        borderColor="primary.100"
+        border={"2px solid"}
+        borderColor={"primary.100"}
         w={4}
         h={4}
         {...getCheckboxProps()}
