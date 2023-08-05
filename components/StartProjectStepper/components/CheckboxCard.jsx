@@ -19,13 +19,17 @@ function CustomCheckbox(props) {
       flexDirection="row"
       alignItems="center"
       gridColumnGap={2}
-      bg="teal.50"
-      border="1px solid"
-      borderColor="primary.100"
+      cursor="pointer"
+      borderWidth="1px"
+      borderRadius="md"
+      boxShadow="md"
       rounded="lg"
+
+      bg={state.isChecked && "teal.50"}
+      border={state.isChecked && "1px solid"}
+      borderColor={state.isChecked && "primary.100"}
       px={3}
       py={1}
-      cursor="pointer"
       {...htmlProps}
     >
       <input {...getInputProps()} hidden />
@@ -48,8 +52,6 @@ function CustomCheckbox(props) {
 }
 
 function CheckboxCard({ options, checkedItems, setCheckedItems }) {
-
-
   const { value, getCheckboxProps } = useCheckboxGroup({
     onChange: setCheckedItems,
   });
@@ -58,13 +60,13 @@ function CheckboxCard({ options, checkedItems, setCheckedItems }) {
     <Flex direction={"column"} gap={5}>
       {value.length === 1 && (
         <HStack>
-          <Text fontWeight={'semibold'}>Seçilen Modül:</Text>
+          <Text fontWeight={"semibold"}>Seçilen Modül:</Text>
           <Text> {value.sort().join("")}</Text>
         </HStack>
       )}
       {value.length >= 2 && (
         <HStack>
-          <Text fontWeight={'semibold'}>Seçilen Modüller:</Text>
+          <Text fontWeight={"semibold"}>Seçilen Modüller:</Text>
           <Text>{value.sort().join(", ")}</Text>
         </HStack>
       )}
