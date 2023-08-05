@@ -222,10 +222,6 @@ const WebSiteComponent = () => {
   const [projectType, setProjectType] = useState("individual");
   const [checkedItems, setCheckedItems] = useState([]);
 
-  useEffect(() => {
-    console.table(checkedItems);
-  }, []);
-
   const filteredModules = modules.filter((module) =>
     module.support.includes(projectType)
   );
@@ -308,7 +304,6 @@ const WebSiteComponent = () => {
 
             <CheckboxCard
               options={filteredModules}
-              checkedItems={checkedItems}
               setCheckedItems={setCheckedItems}
             />
           </FormControl>

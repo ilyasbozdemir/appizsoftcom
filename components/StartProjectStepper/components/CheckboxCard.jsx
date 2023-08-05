@@ -2,6 +2,7 @@ import {
   Box,
   chakra,
   Flex,
+  HStack,
   Stack,
   Text,
   useCheckbox,
@@ -47,29 +48,25 @@ function CustomCheckbox(props) {
 }
 
 function CheckboxCard({ options, checkedItems, setCheckedItems }) {
- const handleCheckboxChange = () => {
-    setCheckedItems(value)
-  };
- 
+
+
   const { value, getCheckboxProps } = useCheckboxGroup({
-    onChange: handleCheckboxChange,
+    onChange: setCheckedItems,
   });
-
-  
-
-
 
   return (
     <Flex direction={"column"} gap={5}>
       {value.length === 1 && (
-        <>
-          <Text>Seçilen Modül: {value.sort().join("")}</Text>
-        </>
+        <HStack>
+          <Text fontWeight={'semibold'}>Seçilen Modül:</Text>
+          <Text> {value.sort().join("")}</Text>
+        </HStack>
       )}
       {value.length >= 2 && (
-        <>
-          <Text>Seçilen Modüller: {value.sort().join(", ")}</Text>
-        </>
+        <HStack>
+          <Text fontWeight={'semibold'}>Seçilen Modüller:</Text>
+          <Text>{value.sort().join(", ")}</Text>
+        </HStack>
       )}
 
       <Flex
