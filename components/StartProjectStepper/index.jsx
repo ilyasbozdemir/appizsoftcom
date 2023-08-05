@@ -3,14 +3,10 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Center,
   Flex,
   FormControl,
-  FormHelperText,
   FormLabel,
-  HStack,
   Icon,
-  SimpleGrid,
   Step,
   StepDescription,
   StepIcon,
@@ -40,15 +36,15 @@ import {
   InputRightAddon,
   FormErrorMessage,
 } from "@chakra-ui/react";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { MdWeb, MdOutlineProductionQuantityLimits } from "react-icons/md";
-import { PiBasket } from "react-icons/pi";
 import { TfiMobile } from "react-icons/tfi";
 import { SiPytest } from "react-icons/si";
-import { FaPenNib } from "react-icons/fa";
-import axios from "axios";
 import FileUpload from "./components/FileUpload";
+import UrlInput from "./components/UrlInput";
+import RadioCard from "./components/RadioCard";
+import ServiceSelectionRadioCard from "./components/ServiceSelectionRadioCard";
+import CheckboxCard from "./components/CheckboxCard";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -103,11 +99,7 @@ function RadioServiceCard(props) {
 }
 
 const WebSiteComponent = () => {
-  const [value, setValue] = React.useState("");
-  const [url, setUrl] = React.useState("");
-  const [urlErrorMessage, setUrlErrorMessage] = useState(false);
-  const [isUrlValid, setIsUrlValid] = useState(false);
-  const isError = url === "";
+  const [selectedOption, setSelectedOption] = useState("new-website");
 
   const [modules, setModules] = React.useState([
     {
@@ -228,41 +220,85 @@ const WebSiteComponent = () => {
   ]);
 
   const [projectType, setProjectType] = useState("individual");
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  useEffect(() => {
+    console.table(checkedItems);
+  }, []);
+
   const filteredModules = modules.filter((module) =>
     module.support.includes(projectType)
   );
-  
+
+  const options = [
+    {
+      value: "new-website",
+      title: "Yeni bir web sitesi istiyorum",
+    },
+    {
+      value: "restore-website",
+      title: "Bir web sitem var, yenilemek istiyorum",
+    },
+  ];
+  const optionsProjectTypes = [
+    {
+      value: "individual",
+      title: "Bireysel - Portfolyo",
+    },
+    {
+      value: "institutional",
+      title: "Kurumsal - Şirket",
+    },
+    {
+      value: "e-commerce",
+      title: "E-ticaret , Pazaryeri",
+    },
+    {
+      value: "other",
+      title: "Diğer",
+    },
+  ];
+  const optionsCheckedItems = [
+    {
+      value: "individual",
+      title: "Bireysel - Portfolyo",
+    },
+    {
+      value: "institutional",
+      title: "Kurumsal - Şirket",
+    },
+    {
+      value: "e-commerce",
+      title: "E-ticaret , Pazaryeri",
+    },
+    {
+      value: "other",
+      title: "Bir web sitem var, yenilemek istiyorum",
+    },
+  ];
 
   return (
-    <Flex direction={"column"} gap={4}>
+    <Flex direction={"column"} gap={4} p={5}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-        <RadioGroup onChange={setValue} value={value}>
-          <Stack direction={{ base: "column", md: "row" }}>
-            <Radio value="new-website">Yeni bir web sitesi istiyorum</Radio>
-            <Radio value="restore-website">
-              Bir web sitem var, yenilemek istiyorum
-            </Radio>
-          </Stack>
-        </RadioGroup>
+
+        <ServiceSelectionRadioCard
+          name="websiteServices"
+          options={options}
+          setSelectedOption={setSelectedOption}
+        />
       </FormControl>
-      {value === "new-website" && (
+      {selectedOption === "new-website" && (
         <>
           <FormControl isRequired>
             <FormLabel>
               Websitesi için hangisi sizin ihtiyacınızı karşılıyor
             </FormLabel>
-            <RadioGroup onChange={setProjectType} value={projectType}>
-              <Flex
-                justifyContent={"space-between"}
-                direction={{ base: "column", md: "row" }}
-              >
-                <Radio value="individual">Bireysel - Portfolyo </Radio>
-                <Radio value="institutional">Kurumsal - Şirket</Radio>
-                <Radio value="e-commerce">E-ticaret , Pazaryeri</Radio>
-                <Radio value="other">Diğer</Radio>
-              </Flex>
-            </RadioGroup>
+            <ServiceSelectionRadioCard
+              name="setProjectTypeServices"
+              options={optionsProjectTypes}
+              setSelectedOption={setProjectType}
+            />
           </FormControl>
 
           <FormControl>
@@ -270,43 +306,20 @@ const WebSiteComponent = () => {
               Eğer varsa yeni web sitenizde modül ihityaçlarınız nelerdir?
             </FormLabel>
 
-            <CheckboxGroup>
-              <Stack
-                justifyContent={"space-between"}
-                spacing={[1, 5]}
-                direction={["column", "row"]}
-                flexWrap={"wrap"}
-              >
-                {filteredModules.map((module) => (
-                  <Checkbox key={module.val} value={module.val}>
-                    {module.title}
-                  </Checkbox>
-                ))}
-
-                <Checkbox value="other">Diğer</Checkbox>
-              </Stack>
-            </CheckboxGroup>
+            <CheckboxCard
+              options={filteredModules}
+              checkedItems={checkedItems}
+              setCheckedItems={setCheckedItems}
+            />
           </FormControl>
 
           <FileUpload />
         </>
       )}
-      {value === "restore-website" && (
+      {selectedOption === "restore-website" && (
         <>
-          <FormControl w={{ base: "full", md: "450px" }} isInvalid={isError}>
-            <FormLabel>Mevcut web sitenizin adresi nedir?</FormLabel>
-            <InputGroup size="sm">
-              <InputLeftAddon children="https://" />
-              <Input
-                placeholder="example: appizsoft.com"
-                value={url}
-                onChange={(e) => {
-                  setUrl(e.target.value);
-                }}
-              />
-            </InputGroup>
-            <FormErrorMessage>{urlErrorMessage}</FormErrorMessage>
-          </FormControl>
+          <UrlInput />
+
           <FormControl w={{ base: "full", md: "450px" }}>
             <FormLabel>
               Mevcut web sitenizde memnun olmadığınız noktalar:
