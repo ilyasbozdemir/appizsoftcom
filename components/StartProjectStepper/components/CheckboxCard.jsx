@@ -7,6 +7,7 @@ import {
   Text,
   useCheckbox,
   useCheckboxGroup,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 function CustomCheckbox(props) {
@@ -24,12 +25,11 @@ function CustomCheckbox(props) {
       borderRadius="md"
       boxShadow="md"
       rounded="lg"
-
       bg={state.isChecked && "teal.50"}
       border={state.isChecked && "1px solid"}
       borderColor={state.isChecked && "primary.100"}
-      px={3}
-      py={1}
+      px={5}
+      py={3}
       {...htmlProps}
     >
       <input {...getInputProps()} hidden />
@@ -44,7 +44,13 @@ function CustomCheckbox(props) {
       >
         {state.isChecked && <Box w={2} h={2} bg="primary.100" />}
       </Flex>
-      <Text color="gray.700" {...getLabelProps()}>
+      <Text
+        color={useColorModeValue(
+          "gray.700",
+          state.isChecked ? "gray.900" : "gray.200"
+        )}
+        {...getLabelProps()}
+      >
         {props.value}
       </Text>
     </chakra.label>
@@ -58,6 +64,7 @@ function CheckboxCard({ options, checkedItems, setCheckedItems }) {
 
   return (
     <Flex direction={"column"} gap={5}>
+      {/*
       {value.length === 1 && (
         <HStack>
           <Text fontWeight={"semibold"}>Seçilen Modül:</Text>
@@ -70,6 +77,7 @@ function CheckboxCard({ options, checkedItems, setCheckedItems }) {
           <Text>{value.sort().join(", ")}</Text>
         </HStack>
       )}
+      */}
 
       <Flex
         direction={{ base: "column", md: "row" }}

@@ -1,4 +1,4 @@
-import { Box, useRadio } from "@chakra-ui/react";
+import { Box, useColorModeValue, useRadio } from "@chakra-ui/react";
 
 // 1. Create a component that consumes the `useRadio` hook
 function RadioCard(props) {
@@ -16,10 +16,18 @@ function RadioCard(props) {
         borderWidth="1px"
         borderRadius="md"
         boxShadow="md"
+        /*
+   bg={state.isChecked && "teal.50"}
+      border={state.isChecked && "1px solid"}
+      borderColor={state.isChecked && "primary.100"}
+
+*/
+
         _checked={{
-          bg: "primary.100",
-          color: "white",
-          borderColor: "teal.600",
+          bg: "teal.50",
+          color: useColorModeValue("gray.700", "gray.900"),
+          border: "1px solid",
+          borderColor: "primary.100",
         }}
         px={5}
         py={3}
@@ -29,9 +37,5 @@ function RadioCard(props) {
     </Box>
   );
 }
-
-
-
-
 
 export default RadioCard;
