@@ -1,4 +1,4 @@
-import { Flex, FormControl, FormLabel, Input, Text } from "@chakra-ui/react";
+import { Flex, FormControl, FormLabel, Input, Text,Box, useBreakpointValue } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Button } from "react-scroll";
 
@@ -34,23 +34,19 @@ function FileUpload() {
           align="center"
           justify="center"
           p="6"
-          border="2px dashed #ccc"
+          border={useBreakpointValue({md:'2px dashed #ccc'})}
           borderRadius="8px"
           cursor="pointer"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
-          <FormLabel htmlFor="fileInput">
-            <Text fontSize="lg">
+          <FormLabel display={{base:'none',md:'initial'}}>
+            <Text fontSize="lg"  cursor="pointer">
               Projenize ait dosya varsa ekleyiniz veya sürükleyip bırakınız.
             </Text>
           </FormLabel>
-          <Input
-            id="fileInput"
-            type="file"
-            display={"none"}
-            onChange={handleFileChange}
-          />
+
+          <Input type="file" display={{base:'initial',md:'none'}} onChange={handleFileChange} />
         </Flex>
 
         {selectedFile ? (
