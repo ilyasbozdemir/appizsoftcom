@@ -37,9 +37,9 @@ const PortpolyoCTA = () => {
             >
               <Center>
                 <Flex direction={"column"}>
-                  <Text fontSize={65}>Portpolyo</Text>
+                  <Text fontSize={65}>Portfolyo</Text>
                   <center>
-                    <PagesBreadcrumb currentPage={"Portpolyo"} />
+                    <PagesBreadcrumb currentPage={"Portfolyo"} />
                   </center>
                 </Flex>
               </Center>
@@ -49,7 +49,7 @@ const PortpolyoCTA = () => {
 
         {isMobile && (
           <Box mx={3}>
-            <PagesBreadcrumb currentPage={"Portpolyo"} />
+            <PagesBreadcrumb currentPage={"Portfolyo"} />
           </Box>
         )}
       </Flex>
