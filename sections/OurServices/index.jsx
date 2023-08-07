@@ -42,7 +42,7 @@ const ServicesCard = (props) => {
               alt={title}
               height={70}
               width={70}
-              src={img}
+              src={`${baseImagePath}`+img}
               style={{
                 draggable: false,
               }}

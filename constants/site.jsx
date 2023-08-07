@@ -8,7 +8,7 @@ import { facebookPixelCode } from "../lib/facebookPixelCode";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://appizsoft.com"
+    ? "http://www.appizsoft.com/"
     : "http://localhost:3000";
 
 //https://appizsoft.com
