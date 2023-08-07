@@ -440,22 +440,7 @@ const StartupSolutionsComponent = () => {
     <Flex justifyContent={"center"} direction={"column"}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-        <CheckboxGroup>
-          <Flex
-            justifyContent={"space-between"}
-            spacing={[1, 5]}
-            direction={["column"]}
-            gap={2.4}
-          >
-            {services.map((module) => (
-              <Checkbox key={module.val} value={module.val}>
-                {module.title}
-              </Checkbox>
-            ))}
-
-            <Checkbox value="other">Diğer</Checkbox>
-          </Flex>
-        </CheckboxGroup>
+        <CheckboxCard options={services} setCheckedItems={setValue} />
       </FormControl>
     </Flex>
   );
@@ -530,22 +515,7 @@ const ProductionComponent = () => {
     <Flex justifyContent={"center"} direction={"column"}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-        <CheckboxGroup>
-          <Flex
-            justifyContent={"space-between"}
-            spacing={[1, 5]}
-            direction={["column"]}
-            gap={2.4}
-          >
-            {services.map((module) => (
-              <Checkbox key={module.val} value={module.val}>
-                {module.title}
-              </Checkbox>
-            ))}
-
-            <Checkbox value="other">Diğer</Checkbox>
-          </Flex>
-        </CheckboxGroup>
+        <CheckboxCard options={services} setCheckedItems={setValue} />
       </FormControl>
     </Flex>
   );
@@ -618,22 +588,7 @@ const CorporateIdentityStudyComponent = () => {
     <Flex justifyContent={"center"} direction={"column"}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-        <CheckboxGroup>
-          <Flex
-            justifyContent={"space-between"}
-            spacing={[1, 5]}
-            direction={["column"]}
-            gap={2.4}
-          >
-            {services.map((module) => (
-              <Checkbox key={module.val} value={module.val}>
-                {module.title}
-              </Checkbox>
-            ))}
-
-            <Checkbox value="other">Diğer</Checkbox>
-          </Flex>
-        </CheckboxGroup>
+        <CheckboxCard options={services} setCheckedItems={setValue} />
       </FormControl>
     </Flex>
   );
@@ -706,22 +661,7 @@ const TestOtomationComponent = () => {
     <Flex justifyContent={"center"} direction={"column"}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-        <CheckboxGroup>
-          <Flex
-            justifyContent={"space-between"}
-            spacing={[1, 5]}
-            direction={["column"]}
-            gap={2.4}
-          >
-            {services.map((module) => (
-              <Checkbox key={module.val} value={module.val}>
-                {module.title}
-              </Checkbox>
-            ))}
-
-            <Checkbox value="other">Diğer</Checkbox>
-          </Flex>
-        </CheckboxGroup>
+        <CheckboxCard options={services} setCheckedItems={setValue} />
       </FormControl>
     </Flex>
   );
@@ -795,22 +735,8 @@ const DigitalMarketingComponent = () => {
     <Flex justifyContent={"center"} direction={"column"}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-        <CheckboxGroup>
-          <Flex
-            justifyContent={"space-between"}
-            spacing={[1, 5]}
-            direction={["column"]}
-            gap={2.4}
-          >
-            {services.map((module) => (
-              <Checkbox key={module.val} value={module.val}>
-                {module.title}
-              </Checkbox>
-            ))}
+        <CheckboxCard options={services} setCheckedItems={setValue} />
 
-            <Checkbox value="other">Diğer</Checkbox>
-          </Flex>
-        </CheckboxGroup>
       </FormControl>
     </Flex>
   );
@@ -1055,4 +981,4 @@ function StartProjectStepper() {
   );
 }
 
-export default StartProjectStepper;
+export default StartProjectStepper
