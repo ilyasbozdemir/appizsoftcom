@@ -41,16 +41,19 @@ const MagicLinkForm = () => {
             rounded="lg"
             boxShadow="lg"
           >
+
+
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input type="email" placeholder="Your email" rounded="md" />
             </FormControl>
 
+
             <Button
-              bg="blue.400"
+              bg="green.700"
               color="white"
               _hover={{
-                bg: "blue.500",
+                bg: "green.500",
               }}
               rounded="md"
               w="100%"
