@@ -203,6 +203,14 @@ const hiringProcessFAQ = [
       "Mülakatta teknik becerilere, deneyime ve problem çözme yeteneklerine odaklanan sorular sorulabilir.",
   },
 ];
+const faqMarkup = hiringProcessFAQ.map((faq, index) => ({
+  "@type": "Question",
+  name: faq.question,
+  acceptedAnswer: {
+    "@type": "Answer",
+    text: faq.answer,
+  },
+}));
 
 const HiringProcess = () => {
   return (
@@ -265,7 +273,7 @@ const JoinUsSection = () => {
       textAlign="center"
       boxShadow="xl"
     >
-      <Heading as="h2" size="2xl" mb={4}>
+      <Heading as="h2" size={{ base: "xl", md: "2xl" }} mb={4}>
         Daha Büyük Bir Geleceği Şekillendirin
       </Heading>
       <Text fontSize="xl" mb={6}>
@@ -323,7 +331,7 @@ const EmployeeBenefits = () => {
 
 const OpenPositions = () => {
   return (
-    <>
+    <Flex direction={"column"}>
       <Flex direction={"column"} gap={5} mt={5}>
         <Flex
           direction={{ base: "column" }}
@@ -368,7 +376,89 @@ const OpenPositions = () => {
           </React.Fragment>
         ))}
       </Flex>
-    </>
+      <Flex direction={"column"} gap={5} mt={5}>
+        <Flex
+          direction={{ base: "column" }}
+          justifyContent={"space-between"}
+          gap={5}
+        >
+          <Text fontWeight={"semibold"} fontSize={{ base: 25, md: 35 }}>
+            Tasarım
+          </Text>
+          <Text fontSize={20}>
+          Görseller ve etkileşimler revoksda sınır tanımıyor. Biçim ve işlevi sorunsuz bir şekilde harmanlayan birinci sınıf ürünler ve deneyimler sunmak için her yerden, her şeyle başlıyoruz.
+          </Text>
+        </Flex>
+
+        <Center mb={5} mt={2}>
+          <Flex direction={"column"} justifyContent={"center"} gap={3}>
+            <Heading as="h2" fontSize={24} pos="relative">
+              Açık Pozisyonlar
+            </Heading>
+          </Flex>
+        </Center>
+        <Divider />
+        {careers.map((career, index) => (
+          <React.Fragment key={index}>
+            {career.type === "Design" && (
+              <Box>
+                <CareerCard
+                  title={career.title}
+                  description={career.description}
+                  location={career.location}
+                  pageLoc={career.pageLoc}
+                  requirements={career.requirements}
+                  employmentType={career.employmentType}
+                />
+
+                {careers.length - 2 !== index && <Divider my={4} />}
+              </Box>
+            )}
+          </React.Fragment>
+        ))}
+      </Flex>
+      <Flex direction={"column"} gap={5} mt={5}>
+        <Flex
+          direction={{ base: "column" }}
+          justifyContent={"space-between"}
+          gap={5}
+        >
+          <Text fontWeight={"semibold"} fontSize={{ base: 25, md: 35 }}>
+          Paylaşılan Hizmetler
+          </Text>
+          <Text fontSize={20}>
+          Görseller ve etkileşimler revoksda sınır tanımıyor. Biçim ve işlevi sorunsuz bir şekilde harmanlayan birinci sınıf ürünler ve deneyimler sunmak için her yerden, her şeyle başlıyoruz.
+          </Text>
+        </Flex>
+
+        <Center mb={5} mt={2}>
+          <Flex direction={"column"} justifyContent={"center"} gap={3}>
+            <Heading as="h2" fontSize={24} pos="relative">
+              Açık Pozisyonlar
+            </Heading>
+          </Flex>
+        </Center>
+        <Divider />
+        {careers.map((career, index) => (
+          <React.Fragment key={index}>
+            {career.type === "Shared Services" && (
+              <Box>
+                <CareerCard
+                  title={career.title}
+                  description={career.description}
+                  location={career.location}
+                  pageLoc={career.pageLoc}
+                  requirements={career.requirements}
+                  employmentType={career.employmentType}
+                />
+
+                {careers.length - 2 !== index && <Divider my={4} />}
+              </Box>
+            )}
+          </React.Fragment>
+        ))}
+      </Flex>
+    </Flex>
   );
 };
 
@@ -403,6 +493,17 @@ const CareersContent = () => {
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqMarkup,
+            }),
+          }}
+        />
       </Head>
 
       <Container maxW="8xl" p={{ base: 5, md: 10 }}>

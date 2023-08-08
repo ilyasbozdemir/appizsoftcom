@@ -65,6 +65,39 @@ function IndexPage() {
     }
   };
 
+  const sss = [
+    {
+      Question:
+        "Yazılım Hizmetleri için Paket Satın Aldıktan Sonra İade Süreciniz Var mı?",
+      Answer:
+        "Evet, müşteri memnuniyetini önemsiyoruz ve satın alınan yazılım hizmetleri için iade sürecimiz mevcuttur. Eğer satın aldığınız paketle ilgili herhangi bir nedenle memnun kalmazsanız, hizmetinizi alış tarihinden itibaren belirli bir süre içinde (örneğin 30 gün) iade edebilirsiniz. İade politikamız ve şartlar hakkında daha fazla bilgi için lütfen müşteri destek ekibimizle iletişime geçin.",
+    },
+    {
+      Question: "Yazılım Projeleri için Ödeme Yöntemleri Nelerdir?",
+      Answer:
+        "Ödeme yöntemlerimiz çeşitlilik gösterir ve müşterilerimize kolaylık sağlamak amacıyla farklı seçenekler sunuyoruz. Kredi kartı, banka havalesi, PayPal gibi yaygın ödeme yöntemleriyle ödeme kabul ediyoruz. Ayrıca büyük projeler için taksitli ödeme seçenekleri de sunabiliyoruz. Ödeme süreci ve detayları için lütfen satış ekibimizle iletişime geçin.",
+    },
+    {
+      Question: "Yazılım Geliştirme Süreci Ne Kadar Sürer?",
+      Answer:
+        "Yazılım geliştirme süreci projenin karmaşıklığına, özelliklere ve müşteri gereksinimlerine bağlı olarak değişebilir. Küçük ölçekli projeler birkaç hafta içinde tamamlanabilirken, daha büyük ve kapsamlı projeler aylar hatta yıllar sürebilir. Çevik metodoloji kullanarak süreci hızlandırmaya ve müşterilere düzenli güncellemeler sunmaya çalışıyoruz. Detaylı bir zaman çizelgesi için lütfen projenizi ve ihtiyaçlarınızı bize bildirin, size en uygun çözümü sunalım.",
+    },
+    {
+      Question: "Yazılım Projelerinde Gizlilik ve Güvenlik Nasıl Sağlanıyor?",
+      Answer:
+        "Müşteri bilgilerini ve projeleri gizli tutma konusuna büyük önem veriyoruz. Tüm projelerimizde gizlilik sözleşmeleri imzalanır ve müşteri verileri güvenli bir şekilde korunur. Ayrıca, projelerimizde güvenlik önlemleri alarak veri sızıntılarına ve kötü amaçlı saldırılara karşı koruma sağlarız. Yazılım projelerinin tamamlanmasıyla birlikte müşteriye ait olan tüm kaynak kodları ve dosyalar teslim edilir ve firmamızda depolanmaz. Gizlilik ve güvenlik konusundaki detaylı politikalarımız hakkında daha fazla bilgi almak için lütfen bizimle iletişime geçin.",
+    },
+  ];
+
+  const faqMarkup = sss.map((faq, index) => ({
+    "@type": "Question",
+    name: faq.Question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.Answer,
+    },
+  }));
+
   return (
     <>
       <Head>
@@ -93,12 +126,24 @@ function IndexPage() {
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqMarkup,
+            }),
+          }}
+        />
         {/**
             
             json ld dosyası ile breadcrumb organizasyoın 
-            sss rewiev
+            rewiev
             gibi yapıları da ekle
+            
              */}
+
       </Head>
 
       <WindowTitleChanger />
@@ -153,8 +198,8 @@ function IndexPage() {
           </Box>
 
           <Box id={"SSS"} as="section">
-            {isMounted && <LazySSS lang={lang} />}
-          </Box>
+            {isMounted && <LazySSS lang={lang} sss={sss}/>}
+          </Box>  
         </Flex>
       </Container>
     </>

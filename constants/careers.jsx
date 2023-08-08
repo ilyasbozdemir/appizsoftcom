@@ -57,4 +57,21 @@ export const careers = [
     ],
     location: "Remote",
   },
+  {
+    type: "Shared Services",
+    title: "İnsan Kaynakları Uzmanı",
+    pageLoc: "insan-kaynaklari-uzmani",
+    description: `
+      Ekip ruhuna sahip, insan kaynakları süreçlerini yönetebilecek bir uzmana ihtiyacımız var.
+      İstanbul, Türkiye konumunda.
+    `,
+    requirements: [
+      "İnsan kaynakları alanında en az 3 yıl deneyim",
+      "Personel seçimi, eğitimi ve performans yönetimi konularında uzmanlık",
+      "Çalışan ilişkileri yönetimi ve yasal mevzuata hakimiyet",
+      "İletişim becerileri yüksek ve takım çalışmasına yatkın",
+    ],
+    location: "Ankara, Türkiye",
+    employmentType: "Tam Zamanlı",
+  },
 ];
