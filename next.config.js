@@ -13,7 +13,7 @@ module.exports = {
   async headers() {
     return [
       {
-        source: "/(.*\\.(jpg|jpeg|gif|png|bmp))", // Sadece görüntü uzantılarına sahip dosyaları seç
+        source: "/:path*.(jpg|jpeg|gif|png|bmp)", // Uzantıya sahip resim dosyalarını yakala
         headers: [
           {
             key: "Cache-Control",
