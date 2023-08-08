@@ -88,31 +88,14 @@ const CareersCTA = () => {
 const careers = [
   {
     title: "Backend Developer",
-    description: "Skilled backend dev wanted for our growing team.",
-    location: "Ankara, Turkey",
-  },
-  {
-    title: "Frontend Developer",
-    description: "Join us as a frontend dev and craft user experiences.",
-    location: "Remote",
-  },
-  {
-    title: "Full Stack Developer",
-    description: "Versatile full stack developer needed to build it all.",
+    description: `Hızla büyüyen ekibimize katılmak için yetenekli bir backend geliştirici arıyoruz.
+    `,
     location: "Ankara, Türkiye",
   },
-  {
-    title: "Mobile App Developer",
-    description: "Create cutting-edge mobile apps that inspire.",
-    location: "Ankara, Türkiye",
-  },
-  {
-    title: "Game Developer",
-    description: "Passionate game dev to bring virtual worlds to life.",
-    location: "Remote",
-  },
-  // Diğer iş pozisyonları da eklenebilir
+ 
 ];
+
+
 
 const CareerCard = ({ title, description, location }) => {
   return (
