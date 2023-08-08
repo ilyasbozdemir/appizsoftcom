@@ -131,7 +131,7 @@ const CareerCard = ({ title, description, location }) => {
 };
 
 const CareersContent = () => {
-  const publisher = `Appizsoft`;
+  const publisher = `AppizSoft`;
   const title=`Kariyer Fırsatları - Hayalinizdeki Pozisyon İçin Başvurun • AppizSoft`
   const desc=`AppizSoft olarak, büyüyen ekibimize katılarak kariyerinizi şekillendirin. Backend geliştirici, frontend geliştirici, mobil uygulama geliştirici ve daha birçok pozisyon için fırsatları inceleyin.`
   return (

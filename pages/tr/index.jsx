@@ -49,7 +49,7 @@ function IndexPage() {
     setIsMounted(true);
   }, []);
 
-  const publisher = `Appizsoft`;
+  const publisher = `AppizSoft`;
 
   const [runTour, setRunTour] = useState(true);
 
