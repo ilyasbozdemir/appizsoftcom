@@ -91,7 +91,7 @@ const BlogCards = () => {
               >
                 <Flex>
                   <Image
-                    src={blog.imageUrl}
+                    src={`${baseImagePath}${blog.imageUrl}`}
                     alt="Blog Image"
                     height={350}
                     width={450}

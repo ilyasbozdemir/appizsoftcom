@@ -44,7 +44,7 @@ const MetaBusinessPartner = () => {
     <>
       <Link href="#" target="_blank" passHref>
         <Image
-          src="/images/meta-partner.webp"
+          src={`${baseImagePath}/images/meta-partner.webp`}
           alt="Meta-Business-Partner_logo.png"
           width={128}
           height={122}
@@ -68,7 +68,7 @@ const GooglePartner = () => {
     <>
       <Link href={googlePartnersUrl} target="_blank" rel="noopener noreferrer">
         <Image
-          src="/images/google-partner.webp"
+          src={`${baseImagePath}/images/google-partner.webp`}
           alt="google-partner"
           width={128}
           height={122}

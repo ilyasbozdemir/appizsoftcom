@@ -12,7 +12,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-scroll";
-const baseImagePath = "https://appizsoft-static-api.vercel.app/";
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 function PartnersSection() {
   const defaultWidth = 175;
@@ -67,7 +67,7 @@ function PartnersSection() {
             {partners.map((ref) => (
               <Box key={ref.id} p={10}>
                 <Image
-                  src={ref.logo}
+                  src={`${baseImagePath}${ref.logo}`}
                   alt={`Reference ${ref.id}`}
                   width={ref.logoSize.w}
                   height={ref.logoSize.h}
