@@ -12,11 +12,12 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
+import { careers } from "../../../constants/careers";
 
 const MagicLinkForm = () => {
   return (
     <Container maxW="5xl" p={{ base: 5, md: 10 }}>
-      <Stack spacing={4} maxW={{ base: "20rem", sm: "25rem" }} margin="0 auto">
+      <Stack spacing={4} maxW={{ base: "20rem", sm: "45rem" }} margin="0 auto">
         <Stack>
           <Text>aa</Text>
         </Stack>
@@ -41,19 +42,16 @@ const MagicLinkForm = () => {
             rounded="lg"
             boxShadow="lg"
           >
-
-
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input type="email" placeholder="Your email" rounded="md" />
             </FormControl>
 
-
             <Button
-              bg="green.700"
+              bg="teal.700"
               color="white"
               _hover={{
-                bg: "green.500",
+                bg: "teal.500",
               }}
               rounded="md"
               w="100%"
@@ -68,9 +66,13 @@ const MagicLinkForm = () => {
 };
 
 function PositionPage({ career }) {
+  const state = career.pageLoc === "join-us";
   return (
     <>
-      <MagicLinkForm />
+      {state && <>true</>}
+      {!state && <>false</>}
+
+      <MagicLinkForm  title={career.pageLoc}/>
     </>
   );
 }

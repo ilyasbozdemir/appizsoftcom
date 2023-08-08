@@ -63,7 +63,7 @@ const GetAQuoteCTA = () => {
 
 const GetAQuoteContent = () => {
   return (
-    <Container maxW={"7xl"} >
+    <Container maxW={"7xl"}>
       <StartProjectStepper />
     </Container>
   );
@@ -73,11 +73,10 @@ function GetAQuote() {
   const publisher = `AppizSoft`;
   const title = `Yenilikçi Projeleri Hayata Geçirin  • AppizSoft`;
   const desc = `Teknoloji dünyasında sınırları zorlayan, inovasyonu destekleyen ve yaratıcı projelere öncülük eden bir ortak arıyorsanız, projeyi başlat sayfamızla tanışın. İhtiyaçlarınıza özel çözümler sunarak işinizin dijital dönüşümünü gerçekleştiriyoruz. Hemen iletişime geçin ve projelerinizi hayata geçirin.`;
- 
+
   return (
     <>
       <Head>
-
         <title>{title}</title>
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -103,8 +102,6 @@ function GetAQuote() {
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
       </Head>
-
-
 
       <Flex direction={"column"} gap={3}>
         <Box>
