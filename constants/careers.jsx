@@ -31,4 +31,27 @@ export const careers = [
     location: "Uzaktan",
     employmentType: "Tam Zamanlı",
   },
+  {
+    type: "Design",
+    title: "UI/UX Tasarımcısı",
+    pageLoc: "ui-ux-designer",
+    description: `
+    Tasarım ekibimize katılın ve yenilikçi fikirlerle kullanıcı deneyimlerini şekillendirin.
+      `,
+    employmentType: "Yarı Zamanlı",
+    requirements: [
+      "En az 2 yıl deneyimli UI/UX tasarımcısı olmak.",
+      "Kullanıcı arayüzü ve kullanıcı deneyimi tasarımında derinlemesine bilgi sahibi olmak.",
+      "HTML, CSS ve JavaScript gibi temel web teknolojilerini anlamak.",
+      "Kullanıcı araştırmaları yapabilme ve sonuçları tasarım kararlarına dönüştürebilme yeteneğine sahip olmak.",
+      "Farklı cihazlar ve platformlar için uyumlu tasarımlar oluşturabilme yeteneği.",
+      "Kreatif ve yenilikçi tasarım yaklaşımına sahip olmak.",
+      "Adobe Creative Suite veya Sketch gibi tasarım araçlarını etkili bir şekilde kullanabilmek.",
+      "İyi iletişim ve işbirliği becerilerine sahip olmak.",
+      "Takım içi etkileşimleri kolaylaştırma ve projelerde liderlik yapabilme yeteneğine sahip olmak.",
+      "Kullanıcı geri bildirimlerini analiz edebilme ve tasarımı buna göre geliştirme yeteneği.",
+      "Sürekli gelişen tasarım trendlerini takip etme ve güncel kalmak."
+    ],
+    location: "Remote",
+  },
 ];
