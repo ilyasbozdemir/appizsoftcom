@@ -7,7 +7,7 @@ const AboutUsCTA = () => {
   const router = useRouter();
   return (
     <>
-      <Flex h={"250px"} bg="primary.100" w="100%" color="white" justify={"center"}>
+      <Flex h={"250px"}   bgGradient="linear(to-l, #667eea, #54BEC3)" w="100%" color="white" justify={"center"}>
         <Center>
           <Flex direction={"column"}>
             <Text as="h1" fontSize={65}>Hakkımızda</Text>

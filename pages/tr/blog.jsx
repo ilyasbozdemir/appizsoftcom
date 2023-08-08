@@ -26,7 +26,7 @@ const BlogPageCTA = () => {
   const router = useRouter();
   return (
     <>
-      <Flex h={"350px"} bg="primary.100" w="100%" color="white" justify={"center"}>
+      <Flex h={"350px"}   bgGradient="linear(to-l, #667eea, #54BEC3)" w="100%" color="white" justify={"center"}>
         <Center>
           <Flex direction={"column"}>
             <Text fontSize={65}>Blog</Text>

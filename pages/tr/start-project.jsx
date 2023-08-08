@@ -34,7 +34,7 @@ const GetAQuoteCTA = () => {
           <Flex
             as="section"
             h={"350px"}
-            bg="primary.100"
+            bgGradient="linear(to-l, #667eea, #54BEC3)"
             w="100%"
             color="white"
             justify={"center"}
