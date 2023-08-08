@@ -23,6 +23,7 @@ import { site } from "../../../constants/site";
 import { ArrowForwardIcon, CheckCircleIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { careers } from "../../../constants/careers";
 
 function CareersPage() {
   return (
@@ -91,39 +92,14 @@ const CareersCTA = () => {
   );
 };
 
-const careers = [
-  {
-    title: "Backend Developer",
-    description: `
-      Hızla büyüyen ekibimize katılmak için yetenekli bir backend geliştirici arıyoruz.
-      Ankara, Türkiye konumunda.
-    `,
-    requirements: [
-      "En az 3 yıl backend geliştirme deneyimi",
-      "Veritabanı yönetimi ve API tasarımı konularında uzmanlık",
-      "En az bir programlama dilinde derin bilgi",
-      "Sunucu tarafı optimizasyonları ve yüksek trafikli sistem deneyimi tercih sebebi",
-    ],
-    location: "Ankara, Türkiye",
-  },
-  {
-    title: "Frontend Developer",
-    description: `
-      Özgün fikirlerle frontend geliştirme ekibimize katılın ve kullanıcı deneyimlerini şekillendirin.
-      Uzaktan çalışma imkanı.
-    `,
-    requirements: [
-      "En az 2 yıl frontend geliştirme deneyimi",
-      "HTML, CSS ve JavaScript konularında uzmanlık",
-      "Modern UI/UX tasarım prensiplerini uygulama yeteneği",
-      "En az bir frontend framework'üne hakimiyet",
-    ],
-    location: "Uzaktan",
-  },
-  // Diğer iş pozisyonları da burada sıralanabilir
-];
 
-const CareerCard = ({ title, description, location, requirements }) => {
+const CareerCard = ({
+  title,
+  description,
+  location,
+  requirements,
+  pageLoc,
+}) => {
   return (
     <Accordion allowMultiple>
       <AccordionItem>
@@ -149,20 +125,36 @@ const CareerCard = ({ title, description, location, requirements }) => {
           <Flex direction={"column"}>
             <List>
               {requirements.map((requirement, index) => (
-                <ListItem key={index}>
-                  <Flex align="center">
-                    <Icon as={CheckCircleIcon} color="green.500" mr={2} />
-                    {requirement}
-                  </Flex>
-                </ListItem>
+                <React.Fragment key={index}>
+                  <ListItem p={1}>
+                    <Flex align="center">
+                      <Icon as={CheckCircleIcon} color="green.500" mr={2} />
+                      {requirement}
+                    </Flex>
+                  </ListItem>
+
+                  {index === requirements.length - 1 && (
+                    <Center>
+                      <Link
+                        href="/tr/careers/[position]"
+                        as={`/tr/careers/` + pageLoc}
+                        shallow={true}
+                        passHref
+                      >
+                        <Button
+                          mt={4}
+                          variant="outline"
+                          colorScheme="blue"
+                          size="lg"
+                        >
+                          Şimdi Katıl
+                        </Button>
+                      </Link>
+                    </Center>
+                  )}
+                </React.Fragment>
               ))}
             </List>
-
-            <Center>
-              <Button mt={4} variant={"outline"} colorScheme="blue" size="lg">
-                Şimdi Katıl
-              </Button>
-            </Center>
           </Flex>
         </AccordionPanel>
       </AccordionItem>
@@ -188,7 +180,13 @@ const JoinUsSection = () => {
         Daha Büyük Bir Geleceği Şekillendirin
       </Heading>
       <Text fontSize="xl" mb={6}>
-      Ekibimize katılarak inovasyonun bir parçası olmanın ve geleceği şekillendirmenin heyecanını yaşayın. Yenilikçi projelerde yer alarak sınırları zorlayın ve teknoloji dünyasında yeni ufuklara açılın. Birlikte çalışarak fark yaratın, büyüyen ekibimizde yerinizi alın ve geleceğin teknolojilerini bugünden keşfedin. Kendi yeteneklerinizi geliştirirken, küresel ölçekte projelerde yer alma fırsatını yakalayın. Bizimle bir adım atın, çünkü geleceğe beraber yürümek istiyoruz
+        Ekibimize katılarak inovasyonun bir parçası olmanın ve geleceği
+        şekillendirmenin heyecanını yaşayın. Yenilikçi projelerde yer alarak
+        sınırları zorlayın ve teknoloji dünyasında yeni ufuklara açılın.
+        Birlikte çalışarak fark yaratın, büyüyen ekibimizde yerinizi alın ve
+        geleceğin teknolojilerini bugünden keşfedin. Kendi yeteneklerinizi
+        geliştirirken, küresel ölçekte projelerde yer alma fırsatını yakalayın.
+        Bizimle bir adım atın, çünkü geleceğe beraber yürümek istiyoruz
       </Text>
       <Button
         size="lg"
@@ -196,12 +194,13 @@ const JoinUsSection = () => {
         colorScheme="white"
         variant={"outline"}
         onClick={() => {
-          router.push("/tr/careers/join-us");
+          router.push("/tr/careers/[position]", '/tr/careers/join-us', {
+            shallow: true,
+          });
         }}
       >
-       Özgeçmişinizi bırakın
+        Özgeçmişinizi bırakın
       </Button>
-      
     </Box>
   );
 };
@@ -258,6 +257,7 @@ const CareersContent = () => {
               title={career.title}
               description={career.description}
               location={career.location}
+              pageLoc={career.pageLoc}
               requirements={career.requirements}
             />
           ))}
