@@ -16,6 +16,8 @@ import {
   Icon,
   List,
   UnorderedList,
+  Tag,
+  HStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import PagesBreadcrumb from "../../../components/shared/PagesBreadcrumb";
@@ -99,6 +101,7 @@ const CareerCard = ({
   location,
   requirements,
   pageLoc,
+  employmentType,
 }) => {
   return (
     <Accordion allowMultiple>
@@ -111,9 +114,15 @@ const CareerCard = ({
           textAlign="left"
         >
           <Box flex="1" textAlign="left">
-            <Heading as="h3" fontSize="xl" mb={2}>
-              {title}
-            </Heading>
+            <HStack direction={"row"} spacing={5}>
+              <Heading as="h3" fontSize="xl" mb={2}>
+                {title}
+              </Heading>
+              <Tag size={'md'}  variant="solid" colorScheme="teal">
+                {employmentType}
+              </Tag>
+            </HStack>
+
             <Text>{description}</Text>
             <Text mt={2} color="gray.500">
               {location}
@@ -323,6 +332,7 @@ const OpenPositions = () => {
             location={career.location}
             pageLoc={career.pageLoc}
             requirements={career.requirements}
+            employmentType={career.employmentType}
           />
         ))}
       </Flex>

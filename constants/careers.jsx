@@ -13,6 +13,7 @@ export const careers = [
       "Sunucu tarafı optimizasyonları ve yüksek trafikli sistem deneyimi tercih sebebi",
     ],
     location: "Ankara, Türkiye",
+    employmentType: "Tam Zamanlı",
   },
   {
     title: "Frontend Developer",
@@ -28,6 +29,6 @@ export const careers = [
       "En az bir frontend framework'üne hakimiyet",
     ],
     location: "Uzaktan",
+    employmentType: "Tam Zamanlı",
   },
-  // Diğer iş pozisyonları da burada sıralanabilir
 ];

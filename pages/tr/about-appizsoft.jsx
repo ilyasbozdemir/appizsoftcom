@@ -52,7 +52,7 @@ const AboutUsCTA = () => {
 
         {isMobile && (
           <Box mx={3}>
-            <PagesBreadcrumb currentPage={"Kariyer"} />
+            <PagesBreadcrumb currentPage={"Hakkımzda"} />
           </Box>
         )}
       </Flex>
