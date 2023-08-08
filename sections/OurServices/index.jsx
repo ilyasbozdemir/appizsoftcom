@@ -42,12 +42,12 @@ const ServicesCard = (props) => {
               alt={title}
               height={70}
               width={70}
-              src={img}
+              src={`${baseImagePath}/${img}`}
               style={{
                 draggable: false,
               }}
               loader={({ src, width, quality }) => {
-                return `${baseImagePath}/${src}?w=${width}&q=${quality || 75}`;
+                return `${baseImagePath}${src}?w=${width}&q=${quality || 75}`;
               }}
             />
           </Flex>
@@ -91,7 +91,7 @@ function OurServices({ targetId }) {
     <Box>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading  as="h2" fontSize={24} pos="relative">
+          <Heading as="h2" fontSize={24} pos="relative">
             Hizmetlerimiz
           </Heading>
         </Flex>

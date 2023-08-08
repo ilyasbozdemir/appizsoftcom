@@ -13,11 +13,11 @@ module.exports = {
   async headers() {
     return [
       {
-        source: "/(.*)", // Tüm sayfalar için geçerli olacak
+        source: "/(.*\\.(jpg|jpeg|gif|png|bmp))", // Sadece görüntü uzantılarına sahip dosyaları seç
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000", // 1 yıllık önbellek süresi
+            value: "public, max-age=31536000",
           },
         ],
       },
@@ -27,6 +27,14 @@ module.exports = {
   images: {
     domains: ["https://appizsoft-static-api.vercel.app/"],
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "appizsoft-static-api.vercel.app",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
   },
   reactStrictMode: true,
 

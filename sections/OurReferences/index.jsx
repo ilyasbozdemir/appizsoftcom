@@ -71,7 +71,7 @@ export default function OurReferences() {
               variants={item}
             >
               <Image
-                src={p.portfolio}
+                src={`${baseImagePath}/${p.portfolio}`}
                 alt={p.name}
                 height={p.portfolioSize.h}
                 width={p.portfolioSize.w}
