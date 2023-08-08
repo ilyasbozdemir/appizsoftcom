@@ -46,9 +46,7 @@ const ServicesCard = (props) => {
               style={{
                 draggable: false,
               }}
-              loader={({ src, width, quality }) => {
-                return `${baseImagePath}${src}?w=${width}&q=${quality || 75}`;
-              }}
+            
             />
           </Flex>
           <Stack mt="6" spacing="3">

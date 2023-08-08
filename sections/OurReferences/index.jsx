@@ -75,9 +75,7 @@ export default function OurReferences() {
                 alt={p.name}
                 height={p.portfolioSize.h}
                 width={p.portfolioSize.w}
-                loader={({ src, width, quality }) => {
-                  return `${baseImagePath}${src}?w=${width}&q=${quality || 75}`;
-                }}
+              
               />
               <Text
                 fontFamily={"monospace"}
