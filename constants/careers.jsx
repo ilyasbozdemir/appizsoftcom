@@ -1,5 +1,6 @@
 export const careers = [
   {
+    type: "Technology",
     title: "Backend Developer",
     pageLoc: "backend-developer",
     description: `
@@ -16,6 +17,7 @@ export const careers = [
     employmentType: "Tam Zamanlı",
   },
   {
+    type: "Technology",
     title: "Frontend Developer",
     pageLoc: "frontend-developer",
     description: `
@@ -31,6 +33,7 @@ export const careers = [
     location: "Uzaktan",
     employmentType: "Tam Zamanlı",
   },
+  
   {
     type: "Design",
     title: "UI/UX Tasarımcısı",

@@ -118,7 +118,7 @@ const CareerCard = ({
               <Heading as="h3" fontSize="xl" mb={2}>
                 {title}
               </Heading>
-              <Tag size={'md'}  variant="solid" colorScheme="teal">
+              <Tag size={"md"} variant="solid" colorScheme="teal">
                 {employmentType}
               </Tag>
             </HStack>
@@ -171,6 +171,39 @@ const CareerCard = ({
   );
 };
 
+const hiringProcessFAQ = [
+  {
+    question: "İş ilanlarını nereden takip edebilirim?",
+    answer:
+      "İş ilanlarımızı web sitemizdeki 'Kariyer' sayfasından takip edebilirsiniz.",
+  },
+  {
+    question: "Başvurumu nasıl yapabilirim?",
+    answer:
+      "Başvurularınızı web sitemizdeki ilgili iş ilanının sayfasında yer alan başvuru formunu doldurarak yapabilirsiniz.",
+  },
+  {
+    question: "Başvurum nasıl değerlendirilir?",
+    answer:
+      "Başvurular özgeçmiş, yetenekler ve deneyimler göz önünde bulundurularak değerlendirilir.",
+  },
+  {
+    question: "Uygun adayları seçerken hangi kriterleri kullanıyorsunuz?",
+    answer:
+      "Uygun adayların seçiminde yetenekler, deneyim, ilgi alanları ve uyum gibi faktörler değerlendirilir.",
+  },
+  {
+    question: "Mülakat süreci nasıl işliyor?",
+    answer:
+      "Mülakat süreci öncelikle ön görüşme veya teknik mülakat aşamalarını içerebilir. Başarılı adaylar daha sonra daha kapsamlı mülakatlara çağrılabilir.",
+  },
+  {
+    question: "Mülakatta hangi tür sorular soruluyor?",
+    answer:
+      "Mülakatta teknik becerilere, deneyime ve problem çözme yeteneklerine odaklanan sorular sorulabilir.",
+  },
+];
+
 const HiringProcess = () => {
   return (
     <Box my={6}>
@@ -178,6 +211,22 @@ const HiringProcess = () => {
         İşe Alım Süreci
       </Text>
       <Accordion allowToggle>
+        {hiringProcessFAQ.map((faq) => (
+          <AccordionItem key={faq.answer}>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  {faq.question}
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <Text>{faq.answer}</Text>
+            </AccordionPanel>
+          </AccordionItem>
+        ))}
+
         <AccordionItem>
           <h2>
             <AccordionButton>
@@ -192,42 +241,6 @@ const HiringProcess = () => {
               Açık pozisyonlarımızı ve iş ilanlarını sitemizde yayınlıyoruz.
               İlgilendiğiniz pozisyon için başvurunuzu online olarak
               yapabilirsiniz.
-            </Text>
-          </AccordionPanel>
-        </AccordionItem>
-
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box flex="1" textAlign="left">
-                Ön Değerlendirme
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <Text>
-              Başvurunuz incelendikten sonra, ön değerlendirme aşaması için
-              sizinle iletişime geçebiliriz. Bu aşamada daha fazla bilgi almak
-              amacıyla bir görüşme yapılabilir.
-            </Text>
-          </AccordionPanel>
-        </AccordionItem>
-
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box flex="1" textAlign="left">
-                Mülakatlar
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <Text>
-              Uygun adaylarla mülakatlar düzenleriz. Mülakatlarda
-              yeteneklerinizi, deneyiminizi ve uyumunuzu değerlendirme
-              fırsatımız olur.
             </Text>
           </AccordionPanel>
         </AccordionItem>
@@ -308,32 +321,51 @@ const EmployeeBenefits = () => {
   );
 };
 
-const ContactInfo = () => {
-  return <Box my={6}></Box>;
-};
 const OpenPositions = () => {
   return (
     <>
-      <Center mb={5} mt={2}>
-        <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
-            Açık Pozisyonlar
-          </Heading>
-        </Flex>
-      </Center>
-      <Divider />
-
       <Flex direction={"column"} gap={5} mt={5}>
+        <Flex
+          direction={{ base: "column" }}
+          justifyContent={"space-between"}
+          gap={5}
+        >
+          <Text fontWeight={"semibold"} fontSize={{ base: 25, md: 35 }}>
+            Teknoloji
+          </Text>
+          <Text fontSize={20}>
+            Sınıfının en iyisi dijital deneyimler oluşturmak için teknolojiyi
+            kullanıyoruz. Geliştirme yaşam döngüsünün tüm bölümlerinde işbirliği
+            yapmak ve ilgi çekici ve işlevsel ürünleri hayata geçirmek için
+            mühendislik ekibimize katılın.
+          </Text>
+        </Flex>
+
+        <Center mb={5} mt={2}>
+          <Flex direction={"column"} justifyContent={"center"} gap={3}>
+            <Heading as="h2" fontSize={24} pos="relative">
+              Açık Pozisyonlar
+            </Heading>
+          </Flex>
+        </Center>
+        <Divider />
         {careers.map((career, index) => (
-          <CareerCard
-            key={index}
-            title={career.title}
-            description={career.description}
-            location={career.location}
-            pageLoc={career.pageLoc}
-            requirements={career.requirements}
-            employmentType={career.employmentType}
-          />
+          <React.Fragment key={index}>
+            {career.type === "Technology" && (
+              <Box>
+                <CareerCard
+                  title={career.title}
+                  description={career.description}
+                  location={career.location}
+                  pageLoc={career.pageLoc}
+                  requirements={career.requirements}
+                  employmentType={career.employmentType}
+                />
+
+                {careers.length - 2 !== index && <Divider my={4} />}
+              </Box>
+            )}
+          </React.Fragment>
         ))}
       </Flex>
     </>
@@ -380,7 +412,6 @@ const CareersContent = () => {
 
         <EmployeeBenefits />
         <HiringProcess />
-        <ContactInfo />
       </Container>
     </>
   );

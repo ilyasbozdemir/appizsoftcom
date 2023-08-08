@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "İş ilanlarını nereden takip edebilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "İş ilanlarımızı web sitemizdeki 'Kariyer' sayfasından takip edebilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Başvurumu nasıl yapabilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Başvurularınızı web sitemizdeki ilgili iş ilanının sayfasında yer alan başvuru formunu doldurarak yapabilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Başvurum nasıl değerlendirilir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Başvurular özgeçmiş, yetenekler ve deneyimler göz önünde bulundurularak değerlendirilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uygun adayları seçerken hangi kriterleri kullanıyorsunuz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uygun adayların seçiminde yetenekler, deneyim, ilgi alanları ve uyum gibi faktörler değerlendirilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mülakat süreci nasıl işliyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mülakat süreci öncelikle ön görüşme veya teknik mülakat aşamalarını içerebilir. Başarılı adaylar daha sonra daha kapsamlı mülakatlara çağrılabilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mülakatta hangi tür sorular soruluyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mülakatta teknik becerilere, deneyime ve problem çözme yeteneklerine odaklanan sorular sorulabilir."
+      }
+    }
+  ]
+}
