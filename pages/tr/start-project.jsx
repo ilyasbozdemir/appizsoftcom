@@ -6,6 +6,7 @@ import Head from "next/head";
 import { Box, Text } from "@chakra-ui/react";
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import StartProjectStepper from "../../components/StartProjectStepper";
+import { site } from "../../constants/site";
 
 const GetAQuoteCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -69,15 +70,41 @@ const GetAQuoteContent = () => {
 };
 
 function GetAQuote() {
+  const publisher = `AppizSoft`;
+  const title = `Yenilikçi Projeleri Hayata Geçirin  • AppizSoft`;
+  const desc = `Teknoloji dünyasında sınırları zorlayan, inovasyonu destekleyen ve yaratıcı projelere öncülük eden bir ortak arıyorsanız, projeyi başlat sayfamızla tanışın. İhtiyaçlarınıza özel çözümler sunarak işinizin dijital dönüşümünü gerçekleştiriyoruz. Hemen iletişime geçin ve projelerinizi hayata geçirin.`;
+ 
   return (
     <>
       <Head>
-        <title>Proje Başlat • Appizsoft</title>
-        <meta property="og:title" content={"Proje Başlat • Appizsoft"} />
 
-        <meta name="twitter:title" content={"Proje Başlat• Appizsoft"} />
-        <meta itemprop="description" content={""} />
+        <title>{title}</title>
+        <meta itemprop="description" content={desc} />
+        <meta name="description" content={desc} />
+        <meta name="publisher" content={publisher} />
+        <meta name="robots" content={"index, follow"} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:site" content="@appizsoftcom" />
+        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:image" content={site.twImage} />
+        <meta name="twitter:image:alt" content={site.title} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={`${site.baseUrl}/tr`} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.title} />
+        <meta property="og:image" content={site.ogImage} />
+        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image:width" content="1012" />
+        <meta property="og:image:height" content="506" />
+        <meta property="og:locale" content="tr_TR" />
       </Head>
+
+
 
       <Flex direction={"column"} gap={3}>
         <Box>
