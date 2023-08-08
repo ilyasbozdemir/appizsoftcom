@@ -15,6 +15,7 @@ import {
   ListItem,
   Icon,
   List,
+  UnorderedList,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import PagesBreadcrumb from "../../../components/shared/PagesBreadcrumb";
@@ -92,7 +93,6 @@ const CareersCTA = () => {
   );
 };
 
-
 const CareerCard = ({
   title,
   description,
@@ -162,6 +162,73 @@ const CareerCard = ({
   );
 };
 
+const HiringProcess = () => {
+  return (
+    <Box my={6}>
+      <Text fontSize="xl" fontWeight="bold" mb={4}>
+        İşe Alım Süreci
+      </Text>
+      <Accordion allowToggle>
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+                İş İlanı ve Başvuru
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            <Text>
+              Açık pozisyonlarımızı ve iş ilanlarını sitemizde yayınlıyoruz.
+              İlgilendiğiniz pozisyon için başvurunuzu online olarak
+              yapabilirsiniz.
+            </Text>
+          </AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+                Ön Değerlendirme
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            <Text>
+              Başvurunuz incelendikten sonra, ön değerlendirme aşaması için
+              sizinle iletişime geçebiliriz. Bu aşamada daha fazla bilgi almak
+              amacıyla bir görüşme yapılabilir.
+            </Text>
+          </AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+                Mülakatlar
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            <Text>
+              Uygun adaylarla mülakatlar düzenleriz. Mülakatlarda
+              yeteneklerinizi, deneyiminizi ve uyumunuzu değerlendirme
+              fırsatımız olur.
+            </Text>
+          </AccordionPanel>
+        </AccordionItem>
+
+        {/* Diğer aşamaları buraya ekleyebilirsiniz */}
+      </Accordion>
+    </Box>
+  );
+};
+
 const JoinUsSection = () => {
   const router = useRouter();
   return (
@@ -194,7 +261,7 @@ const JoinUsSection = () => {
         colorScheme="white"
         variant={"outline"}
         onClick={() => {
-          router.push("/tr/careers/[position]", '/tr/careers/join-us', {
+          router.push("/tr/careers/[position]", "/tr/careers/join-us", {
             shallow: true,
           });
         }}
@@ -202,6 +269,64 @@ const JoinUsSection = () => {
         Özgeçmişinizi bırakın
       </Button>
     </Box>
+  );
+};
+
+const EmployeeBenefits = () => {
+  const benefits = [
+    "Rekabetçi maaş ve yan haklar",
+    "Esnek çalışma saatleri",
+    "Kapsamlı sağlık sigortası",
+    "Kariyer gelişim fırsatları",
+    "Uzaktan çalışma imkanı",
+    "Tatil ve izin avantajları",
+    "Sosyal etkinlikler ve eğlenceli çalışma ortamı",
+  ];
+
+  return (
+    <Box my={6}>
+      <Text fontSize="xl" fontWeight="bold" mb={4}>
+        Çalışan Avantajları ve İmkanları
+      </Text>
+      <UnorderedList>
+        {benefits.map((benefit, index) => (
+          <ListItem key={index}>
+            <Text>{benefit}</Text>
+          </ListItem>
+        ))}
+      </UnorderedList>
+    </Box>
+  );
+};
+
+const ContactInfo = () => {
+  return <Box my={6}></Box>;
+};
+const OpenPositions = () => {
+  return (
+    <>
+      <Center mb={5} mt={2}>
+        <Flex direction={"column"} justifyContent={"center"} gap={3}>
+          <Heading as="h2" fontSize={24} pos="relative">
+            Açık Pozisyonlar
+          </Heading>
+        </Flex>
+      </Center>
+      <Divider />
+
+      <Flex direction={"column"} gap={5} mt={5}>
+        {careers.map((career, index) => (
+          <CareerCard
+            key={index}
+            title={career.title}
+            description={career.description}
+            location={career.location}
+            pageLoc={career.pageLoc}
+            requirements={career.requirements}
+          />
+        ))}
+      </Flex>
+    </>
   );
 };
 
@@ -241,27 +366,11 @@ const CareersContent = () => {
       <Container maxW="8xl" p={{ base: 5, md: 10 }}>
         <JoinUsSection />
 
-        <Center mb={5} mt={2}>
-          <Flex direction={"column"} justifyContent={"center"} gap={3}>
-            <Heading as="h2" fontSize={24} pos="relative">
-              Açık Pozisyonlar
-            </Heading>
-          </Flex>
-        </Center>
-        <Divider />
+        <OpenPositions />
 
-        <Flex direction={"column"} gap={5} mt={5}>
-          {careers.map((career, index) => (
-            <CareerCard
-              key={index}
-              title={career.title}
-              description={career.description}
-              location={career.location}
-              pageLoc={career.pageLoc}
-              requirements={career.requirements}
-            />
-          ))}
-        </Flex>
+        <EmployeeBenefits />
+        <HiringProcess />
+        <ContactInfo />
       </Container>
     </>
   );
