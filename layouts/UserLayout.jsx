@@ -6,6 +6,7 @@ import Header from "../components/shared/Header";
 import dynamic from "next/dynamic";
 const LazyReactJoyride = dynamic(() => import("react-joyride"));
 import { tourSteps } from "../components/TourSteps";
+import TawkToChat from "../components/TawkToChat";
 
 function UserLayout({ children }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -69,7 +70,7 @@ function UserLayout({ children }) {
         <Footer />
       </Box>
 
-      <ScrollToTop />
+      <TawkToChat />
     </Box>
   );
 }
