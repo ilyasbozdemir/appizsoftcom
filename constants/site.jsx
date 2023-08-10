@@ -15,13 +15,13 @@ const baseUrl =
 //appizsoftcom.vercel.app
 
 export const site = {
-  title: `Appizsoft |  Özel Yazılım Geliştirme • Dijital Pazarlama  • E-ticaret Çözümleri • Prodüksiyon & Tasarım • Oyun Tasarım `,
+  title: `Appizsoft | Yazılım & Dijital Pazarlama`,
   baseUrl: baseUrl,
   publisher: `Appizsoft`,
   ogImage: "https://appizsoft-static-api.vercel.app/images/og-image.png",
   twImage: "https://appizsoft-static-api.vercel.app/images/images/tw-image.png",
   imageAlt: "site-logo-png",
-  description: `Müşterilerimize özel yaklaşımımızla yaratıcı çözümler sunarak hedeflerine ulaşmalarına yardımcı oluyoruz. Stratejik planlama ve araştırmalarımızla, müşterilerimizin sektöründe öne çıkarak rekabet avantajı elde etmelerini sağlıyoruz.`,
+  description: `Dijital ve yazılım çözümleri ortağınız olarak, işletmenize özel stratejiler ve yazılım hizmetleri sunarak dijital ve yazılım alanlarında rekabet avantajı elde etmenizi sağlıyoruz.`,
   name: ``,
   keywords: "",
   isRobotIndex: true,

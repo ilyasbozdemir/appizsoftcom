@@ -137,13 +137,14 @@ function IndexPage() {
           }}
         />
         {/**
+         * 
+         * yarın blog için ayarla ve de rss ayarla
             
             json ld dosyası ile breadcrumb organizasyoın 
             rewiev
             gibi yapıları da ekle
-            
-             */}
 
+             */}
       </Head>
 
       <WindowTitleChanger />
@@ -189,17 +190,10 @@ function IndexPage() {
               <LazyPartners lang={lang} targetId={"Testimonials"} />
             )}
           </Box>
-          <Box id={"Testimonials"} as="section">
-            {isMounted && <LazyTestimonials lang={lang} targetId={"Blog"} />}
-          </Box>
 
           <Box id={"Blog"} as="section">
             {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
           </Box>
-
-          <Box id={"SSS"} as="section">
-            {isMounted && <LazySSS lang={lang} sss={sss}/>}
-          </Box>  
         </Flex>
       </Container>
     </>
