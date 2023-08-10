@@ -73,7 +73,7 @@ export const  services = [
 
   {
     "id": 7006,
-    "href": "test-otomasyonu", //[id].jsx
+    "href": "test-otomation", //[id].jsx
     "title": "Test Otomasyonu",
     "img": "/images/test_automation.png", //services componenti için
     "desc": "Müşteri memnuniyetini artırmak ve hataları en aza indirmek için test süreçlerini otomatikleştirmeye hazır mısınız? Selenium ve Appium test otomasyonu çözümlerimizle tüm uygulamalarınızı kapsamlı bir şekilde test edin.",
@@ -82,7 +82,18 @@ export const  services = [
     "isServicesComponentDisplay": true
   },
   {
-    id: 7007,
+    "id": 7007,
+    "href": "corporate-identity-study",
+    "title": "Kurumsal Kimlik Çalışması",
+    "img": "/images/kurumsal_identity.png",
+    "desc": "Kurumunuzun Kimliğini Yansıtan Özelleştirilmiş Tasarımlar",
+    "content": "Kurumsal kimlik çalışması ile markanızı en iyi şekilde temsil edin. Profesyonel tasarımlarımızla logonuzdan renk paletinize, kurumsal dokümanlardan dijital varlıklarınıza kadar her ayrıntıyı özelleştirin.",
+    "serviceCategory": "design",
+    "isServicesComponentDisplay": true
+  },
+
+  {
+    id: 7008,
     href: "production-design",
     title: "Prodüksiyon & Tasarım",
     img: "/images/production.png",

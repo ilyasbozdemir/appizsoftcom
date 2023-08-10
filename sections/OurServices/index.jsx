@@ -9,15 +9,25 @@ import {
   Divider,
   Stack,
   ButtonGroup,
+  useBreakpointValue,
+  HStack,
+  Icon,
 } from "@chakra-ui/react";
 import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { BsArrowRight } from "react-icons/bs";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+import { HiMiniArrowLongRight } from "react-icons/hi2";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 
@@ -46,7 +56,6 @@ const ServicesCard = (props) => {
               style={{
                 draggable: false,
               }}
-            
             />
           </Flex>
           <Stack mt="6" spacing="3">
@@ -85,6 +94,10 @@ const ServicesCard = (props) => {
 };
 
 function OurServices({ targetId }) {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   return (
     <Box>
       <Center>
@@ -95,32 +108,42 @@ function OurServices({ targetId }) {
         </Flex>
       </Center>
 
-      <Flex as={"article"} direction={"column"} gap={5} data-aos="zoom-in-up">
-        <Center>
-          <SimpleGrid
-            columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
-            spacing={2}
-            justify="center"
-          >
-            {services.map(
-              (service, i) =>
-                service.isServicesComponentDisplay === true && (
-                  <Box key={service.id} p={5}>
-                    <ServicesCard {...service} />
-                  </Box>
-                )
-            )}
-          </SimpleGrid>
-        </Center>
+      <Center as={"article"} gap={5} data-aos="zoom-in-up">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={30}
+          slidesPerView={useBreakpointValue({
+            base: 1,
+            md: 2,
+            lg: 3,
+            xl: 4,
+          })}
+          autoplay={{ delay: 2500 }}
+        >
+          {isMounted && (
+            <>
+              {services.map(
+                (service, i) =>
+                  service.isServicesComponentDisplay === true && (
+                    <SwiperSlide key={service.id} p={5}>
+                      <ServicesCard {...service} />
+                    </SwiperSlide>
+                  )
+              )}
+            </>
+          )}
+        </Swiper>
+      </Center>
 
-        <Center>
-          <Flex display={{ base: "initial" }}>
-            <Link href={"/tr/services"} passHref>
-              <Button variant={"outline"}>Tüm Hizmetler</Button>
-            </Link>
-          </Flex>
-        </Center>
-      </Flex>
+    
+      <HStack fontFamily={"fantasy"} mt={15}>
+        <Icon as={HiMiniArrowLongRight} boxSize={35} />
+        <Link href={"/tr/services"}>
+          <Text fontSize={25} cursor={"pointer"}>
+            Daha Fazla
+          </Text>
+        </Link>
+      </HStack>
     </Box>
   );
 }

@@ -5,8 +5,6 @@ import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import Head from "next/head";
 import { site } from "../../constants/site";
 
-
-
 const AboutUsCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -61,13 +59,10 @@ const AboutUsCTA = () => {
   );
 };
 
-
 const AboutUsContent = () => {
   return (
     <>
-      <Box >
-       
-      </Box>
+      <Box></Box>
     </>
   );
 };
@@ -76,7 +71,7 @@ function AboutUsPage() {
   const publisher = `AppizSoft`;
   const title = `AppizSoft Hakkında • AppizSoft`;
   const desc = `AppizSoft olarak, teknoloji ve yaratıcılığı bir araya getiriyoruz. Müşterilerimize en iyi çözümleri sunarak işlerini büyütmelerine yardımcı oluyoruz.`;
-  
+
   return (
     <>
       <Head>
@@ -104,6 +99,16 @@ function AboutUsPage() {
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
+        <meta
+          property="article:publisher"
+          content="https://www.facebook.com/appizsoftcom/"
+        />
+        <meta
+          property="article:modified_time"
+          content="2023-08-10T19:18:34+00:00"
+        />
+        <meta name="twitter:label1" content="Tahmini okuma süresi" />
+        <meta name="twitter:data1" content="1 dakika" />
       </Head>
 
       <main>

@@ -1,36 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { detectBrowserLanguage } from "../../lib/detectBrowserLanguage";
-import { Box, Flex, Heading, Container } from "@chakra-ui/react";
+import { Box, Flex, Container } from "@chakra-ui/react";
 
 import WindowTitleChanger from "../../components/shared/WindowTitleChanger";
 import dynamic from "next/dynamic";
 
 import Cta from "../../sections/Cta";
-import MetaHead from "../../configuration/MetaHead";
 import Head from "next/head";
-
-const LazyCta = dynamic(() => import("../../sections/Cta"), {
-  //loading: () => <p>Loading...</p>,
-});
 
 const LazyOurServices = dynamic(() => import("../../sections/OurServices"));
 const LazyOurReferences = dynamic(() => import("../../sections/OurReferences"));
 
-const LazyAboutUs = dynamic(() => import("../../sections/AboutUs"));
-
 const LazyOurTechnologies = dynamic(() =>
   import("../../sections/OurTechnologies")
 );
-const LazyTestimonials = dynamic(() => import("../../sections/Testimonials"));
+
 const LazyWhyChooseUs = dynamic(() => import("../../sections/WhyChooseUs"));
 const LazyOurWorkProcess = dynamic(() =>
   import("../../sections/OurWorkProcess")
 );
 const LazyBlog = dynamic(() => import("../../sections/Blog"));
-const LazyPartners = dynamic(() => import("../../sections/Partners"));
 const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 
-const LazySSS = dynamic(() => import("../../sections/SSS"));
 //
 
 import { site } from "../../constants/site";
@@ -102,6 +93,17 @@ function IndexPage() {
     <>
       <Head>
         <title>{site.title}</title>
+
+
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={`${site.baseUrl}/tr`}
+          />
+
+          <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
+          <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
+
         <meta itemprop="description" content={site.description} />
         <meta name="description" content={site.description} />
         <meta name="publisher" content={publisher} />
@@ -125,6 +127,12 @@ function IndexPage() {
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
+        <meta
+          property="article:modified_time"
+          content="2023-08-10T19:18:34+00:00"
+        />
+        <meta name="twitter:label1" content="Tahmini okuma süresi" />
+        <meta name="twitter:data1" content="1 dakika" />
 
         <script
           type="application/ld+json"
@@ -183,11 +191,6 @@ function IndexPage() {
           <Box id={"Technologies"} as="section">
             {false && (
               <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
-            )}
-          </Box>
-          <Box id={"Partners"} as="section">
-            {isMounted && (
-              <LazyPartners lang={lang} targetId={"Testimonials"} />
             )}
           </Box>
 

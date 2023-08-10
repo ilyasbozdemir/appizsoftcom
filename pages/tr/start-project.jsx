@@ -101,6 +101,10 @@ function GetAQuote() {
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
+        <meta property="article:publisher" content="https://www.facebook.com/appizsoftcom/" />
+        <meta property="article:modified_time" content="2023-08-10T19:18:34+00:00" />
+        <meta name="twitter:label1" content="Tahmini okuma süresi" />
+	<meta name="twitter:data1" content="1 dakika" />
       </Head>
 
       <Flex direction={"column"} gap={3}>

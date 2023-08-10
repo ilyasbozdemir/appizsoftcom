@@ -22,9 +22,19 @@ export default function HomePage() {
     <>
       <Head>
         <title>{site.title}</title>
+
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/tr`}
+        />
+
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
+        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
+
         <meta itemprop="description" content={site.description} />
         <meta name="description" content={site.description} />
-        <meta name="publisher" content={'AppizSoft'} />
+        <meta name="publisher" content={"AppizSoft"} />
         <meta name="robots" content={"index, follow"} />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -45,6 +55,16 @@ export default function HomePage() {
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
+        <meta
+          property="article:publisher"
+          content="https://www.facebook.com/appizsoftcom/"
+        />
+        <meta
+          property="article:modified_time"
+          content="2023-08-10T19:18:34+00:00"
+        />
+        <meta name="twitter:label1" content="Tahmini okuma süresi" />
+        <meta name="twitter:data1" content="1 dakika" />
       </Head>
     </>
   );

@@ -32,22 +32,13 @@ export default class MyDocument extends Document {
 
           <link
             rel="alternate"
-            hreflang="x-default"
-            href={`${site.baseUrl}/tr`}
-          />
-
-          <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
-          <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
-          <link
-            rel="alternate"
             type="application/rss+xml"
             href="/rss.xml"
             title="Appizsoft Blog RSS Feed"
           />
 
           <meta name="copyright" content="AppizSoft" />
-          <meta name="mobile-web-app-capable" content="yes"/>
-
+          <meta name="mobile-web-app-capable" content="yes" />
 
           <meta
             name="google-site-verification"

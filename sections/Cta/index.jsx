@@ -71,6 +71,7 @@ export default function CallToActionWithIllustration({ lang, targetId }) {
             <RainbowText text={" Teknolojiyle "} /> birleştiriyoruz.
           </Heading>
           <Text
+            as="h1"
             maxW={"3xl"}
             fontSize={{ base: "19px", md: "25px" }}
             fontFamily={"'Nunito Sans', sans-serif"}
