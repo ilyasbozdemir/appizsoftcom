@@ -11,7 +11,7 @@
 
     
 */
-export const  services = [
+export const services = [
   {
     id: 7001,
     href: "web-design-development", //[id].jsx
@@ -72,24 +72,15 @@ export const  services = [
   },
 
   {
-    "id": 7006,
-    "href": "test-otomation", //[id].jsx
-    "title": "Test Otomasyonu",
-    "img": "/images/test_automation.png", //services componenti için
-    "desc": "Müşteri memnuniyetini artırmak ve hataları en aza indirmek için test süreçlerini otomatikleştirmeye hazır mısınız? Selenium ve Appium test otomasyonu çözümlerimizle tüm uygulamalarınızı kapsamlı bir şekilde test edin.",
-    "content": "Selenium ve Appium, günümüzde en popüler test otomasyon araçları arasında yer almaktadır. Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin",
-    "serviceCategory": "software",
-    "isServicesComponentDisplay": true
-  },
-  {
-    "id": 7007,
-    "href": "corporate-identity-study",
-    "title": "Kurumsal Kimlik Çalışması",
-    "img": "/images/kurumsal_identity.png",
-    "desc": "Kurumunuzun Kimliğini Yansıtan Özelleştirilmiş Tasarımlar",
-    "content": "Kurumsal kimlik çalışması ile markanızı en iyi şekilde temsil edin. Profesyonel tasarımlarımızla logonuzdan renk paletinize, kurumsal dokümanlardan dijital varlıklarınıza kadar her ayrıntıyı özelleştirin.",
-    "serviceCategory": "graphic-design",
-    "isServicesComponentDisplay": true
+    id: 7006,
+    href: "test-otomation", //[id].jsx
+    title: "Test Otomasyonu",
+    img: "/images/test_automation.png", //services componenti için
+    desc: "Müşteri memnuniyetini artırmak ve hataları en aza indirmek için test süreçlerini otomatikleştirmeye hazır mısınız? Selenium ve Appium test otomasyonu çözümlerimizle tüm uygulamalarınızı kapsamlı bir şekilde test edin.",
+    content:
+      "Selenium ve Appium, günümüzde en popüler test otomasyon araçları arasında yer almaktadır. Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin",
+    serviceCategory: "software",
+    isServicesComponentDisplay: true,
   },
 
   {
@@ -104,6 +95,4 @@ export const  services = [
     serviceCategory: "digital marketing",
     isServicesComponentDisplay: true,
   },
-  
-  
 ];

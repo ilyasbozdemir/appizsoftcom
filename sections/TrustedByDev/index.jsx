@@ -33,7 +33,7 @@ const statData = [
   },
   {
     id: 2,
-    label: "Mutlu Müşteriler",
+    label: "Puan",
     score: "100",
     icon: FaSmile,
     color: "yellow",
@@ -56,10 +56,8 @@ const statData = [
 ];
 
 const BrandStats = () => {
-  const [isSmallerThan550] = useMediaQuery("(max-width: 550px)");
-  const [isLargerThan550] = useMediaQuery("(min-width: 550px)");
 
-  const gridColumns = useBreakpointValue({ base: 1, md: 3 });
+
   const isMobile = useBreakpointValue({ base: false, md: true });
 
   return (
@@ -68,6 +66,7 @@ const BrandStats = () => {
       justifyContent="center"
       direction={"column"}
       gap={10}
+     
     >
       {isMobile && (
         <>
@@ -82,6 +81,7 @@ const BrandStats = () => {
                 bg={`${data.color}.400`}
                 color={"white"}
                 p={10}
+                shadow={'lg'}
               >
                 <Flex align={"center"} justify={"center"}>
                   <Icon

@@ -22,6 +22,7 @@ const LazyOurWorkProcess = dynamic(() =>
 const LazyBlog = dynamic(() => import("../../sections/Blog"));
 const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 
+
 //
 
 import { site } from "../../constants/site";
@@ -32,13 +33,10 @@ function IndexPage() {
     const supportedLanguages = ["tr", "en"];
     const browserLanguage = detectBrowserLanguage(supportedLanguages);
     setLang(browserLanguage);
+    setIsMounted(true);
   }, []);
 
   const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const publisher = `AppizSoft`;
 
@@ -94,15 +92,15 @@ function IndexPage() {
       <Head>
         <title>{site.title}</title>
 
-
         <link
-            rel="alternate"
-            hreflang="x-default"
-            href={`${site.baseUrl}/tr`}
-          />
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/tr`}
+        />
 
-          <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
-          <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
+        <link rel="alternate" hreflang="en" href={`${site.baseUrl}`} />
+        <link rel="canonical" href="https://appizsoft.com/tr" />
 
         <meta itemprop="description" content={site.description} />
         <meta name="description" content={site.description} />
@@ -133,26 +131,6 @@ function IndexPage() {
         />
         <meta name="twitter:label1" content="Tahmini okuma süresi" />
         <meta name="twitter:data1" content="1 dakika" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqMarkup,
-            }),
-          }}
-        />
-        {/**
-         * 
-         * yarın blog için ayarla ve de rss ayarla
-            
-            json ld dosyası ile breadcrumb organizasyoın 
-            rewiev
-            gibi yapıları da ekle
-
-             */}
       </Head>
 
       <WindowTitleChanger />
