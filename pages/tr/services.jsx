@@ -176,7 +176,7 @@ const OurServicesContent = () => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const categories = ["all", "software", "digital marketing"];
+  const categories = ["all", "software", "digital marketing", "graphic-design"];
   const selectedIndex = categories.indexOf(selectedCategory);
 
   return (
@@ -239,15 +239,15 @@ const OurServicesContent = () => {
             {[...uniqueCategories].map((category) => (
               <>
                 <option key={category} value={category}>
-                {category === "software" ? (
-                  <>Yazılım Hizmetlerimiz</>
-                ) : category === "digital marketing" ? (
-                  <>Dijital Pazarlama Hizmetlerimiz</>
-                ) : category === "graphic-design" ? (
-                  <>Grafik Tasarım Hizmetlerimiz</>
-                ) : (
-                  <></>
-                )}
+                  {category === "software" ? (
+                    <>Yazılım Hizmetlerimiz</>
+                  ) : category === "digital marketing" ? (
+                    <>Dijital Pazarlama Hizmetlerimiz</>
+                  ) : category === "graphic-design" ? (
+                    <>Grafik Tasarım Hizmetlerimiz</>
+                  ) : (
+                    <></>
+                  )}
                 </option>
               </>
             ))}
