@@ -19,7 +19,7 @@ export const site = {
   baseUrl: baseUrl,
   publisher: `Appizsoft`,
   ogImage: "https://appizsoft-static-api.vercel.app/images/og-image.png",
-  twImage: "https://appizsoft-static-api.vercel.app/images/images/tw-image.png",
+  twImage: "https://appizsoft-static-api.vercel.app/images/tw-image.png",
   imageAlt: "site-logo-png",
   description: `Dijital ve yazılım çözümleri ortağınız olarak, işletmenize özel stratejiler ve yazılım hizmetleri sunarak dijital ve yazılım alanlarında rekabet avantajı elde etmenizi sağlıyoruz.`,
   name: ``,

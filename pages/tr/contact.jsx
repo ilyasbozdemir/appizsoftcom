@@ -1,10 +1,4 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Text,
-  Container,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Text, Container } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
@@ -32,7 +26,7 @@ const ContactCTA = () => {
 
   return (
     <>
-      <Flex direction={"column"}>
+      <Flex mt={4} direction={"column"}>
         {!isMobile && (
           <>
             <Flex
@@ -56,9 +50,23 @@ const ContactCTA = () => {
         )}
 
         {isMobile && (
-          <Box mx={3}>
-            <PagesBreadcrumb currentPage={"İletişim"} />
-          </Box>
+          <Flex
+            as="section"
+            h={180}
+            bgGradient="linear(to-l, #667eea, #54BEC3)"
+            w="100%"
+            color="white"
+            justify={"center"}
+          >
+            <Center>
+              <Flex direction={"column"}>
+                <Text fontSize={45}>İletişim</Text>
+                <Center>
+                  <PagesBreadcrumb currentPage={"İletişim"} />
+                </Center>
+              </Flex>
+            </Center>
+          </Flex>
         )}
       </Flex>
     </>
@@ -66,11 +74,7 @@ const ContactCTA = () => {
 };
 
 const ContactContent = () => {
-  return (
-    <>
-      <></>
-    </>
-  );
+  return <></>;
 };
 
 function ContactPage() {

@@ -44,7 +44,23 @@ const DOurServiceDetailCTA = ({ currentService }) => {
     <>
       {isMobile && (
         <>
-          <PagesBreadcrumb currentPage={currentService.title} />
+          <Flex
+            as="section"
+            h={180}
+            bgGradient="linear(to-l, #667eea, #54BEC3)"
+            w="100%"
+            color="white"
+            justify={"center"}
+          >
+            <Center>
+              <Flex direction={"column"}>
+                <Text fontSize={29}>{currentService.title}</Text>
+                <Center>
+                  <PagesBreadcrumb currentPage={currentService.title} isServiceDetail={true} />
+                </Center>
+              </Flex>
+            </Center>
+          </Flex>
         </>
       )}
       {!isMobile && (
@@ -52,7 +68,7 @@ const DOurServiceDetailCTA = ({ currentService }) => {
           <Flex
             as="section"
             h={"350px"}
-            bg="primary.100"
+            bgGradient="linear(to-l, #667eea, #54BEC3)"
             w="100%"
             color="white"
             justify={"center"}

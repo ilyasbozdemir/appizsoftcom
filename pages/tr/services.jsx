@@ -6,7 +6,6 @@ import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import {
   Text,
   Flex,
-  Image,
   Heading,
   Box,
   Center,
@@ -31,6 +30,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { PiArrowsDownUpLight } from "react-icons/pi";
 import { site } from "../../constants/site";
+import Image from "next/image";
+
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
@@ -53,8 +55,11 @@ const ServicesCard = (props) => {
               alt={title}
               height={70}
               width={70}
-              src={img}
+              src={`${baseImagePath}${img}`}
               draggable={false}
+              loader={({ src, width, quality }) => {
+                return `${baseImagePath}${src}?w=${width}&q=${quality || 75}`;
+              }}
             />
           </Flex>
           <Stack mt="6" spacing="3">
@@ -137,9 +142,23 @@ const OurServicesCTA = () => {
         )}
 
         {isMobile && (
-          <Box mx={3}>
-            <PagesBreadcrumb currentPage={"Teklif Al"} />
-          </Box>
+          <Flex
+            as="section"
+            h={180}
+            bgGradient="linear(to-l, #667eea, #54BEC3)"
+            w="100%"
+            color="white"
+            justify={"center"}
+          >
+            <Center>
+              <Flex direction={"column"}>
+                <Text fontSize={45}>Hizmetler</Text>
+                <Center>
+                  <PagesBreadcrumb currentPage={"Hizmetler"} />
+                </Center>
+              </Flex>
+            </Center>
+          </Flex>
         )}
       </Flex>
     </>

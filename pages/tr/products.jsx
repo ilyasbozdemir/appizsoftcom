@@ -48,9 +48,23 @@ const ProductsCTA = () => {
         )}
 
         {isMobile && (
-          <Box mx={3}>
-            <PagesBreadcrumb currentPage={"Ürünler"} />
-          </Box>
+          <Flex
+            as="section"
+            h={180}
+            bgGradient="linear(to-l, #667eea, #54BEC3)"
+            w="100%"
+            color="white"
+            justify={"center"}
+          >
+            <Center>
+              <Flex direction={"column"}>
+                <Text fontSize={45}>Ürünler</Text>
+                <Center>
+                  <PagesBreadcrumb currentPage={"Ürünler"} />
+                </Center>
+              </Flex>
+            </Center>
+          </Flex>
         )}
       </Flex>
     </>
