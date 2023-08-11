@@ -1,6 +1,6 @@
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -24,6 +24,23 @@ function BlogPage() {
 
 const BlogPageCTA = () => {
   const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // İlk renderda ekran boyutuna göre kontrol yapılır
+    handleWindowSize();
+
+    // Ekran boyutu değiştiğinde kontrol yapılır
+    window.addEventListener("resize", handleWindowSize);
+
+    // Temizleme fonksiyonu
+    return () => {
+      window.removeEventListener("resize", handleWindowSize);
+    };
+  }, []);
+
+  const handleWindowSize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
   return (
     <>
       <Flex mt={4} direction={"column"}>
@@ -39,7 +56,7 @@ const BlogPageCTA = () => {
             >
               <Center>
                 <Flex direction={"column"}>
-                  <Text fontSize={65}>Kariyer</Text>
+                  <Text fontSize={65}>Blog</Text>
                   <Center>
                     <PagesBreadcrumb currentPage={"Blog"} />
                   </Center>
@@ -60,7 +77,7 @@ const BlogPageCTA = () => {
           >
             <Center>
               <Flex direction={"column"}>
-                <Text fontSize={45}>Hizmetler</Text>
+                <Text fontSize={45}>Blog</Text>
                 <Center>
                   <PagesBreadcrumb currentPage={"Blog"} />
                 </Center>
