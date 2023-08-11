@@ -218,6 +218,8 @@ const OurServicesContent = () => {
                   <>Yazılım Hizmetlerimiz</>
                 ) : category === "digital marketing" ? (
                   <>Dijital Pazarlama Hizmetlerimiz</>
+                ) : category === "graphic-design" ? (
+                  <>Grafik Tasarım Hizmetlerimiz</>
                 ) : (
                   <></>
                 )}
@@ -237,13 +239,15 @@ const OurServicesContent = () => {
             {[...uniqueCategories].map((category) => (
               <>
                 <option key={category} value={category}>
-                  {category === "software" ? (
-                    <>Yazılım Hizmetlerimiz</>
-                  ) : category === "digital marketing" ? (
-                    <>Dijital Pazarlama Hizmetlerimiz</>
-                  ) : (
-                    <></>
-                  )}
+                {category === "software" ? (
+                  <>Yazılım Hizmetlerimiz</>
+                ) : category === "digital marketing" ? (
+                  <>Dijital Pazarlama Hizmetlerimiz</>
+                ) : category === "graphic-design" ? (
+                  <>Grafik Tasarım Hizmetlerimiz</>
+                ) : (
+                  <></>
+                )}
                 </option>
               </>
             ))}
@@ -285,7 +289,6 @@ function ServicesPage() {
 
   return (
     <>
-
       <Head>
         <title>{title}</title>
         <meta itemprop="description" content={desc} />

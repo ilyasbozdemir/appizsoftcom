@@ -88,7 +88,7 @@ export const  services = [
     "img": "/images/kurumsal_identity.png",
     "desc": "Kurumunuzun Kimliğini Yansıtan Özelleştirilmiş Tasarımlar",
     "content": "Kurumsal kimlik çalışması ile markanızı en iyi şekilde temsil edin. Profesyonel tasarımlarımızla logonuzdan renk paletinize, kurumsal dokümanlardan dijital varlıklarınıza kadar her ayrıntıyı özelleştirin.",
-    "serviceCategory": "design",
+    "serviceCategory": "graphic-design",
     "isServicesComponentDisplay": true
   },
 

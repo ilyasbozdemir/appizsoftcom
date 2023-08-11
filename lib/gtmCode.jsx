@@ -1,1 +1,1 @@
-export const gtmCode = ``;
+export const gtmCode = `GTM-WVKXZQRK`;
