@@ -199,7 +199,7 @@ const ProductsContent = () => {
 function ProductsPage() {
   const publisher = `AppizSoft`;
 
-  const title = "Ürünler - Firmamızla Bağlantı Kurun | AppizSoft";
+  const title = "Ürünler  | AppizSoft";
   const desc =
     "En son teknolojilerle geliştirilmiş yazılım ürünlerimizi inceleyin ve ihtiyaçlarınıza özel çözümleri keşfedin.";
 
