@@ -233,15 +233,15 @@ function ProductsPage() {
         <meta name="twitter:site" content="@appizsoftcom" />
         <meta name="twitter:creator" content="@appizsoftcom" />
         <meta name="twitter:image" content={site.twImage} />
-        <meta name="twitter:image:alt" content={site.title} />
+        <meta name="twitter:image:alt" content={title} />
 
-        <meta property="og:title" content={site.title} />
+        <meta property="og:title" content={title} />
         <meta property="og:url" content={`${site.baseUrl}/tr`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
         <meta property="og:image" content={site.ogImage} />
-        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image:alt" content={title} />
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
