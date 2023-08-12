@@ -9,7 +9,7 @@ Bu dokümantasyon, Appizsoft v1 versiyonunun kullanımını açıklar.
 Kariyer kısmında şirkete açılacak pozisyon için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
 
 <details>
-  <summary><h2>Kariyer CRUD</h2></summary>
+  <summary><h2>Kariyer</h2></summary>
   
 Kariyerlerle ilgili işlemler. Bu işlemler JWT yetkilendirmesi gerektirir.
 
@@ -78,17 +78,7 @@ Yeni bir kariyer eklemek için kullanılır.
 | `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
 | `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
 
-=======
-| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
-| ---------------- | ------ | ---------- | --------------------- | ----------------------------------- |
-| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
-| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
-| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
-| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
-| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
-| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
-| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false
+
 
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
