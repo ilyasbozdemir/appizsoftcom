@@ -58,7 +58,7 @@ export const careers = [
     location: "Remote",
   },
   {
-    type: "Shared Services",
+    type: ",Shared Services",
     title: "İnsan Kaynakları Uzmanı",
     pageLoc: "insan-kaynaklari-uzmani",
     description: `

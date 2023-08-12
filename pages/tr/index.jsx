@@ -9,6 +9,8 @@ import Cta from "../../sections/Cta";
 import Head from "next/head";
 
 const LazyOurServices = dynamic(() => import("../../sections/OurServices"));
+
+const LazyPortfolio = dynamic(() => import("../../sections/Portfolio"));
 const LazyOurReferences = dynamic(() => import("../../sections/OurReferences"));
 
 const LazyOurTechnologies = dynamic(() =>
@@ -144,11 +146,18 @@ function IndexPage() {
             {isMounted && <LazyOurServices targetId={"Technologies"} />}
           </Box>
 
-          <Box id={"OurReferences"} as="section">
+          <Box id={"Portfolio"} as="section">
             {isMounted && (
-              <LazyOurReferences lang={lang} targetId={"Testimonials"} />
+              <LazyPortfolio lang={lang} targetId={"Portfolio"} />
             )}
           </Box>
+          <Box id={"Portfolio"} as="section">
+            {isMounted && (
+              <LazyOurReferences lang={lang} targetId={"WhyChooseUs"} />
+            )}
+          </Box>
+          
+
 
           <Box id={"WhyChooseUs"} as="section">
             {isMounted && (

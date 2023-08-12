@@ -99,7 +99,7 @@ function OurServices({ targetId }) {
     setIsMounted(true);
   }, []);
   return (
-    <Box>
+    <Stack>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
           <Heading as="h2" fontSize={24} pos="relative">
@@ -108,7 +108,7 @@ function OurServices({ targetId }) {
         </Flex>
       </Center>
 
-      <Center as={"article"} gap={5} data-aos="zoom-in-up">
+      <Center mt={3} as={"article"} gap={5} data-aos="zoom-in-up">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={30}
@@ -135,7 +135,6 @@ function OurServices({ targetId }) {
         </Swiper>
       </Center>
 
-    
       <HStack fontFamily={"fantasy"} mt={15}>
         <Icon as={HiMiniArrowLongRight} boxSize={35} />
         <Link href={"/tr/services"}>
@@ -144,7 +143,7 @@ function OurServices({ targetId }) {
           </Text>
         </Link>
       </HStack>
-    </Box>
+    </Stack>
   );
 }
 

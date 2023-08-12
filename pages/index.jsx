@@ -18,8 +18,6 @@ export default function HomePage() {
     }
   }, []);
 
-  const isProd = process.env.NODE_ENV === "production" ? true : false;
-
   return (
     <>
       <Head>
@@ -33,7 +31,8 @@ export default function HomePage() {
 
         <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}`} />
-        {isProd && <link rel="canonical" href="https://appizsoft.com" />}
+
+        <link rel="canonical" href="https://appizsoft.com" />
 
         <meta itemprop="description" content={site.description} />
         <meta name="description" content={site.description} />

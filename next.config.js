@@ -25,7 +25,7 @@ module.exports = {
   },
 
   images: {
-    domains: ["https://appizsoft-static-api.vercel.app/"],
+    domains: ["https://appizsoft-static-api.vercel.app/","images.unsplash.com"],
     unoptimized: true,
     remotePatterns: [
       {
