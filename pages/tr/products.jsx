@@ -211,7 +211,7 @@ function ProductsPage() {
         <link
           rel="alternate"
           hreflang="x-default"
-          href={`${site.baseUrl}/tr`}
+          href={`${site.baseUrl}/tr/products`}
         />
 
         <link
