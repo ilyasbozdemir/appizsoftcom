@@ -11,6 +11,8 @@ import {
   Tag,
   Image,
   Heading,
+  Button,
+  Stack,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
@@ -107,7 +109,6 @@ const ProjectCard = () => {
     <>
       <Container maxW="4xl" p={{ base: 5, md: 10 }}>
         <Heading fontSize={{ base: 18, md: 20 }} my={3}>
-          {" "}
           Mobil Uygulama
         </Heading>
         <VStack spacing={4}>
@@ -165,6 +166,7 @@ const ProjectCard = () => {
                         fontSize="sm"
                         color={textColor}
                         noOfLines={{ base: 2 }}
+                        userSelect={"none"}
                       >
                         {desc}
                       </Text>
@@ -186,10 +188,42 @@ const ProjectCard = () => {
   );
 };
 
+const ProductSupport = () => {
+  return (
+    <Box
+      p={6}
+      borderRadius="lg"
+      boxShadow="lg"
+      bg="white"
+      textAlign="center"
+      transition="transform 0.2s"
+      _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
+    >
+      <Text fontSize="xl" fontWeight="semibold" mb={4}>
+        Ürün Desteği ve Güncellemeler
+      </Text>
+      <Text fontSize="md" color="gray.600" mb={4}>
+        Ürünlerimiz AppizSoft platformu tarafından desteklenmektedir
+      </Text>
+      <Stack direction="row" spacing={4} justify="center">
+        <Link href={"/tr/contact"} passHref>
+          <Button colorScheme="blue" size="sm">
+            Daha Fazla Bilgi
+          </Button>
+        </Link>
+      </Stack>
+    </Box>
+  );
+};
+
 const ProductsContent = () => {
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
       <>
+        <Center>
+          <ProductSupport />
+        </Center>
+
         <ProjectCard />
       </>
     </Container>
