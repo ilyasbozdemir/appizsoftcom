@@ -1,35 +1,29 @@
-export const testimonialsData = [
+export const testimonialsData2 = [
     {
-      id: 1,
+      name: "Emre Yılmaz",
+      position: "Lead Developer",
+      company: "CodeMasterTech",
       rating: 5,
-      author: "John Doe",
-      avatarUrl:
-        "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      jobTitle: "CEO at XYZ Company",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-      reviewTitle: "Lorem ipsum dolor sit",
+      content:
+        "Appzisoft  ile birlikte çalıştığımız proje, gerçekten harika bir deneyimdi. Jena Karlis ve ekibi, isteklerimizi anlamak ve ihtiyaçlarımıza uygun bir çözüm sunmak için sürekli çaba gösterdiler. Proje süresince sağlam bir iletişim ve proaktif bir yaklaşım sergilediler. Sonuç, kullanıcı dostu ve sorunsuz bir yazılım oldu. Kesinlikle memnun kaldık ve gelecekteki projelerde tekrar birlikte çalışmayı dört gözle bekliyoruz.",
+      image: "",
     },
+  
     {
-      id: 2,
-      rating: 3,
-      author: "John Doe",
-      avatarUrl:
-        "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      jobTitle: "CEO at XYZ Company",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-      reviewTitle: "Lorem ipsum dolor sit",
-    },
-    {
-      id: 3,
+      name: "Murat Can",
+      position: "QA Engineer",
+      company: "TestPro",
       rating: 4,
-      author: "John Doe",
-      avatarUrl:
-        "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      jobTitle: "CEO at XYZ Company",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor neque sed imperdiet nibh lectus feugiat nunc sem.",
-      reviewTitle: "Lorem ipsum dolor sit",
+      content:
+        "Appzisoft ile yaptığımız proje, kalite kontrol süreçlerimizdeki katkılarıyla önemli bir başarıydı. Ekip, yazılımın testlerini titizlikle yürüttü ve hataları düzeltmek için hızlı bir şekilde geri bildirim sağladı. Proje sonunda, kullanıcı deneyimini önemli ölçüde geliştiren güvenilir bir ürün sunduk.",
+    },
+    {
+      name: "Ahmet Demir",
+      position: "Software Architect",
+      company: "SmartSolutions",
+      rating: 5,
+      content:
+        "Appzisoft ekibi, yazılım mimarisini oluşturmak ve uygulamak açısından büyük bir başarıydı. Ekip, güçlü teknik bilgisi ve projeye olan bağlılığıyla süreci yönetti. Sonuçta, yüksek kaliteli, ölçeklenebilir ve performanslı bir yazılım elde ettik. Olpers ekibine teşekkür ederiz!",
     },
   ];
+  

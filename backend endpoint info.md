@@ -6,31 +6,33 @@ Bu dokümantasyon, Appizsoft v1 versiyonunun kullanımını açıklar.
 
 - **Base URL:** `https://api.appizsoft.com/api/v1`
 
-## Kariyerler
-
+<details>
+  <summary><h2>Kariyerler</h2></summary>
+  
 Kariyerlerle ilgili işlemler. Bu işlemler JWT yetkilendirmesi gerektirir.
 
 ### Tüm Kariyerleri Getir
 
 Tüm kariyerleri almak için kullanılır.
 
+#### İstek
+
 - **Yol:** `/careers`
 - **Metod:** GET
 - **Parametreler:** Yok
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
-| Parametre        | Tür    | Zorunluluk | Açıklama              | Örnek                               |
-| ---------------- | ------ | ---------- | --------------------- | ----------------------------------- |
-| `id`             | int    | Zorunlu    | Kariyer id            | unique id, sistem belirler bunu     |
-| `type`           | string | Zorunlu    | Kariyer tipi          | Technology,Design,Shared Services   |
-| `title`          | string | Zorunlu    | Kariyer başlığı       | Kariyer için Başlık                 |
-| `pageLoc`        | string | Zorunlu    | Sayfa konumu          | kariyer içn dinamik sayfa adı       |
-| `description`    | string | Zorunlu    | Açıklama              | açılan pozisyon için açıklama       |
-| `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
-| `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
-
-#### İstek
+| Parametre        | Tür     | Zorunluluk | Açıklama                     | Örnek                               |
+| ---------------- | ------- | ---------- | ---------------------------- | ----------------------------------- |
+| `id`             | int     | Zorunlu    | Kariyer id                   | unique id, sistem belirler bunu     |
+| `type`           | string  | Zorunlu    | Kariyer tipi                 | Technology,Design,Shared Services   |
+| `title`          | string  | Zorunlu    | Kariyer başlığı              | Kariyer için Başlık                 |
+| `pageLoc`        | string  | Zorunlu    | Sayfa konumu                 | kariyer içn dinamik sayfa adı       |
+| `description`    | string  | Zorunlu    | Açıklama                     | açılan pozisyon için açıklama       |
+| `requirements`   | array   | Zorunlu    | Gereksinimler listesi        | dizi olarak gereksinimleri belirtin |
+| `location`       | string  | Zorunlu    | Konum bilgisi                | "Ankara, Türkiye" veya "Uzaktan"    |
+| `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
+| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
 
 #### Yanıt
 
@@ -63,15 +65,16 @@ Yeni bir kariyer eklemek için kullanılır.
 
 - **Parametreler:**
 
-| Parametre        | Tür    | Zorunluluk | Açıklama              | Örnek                               |
-| ---------------- | ------ | ---------- | --------------------- | ----------------------------------- |
-| `type`           | string | Zorunlu    | Kariyer tipi          | Technology,Design,Shared Services   |
-| `title`          | string | Zorunlu    | Kariyer başlığı       | Kariyer için Başlık                 |
-| `pageLoc`        | string | Zorunlu    | Sayfa konumu          | kariyer içn dinamik sayfa adı       |
-| `description`    | string | Zorunlu    | Açıklama              | açılan pozisyon için açıklama       |
-| `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
-| `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
+| Parametre        | Tür     | Zorunluluk | Açıklama                     | Örnek                               |
+| ---------------- | ------- | ---------- | ---------------------------- | ----------------------------------- |
+| `type`           | string  | Zorunlu    | Kariyer tipi                 | Technology,Design,Shared Services   |
+| `title`          | string  | Zorunlu    | Kariyer başlığı              | Kariyer için Başlık                 |
+| `pageLoc`        | string  | Zorunlu    | Sayfa konumu                 | kariyer içn dinamik sayfa adı       |
+| `description`    | string  | Zorunlu    | Açıklama                     | açılan pozisyon için açıklama       |
+| `requirements`   | array   | Zorunlu    | Gereksinimler listesi        | dizi olarak gereksinimleri belirtin |
+| `location`       | string  | Zorunlu    | Konum bilgisi                | "Ankara, Türkiye" veya "Uzaktan"    |
+| `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
+| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
 
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
@@ -94,7 +97,8 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
     "Kreatif tasarım yeteneği tercih sebebi"
   ],
   "location": "İstanbul, Türkiye",
-  "employmentType": "Tam Zamanlı"
+  "employmentType": "Tam Zamanlı",
+    "isOpen": true
 }
 ```
 
@@ -139,12 +143,12 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
     "Proje yönetimi yeteneği"
   ],
   "location": "İstanbul, Türkiye",
-  "employmentType": "Tam Zamanlı"
+  "employmentType": "Tam Zamanlı",
+    "isOpen": true
 }
 ```
 
 #### Yanıt
-
 
 ```
 {
@@ -162,8 +166,8 @@ Bir kariyer verisini güncellemek için kullanılır.
 
 - **Parametreler:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
-| Parametre | Tür | Zorunluluk | Açıklama                                |
-| --------- | --- | ---------- | --------------------------------------- |
+| Parametre | Tür | Zorunluluk | Açıklama                            |
+| --------- | --- | ---------- | ----------------------------------- |
 | `id     ` | int | Zorunlu    | Silinecek kariyerin benzersiz id'si |
 
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
@@ -179,10 +183,42 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 
 #### Yanıt
 
-
 ```
 {
 "message": "Yeni kariyer başarıyla silindi."
 }
 
 ```
+
+</details>
+
+<details>
+  <summary><h2>Hizmetler</h2></summary>
+
+  </details>
+
+  
+<details>
+  <summary><h2>Teknolojiler</h2></summary>
+  
+  </details>
+  
+<details>
+  <summary><h2>Kariyerler</h2></summary>
+  
+  </details>
+  
+<details>
+  <summary><h2>TestimonialsData</h2></summary>
+  
+  </details>
+  
+<details>
+  <summary><h2>Blog</h2></summary>
+  
+  </details>
+
+  <details>
+  <summary><h2>Kullanıcılar</h2></summary>
+  
+  </details>
