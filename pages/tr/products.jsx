@@ -93,7 +93,7 @@ const projectsList = [
     logo: "https://appizsoft-static-api.vercel.app/images/products/bilibum.png",
     //link: "https://bilibum.app",
     link: "/tr/products#",
-    desc: `Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir ninni uygulaması yaratıyoruz.`,
+    desc: `Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.`,
     technologies: ["React Native", "Nextjs"],
   },
 ];

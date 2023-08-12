@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import dynamic from "next/dynamic";
-import { trustedByDevFeatures } from "../../constants/TrustedByDevFeatures";
+import { trustedByDevFeatures } from "../../constants/trustedByDevFeatures";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
   ssr: false,
 });
