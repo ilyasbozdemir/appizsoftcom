@@ -6,8 +6,10 @@ Bu dokümantasyon, Appizsoft v1 versiyonunun kullanımını açıklar.
 
 - **Base URL:** `https://api.appizsoft.com/api/v1`
 
+Kariyer kısmında şirkete açılacak pozisyon için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
+
 <details>
-  <summary><h2>Kariyerler</h2></summary>
+  <summary><h2>Kariyer CRUD</h2></summary>
   
 Kariyerlerle ilgili işlemler. Bu işlemler JWT yetkilendirmesi gerektirir.
 
@@ -22,20 +24,17 @@ Tüm kariyerleri almak için kullanılır.
 - **Parametreler:** Yok
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
-
-| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
+| Parametre        | Tür     | Zorunluluk | Açıklama                     | Örnek                               |
 | ---------------- | ------- | ---------- | ---------------------------- | ----------------------------------- |
-| `id` | int | Zorunlu | Kariyer id | unique id, sistem belirler bunu |
-| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
-| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
-| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
-| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
-| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
-| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
-| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false |
-
-
+| `id`             | int     | Zorunlu    | Kariyer id                   | unique id, sistem belirler bunu     |
+| `type`           | string  | Zorunlu    | Kariyer tipi                 | Technology,Design,Shared Services   |
+| `title`          | string  | Zorunlu    | Kariyer başlığı              | Kariyer için Başlık                 |
+| `pageLoc`        | string  | Zorunlu    | Sayfa konumu                 | kariyer içn dinamik sayfa adı       |
+| `description`    | string  | Zorunlu    | Açıklama                     | açılan pozisyon için açıklama       |
+| `requirements`   | array   | Zorunlu    | Gereksinimler listesi        | dizi olarak gereksinimleri belirtin |
+| `location`       | string  | Zorunlu    | Konum bilgisi                | "Ankara, Türkiye" veya "Uzaktan"    |
+| `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
+| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
 
 #### Yanıt
 
@@ -68,17 +67,17 @@ Yeni bir kariyer eklemek için kullanılır.
 
 - **Parametreler:**
 
-
-| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
+| Parametre        | Tür     | Zorunluluk | Açıklama                     | Örnek                               |
 | ---------------- | ------- | ---------- | ---------------------------- | ----------------------------------- |
-| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
-| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
-| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
-| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
-| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
-| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
-| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false |
+| `type`           | string  | Zorunlu    | Kariyer tipi                 | Technology,Design,Shared Services   |
+| `title`          | string  | Zorunlu    | Kariyer başlığı              | Kariyer için Başlık                 |
+| `pageLoc`        | string  | Zorunlu    | Sayfa konumu                 | kariyer içn dinamik sayfa adı       |
+| `description`    | string  | Zorunlu    | Açıklama                     | açılan pozisyon için açıklama       |
+| `requirements`   | array   | Zorunlu    | Gereksinimler listesi        | dizi olarak gereksinimleri belirtin |
+| `location`       | string  | Zorunlu    | Konum bilgisi                | "Ankara, Türkiye" veya "Uzaktan"    |
+| `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
+| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
+
 =======
 | Parametre | Tür | Zorunluluk | Açıklama | Örnek |
 | ---------------- | ------ | ---------- | --------------------- | ----------------------------------- |
@@ -90,8 +89,6 @@ Yeni bir kariyer eklemek için kullanılır.
 | `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
 | `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
 | `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false
-
-
 
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
@@ -209,30 +206,35 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 
 </details>
 
+Hizmetler kısmında şirket bünyesinde verilen hizmetler için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
+
 <details>
   <summary><h2>Hizmetler</h2></summary>
 
   </details>
 
+Kariyer kısmında şirketimizde kllanılan teknoloji, yazılımlar için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
+
 <details>
   <summary><h2>Teknolojiler</h2></summary>
   
   </details>
-  
+
+Referans kısmında şirketin referans yorumalrını tutan ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
+
 <details>
-  <summary><h2>Kariyerler</h2></summary>
+  <summary><h2>Referans</h2></summary>
   
   </details>
-  
-<details>
-  <summary><h2>TestimonialsData</h2></summary>
-  
-  </details>
-  
+
+Blog kısmında sitede yayınlanan blog yazıları için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
+
 <details>
   <summary><h2>Blog</h2></summary>
   
   </details>
+
+Kullanıcılar kısmında sitede yönetici rolleri için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
 
   <details>
   <summary><h2>Kullanıcılar</h2></summary>
