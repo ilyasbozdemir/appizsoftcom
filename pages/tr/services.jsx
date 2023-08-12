@@ -24,7 +24,7 @@ import {
 } from "@chakra-ui/react";
 
 import { BsArrowRight } from "react-icons/bs";
-
+import { FaEnvelope } from "react-icons/fa";
 import { services } from "../../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -33,6 +33,8 @@ import { site } from "../../constants/site";
 import Image from "next/image";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
+
+import OurTechnologies from "../../sections/OurTechnologies";
 
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;
@@ -297,7 +299,84 @@ const OurServicesContent = () => {
           ))}
         </SimpleGrid>
       </Center>
+      <Box my={5}>
+        <StartProject />
+      </Box>
+
+      <Box my={5}>
+        <Box p={8} bg="gray.50" borderRadius="md" boxShadow="lg">
+          <Text fontSize="xl" fontWeight="semibold" mb={4} color="blue.600">
+            Projede Kullandığımız Teknolojiler
+          </Text>
+          <OurTechnologies />
+          <Text mt={4} fontSize="sm" color="gray.600">
+            Projemizin geliştirilmesinde en güncel ve performans odaklı
+            teknolojileri kullanıyoruz. İnovasyon ve kalite için buradayız!
+          </Text>
+        </Box>
+      </Box>
+
+      <Flex direction="column" align="center">
+      <Link href="/tr/contact" passHref>
+        <Button
+          colorScheme="blue"
+          size="lg"
+          _hover={{ bg: "blue.600" }}
+          leftIcon={<Icon as={FaEnvelope} boxSize={5} />}
+        >
+          İletişime Geçin
+        </Button>
+      </Link>
+      <Text mt={2} fontSize="sm" color="gray.600">
+        Sorularınızı yanıtlamaktan mutluluk duyarız!
+      </Text>
+    </Flex>
+
     </Container>
+  );
+};
+
+const StartProject = () => {
+  return (
+    <Box
+      bgGradient="linear(to-r, teal.400, blue.500)"
+      color="white"
+      borderRadius="lg"
+      p={10}
+      textAlign="center"
+    >
+      <Flex direction={{ base: "column", md: "row" }}>
+        <Box flex="1">
+          <Image
+            src={
+              "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            }
+            alt="Project Start"
+            height={500}
+            width={400}
+            borderRadius="md"
+            style={{
+              borderRadius: "16px",
+              boxShadow: "16px",
+            }}
+          />
+        </Box>
+        <Box flex="1" ml={{ base: 0, md: 10 }} mt={{ base: 6, md: 0 }}>
+          <Heading as="h2" fontSize="2xl" mb={4}>
+            Yaratıcılığınızı Hayata Geçirelim
+          </Heading>
+          <Text fontSize="lg" mb={6}>
+            Eşsiz projeleriniz için yanınızdayız. Dijital dünyanın kapılarını
+            aralamak ve projenize hayat vermek için hemen başlayalım!
+          </Text>
+          <Link href={"/tr/start-project"} passHref>
+            <Button colorScheme="blue" size="lg" _hover={{ bg: "blue.600" }}>
+              Proje Başlatın
+            </Button>
+          </Link>
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 

@@ -32,14 +32,6 @@ function OurTechnologies() {
   return (
     <>
       <Center>
-        <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
-            Teknolojiler
-          </Heading>
-        </Flex>
-      </Center>
-
-      <Center>
         <Box my={5} w={"85%"} userSelect={"none"}>
           <Swiper
             modules={[Autoplay]}

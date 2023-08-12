@@ -55,7 +55,8 @@ function UserLayout({ children }) {
         />
       </Box>
       <Box>
-        {isMounted && (
+        {/*
+    {isMounted && (
           <LazyReactJoyride
             steps={tourSteps}
             run={isTourOpen}
@@ -64,6 +65,8 @@ function UserLayout({ children }) {
             showProgress={true}
           />
         )}
+  */}
+
         {children}
       </Box>
       <Box as="footer">

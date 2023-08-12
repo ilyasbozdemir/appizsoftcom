@@ -94,13 +94,14 @@ const projectsList = [
     title: "Bilibum",
     logo: "https://appizsoft-static-api.vercel.app/images/products/bilibum.png",
     //link: "https://bilibum.app",
-    link: "/tr/products#",
+    link: "/tr/products/",
     desc: `Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.`,
     technologies: ["React Native", "Nextjs"],
+    platform: "Mobile",
   },
 ];
 
-const ProjectCard = () => {
+const ProjectCard = ({ targetPlatform, targetTitle }) => {
   const textColor = useColorModeValue("gray.500", "gray.200");
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleOpen = () => setIsOpen(!isOpen);
@@ -109,79 +110,84 @@ const ProjectCard = () => {
     <>
       <Container maxW="4xl" p={{ base: 5, md: 10 }}>
         <Heading fontSize={{ base: 18, md: 20 }} my={3}>
-          Mobil Uygulama
+         {targetTitle}
         </Heading>
         <VStack spacing={4}>
-          {projectsList.map(({ id, title, desc, logo, link, technologies }) => (
-            <chakra.div onClick={toggleOpen} key={id}>
-              <HStack
-                p={4}
-                bg={useColorModeValue("white", "gray.800")}
-                rounded="xl"
-                borderWidth="1px"
-                borderColor={useColorModeValue("gray.100", "gray.700")}
-                w="100%"
-                h="100%"
-                textAlign="left"
-                align="start"
-                spacing={4}
-                cursor="pointer"
-                _hover={{ shadow: "lg" }}
-              >
-                <Image
-                  src={logo}
-                  size="sm"
-                  width={55}
-                  height={30}
-                  rounded="md"
-                  alt="cover image"
-                  fallbackSrc="https://via.placeholder.com/150"
-                />
+          {projectsList.map(
+            ({ id, title, desc, logo, link, technologies, platform }) =>
+              platform === targetPlatform && (
+                <>
+                  <chakra.div onClick={toggleOpen} key={id}>
+                    <HStack
+                      p={4}
+                      bg={useColorModeValue("white", "gray.800")}
+                      rounded="xl"
+                      borderWidth="1px"
+                      borderColor={useColorModeValue("gray.100", "gray.700")}
+                      w="100%"
+                      h="100%"
+                      textAlign="left"
+                      align="start"
+                      spacing={4}
+                      cursor="pointer"
+                      _hover={{ shadow: "lg" }}
+                    >
+                      <Image
+                        src={logo}
+                        size="sm"
+                        width={55}
+                        height={30}
+                        rounded="md"
+                        alt="cover image"
+                        fallbackSrc="https://via.placeholder.com/150"
+                      />
 
-                <VStack align="start" justify="flex-start">
-                  <VStack spacing={0} align="start">
-                    <HStack>
-                      <Text
-                        as={Link}
-                        href={link}
-                        fontWeight="bold"
-                        fontSize="md"
-                        noOfLines={1}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {title}
-                      </Text>
+                      <VStack align="start" justify="flex-start">
+                        <VStack spacing={0} align="start">
+                          <HStack>
+                            <Text
+                              as={Link}
+                              href={link}
+                              fontWeight="bold"
+                              fontSize="md"
+                              noOfLines={1}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {title}
+                            </Text>
 
-                      <HStack spacing="1">
-                        {technologies.map((tech, index) => (
-                          <Tag key={index} size="sm" colorScheme="gray">
-                            {tech}
-                          </Tag>
-                        ))}
-                      </HStack>
+                            <HStack spacing="1">
+                              {technologies.map((tech, index) => (
+                                <Tag key={index} size="sm" colorScheme="gray">
+                                  {tech}
+                                </Tag>
+                              ))}
+                            </HStack>
+                          </HStack>
+
+                          {!isOpen && (
+                            <Text
+                              fontSize="sm"
+                              color={textColor}
+                              noOfLines={{ base: 2 }}
+                              userSelect={"none"}
+                            >
+                              {desc}
+                            </Text>
+                          )}
+
+                          {isOpen && (
+                            <Text fontSize="sm" color={textColor}>
+                              {desc}
+                            </Text>
+                          )}
+                        </VStack>
+                      </VStack>
                     </HStack>
-
-                    {!isOpen && (
-                      <Text
-                        fontSize="sm"
-                        color={textColor}
-                        noOfLines={{ base: 2 }}
-                        userSelect={"none"}
-                      >
-                        {desc}
-                      </Text>
-                    )}
-
-                    {isOpen && (
-                      <Text fontSize="sm" color={textColor}>
-                        {desc}
-                      </Text>
-                    )}
-                  </VStack>
-                </VStack>
-              </HStack>
-            </chakra.div>
-          ))}
+                  </chakra.div>
+                </>
+              )
+          )}
         </VStack>
       </Container>
     </>
@@ -224,7 +230,7 @@ const ProductsContent = () => {
           <ProductSupport />
         </Center>
 
-        <ProjectCard />
+        <ProjectCard targetPlatform={"Mobile"} targetTitle={"Mobil Uygulama"} />
       </>
     </Container>
   );

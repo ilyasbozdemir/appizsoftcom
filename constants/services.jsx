@@ -33,7 +33,7 @@ export const services = [
     tecrübeli ekibimizle yanınızdayız. E-ticaretteki rekabet ve sorunları
     aşmanız için uzman kadromuz iş başında.`,
     serviceCategory: "software",
-    isServicesComponentDisplay: false,
+    isServicesComponentDisplay: true,
   },
 
   {
@@ -43,7 +43,7 @@ export const services = [
     img: "/images/start_up.png",
     content: `Start-up dünyasının zorluklarını anlıyoruz ve size özel çözümler sunarak rekabet avantajı elde etmenize yardımcı oluyoruz. Deneyimli ekibimiz, projenizin her aşamasında yanınızda yer alarak başarıya ulaşmanızı destekliyoruz.`,
     serviceCategory: "software",
-    isServicesComponentDisplay: false,
+    isServicesComponentDisplay: true,
   },
   {
     id: 7004,
@@ -59,11 +59,11 @@ export const services = [
     href: "game-design",
     title: "Oyun Tasarımı",
     img: "/images/game_design.png",
-   content: `Oyun tasarımı konusunda uzman ekibimizle birlikte yazılım hizmetleri
+    content: `Oyun tasarımı konusunda uzman ekibimizle birlikte yazılım hizmetleri
     sunuyoruz. Yaratıcı fikirlerimiz ve oyun geliştirme konusundaki
     tecrübemizle sizin için en iyi oyun yazılımlarını tasarlıyoruz. `,
     serviceCategory: "software",
-    isServicesComponentDisplay: false,
+    isServicesComponentDisplay: true,
   },
 
   {
@@ -79,8 +79,8 @@ export const services = [
 
   {
     id: 7008,
-    href: "production-design",
-    title: "Prodüksiyon & Tasarım",
+    href: "production",
+    title: "Prodüksiyon",
     img: "/images/production.png",
     content: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
     işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz. Size
@@ -88,15 +88,102 @@ export const services = [
     serviceCategory: "graphic-design",
     isServicesComponentDisplay: true,
   },
-  
   {
-    id: 7008,
-    href: "production",
-    title: "Prodüksiyon",
-    img: "/images/production.png",
-    content: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
-    işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz. Size
-    özel tasarımlar ve yaratıcı fikirlerle markanızı öne çıkarıyoruz.`,
+    id: 1008,
+    href: "web-banner-design",
+    title: "Web Banner Tasarımı",
+    img: "",
+    content:
+      "Çekici ve etkileyici web banner tasarımlarıyla online varlığınızı güçlendirin. Web sitenizde veya dijital reklam kampanyalarınızda kullanabileceğiniz bannerlar oluşturuyoruz.",
+    serviceCategory: "graphic-design",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 1007,
+    href: "business-card-design",
+    title: "Kartvizit Tasarımı",
+    img: "",
+    content:
+      "Profesyonel ve dikkat çekici kartvizitlerle kalıcı bir izlenim bırakın. Kurumsal kimliğinizi yansıtan kartvizit tasarımları sunuyoruz.",
+    serviceCategory: "graphic-design",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 1003,
+    href: "poster-design",
+    title: "Poster Tasarımı",
+    img: "",
+    content:
+      "Etkileyici ve dikkat çekici posterlerle etkinliklerinizi duyurun. Özel tasarlanmış posterler ile hedef kitlenizin ilgisini çekin.",
+    serviceCategory: "graphic-design",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 1002,
+    href: "branding",
+    title: "Kurumsal Kimlik Tasarımı",
+    img: "",
+    content: "Markanızın karakterini yansıtan kurumsal kimlik tasarımlarıyla öne çıkın. Kartvizitlerden zarflara, broşürlerden dijital materyallere kadar geniş bir yelpazede hizmet sunuyoruz.",
+    serviceCategory: "graphic-design",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 1001,
+    href: "logo-design",
+    title: "Logo Tasarımı",
+    img: "",
+    content:
+      "Markanızı yansıtan özgün ve etkileyici logo tasarımlarıyla tanışın. Kurumsal kimliğinizi en iyi şekilde temsil edecek logoları sizin için oluşturuyoruz.",
+    serviceCategory: "graphic-design",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 7009,
+    href: "social-media-management",
+    title: "Sosyal Medya Yönetimi",
+    img: "",
+    content:
+      "Hedef kitlenizle etkileşim kurmak için sosyal medya platformlarını etkili bir şekilde yönetiyoruz. Stratejik içerik oluşturma, paylaşımların zamanlaması, etkileşim analizi ve büyüme hedeflerinize ulaşma konularında size yardımcı oluyoruz.",
+    serviceCategory: "digital marketing",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 7010,
+    href: "seo",
+    title: "Arama Motoru Optimizasyonu (SEO)",
+    img: "",
+    content:
+      "Web sitenizin organik arama sonuçlarında üst sıralarda görünmesini sağlamak için SEO hizmetleri sunuyoruz. Anahtar kelime analizi, teknik optimizasyon, içerik stratejileri ve bağlantı kurma gibi adımlarla çevrimiçi görünürlüğünüzü artırıyoruz.",
+    serviceCategory: "digital marketing",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 7011,
+    href: "google-ads",
+    title: "Google Reklamları Yönetimi (SEM)",
+    img: "",
+    content:
+      "Google Ads platformunu kullanarak hedeflenen reklamlar oluşturuyoruz. İlgili anahtar kelimelere dayalı reklam kampanyaları yöneterek, potansiyel müşterilerinizi çekmeyi ve dönüşümleri artırmayı hedefliyoruz.",
+    serviceCategory: "digital marketing",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 7012,
+    href: "email-marketing",
+    title: "E-Posta Pazarlama Kampanyaları",
+    img: "",
+    content:
+      "Etkili e-posta pazarlama kampanyaları oluşturarak, müşterilere özel içerikler, promosyonlar ve güncellemeler sunuyoruz. Hedef kitlenizle kişisel bağlar kurmanıza yardımcı olarak, sadık müşteri tabanı oluşturmanızı sağlıyoruz.",
+    serviceCategory: "digital marketing",
+    isServicesComponentDisplay: true,
+  },
+  {
+    id: 7013,
+    href: "content-marketing",
+    title: "İçerik Üretimi ve Pazarlama",
+    img: "",
+    content:
+      "İlgilendiğiniz sektöre özgü nitelikli içerikler üreterek, hedef kitlenizi bilgilendiriyor ve etkili bir şekilde etkileşim kurmanızı sağlıyoruz. Blog yazıları, infografikler, videolar ve daha fazlasıyla markanızı güçlendiriyoruz.",
     serviceCategory: "digital marketing",
     isServicesComponentDisplay: true,
   },
