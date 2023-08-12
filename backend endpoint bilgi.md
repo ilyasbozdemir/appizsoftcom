@@ -6,14 +6,16 @@ Bu dokümantasyon, Appizsoft v1 versiyonunun kullanımını açıklar.
 
 - **Base URL:** `https://api.appizsoft.com/api/v1`
 
-## Kariyerler
-
+<details>
+  <summary><h2>Kariyerler</h2></summary>
+  
 Kariyerlerle ilgili işlemler. Bu işlemler JWT yetkilendirmesi gerektirir.
 
 ### Tüm Kariyerleri Getir
 
-#### İstek
 Tüm kariyerleri almak için kullanılır.
+
+#### İstek
 
 - **Yol:** `/careers`
 - **Metod:** GET
@@ -30,6 +32,8 @@ Tüm kariyerleri almak için kullanılır.
 | `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
 | `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
 | `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
+| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) |true,false
+
 
 #### Yanıt
 
@@ -71,6 +75,7 @@ Yeni bir kariyer eklemek için kullanılır.
 | `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
 | `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
 | `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
+| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false
 
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
@@ -93,7 +98,8 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
     "Kreatif tasarım yeteneği tercih sebebi"
   ],
   "location": "İstanbul, Türkiye",
-  "employmentType": "Tam Zamanlı"
+  "employmentType": "Tam Zamanlı",
+    "isOpen": true
 }
 ```
 
@@ -138,7 +144,8 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
     "Proje yönetimi yeteneği"
   ],
   "location": "İstanbul, Türkiye",
-  "employmentType": "Tam Zamanlı"
+  "employmentType": "Tam Zamanlı",
+    "isOpen": true
 }
 ```
 
@@ -185,3 +192,4 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 }
 
 ```
+</details>
