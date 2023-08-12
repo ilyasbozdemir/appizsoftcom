@@ -23,31 +23,31 @@ Tüm kariyerleri almak için kullanılır.
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
 <<<<<<< HEAD:backend endpoint info.md
-| Parametre        | Tür     | Zorunluluk | Açıklama                     | Örnek                               |
+| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
 | ---------------- | ------- | ---------- | ---------------------------- | ----------------------------------- |
-| `id`             | int     | Zorunlu    | Kariyer id                   | unique id, sistem belirler bunu     |
-| `type`           | string  | Zorunlu    | Kariyer tipi                 | Technology,Design,Shared Services   |
-| `title`          | string  | Zorunlu    | Kariyer başlığı              | Kariyer için Başlık                 |
-| `pageLoc`        | string  | Zorunlu    | Sayfa konumu                 | kariyer içn dinamik sayfa adı       |
-| `description`    | string  | Zorunlu    | Açıklama                     | açılan pozisyon için açıklama       |
-| `requirements`   | array   | Zorunlu    | Gereksinimler listesi        | dizi olarak gereksinimleri belirtin |
-| `location`       | string  | Zorunlu    | Konum bilgisi                | "Ankara, Türkiye" veya "Uzaktan"    |
-| `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
-| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
+| `id` | int | Zorunlu | Kariyer id | unique id, sistem belirler bunu |
+| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
+| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
+| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
+| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
+| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
+| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
+| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
+| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false |
 =======
-| Parametre        | Tür    | Zorunluluk | Açıklama              | Örnek                               |
+| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
 | ---------------- | ------ | ---------- | --------------------- | ----------------------------------- |
-| `id`             | int    | Zorunlu    | Kariyer id            | unique id, sistem belirler bunu     |
-| `type`           | string | Zorunlu    | Kariyer tipi          | Technology,Design,Shared Services   |
-| `title`          | string | Zorunlu    | Kariyer başlığı       | Kariyer için Başlık                 |
-| `pageLoc`        | string | Zorunlu    | Sayfa konumu          | kariyer içn dinamik sayfa adı       |
-| `description`    | string | Zorunlu    | Açıklama              | açılan pozisyon için açıklama       |
-| `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
-| `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
-| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) |true,false
+| `id` | int | Zorunlu | Kariyer id | unique id, sistem belirler bunu |
+| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
+| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
+| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
+| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
+| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
+| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
+| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
+| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) |true,false
 
->>>>>>> 270dd5b1d19e3f5e643b84060e4bd59238577539:backend endpoint bilgi.md
+> > > > > > > 270dd5b1d19e3f5e643b84060e4bd59238577539:backend endpoint bilgi.md
 
 #### Yanıt
 
@@ -81,28 +81,29 @@ Yeni bir kariyer eklemek için kullanılır.
 - **Parametreler:**
 
 <<<<<<< HEAD:backend endpoint info.md
-| Parametre        | Tür     | Zorunluluk | Açıklama                     | Örnek                               |
+| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
 | ---------------- | ------- | ---------- | ---------------------------- | ----------------------------------- |
-| `type`           | string  | Zorunlu    | Kariyer tipi                 | Technology,Design,Shared Services   |
-| `title`          | string  | Zorunlu    | Kariyer başlığı              | Kariyer için Başlık                 |
-| `pageLoc`        | string  | Zorunlu    | Sayfa konumu                 | kariyer içn dinamik sayfa adı       |
-| `description`    | string  | Zorunlu    | Açıklama                     | açılan pozisyon için açıklama       |
-| `requirements`   | array   | Zorunlu    | Gereksinimler listesi        | dizi olarak gereksinimleri belirtin |
-| `location`       | string  | Zorunlu    | Konum bilgisi                | "Ankara, Türkiye" veya "Uzaktan"    |
-| `employmentType` | string  | Zorunlu    | İstihdam tipi                | tam zamanlı yarı zamanlı gibi       |
-| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false                          |
+| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
+| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
+| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
+| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
+| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
+| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
+| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
+| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false |
 =======
-| Parametre        | Tür    | Zorunluluk | Açıklama              | Örnek                               |
+| Parametre | Tür | Zorunluluk | Açıklama | Örnek |
 | ---------------- | ------ | ---------- | --------------------- | ----------------------------------- |
-| `type`           | string | Zorunlu    | Kariyer tipi          | Technology,Design,Shared Services   |
-| `title`          | string | Zorunlu    | Kariyer başlığı       | Kariyer için Başlık                 |
-| `pageLoc`        | string | Zorunlu    | Sayfa konumu          | kariyer içn dinamik sayfa adı       |
-| `description`    | string | Zorunlu    | Açıklama              | açılan pozisyon için açıklama       |
-| `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
-| `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
-| `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
-| `isOpen`         | boolean | Zorunlu    | Kariyer durumu (açık/kapalı) | true,false
->>>>>>> 270dd5b1d19e3f5e643b84060e4bd59238577539:backend endpoint bilgi.md
+| `type` | string | Zorunlu | Kariyer tipi | Technology,Design,Shared Services |
+| `title` | string | Zorunlu | Kariyer başlığı | Kariyer için Başlık |
+| `pageLoc` | string | Zorunlu | Sayfa konumu | kariyer içn dinamik sayfa adı |
+| `description` | string | Zorunlu | Açıklama | açılan pozisyon için açıklama |
+| `requirements` | array | Zorunlu | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
+| `location` | string | Zorunlu | Konum bilgisi | "Ankara, Türkiye" veya "Uzaktan" |
+| `employmentType` | string | Zorunlu | İstihdam tipi | tam zamanlı yarı zamanlı gibi |
+| `isOpen` | boolean | Zorunlu | Kariyer durumu (açık/kapalı) | true,false
+
+> > > > > > > 270dd5b1d19e3f5e643b84060e4bd59238577539:backend endpoint bilgi.md
 
 - **Headers:** `Authorization: Bearer {YOUR_JWT_TOKEN}`
 
@@ -217,7 +218,6 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 }
 
 ```
-<<<<<<< HEAD:backend endpoint info.md
 
 </details>
 
@@ -226,7 +226,6 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 
   </details>
 
-  
 <details>
   <summary><h2>Teknolojiler</h2></summary>
   
@@ -251,6 +250,3 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
   <summary><h2>Kullanıcılar</h2></summary>
   
   </details>
-=======
-</details>
->>>>>>> 270dd5b1d19e3f5e643b84060e4bd59238577539:backend endpoint bilgi.md
