@@ -12,6 +12,7 @@ Kariyerlerle ilgili işlemler. Bu işlemler JWT yetkilendirmesi gerektirir.
 
 ### Tüm Kariyerleri Getir
 
+#### İstek
 Tüm kariyerleri almak için kullanılır.
 
 - **Yol:** `/careers`
@@ -29,8 +30,6 @@ Tüm kariyerleri almak için kullanılır.
 | `requirements`   | array  | Zorunlu    | Gereksinimler listesi | dizi olarak gereksinimleri belirtin |
 | `location`       | string | Zorunlu    | Konum bilgisi         | "Ankara, Türkiye" veya "Uzaktan"    |
 | `employmentType` | string | Zorunlu    | İstihdam tipi         | tam zamanlı yarı zamanlı gibi       |
-
-#### İstek
 
 #### Yanıt
 
