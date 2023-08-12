@@ -100,14 +100,14 @@ function ContactPage() {
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/contact`} />
         <link rel="canonical" href="https://appizsoft.com/tr/contact" />
 
-        <meta itemprop="description" content={site.description} />
-        <meta name="description" content={site.description} />
+        <meta itemprop="description" content={desc} />
+        <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
         <meta name="robots" content={"index, follow"} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={site.title} />
-        <meta name="twitter:description" content={site.description} />
+        <meta name="twitter:description" content={desc} />
         <meta name="twitter:site" content="@appizsoftcom" />
         <meta name="twitter:creator" content="@appizsoftcom" />
         <meta name="twitter:image" content={site.twImage} />
@@ -115,7 +115,7 @@ function ContactPage() {
 
         <meta property="og:title" content={site.title} />
         <meta property="og:url" content={`${site.baseUrl}/tr`} />
-        <meta property="og:description" content={site.description} />
+        <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
         <meta property="og:image" content={site.ogImage} />

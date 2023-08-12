@@ -28,15 +28,8 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
-import Head from "next/head";
-import Link from "next/link";
-import Script from "next/script";
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
-function SSS({sss}) {
-
-
-
+function SSS({ sss }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -45,11 +38,8 @@ function SSS({sss}) {
   const [message, setMessage] = React.useState("");
   const toast = useToast();
 
-
-
   return (
     <Box my={10}>
- 
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
           <Heading

@@ -53,9 +53,23 @@ const GetAQuoteCTA = () => {
       )}
 
       {isMobile && (
-        <Box my={5} mx={3}>
-          <PagesBreadcrumb currentPage={"Proje Başlat"} />
-        </Box>
+        <Flex
+        as="section"
+        h={180}
+        bgGradient="linear(to-l, #667eea, #54BEC3)"
+        w="100%"
+        color="white"
+        justify={"center"}
+      >
+        <Center>
+          <Flex direction={"column"}>
+            <Text fontSize={45}>Proje Başlat</Text>
+            <Center>
+              <PagesBreadcrumb currentPage={"Proje Başlat"} />
+            </Center>
+          </Flex>
+        </Center>
+      </Flex>
       )}
     </Flex>
   );

@@ -161,7 +161,7 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 
 ```
 {
-"message": "Yeni kariyer başarıyla güncellendi."
+"message": "Kariyer başarıyla güncellendi."
 }
 
 ```
@@ -194,7 +194,7 @@ Authorization: Bearer {YOUR_JWT_TOKEN}
 
 ```
 {
-"message": "Yeni kariyer başarıyla silindi."
+"message": "Kariyer başarıyla silindi."
 }
 
 ```

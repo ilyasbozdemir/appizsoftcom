@@ -13,51 +13,14 @@ import {
   WrapItem,
   Center,
 } from "@chakra-ui/react";
-import { FaSmile } from "react-icons/fa";
-import { IoDiamondSharp } from "react-icons/io5";
-import { AiFillCheckCircle } from "react-icons/ai";
-import { IoMdPeople } from "react-icons/io";
 
 import dynamic from "next/dynamic";
+import { trustedByDevFeatures } from "../../constants/TrustedByDevFeatures";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
   ssr: false,
 });
 
-const statData = [
-  {
-    id: 1,
-    label: "Yıllık Tecrübe",
-    score: "10",
-    icon: IoDiamondSharp,
-    color: "teal",
-  },
-  {
-    id: 2,
-    label: "Puan",
-    score: "100",
-    icon: FaSmile,
-    color: "yellow",
-  },
-  {
-    id: 3,
-    label: "Biten Proje",
-    score: "99",
-    icon: AiFillCheckCircle,
-    color: "green",
-  },
-
-  {
-    id: 4,
-    label: "Uzman Çalışan",
-    score: "10",
-    icon: IoMdPeople,
-    color: "gray",
-  },
-];
-
 const BrandStats = () => {
-
-
   const isMobile = useBreakpointValue({ base: false, md: true });
 
   return (
@@ -66,22 +29,21 @@ const BrandStats = () => {
       justifyContent="center"
       direction={"column"}
       gap={10}
-     
     >
       {isMobile && (
         <>
           <SimpleGrid
             columns={{ base: 1, md: 2, lg: 4 }}
-            spacing={{ base: 0, sm: 10 }}
+            spacing={{ base: 0, md: 10 }}
           >
-            {statData.map((data) => (
+            {trustedByDevFeatures.map((data) => (
               <Flex
                 key={data.id}
                 direction={"row"}
                 bg={`${data.color}.400`}
                 color={"white"}
                 p={10}
-                shadow={'lg'}
+                shadow={"lg"}
               >
                 <Flex align={"center"} justify={"center"}>
                   <Icon
@@ -128,7 +90,7 @@ const BrandStats = () => {
       {!isMobile && (
         <>
           <Wrap spacing={5}>
-            {statData.map((data) => (
+            {trustedByDevFeatures.map((data) => (
               <WrapItem key={data.id} h="120px" w={"full"}>
                 <Flex
                   bg={`${data.color}.400`}
@@ -136,7 +98,6 @@ const BrandStats = () => {
                   align={"center"}
                   justify={"center"}
                   w={"full"}
-               
                 >
                   <Flex align={"center"} justify={"center"}>
                     <Icon

@@ -16,14 +16,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import {
-  FaRocket,
-  FaSearch,
-  FaClock,
-  FaShieldAlt,
-  FaUsers,
-  FaLightbulb,
-} from "react-icons/fa";
+
+import { whyChooseUsFeatures } from "../../constants/whyChooseUsFeatures";
 
 function WhyChooseUs() {
   const Feature = (props) => {
@@ -93,56 +87,7 @@ function WhyChooseUs() {
     );
   };
 
-  const features = [
-    {
-      color: "teal",
-      title: "Yüksek Hız",
-      icon: FaRocket,
-      content:
-        "Projelerinizi hızlı bir şekilde tamamlarız. İleri düzeyde verimlilikle çalışarak zamanınızı tasarruf ederiz.",
-      bgImage: "/images/bgImage1.svg",
-    },
-    {
-      color: "blue",
-      title: "SEO Uyumlu Çözümler",
-      icon: FaSearch,
-      content:
-        "SEO odaklı yaklaşımlarla web sitelerinizi ve uygulamalarınızı optimize ederiz",
-      bgImage: "/images/bgImage2.svg",
-    },
-    {
-      color: "purple",
-      title: "Kısa Sürede Teslimat",
-      icon: FaClock,
-      content:
-        "Projelerinizi zamanında ve beklenen sürede teslim ederiz. Sorunsuz bir şekilde ilerleyerek iş süreçlerinizi hızlandırırız.",
-      bgImage: "/images/bgImage3.svg",
-    },
-    {
-      color: "yellow",
-      title: "Para İade Garantisi",
-      icon: FaShieldAlt,
-      content:
-        "Müşteri memnuniyeti için garanti sağlarız ve memnun kalmamanız durumunda para iadesi sunarız.",
-      bgImage: "/images/bgImage4.svg",
-    },
-    {
-      color: "orange",
-      title: "Müşteri Odaklılık",
-      icon: FaUsers,
-      content:
-        "İhtiyaçlarınızı anlamak ve beklentilerinizi karşılamak için esnek ve müşteri odaklı bir yaklaşım benimseriz.",
-      bgImage: "/images/bgImage4.svg",
-    },
-    {
-      color: "pink",
-      title: "Yenilikçi Teknoloji",
-      icon: FaLightbulb,
-      content:
-        "Güncel teknolojilerle projelerinizi destekleriz, en yeni çözümleri sunarak rekabet avantajı sağlamanızı sağlarız.",
-      bgImage: "/images/bgImage5.svg",
-    },
-  ];
+ 
 
   return (
     <Flex
@@ -212,7 +157,7 @@ function WhyChooseUs() {
           columnGap={5}
           justify="center"
         >
-          {features.map((child) => (
+          {whyChooseUsFeatures.map((child) => (
             <React.Fragment key={child.icon}>
               <Feature {...child} />
             </React.Fragment>
