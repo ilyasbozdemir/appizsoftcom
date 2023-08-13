@@ -10,6 +10,7 @@ import {
   useBreakpointValue,
   HStack,
   Icon,
+  Container,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -55,7 +56,7 @@ export default function Portfolio() {
     setIsMounted(true);
   }, []);
   return (
-    <Box>
+    <Box borderRadius="md" boxShadow="md" p={5}>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
           <Heading as="h2" fontSize={24} pos="relative">
@@ -64,12 +65,13 @@ export default function Portfolio() {
         </Flex>
       </Center>
 
-      <Box my={5}>
+      <Center my={5}>
         <Swiper
           modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={useBreakpointValue({
             base: 1,
+            sm:2,
             md: 2,
             lg: 3,
             xl: 4,
@@ -111,7 +113,7 @@ export default function Portfolio() {
             </>
           )}
         </Swiper>
-      </Box>
+      </Center>
 
       <HStack fontFamily={"fantasy"} mt={15}>
         <Icon as={HiMiniArrowLongRight} boxSize={35} />

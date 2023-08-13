@@ -24,7 +24,6 @@ const LazyOurWorkProcess = dynamic(() =>
 const LazyBlog = dynamic(() => import("../../sections/Blog"));
 const LazyTrustedByDev = dynamic(() => import("../../sections/TrustedByDev"));
 
-
 //
 
 import { site } from "../../constants/site";
@@ -147,28 +146,20 @@ function IndexPage() {
           </Box>
 
           <Box id={"Portfolio"} as="section">
-            {isMounted && (
-              <LazyPortfolio lang={lang} targetId={"Portfolio"} />
-            )}
+            {isMounted && <LazyPortfolio lang={lang} targetId={"Portfolio"} />}
           </Box>
           <Box id={"Portfolio"} as="section">
             {isMounted && (
               <LazyOurReferences lang={lang} targetId={"WhyChooseUs"} />
             )}
           </Box>
-          
-
 
           <Box id={"WhyChooseUs"} as="section">
             {isMounted && (
               <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
             )}
           </Box>
-          <Box id={"Technologies"} as="section">
-            {isMounted && (
-              <LazyTrustedByDev lang={lang} targetId={"WhyChooseUs"} />
-            )}
-          </Box>
+    
           <Box id={"OurWorkProcess"} as="section">
             {isMounted && (
               <LazyOurWorkProcess lang={lang} targetId={"OurReferences"} />

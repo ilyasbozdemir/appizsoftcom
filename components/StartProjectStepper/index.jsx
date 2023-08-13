@@ -37,7 +37,11 @@ import {
   FormErrorMessage,
 } from "@chakra-ui/react";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
-import { MdWeb, MdOutlineProductionQuantityLimits } from "react-icons/md";
+import {
+  MdWeb,
+  MdOutlineProductionQuantityLimits,
+  MdDesignServices,
+} from "react-icons/md";
 import { TfiMobile } from "react-icons/tfi";
 import { SiPytest } from "react-icons/si";
 import FileUpload from "./components/FileUpload";
@@ -435,6 +439,7 @@ const StartupSolutionsComponent = () => {
       val: "scaling-strategy",
       title: "Ölçeklendirme Stratejisi",
     },
+    { val: "other", title: "Diğer" },
   ]);
   return (
     <Flex justifyContent={"center"} direction={"column"}>
@@ -509,6 +514,7 @@ const ProductionComponent = () => {
       val: "character-animation",
       title: "Karakter Tasarımı ve Animasyonları",
     },
+    { val: "other", title: "Diğer" },
   ]);
 
   return (
@@ -523,66 +529,42 @@ const ProductionComponent = () => {
 const CorporateIdentityStudyComponent = () => {
   const [value, setValue] = React.useState("");
   const [services, setServices] = React.useState([
-    {
-      val: "logo-design",
-      title: "Logo Tasarımı",
-    },
-    {
-      val: "color-palette",
-      title: "Renk Paleti",
-    },
-    {
-      val: "typography",
-      title: "Tipografi",
-    },
-    {
-      val: "stationery-design",
-      title: "Kartvizit ve Mektup Kağıdı Tasarımı",
-    },
-    {
-      val: "corporate-documents",
-      title: "Kurumsal Dökümanlar",
-    },
-    {
-      val: "website-design",
-      title: "Web Sitesi ve Diğer Dijital Varlıklar",
-    },
-    {
-      val: "packaging-design",
-      title: "Ambalaj Tasarımı",
-    },
-    {
-      val: "marketing-materials",
-      title: "Reklam ve Pazarlama Malzemeleri",
-    },
-    {
-      val: "social-media-content",
-      title: "Sosyal Medya ve İçerik Yönetimi",
-    },
-    {
-      val: "corporate-communication-tone",
-      title: "Kurumsal İletişim ve Tonu",
-    },
-    {
-      val: "brand-guidelines",
-      title: "Marka Kılavuzu",
-    },
-    {
-      val: "visual-identity",
-      title: "Görsel Kimlik",
-    },
-    {
-      val: "brand-storytelling",
-      title: "Marka Hikayesi Anlatımı",
-    },
-    {
-      val: "brand-audit",
-      title: "Marka Denetimi",
-    },
-    {
-      val: "brand-positioning",
-      title: "Marka Konumlandırma",
-    },
+    { val: "logo-design", title: "Logo Tasarımı" },
+    { val: "business-card", title: "Kartvizit" },
+    { val: "letterhead", title: "Antetli Kağıt" },
+    { val: "envelope", title: "Diplomat Zarf" },
+    { val: "company-folder", title: "Şirket Dosyalığı" },
+    { val: "email-signature", title: "E-posta İmza" },
+    { val: "invoice", title: "Fatura & İrsaliye" },
+    { val: "table-flag", title: "Masa & Şirket Bayrağı" },
+    { val: "watermark", title: "Filigran" },
+    { val: "paper-bag", title: "Karton Çanta" },
+    { val: "notebook-pad", title: "Bloknot & Küpnot" },
+    { val: "cd-cover", title: "CD & Kapak" },
+    { val: "usb-flash-drive", title: "USB Flash Bellek" },
+    { val: "keychain", title: "Anahtarlık & Kokuluk" },
+    { val: "badge", title: "Rozet & Arma" },
+    { val: "pen-pencil", title: "Dolma & Kurşun Kalem" },
+    { val: "agenda", title: "Ajanda" },
+    { val: "mug-cup", title: "Fincan & Kupa Bardak" },
+    { val: "napkin-wet-wipe", title: "Peçete & Islak Mendil" },
+    { val: "shirt", title: "Gömlek & Tişört" },
+    { val: "name-tag", title: "Yaka Kartı" },
+    { val: "vehicle-design", title: "Araç Tasarımı" },
+    { val: "wall-clock", title: "Duvar Saati" },
+    { val: "indoor-signs", title: "Şirket içi Levhalar" },
+    { val: "a4-box", title: "A4 Kutusu" },
+    { val: "magazine-design", title: "Dergi Tasarımı" },
+    { val: "catalog-brochure-design", title: "Katalog & Broşür Tasarımı" },
+    { val: "ad-banner-design", title: "Reklam & Banner Tasarımı" },
+    { val: "app-interface", title: "Uygulama Arayüz Tasarımı" },
+    { val: "video-game-design", title: "Video Oyun Tasarımı" },
+    { val: "packaging-label-design", title: "Ambalaj Etiket Tasarımı" },
+    { val: "popup-store-design", title: "Popup Mağaza Tasarımı" },
+    { val: "restaurant-menu-design", title: "Restoran Menü Tasarımı" },
+    { val: "event-invitation-design", title: "Etkinlik Davetiye Tasarımı" },
+    { val: "educational-app-design", title: "Eğitim Uygulama Tasarımı" },
+    { val: "other", title: "Diğer" },
   ]);
   return (
     <Flex justifyContent={"center"} direction={"column"}>
@@ -656,6 +638,7 @@ const TestOtomationComponent = () => {
       val: "test-automation-tools",
       title: "Test Otomasyon Araçları",
     },
+    { val: "other", title: "Diğer" },
   ]);
   return (
     <Flex justifyContent={"center"} direction={"column"}>
@@ -730,13 +713,13 @@ const DigitalMarketingComponent = () => {
       val: "customer-relationship-management",
       title: "Müşteri İlişkileri Yönetimi (CRM)",
     },
+    { val: "other", title: "Diğer" },
   ]);
   return (
     <Flex justifyContent={"center"} direction={"column"}>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
         <CheckboxCard options={services} setCheckedItems={setValue} />
-
       </FormControl>
     </Flex>
   );
@@ -783,9 +766,9 @@ const FirstStep = () => {
     },
     {
       id: 5,
-      title: "Kurumsal Kimlik Çalışması",
+      title: "UI / UX Tasarım Geliştirme",
       bg: "yellow",
-      icon: "",
+      icon: MdDesignServices,
       dependenciesComponent: [CorporateIdentityStudyComponent],
     },
     {
@@ -981,4 +964,4 @@ function StartProjectStepper() {
   );
 }
 
-export default StartProjectStepper
+export default StartProjectStepper;

@@ -1,4 +1,6 @@
 import {
+  chakra,
+  useColorModeValue,
   Flex,
   Text,
   Heading,
@@ -12,9 +14,13 @@ import {
   useBreakpointValue,
   HStack,
   Icon,
+  Container,
 } from "@chakra-ui/react";
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+
 import { BsArrowRight } from "react-icons/bs";
+import { FaBook } from "react-icons/fa";
+import { FaDigitalTachograph } from "react-icons/fa";
+import { IoColorPalette } from "react-icons/io5";
 
 import React, { useEffect, useState } from "react";
 import { services } from "../../constants/services";
@@ -22,74 +28,106 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/autoplay";
 import { HiMiniArrowLongRight } from "react-icons/hi2";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 
-const ServicesCard = (props) => {
-  const { id, img, href, title, content } = props;
-  const router = useRouter();
+const features = [
+  {
+    heading: "Yazılım Hizmetleri",
+    content:
+      "Teknoloji dünyasındaki ihtiyaçlarınızı karşılayacak özelleştirilmiş yazılım çözümleri sunuyoruz. Web ve mobil uygulama geliştirme ile işletmenizin dijital dönüşümüne destek oluyor, API entegrasyonlarıyla verilerinizi daha etkili bir şekilde yönetmenize yardımcı oluyoruz.",
+    icon: FaBook,
+  },
+  {
+    heading: "Dijital Hizmetleri",
+    content:
+      "Dijital varlığınızı büyütmek ve çevrimiçi görünürlüğünüzü artırmak için güçlü çözümler sunuyoruz. SEO ve dijital pazarlama stratejileri ile hedef kitlenize ulaşmanıza yardımcı oluyor, sosyal medya yönetimi ve Google reklamlarıyla markanızın tanıtımını yapıyoruz.",
+    icon: FaDigitalTachograph,
+  },
+  {
+    heading: "Tasarım Hizmetleri",
+    content:
+      "Görsel kimliğinizi oluşturmak ve markanızın estetik açıdan etkileyici olmasını sağlamak için tasarım hizmetleri sunuyoruz. Kullanıcı dostu arayüz (UI) ve kullanıcı deneyimi (UX) tasarımıyla kullanıcılarınızın etkileşimini kolaylaştırıyor, ayrıca grafik tasarım ve logo tasarımı ile markanızı öne çıkarıyoruz.",
+    icon: IoColorPalette,
+  },
+];
 
+const Features = () => {
   return (
-    <>
-      <Card maxW="sm" h={450} role={"group"}>
-        <CardBody
-          onClick={() => {
-            router.push("/tr/service/[id]", `/tr/service/${href}`, {
-              shallow: true,
-            });
-          }}
-          cursor="pointer"
-        >
-          <Flex justifyContent={"center"}>
-            <Image
-              id={id}
-              alt={title}
-              height={70}
-              width={70}
-              src={`${baseImagePath}/${img}`}
-              style={{
-                draggable: false,
-              }}
-            />
-          </Flex>
-          <Stack mt="6" spacing="3">
-            <Heading size="md">{title}</Heading>
-            <Text>{content}</Text>
-          </Stack>
-        </CardBody>
-        <CardFooter>
-          <Flex justifyContent={"center"} mt={4} justify={"center"} my={2}>
-            <Stack>
-              <Link
-                href="/tr/service/[id]"
-                as={`/tr/service/${href}`}
-                shallow={true}
-                passHref
-              >
-                <Button
-                  variant={"outline"}
-                  color="primary.100"
-                  rightIcon={<BsArrowRight />}
-                  w={"full"}
-                  h={"50px"}
-                  _groupHover={{
-                    boxShadow: `rgba(84, 190, 195, 0.4) 0px 2px 4px, rgba(84, 190, 195, 0.3) 0px 7px 13px -3px, rgba(84, 190, 195, 0.2) 0px -3px 0px inset;`,
-                  }}
-                >
-                  İncele
-                </Button>
-              </Link>
-            </Stack>
-          </Flex>
-        </CardFooter>
-      </Card>
-    </>
+    <Container
+      maxW="6xl"
+      p={{ base: 5, md: 10 }}
+      bg="blue.200"
+      borderRadius={"md"}
+      boxShadow={"md"}
+    >
+      <chakra.h3
+        fontSize="4xl"
+        fontWeight="bold"
+        mb={20}
+        textAlign="center"
+        color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
+      >
+        Size Sunabileceğimiz Hizmetler
+      </chakra.h3>
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3 }}
+        alignSelf="start"
+        spacing={10}
+        mb={4}
+      >
+        {features.map((feature, index) => (
+          <Box
+            key={index}
+            bg={useColorModeValue("gray.100", "gray.100")}
+            color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
+            p={6}
+            rounded="lg"
+            textAlign="center"
+            pos="relative"
+          >
+            <Flex
+              p={2}
+              w="max-content"
+              color={useColorModeValue("gray.100", "gray.100")}
+              bgGradient="linear(to-br, #228be6, #15aabf)"
+              rounded="md"
+              marginInline="auto"
+              pos="absolute"
+              left={0}
+              right={0}
+              top="-1.5rem"
+              boxShadow="lg"
+            >
+              <Icon as={feature.icon} boxSize={30} />
+            </Flex>
+            <chakra.h3
+              fontWeight="semibold"
+              fontSize="2xl"
+              mt={6}
+              color={useColorModeValue("gray.800", "gray.800")}
+            >
+              {feature.heading}
+            </chakra.h3>
+            <Text
+              fontSize="md"
+              mt={4}
+              color={useColorModeValue("gray.800", "gray.800")}
+            >
+              {feature.content}
+            </Text>
+          </Box>
+        ))}
+      </SimpleGrid>
+      <chakra.div textAlign="center"     color={useColorModeValue("gray.800", "gray.800")}>
+        <Link href={"/tr/services"}>
+          <Text fontSize={25} cursor={"pointer"}>
+            Tüm Hizmetleri Görüntüle
+          </Text>
+        </Link>
+      </chakra.div>
+    </Container>
   );
 };
 
@@ -98,52 +136,11 @@ function OurServices({ targetId }) {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
   return (
-    <Stack>
-      <Center>
-        <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
-            Hizmetlerimiz
-          </Heading>
-        </Flex>
-      </Center>
-
-      <Center mt={3} as={"article"} gap={5} data-aos="zoom-in-up">
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={30}
-          slidesPerView={useBreakpointValue({
-            base: 1,
-            md: 2,
-            lg: 3,
-            xl: 4,
-          })}
-          autoplay={{ delay: 2500 }}
-        >
-          {isMounted && (
-            <>
-              {services.map(
-                (service, i) =>
-                  service.isServicesComponentDisplay === true && (
-                    <SwiperSlide key={service.id} p={5}>
-                      <ServicesCard {...service} />
-                    </SwiperSlide>
-                  )
-              )}
-            </>
-          )}
-        </Swiper>
-      </Center>
-
-      <HStack fontFamily={"fantasy"} mt={15}>
-        <Icon as={HiMiniArrowLongRight} boxSize={35} />
-        <Link href={"/tr/services"}>
-          <Text fontSize={25} cursor={"pointer"}>
-            Daha Fazla
-          </Text>
-        </Link>
-      </HStack>
-    </Stack>
+    <>
+      <Features />
+    </>
   );
 }
 

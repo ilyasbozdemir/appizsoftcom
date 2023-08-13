@@ -42,7 +42,7 @@ const navLinks = [
   { name: "Hizmetler", path: "/services" },
 
   { name: "Portfolyo", path: "/portfolio" },
-
+  
   { name: "Blog", path: "/blog" },
   { name: "Bize Ulaşın", path: "/contact" },
 ];
