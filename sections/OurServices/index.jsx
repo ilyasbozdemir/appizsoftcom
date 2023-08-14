@@ -20,7 +20,7 @@ import {
 import { BsArrowRight } from "react-icons/bs";
 import { FaBook } from "react-icons/fa";
 import { FaDigitalTachograph } from "react-icons/fa";
-import { IoColorPalette } from "react-icons/io5";
+import { IoColorPalette, IoGameController } from "react-icons/io5";
 
 import React, { useEffect, useState } from "react";
 import { services } from "../../constants/services";
@@ -51,19 +51,25 @@ const features = [
       "Görsel kimliğinizi oluşturmak ve markanızın estetik açıdan etkileyici olmasını sağlamak için tasarım hizmetleri sunuyoruz. Kullanıcı dostu arayüz (UI) ve kullanıcı deneyimi (UX) tasarımıyla kullanıcılarınızın etkileşimini kolaylaştırıyor, ayrıca grafik tasarım ve logo tasarımı ile markanızı öne çıkarıyoruz.",
     icon: IoColorPalette,
   },
+  {
+    heading: "Oyun Geliştirme Hizmetleri",
+    content:
+      "Oyun alanında ihtiyaçlarınıza uygun çözümler sunuyoruz. 2D ve 3D oyun geliştirme, çok platformlu oyun tasarımı ve oyun mekaniği oluşturma konularında deneyime sahibiz. Eğlenceli ve bağımlılık yaratan oyunlarla kullanıcılarınızı etkileşime geçiriyor, oyun projelerinizi hayata geçiriyoruz.",
+    icon: IoGameController,
+  },
 ];
 
 const Features = () => {
   return (
     <Container
-      maxW="6xl"
-      p={{ base: 5, md: 10 }}
+      p={{ base: 9, md: 10 }}
+      maxW="7xl"
       bg="blue.200"
       borderRadius={"md"}
       boxShadow={"md"}
     >
       <chakra.h3
-        fontSize="4xl"
+        fontSize={{ base: 19, md: 27 }}
         fontWeight="bold"
         mb={20}
         textAlign="center"
@@ -72,14 +78,17 @@ const Features = () => {
         Size Sunabileceğimiz Hizmetler
       </chakra.h3>
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3 }}
+        columns={{ base: 1, md: 2 }}
         alignSelf="start"
+        placeItems={"center"}
         spacing={10}
         mb={4}
       >
         {features.map((feature, index) => (
-          <Box
+          <Flex
+            direction={"column"}
             key={index}
+            maxW="md"
             bg={useColorModeValue("gray.100", "gray.100")}
             color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
             p={6}
@@ -117,12 +126,15 @@ const Features = () => {
             >
               {feature.content}
             </Text>
-          </Box>
+          </Flex>
         ))}
       </SimpleGrid>
-      <chakra.div textAlign="center"     color={useColorModeValue("gray.800", "gray.800")}>
+      <chakra.div
+        textAlign="center"
+        color={useColorModeValue("gray.800", "gray.800")}
+      >
         <Link href={"/tr/services"}>
-          <Text fontSize={25} cursor={"pointer"}>
+          <Text fontSize={{ base: 16, md: 22 }} cursor={"pointer"}>
             Tüm Hizmetleri Görüntüle
           </Text>
         </Link>
@@ -132,11 +144,6 @@ const Features = () => {
 };
 
 function OurServices({ targetId }) {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <>
       <Features />
