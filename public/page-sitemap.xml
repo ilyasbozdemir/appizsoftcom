@@ -5,66 +5,68 @@
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
       xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>https://www.appizsoft.com/tr/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/"/>
-        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/tr/"/>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <loc>https://www.appizsoft.com/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/"/>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/about-appizsoft</loc>
-
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <loc>https://www.appizsoft.com/about-appizsoft</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/about-appizsoft"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/about-appizsoft"/>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/careers</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/products</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/services</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/portfolio</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/blog</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/contact</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/web-design-development</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/e-commerce-solutions</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/startup-solutions</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/mobile-app-development</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/game-design</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/test-otomation</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
         <loc>https://www.appizsoft.com/tr/service/production-design</loc>
-        <lastmod>2023-08-10T21:30:00+03:00</lastmod>
+        <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
 </urlset>

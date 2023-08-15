@@ -22,31 +22,32 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
 
   const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
+  // Tarayıcı dilini alın
+  const browserLocale = router.locale;
 
   return (
     <>
-      <Image
-        rel="preload"
-        as="image"
-        src={logo}
-        alt="Logo"
-        width={size.w}
-        height={size.h}
-        style={{
-          cursor: cursor,
-        }}
-        onClick={() => {
-          if (isLink) router.push(`/${lang}`);
-        }}
-        draggable={false}
-        //placeholder="blur"
-        loader={({ src, width, quality }) => {
-          return `${baseImagePath}${src}?w=${width}&q=${
-            quality || 75
-          }`;
-        }}
-        loading="lazy"
-      />
+      {isLink && (
+        <>
+          <Image
+            rel="preload"
+            as="image"
+            src={logo}
+            alt="Logo"
+            width={size.w}
+            height={size.h}
+            style={{
+              cursor: cursor,
+            }}
+            draggable={false}
+            //placeholder="blur"
+            loader={({ src, width, quality }) => {
+              return `${baseImagePath}${src}?w=${width}&q=${quality || 75}`;
+            }}
+            loading="lazy"
+          />
+        </>
+      )}
     </>
   );
 }

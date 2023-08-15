@@ -1,8 +1,8 @@
 module.exports = {
 
   i18n: {
-    locales: ["en-US", "tr-TR"],
-    defaultLocale: "tr-TR", // veya "tr-TR" olarak ayarlayın
+    locales: ["en", "tr"],
+    defaultLocale: "tr", // veya "tr-TR" olarak ayarlayın
     localeDetection: false,
   },
   env: {
