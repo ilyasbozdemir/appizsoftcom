@@ -50,8 +50,7 @@ import RadioCard from "./components/RadioCard";
 import ServiceSelectionRadioCard from "./components/ServiceSelectionRadioCard";
 import CheckboxCard from "./components/CheckboxCard";
 
-import { FaBullhorn } from "react-icons/fa"
-
+import { FaBullhorn } from "react-icons/fa";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
