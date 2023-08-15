@@ -94,7 +94,7 @@ function RadioCard(props) {
   const checkbox = getRadioProps();
 
   return (
-    <Box as="label"n userSelect={'none'}>
+    <Box as="label" n userSelect={"none"}>
       <input {...input} />
       <Box
         {...checkbox}
@@ -102,10 +102,12 @@ function RadioCard(props) {
         borderWidth="1px"
         borderRadius="md"
         boxShadow="md"
+        _hover={{
+          opacity: 0.9,
+        }}
         _checked={{
-          bg: "teal.600",
+          bgGradient:'linear(to-l, #0ea5e9,#2563eb)',
           color: "white",
-          borderColor: "teal.600",
         }}
         _focus={{
           boxShadow: "outline",
