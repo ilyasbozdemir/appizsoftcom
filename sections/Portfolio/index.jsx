@@ -1,4 +1,5 @@
 import {
+  chakra,
   Box,
   Flex,
   SimpleGrid,
@@ -8,6 +9,7 @@ import {
   Button,
   Text,
   useBreakpointValue,
+  useColorModeValue,
   HStack,
   Icon,
   Container,
@@ -48,81 +50,82 @@ const item = {
   },
 };
 
-const MotionSimpleGrid = motion(SimpleGrid);
-
 export default function Portfolio() {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);
   }, []);
   return (
-    <Box borderRadius="md" boxShadow="md" p={5}>
-      <Center>
-        <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
-            Portfolyo
-          </Heading>
-        </Flex>
-      </Center>
+    <Container p={{ base: 9, md: 10 }} maxW="7xl">
+      <chakra.h3
+        fontSize={{ base: 19, md: 27 }}
+        fontWeight="bold"
+        mb={20}
+        textAlign="center"
+        color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
+      >
+        Portfolyo
+      </chakra.h3>
 
-      <Center my={5}>
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={30}
-          slidesPerView={useBreakpointValue({
-            base: 1,
-            sm:2,
-            md: 2,
-            lg: 3,
-            xl: 4,
-          })}
-          autoplay={{ delay: 2500 }}
-        >
-          {isMounted && (
-            <>
-              {projects.map((p, index) => (
-                <SwiperSlide key={p.id}>
-                  <Flex
-                    key={p.id}
-                    direction={"column"}
-                    cursor={"pointer"}
-                    className="item"
-                    variants={item}
-                  >
-                    <Image
-                      src={`${baseImagePath}/${p.portfolio}`}
-                      alt={p.name}
-                      height={p.portfolioSize.h}
-                      width={p.portfolioSize.w}
-                    />
-                    <Text
-                      fontFamily={"monospace"}
-                      textAlign={"center"}
-                      fontWeight={"semibold"}
-                      fontSize={{
-                        base: 14,
-                        md: 16,
-                        lg: 18,
-                      }}
-                    >
-                      {p.name}
-                    </Text>
-                  </Flex>
-                </SwiperSlide>
-              ))}
-            </>
-          )}
-        </Swiper>
-      </Center>
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        alignSelf="start"
+        placeItems={"center"}
+        spacing={10}
+        mb={4}
+      >
+        {projects
+          .slice(
+            0,
+            useBreakpointValue({
+              base: 4,
+              md: 6,
+              lg: 8,
+            })
+          )
+          .map((p, index) => (
+            <Flex
+              key={p.id}
+              direction={"column"}
+              cursor={"pointer"}
+              className="item"
+              variants={item}
+            >
+              <Image
+                src={`${baseImagePath}/${p.portfolio}`}
+                alt={p.name}
+                height={p.portfolioSize.h}
+                width={p.portfolioSize.w}
+                style={{
+                  borderRadius: "15px",
+                }}
+              />
+              <Text
+                fontFamily={"monospace"}
+                textAlign={"center"}
+                fontWeight={"semibold"}
+                fontSize={{
+                  base: 14,
+                  md: 16,
+                  lg: 18,
+                }}
+              >
+                {p.name}
+              </Text>
+            </Flex>
+          ))}
+      </SimpleGrid>
 
-      <HStack fontFamily={"fantasy"} mt={15}>
-        <Icon as={HiMiniArrowLongRight} boxSize={35} />
+      <chakra.div
+        textAlign="center"
+        color={useColorModeValue("gray.800", "gray.800")}
+      >
         <Link href={"/tr/portfolio"}>
-          <Text fontSize={25} cursor={"pointer"}>
-            Daha Fazla
+          <Text fontSize={{ base: 16, md: 22 }} cursor={"pointer"}>
+            Tüm Çalışmaları Görüntüle
           </Text>
         </Link>
-      </HStack>
-    </Box>
+      </chakra.div>
+    </Container>
   );
 }

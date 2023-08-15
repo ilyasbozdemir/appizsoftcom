@@ -114,7 +114,7 @@ function ContactPage() {
         <meta name="twitter:image:alt" content={site.title} />
 
         <meta property="og:title" content={site.title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr`} />
+        <meta property="og:url" content={`${site.baseUrl}/tr/contact`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />

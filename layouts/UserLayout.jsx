@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { Box, useDisclosure } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Box,
+  Center,
+  CloseButton,
+  Flex,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import Footer from "../components/shared/Footer";
 import ScrollToTop from "../components/shared/ScrollToTop";
 import Header from "../components/shared/Header";
@@ -46,6 +57,10 @@ function UserLayout({ children }) {
   };
   return (
     <Box as="main" scrollBehavior={"smooth"}>
+      <Flex>
+        <AlertDevMode />
+      </Flex>
+
       <Box as={"header"}>
         <Header
           onOpen={onOpen}
@@ -75,6 +90,20 @@ function UserLayout({ children }) {
 
       <TawkToChat />
     </Box>
+  );
+}
+
+function AlertDevMode() {
+  return (
+    <Alert status="info">
+      <AlertIcon />
+      <Box>
+        <AlertDescription>
+          Sitemiz şu an yapım aşamasındadır. Güncellemeler devam ediyor.
+          Son Güncelleme: <Text fontFamily={'verdana'}>15.08.2023</Text>
+        </AlertDescription>
+      </Box>
+    </Alert>
   );
 }
 

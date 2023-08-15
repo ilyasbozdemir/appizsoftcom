@@ -50,6 +50,9 @@ import RadioCard from "./components/RadioCard";
 import ServiceSelectionRadioCard from "./components/ServiceSelectionRadioCard";
 import CheckboxCard from "./components/CheckboxCard";
 
+import { FaBullhorn } from "react-icons/fa"
+
+
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
   const { service } = props;
@@ -782,7 +785,7 @@ const FirstStep = () => {
       id: 8,
       title: "Dijital Pazarlama",
       bg: "red",
-      icon: "",
+      icon: FaBullhorn,
       dependenciesComponent: [DigitalMarketingComponent],
     },
   ];

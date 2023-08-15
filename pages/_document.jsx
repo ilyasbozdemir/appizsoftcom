@@ -17,10 +17,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">
         <Head>
-          {/*
- <link rel="canonical" href={site.baseUrl} />
-             */}
-
           <meta charSet="utf-8" />
 
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />

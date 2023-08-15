@@ -61,13 +61,7 @@ const features = [
 
 const Features = () => {
   return (
-    <Container
-      p={{ base: 9, md: 10 }}
-      maxW="7xl"
-      bg="blue.200"
-      borderRadius={"md"}
-      boxShadow={"md"}
-    >
+    <Container p={{ base: 9, md: 10 }} maxW="7xl">
       <chakra.h3
         fontSize={{ base: 19, md: 27 }}
         fontWeight="bold"
@@ -95,6 +89,7 @@ const Features = () => {
             rounded="lg"
             textAlign="center"
             pos="relative"
+            boxShadow={'md'}
           >
             <Flex
               p={2}
@@ -144,11 +139,7 @@ const Features = () => {
 };
 
 function OurServices({ targetId }) {
-  return (
-    <>
-      <Features />
-    </>
-  );
+  return <Features />;
 }
 
 export default OurServices;
