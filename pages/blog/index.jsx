@@ -87,6 +87,7 @@ const BlogCards = () => {
                       quality || 75
                     }`;
                   }}
+                 
                 />
               </Flex>
               <Flex
