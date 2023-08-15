@@ -127,8 +127,6 @@ export default function HomePage() {
           <Box id={"Blog"} as="section">
             {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
           </Box>
-
-         
         </Flex>
       </Container>
     </>

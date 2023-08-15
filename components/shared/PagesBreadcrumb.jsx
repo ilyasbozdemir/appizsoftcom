@@ -28,36 +28,36 @@ function PagesBreadcrumb({ currentPage, isServiceDetail = false }) {
       <Breadcrumb
         separator={<ChevronRightIcon />}
         fontSize={{ base: 15, md: 20 }}
-        itemscope
-        itemtype="https://schema.org/BreadcrumbList"
+        itemScope
+        itemType="https://schema.org/BreadcrumbList"
       >
         <BreadcrumbItem
-          itemprop="itemListElement"
-          itemscope=""
-          itemtype="http://schema.org/ListItem"
+          itemProp="itemListElement"
+          itemScope=""
+          itemType="http://schema.org/ListItem"
         >
           <Link href="/" passHref legacyBehavior>
-            <a rel="home" itemprop="item">
+            <a rel="home" itemProp="item">
               Ana Sayfa
             </a>
           </Link>
 
-          <meta itemprop="position" content="1" />
+          <meta itemProp="position" content="1" />
         </BreadcrumbItem>
 
         {isServiceDetail && (
           <BreadcrumbItem
             itemprop="itemListElement"
-            itemscope=""
-            itemtype="http://schema.org/ListItem"
+            itemScope=""
+            itemType="http://schema.org/ListItem"
           >
             <Link href="/tr/services" passHref legacyBehavior>
-              <a rel="home" itemprop="item">
+              <a rel="home" itemProp="item">
                 Hizmetler
               </a>
             </Link>
 
-            <meta itemprop="position" content="1" />
+            <meta itemProp="position" content="1" />
           </BreadcrumbItem>
         )}
 
@@ -65,15 +65,15 @@ function PagesBreadcrumb({ currentPage, isServiceDetail = false }) {
           <Link href="#" passHref legacyBehavior>
             <a
               href="#"
-              itemprop="itemListElement"
-              itemscope=""
-              itemtype="http://schema.org/ListItem"
+              itemProp="itemListElement"
+              itemScope=""
+              itemType="http://schema.org/ListItem"
             >
               {currentPage}
             </a>
           </Link>
 
-          <meta itemprop="position" content="2" />
+          <meta itemProp="position" content="2" />
         </BreadcrumbItem>
       </Breadcrumb>
     </>

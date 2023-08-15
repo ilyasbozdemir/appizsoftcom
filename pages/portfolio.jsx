@@ -106,7 +106,7 @@ function RadioCard(props) {
           opacity: 0.9,
         }}
         _checked={{
-          bgGradient:'linear(to-l, #0ea5e9,#2563eb)',
+          bgGradient: "linear(to-l, #0ea5e9,#2563eb)",
           color: "white",
         }}
         _focus={{
@@ -123,21 +123,6 @@ function RadioCard(props) {
 
 const PortfolioContent = () => {
   const [selectedCategory, setSelectedCategory] = useState("projects");
-
-  useEffect(() => {
-    setSelectedCategory('projects')
-  }, []);
-
-  let filteredData = projects.filter((item) => {
-    return item.category === selectedCategory;
-  });
-
-  useEffect(() => {
-    filteredData = projects.filter((item) => {
-      return item.category === selectedCategory;
-    });
-  }, [selectedCategory]);
-
   const options = [
     {
       val: "projects",
@@ -172,6 +157,16 @@ const PortfolioContent = () => {
       title: "Prodüksiyon",
     },
   ];
+
+  let filteredData = projects.filter((item) => {
+    return item.category === selectedCategory;
+  });
+
+  useEffect(() => {
+    filteredData = projects.filter((item) => {
+      return item.category === selectedCategory;
+    });
+  }, [selectedCategory]);
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "portfolios",
