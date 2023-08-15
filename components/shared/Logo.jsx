@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import React from "react";
@@ -27,8 +28,8 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
 
   return (
     <>
-      {isLink && (
-        <>
+      {isLink === true && (
+        <Link href="/">
           <Image
             rel="preload"
             as="image"
@@ -46,7 +47,26 @@ function Logo({ platform, lang = `tr`, isLink = true, s }) {
             }}
             loading="lazy"
           />
-        </>
+        </Link>
+      )}
+      {isLink === false && (
+        <Image
+          rel="preload"
+          as="image"
+          src={logo}
+          alt="Logo"
+          width={size.w}
+          height={size.h}
+          style={{
+            cursor: cursor,
+          }}
+          draggable={false}
+          //placeholder="blur"
+          loader={({ src, width, quality }) => {
+            return `${baseImagePath}${src}?w=${width}&q=${quality || 75}`;
+          }}
+          loading="lazy"
+        />
       )}
     </>
   );

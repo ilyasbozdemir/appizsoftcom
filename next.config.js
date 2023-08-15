@@ -22,6 +22,7 @@ module.exports = {
     ];
   },
 
+
   images: {
     domains: [
       "https://appizsoft-static-api.vercel.app/",
@@ -38,6 +39,6 @@ module.exports = {
     ],
   },
   reactStrictMode: true,
-
   productionBrowserSourceMaps: true,
+
 };

@@ -122,7 +122,7 @@ export default function Portfolio() {
         textAlign="center"
         color={useColorModeValue("gray.800", "gray.800")}
       >
-        <Link href={"/tr/portfolio"}>
+        <Link href={"/portfolio"}>
           <Text fontSize={{ base: 16, md: 22 }} cursor={"pointer"}>
             Tüm Çalışmaları Görüntüle
           </Text>
