@@ -64,8 +64,10 @@ const HeroSection = () => {
           </Text>
 
           <Center>
-            <HStack
-              spacing={{ base: 0, sm: 2 }}
+            <Stack
+
+              direction={{ base: 'column', sm: 'row' }}
+              spacing={{ base: 3, sm: 5 }}
               mb={{ base: "3rem !important", sm: 0 }}
               flexWrap="wrap"
             >
@@ -106,7 +108,7 @@ const HeroSection = () => {
                   Detaylı Bilgi Al
                 </Box>
               </Link>
-            </HStack>
+            </Stack>
           </Center>
         </Stack>
 
