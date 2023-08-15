@@ -17,32 +17,45 @@
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/careers</loc>
-        
+        <loc>https://www.appizsoft.com/careers</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/careers"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/careers"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/products</loc>
+        <loc>https://www.appizsoft.com/products</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/products"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/products"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/services</loc>
+        <loc>https://www.appizsoft.com/services</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/services"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/services"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/portfolio</loc>
+        <loc>https://www.appizsoft.com/portfolio</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/portfolio"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/portfolio"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/blog</loc>
+        <loc>https://www.appizsoft.com/blog</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/blog"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/blog"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/contact</loc>
+        <loc>https://www.appizsoft.com/contact</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/contact"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/contact"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
-        <loc>https://www.appizsoft.com/tr/service/web-design-development</loc>
+        <loc>https://www.appizsoft.com/service/web-design-development</loc>
+           <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/service/web-design-development"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/service/web-design-development"/>
         <lastmod>2023-08-15T21:30:00+03:00</lastmod>
     </url>
     <url>
