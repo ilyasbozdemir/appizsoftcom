@@ -32,8 +32,6 @@ import { hiringProcessFAQ } from "../../constants/hiringProcessFAQ";
 function CareersPage() {
   return (
     <>
-      <Head></Head>
-
       <Flex direction={"column"} gap={3}>
         <CareersCTA />
         <CareersContent />
@@ -185,7 +183,6 @@ const CareerCard = ({
     </Accordion>
   );
 };
-
 
 const faqMarkup = hiringProcessFAQ.map((faq, index) => ({
   "@type": "Question",
@@ -370,7 +367,9 @@ const OpenPositions = () => {
             Tasarım
           </Text>
           <Text fontSize={20}>
-          Görseller ve etkileşimler revoksda sınır tanımıyor. Biçim ve işlevi sorunsuz bir şekilde harmanlayan birinci sınıf ürünler ve deneyimler sunmak için her yerden, her şeyle başlıyoruz.
+            Görseller ve etkileşimler revoksda sınır tanımıyor. Biçim ve işlevi
+            sorunsuz bir şekilde harmanlayan birinci sınıf ürünler ve deneyimler
+            sunmak için her yerden, her şeyle başlıyoruz.
           </Text>
         </Flex>
 
@@ -408,10 +407,12 @@ const OpenPositions = () => {
           gap={5}
         >
           <Text fontWeight={"semibold"} fontSize={{ base: 25, md: 35 }}>
-          Paylaşılan Hizmetler
+            Paylaşılan Hizmetler
           </Text>
           <Text fontSize={20}>
-          Görseller ve etkileşimler revoksda sınır tanımıyor. Biçim ve işlevi sorunsuz bir şekilde harmanlayan birinci sınıf ürünler ve deneyimler sunmak için her yerden, her şeyle başlıyoruz.
+            Görseller ve etkileşimler revoksda sınır tanımıyor. Biçim ve işlevi
+            sorunsuz bir şekilde harmanlayan birinci sınıf ürünler ve deneyimler
+            sunmak için her yerden, her şeyle başlıyoruz.
           </Text>
         </Flex>
 

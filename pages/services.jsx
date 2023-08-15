@@ -73,8 +73,8 @@ const ServicesCard = (props) => {
           <Flex justifyContent={"center"} mt={4} justify={"center"} my={2}>
             <Stack>
               <Link
-                href="/tr/service/[id]"
-                as={`/tr/service/${href}`}
+                href="/service/[id]"
+                as={`/service/${href}`}
                 shallow={true}
                 passHref
               >

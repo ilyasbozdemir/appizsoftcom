@@ -24,6 +24,7 @@ import PaginationContainer from "../../components/PaginationContainer";
 import { site } from "../../constants/site";
 import { blogData } from "../../constants/blogData";
 import Image from "next/image";
+import Link from "next/link";
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 function RadioCard(props) {
@@ -74,7 +75,7 @@ const BlogCards = () => {
             >
               <Flex>
                 <Image
-                  src={`${baseImagePath}${blog.imageUrl}`}
+                  src={`${blog.imageUrl}`}
                   alt="Blog Image"
                   height={350}
                   width={450}
@@ -87,7 +88,6 @@ const BlogCards = () => {
                       quality || 75
                     }`;
                   }}
-                 
                 />
               </Flex>
               <Flex
@@ -96,9 +96,17 @@ const BlogCards = () => {
                 direction={"column"}
                 cursor={"pointer"}
               >
-                <Text fontWeight={"extrabold"} fontSize={20}>
-                  {blog.title}
-                </Text>
+                <Link
+                  href="/blog-detail/[id]"
+                  as={`/blog-detail/${blog.slug}`}
+                  shallow={true}
+                  passHref
+                >
+                  <Text fontWeight={"extrabold"} fontSize={20}>
+                    {blog.title}
+                  </Text>
+                </Link>
+
                 <Text mt={15} noOfLines={{ base: 2 }}>
                   {blog.content}
                 </Text>
@@ -285,7 +293,7 @@ const BlogPageContent = () => {
           );
         })}
       </Flex>
-      <Flex mt={10} gap={5} direction={'column'}>
+      <Flex mt={10} gap={5} direction={"column"}>
         <BlogCards />
         <PaginationContainer />
       </Flex>

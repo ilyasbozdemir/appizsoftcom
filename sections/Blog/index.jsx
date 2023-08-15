@@ -74,7 +74,7 @@ const BlogCards = () => {
               >
                 <Flex>
                   <Image
-                    src={`${baseImagePath}${blog.imageUrl}`}
+                    src={`${blog.imageUrl}`}
                     alt="Blog Image"
                     height={350}
                     width={450}
@@ -82,11 +82,7 @@ const BlogCards = () => {
                       objectFit: "cover",
                       borderRadius: "15px",
                     }}
-                    loader={({ src, width, quality }) => {
-                      return `${baseImagePath}${src}?w=${width}&q=${
-                        quality || 75
-                      }`;
-                    }}
+                  
                   />
                 </Flex>
                 <Flex
