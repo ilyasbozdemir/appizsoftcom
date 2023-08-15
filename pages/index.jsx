@@ -1,23 +1,40 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { detectBrowserLanguage } from "../lib/detectBrowserLanguage";
 import Head from "next/head";
 import { site } from "../constants/site";
 
+import WindowTitleChanger from "../components/shared/WindowTitleChanger";
+import { Box, Container, Flex } from "@chakra-ui/react";
+import Cta from "../sections/Cta";
+
+import dynamic from "next/dynamic";
+
+const LazyOurServices = dynamic(() => import("../sections/OurServices"));
+
+const LazyPortfolio = dynamic(() => import("../sections/Portfolio"));
+const LazyOurReferences = dynamic(() => import("../sections/OurReferences"));
+
+const LazyOurTechnologies = dynamic(() =>
+  import("../sections/OurTechnologies")
+);
+
+const LazyWhyChooseUs = dynamic(() => import("../sections/WhyChooseUs"));
+const LazyOurWorkProcess = dynamic(() => import("../sections/OurWorkProcess"));
+const LazyBlog = dynamic(() => import("../sections/Blog"));
+
 export default function HomePage() {
+  const [lang, setLang] = React.useState("");
+  const [isMounted, setIsMounted] = useState(false);
+
   const router = useRouter();
 
   useEffect(() => {
-    // Tarayıcı dilini al
-    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
-    if (browserLanguage.startsWith("tr")) {
-      router.push(`/tr`);
-    }
-    if (browserLanguage.startsWith("en")) {
-      router.push(`/en`);
-    }
+    const supportedLanguages = ["tr", "en"];
+    const browserLanguage = detectBrowserLanguage(supportedLanguages);
+    setLang(browserLanguage);
+    setIsMounted(true);
   }, []);
-
   return (
     <>
       <Head>
@@ -68,6 +85,49 @@ export default function HomePage() {
         <meta name="twitter:label1" content="Tahmini okuma süresi" />
         <meta name="twitter:data1" content="1 dakika" />
       </Head>
+
+      <WindowTitleChanger />
+      <Container maxW="8xl" p={{ base: 5, md: 10 }}>
+        <Flex direction={"column"} gap={10}>
+          <Box id={"Cta"} as="section">
+            <Cta lang={lang} targetId={"OurServices"} />
+          </Box>
+          <Box id={"OurServices"} as="section">
+            {isMounted && <LazyOurServices targetId={"Technologies"} />}
+          </Box>
+
+          <Box id={"Portfolio"} as="section">
+            {isMounted && <LazyPortfolio lang={lang} targetId={"Portfolio"} />}
+          </Box>
+          <Box id={"Portfolio"} as="section">
+            {isMounted && (
+              <LazyOurReferences lang={lang} targetId={"WhyChooseUs"} />
+            )}
+          </Box>
+
+          <Box id={"WhyChooseUs"} as="section">
+            {isMounted && (
+              <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
+            )}
+          </Box>
+
+          <Box id={"OurWorkProcess"} as="section">
+            {isMounted && (
+              <LazyOurWorkProcess lang={lang} targetId={"OurReferences"} />
+            )}
+          </Box>
+
+          <Box id={"Technologies"} as="section">
+            {false && (
+              <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
+            )}
+          </Box>
+
+          <Box id={"Blog"} as="section">
+            {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
+          </Box>
+        </Flex>
+      </Container>
     </>
   );
 }

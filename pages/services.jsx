@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
 
 import {
   Text,
@@ -25,16 +25,16 @@ import {
 
 import { BsArrowRight } from "react-icons/bs";
 import { FaEnvelope } from "react-icons/fa";
-import { services } from "../../constants/services";
+import { services } from "../constants/services";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { PiArrowsDownUpLight } from "react-icons/pi";
-import { site } from "../../constants/site";
+import { site } from "../constants/site";
 import Image from "next/image";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
-import OurTechnologies from "../../sections/OurTechnologies";
+import OurTechnologies from "../sections/OurTechnologies";
 
 const ServicesCard = (props) => {
   const { id, img, href, title, content } = props;

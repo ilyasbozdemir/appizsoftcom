@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Box, Center, Flex, Heading, Text, VStack } from "@chakra-ui/react";
-import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import { Box, Center, Flex, Text, Container } from "@chakra-ui/react";
 import Head from "next/head";
-import { site } from "../../constants/site";
+import React, { useEffect, useState } from "react";
 
-const AboutUsCTA = () => {
+import { useRouter } from "next/router";
+import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
+import { site } from "../constants/site";
+
+const ContactCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     // İlk renderda ekran boyutuna göre kontrol yapılır
@@ -39,9 +40,9 @@ const AboutUsCTA = () => {
             >
               <Center>
                 <Flex direction={"column"}>
-                  <Text fontSize={65}>Hakkımızda</Text>
+                  <Text fontSize={65}>İletişim</Text>
                   <Center>
-                    <PagesBreadcrumb currentPage={"Hakkımızda"} />
+                    <PagesBreadcrumb currentPage={"İletişim"} />
                   </Center>
                 </Flex>
               </Center>
@@ -60,9 +61,9 @@ const AboutUsCTA = () => {
           >
             <Center>
               <Flex direction={"column"}>
-                <Text fontSize={45}>Hakkımızda</Text>
+                <Text fontSize={45}>İletişim</Text>
                 <Center>
-                  <PagesBreadcrumb currentPage={"Hakkımızda"} />
+                  <PagesBreadcrumb currentPage={"İletişim"} />
                 </Center>
               </Flex>
             </Center>
@@ -73,33 +74,31 @@ const AboutUsCTA = () => {
   );
 };
 
-const AboutUsContent = () => {
-  return (
-    <>
-      <Box></Box>
-    </>
-  );
+const ContactContent = () => {
+  return <></>;
 };
 
-function AboutUsPage() {
-  const publisher = `AppizSoft`;
-  const title = `AppizSoft Hakkında • AppizSoft`;
-  const desc = `AppizSoft olarak, teknoloji ve yaratıcılığı bir araya getiriyoruz. Müşterilerimize en iyi çözümleri sunarak işlerini büyütmelerine yardımcı oluyoruz.`;
+const publisher = `AppizSoft`;
 
+const title = "İletişim - Firmamızla Bağlantı Kurun | AppizSoft";
+const desc =
+  "Bize ulaşın! Sorularınız, önerileriniz veya işbirliği talepleriniz için iletişim bilgilerimizden faydalanabilirsiniz. Size yardımcı olmaktan mutluluk duyarız.";
+
+function ContactPage() {
   return (
-    <>
+    <Box>
       <Head>
         <title>{title}</title>
 
-        <link rel="canonical" href="https://appizsoft.com/tr" />
         <link
           rel="alternate"
           hreflang="x-default"
           href={`${site.baseUrl}/tr`}
         />
 
-        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr/about-appizsoft`} />
-        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/about-appizsoft`} />
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr/contact`} />
+        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/contact`} />
+        <link rel="canonical" href="https://appizsoft.com/tr/contact" />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -107,15 +106,15 @@ function AboutUsPage() {
         <meta name="robots" content={"index, follow"} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
+        <meta name="twitter:title" content={site.title} />
         <meta name="twitter:description" content={desc} />
         <meta name="twitter:site" content="@appizsoftcom" />
         <meta name="twitter:creator" content="@appizsoftcom" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr/about-appizsoft`} />
+        <meta property="og:title" content={site.title} />
+        <meta property="og:url" content={`${site.baseUrl}/tr/contact`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
@@ -125,10 +124,6 @@ function AboutUsPage() {
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
         <meta
-          property="article:publisher"
-          content="https://www.facebook.com/appizsoftcom/"
-        />
-        <meta
           property="article:modified_time"
           content="2023-08-10T19:18:34+00:00"
         />
@@ -136,12 +131,12 @@ function AboutUsPage() {
         <meta name="twitter:data1" content="1 dakika" />
       </Head>
 
-      <main>
-        <AboutUsCTA />
-        <AboutUsContent />
-      </main>
-    </>
+      <Box>
+        <ContactCTA />
+        <ContactContent />
+      </Box>
+    </Box>
   );
 }
 
-export default AboutUsPage;
+export default ContactPage;

@@ -4,9 +4,9 @@ import { Alert, AlertIcon, Center, Container, Flex } from "@chakra-ui/react";
 import Head from "next/head";
 
 import { Box, Text } from "@chakra-ui/react";
-import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
-import StartProjectStepper from "../../components/StartProjectStepper";
-import { site } from "../../constants/site";
+import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
+import StartProjectStepper from "../components/StartProjectStepper";
+import { site } from "../constants/site";
 
 const GetAQuoteCTA = () => {
   const [isMobile, setIsMobile] = useState(false);

@@ -8,8 +8,8 @@ import {
   BreadcrumbSeparator,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import PagesBreadcrumb from "../../../components/shared/PagesBreadcrumb";
-import OurServices from "../../../sections/OurServices";
+import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import OurServices from "../../sections/OurServices";
 
 function BlogPage() {
   return (

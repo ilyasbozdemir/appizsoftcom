@@ -16,8 +16,8 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
-import { site } from "../../constants/site";
+import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
+import { site } from "../constants/site";
 import Link from "next/link";
 
 const ProductsCTA = () => {

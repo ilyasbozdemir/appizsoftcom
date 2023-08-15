@@ -20,9 +20,9 @@ import {
 } from "@chakra-ui/react";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
-import { careers } from "../../../constants/careers";
+import { careers } from "../../constants/careers";
 import Head from "next/head";
-import { site } from "../../../constants/site";
+import { site } from "../../constants/site";
 import Link from "next/link";
 
 const MagicLinkForm = ({ title, isJoinUsPage }) => {

@@ -14,9 +14,9 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
-import { site } from "../../constants/site";
-import { projects } from "../../constants/projects";
+import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
+import { site } from "../constants/site";
+import { projects } from "../constants/projects";
 import Image from "next/image";
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 const PortfolioCTA = () => {

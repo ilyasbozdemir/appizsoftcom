@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { services } from "../../../constants/services";
-import MetaHead from "../../../configuration/MetaHead";
+import { services } from "../../constants/services";
+import MetaHead from "../../configuration/MetaHead";
 import Head from "next/head";
 import { Center, Flex, Text } from "@chakra-ui/react";
-import PagesBreadcrumb from "../../../components/shared/PagesBreadcrumb";
+import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Link from "next/link";

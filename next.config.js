@@ -1,10 +1,9 @@
 module.exports = {
-  /* 
   i18n: {
-    locales: ["en", "tr"],
+    locales: ["en-US", "tr-TR"],
     defaultLocale: "tr",
     localeDetection: false,
-  },*/
+  },
 
   env: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
@@ -25,7 +24,10 @@ module.exports = {
   },
 
   images: {
-    domains: ["https://appizsoft-static-api.vercel.app/","images.unsplash.com"],
+    domains: [
+      "https://appizsoft-static-api.vercel.app/",
+      "images.unsplash.com",
+    ],
     unoptimized: true,
     remotePatterns: [
       {
