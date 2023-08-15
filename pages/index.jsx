@@ -9,6 +9,7 @@ import { Box, Container, Flex } from "@chakra-ui/react";
 import Cta from "../sections/Cta";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const LazyOurServices = dynamic(() => import("../sections/OurServices"));
 
@@ -126,6 +127,8 @@ export default function HomePage() {
           <Box id={"Blog"} as="section">
             {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
           </Box>
+
+         
         </Flex>
       </Container>
     </>
