@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 function LanguageSwitcher({ lang: defaultLanguage = "tr" }) {
   const router = useRouter();
+  
 
   defaultLanguage = defaultLanguage.replace(/^\/|\/$/g, "");
   const [currentLanguage, setCurrentLanguage] = useState(defaultLanguage);
