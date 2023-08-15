@@ -261,15 +261,10 @@ const HeaderNav = () => {
                   ))}
                 </Stack>
                 {navLinks.map((link, index) => (
-                  <NavLink
-                    key={index}
-                    {...link}
-                    onClose={onClose}
-                    lang={lang}
-                  />
+                  <NavLink key={index} {...link} onClose={onClose} />
                 ))}
 
-                <Link href={"/tr/start-project"}>
+                <Link href={"/start-project"}>
                   <Text
                     id={"start-project"}
                     p={6}
@@ -298,7 +293,7 @@ const HeaderNav = () => {
   );
 };
 
-const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
+const NavLink = ({ name, path, onClose }) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
@@ -308,7 +303,7 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
   };
 
   return (
-    <Link href={lang + path}>
+    <Link href={path}>
       <Text
         px={3}
         py={1}
@@ -327,12 +322,12 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
   );
 };
 
-const MenuLink = ({ lang = `/tr`, name, path, icon, onClose }) => {
+const MenuLink = ({ name, path, icon, onClose }) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
   return (
-    <Link href={lang + path} onClick={() => onClose()}>
+    <Link href={path} onClick={() => onClose()} locale={router.locale}>
       <MenuItem
         _hover={{
           color: "blue.400",
