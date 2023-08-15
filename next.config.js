@@ -2,13 +2,6 @@ module.exports = {
   i18n: {
     locales: ["en", "tr"],
     defaultLocale: "tr",
-    domains: [
-      {
-        domain: "appizsoft.com",
-        defaultLocale: "tr",
-        locales: ["tr",'en'],
-      },
-    ],
   },
 
   env: {

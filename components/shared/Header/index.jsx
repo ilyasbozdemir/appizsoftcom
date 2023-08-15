@@ -86,7 +86,7 @@ export default function Navbar() {
         justifyContent={"flex-end"}
         display={{ base: "none", md: "flex" }}
       >
-        <LanguageSwitcher lang={"tr"} />
+        <LanguageSwitcher />
       </Flex>
       <Divider />
       <HeaderNav />
