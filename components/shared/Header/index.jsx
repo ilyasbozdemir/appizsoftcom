@@ -42,7 +42,7 @@ const navLinks = [
   { name: "Hizmetler", path: "/services" },
 
   { name: "Portfolyo", path: "/portfolio" },
-  
+
   { name: "Blog", path: "/blog" },
   { name: "Bize Ulaşın", path: "/contact" },
 ];
@@ -74,12 +74,9 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const [lang, setLang] = React.useState("");
-  useEffect(() => {
-    const browserLanguage = detectBrowserLanguage(["en", "tr"]);
-    if (browserLanguage.startsWith("tr")) setLang(`/tr`);
-    if (browserLanguage.startsWith("en")) setLang(`/en`);
-  }, []);
+
+  const router = useRouter();
+  const browserLocale = router.locale;
 
   return (
     <Container maxW="8xl">
@@ -89,7 +86,7 @@ export default function Navbar() {
         justifyContent={"flex-end"}
         display={{ base: "none", md: "flex" }}
       >
-        <LanguageSwitcher lang={lang} />
+        <LanguageSwitcher lang={"tr"} />
       </Flex>
       <Divider />
       <HeaderNav />
@@ -119,15 +116,16 @@ export default function Navbar() {
   );
 }
 
-const HeaderNav = ({ lang }) => {
+const HeaderNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const currentPath = router.pathname;
-
+  const browserLocale = router.locale;
   const menuProps = {
     bg: useColorModeValue("gray.200", "gray.700"),
     color: useColorModeValue("blue.500", "blue.200"),
   };
+
   return (
     <>
       <Box
@@ -154,7 +152,6 @@ const HeaderNav = ({ lang }) => {
             display={["inherit", "inherit", "none"]}
             onClick={isOpen ? onClose : onOpen}
             variant={"unstyled"}
-
           />
           <HStack spacing={8} alignItems="center">
             <Logo
@@ -162,7 +159,6 @@ const HeaderNav = ({ lang }) => {
                 base: "mobile",
                 lg: "desktop",
               })}
-              lang={lang}
             />
 
             <HStack
@@ -229,7 +225,7 @@ const HeaderNav = ({ lang }) => {
                 <NavLink key={index} {...link} onClose={onClose} />
               ))}
 
-              <Link href={"/tr" + "/start-project"}>
+              <Link href={"/start-project"} locale={browserLocale}>
                 <Text
                   id={"start-project"}
                   p={6}
@@ -311,9 +307,6 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
     color: useColorModeValue("blue.500", "blue.200"),
   };
 
-
-
-
   return (
     <Link href={lang + path}>
       <Text
@@ -337,7 +330,6 @@ const NavLink = ({ lang = `/tr`, name, path, onClose }) => {
 const MenuLink = ({ lang = `/tr`, name, path, icon, onClose }) => {
   const router = useRouter();
   const currentPath = router.pathname;
-
 
   return (
     <Link href={lang + path} onClick={() => onClose()}>

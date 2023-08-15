@@ -1,10 +1,10 @@
 module.exports = {
+
   i18n: {
     locales: ["en-US", "tr-TR"],
-    defaultLocale: "tr",
+    defaultLocale: "tr-TR", // veya "tr-TR" olarak ayarlayın
     localeDetection: false,
   },
-
   env: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
   },
