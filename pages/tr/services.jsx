@@ -197,8 +197,7 @@ const OurServicesContent = () => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const categories = ["all", "software", "digital marketing", "graphic-design"];
-  const selectedIndex = categories.indexOf(selectedCategory);
+
 
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
@@ -317,21 +316,20 @@ const OurServicesContent = () => {
       </Box>
 
       <Flex direction="column" align="center">
-      <Link href="/tr/contact" passHref>
-        <Button
-          colorScheme="blue"
-          size="lg"
-          _hover={{ bg: "blue.600" }}
-          leftIcon={<Icon as={FaEnvelope} boxSize={5} />}
-        >
-          İletişime Geçin
-        </Button>
-      </Link>
-      <Text mt={2} fontSize="sm" color="gray.600">
-        Sorularınızı yanıtlamaktan mutluluk duyarız!
-      </Text>
-    </Flex>
-
+        <Link href="/tr/contact" passHref>
+          <Button
+            colorScheme="blue"
+            size="lg"
+            _hover={{ bg: "blue.600" }}
+            leftIcon={<Icon as={FaEnvelope} boxSize={5} />}
+          >
+            İletişime Geçin
+          </Button>
+        </Link>
+        <Text mt={2} fontSize="sm" color="gray.600">
+          Sorularınızı yanıtlamaktan mutluluk duyarız!
+        </Text>
+      </Flex>
     </Container>
   );
 };
@@ -370,9 +368,7 @@ const StartProject = () => {
             aralamak ve projenize hayat vermek için hemen başlayalım!
           </Text>
           <Link href={"/tr/start-project"} passHref>
-            <Button colorScheme="blue" size="lg" _hover={{ bg: "blue.600" }}>
-              Proje Başlatın
-            </Button>
+            <Button size="lg">Proje Başlatın</Button>
           </Link>
         </Box>
       </Flex>

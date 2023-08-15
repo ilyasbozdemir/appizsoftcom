@@ -56,13 +56,8 @@ function OurTechnologies() {
                       <Flex direction={"column"}>
                         <Image
                           id={image.id}
-                          src={image.imageUrl}
+                          src={baseImagePath + image.imageUrl}
                           alt={`${image.title}`}
-                          loader={({ src, width, quality }) => {
-                            return `${baseImagePath}/${src}?w=${width}&q=${
-                              quality || 75
-                            }`;
-                          }}
                           width={50}
                           height={50}
                           style={{

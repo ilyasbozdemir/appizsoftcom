@@ -90,6 +90,7 @@ export default function Portfolio() {
               cursor={"pointer"}
               className="item"
               variants={item}
+              gap={3}
             >
               <Image
                 src={`${baseImagePath}/${p.portfolio}`}
@@ -109,6 +110,7 @@ export default function Portfolio() {
                   md: 16,
                   lg: 18,
                 }}
+               
               >
                 {p.name}
               </Text>

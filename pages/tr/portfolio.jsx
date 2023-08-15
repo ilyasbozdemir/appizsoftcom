@@ -1,9 +1,24 @@
-import { Box, Center, Container, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Container,
+  Flex,
+  SimpleGrid,
+  Stack,
+  Text,
+  Wrap,
+  WrapItem,
+  useRadio,
+  useRadioGroup,
+} from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import { site } from "../../constants/site";
-
+import { projects } from "../../constants/projects";
+import Image from "next/image";
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
 const PortfolioCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -72,26 +87,160 @@ const PortfolioCTA = () => {
   );
 };
 
-const PortfolioContent = () => {
+function RadioCard(props) {
+  const { getInputProps, getRadioProps } = useRadio(props);
+
+  const input = getInputProps();
+  const checkbox = getRadioProps();
+
   return (
-    <>
-      <>
-        
-      </>
-    </>
+    <Box as="label"n userSelect={'none'}>
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor="pointer"
+        borderWidth="1px"
+        borderRadius="md"
+        boxShadow="md"
+        _checked={{
+          bg: "teal.600",
+          color: "white",
+          borderColor: "teal.600",
+        }}
+        _focus={{
+          boxShadow: "outline",
+        }}
+        px={5}
+        py={3}
+      >
+        {props.children}
+      </Box>
+    </Box>
+  );
+}
+
+const PortfolioContent = () => {
+  const [selectedCategory, setSelectedCategory] = useState("products");
+
+  let filteredData = projects.filter((item) => {
+    return item.category === selectedCategory;
+  });
+
+  useEffect(() => {
+    filteredData = projects.filter((item) => {
+      return item.category === selectedCategory;
+    });
+  }, [selectedCategory]);
+
+  const options = [
+    {
+      val: "projects",
+      title: "Projelerimiz",
+    },
+    {
+      val: "web-site",
+      title: "Web Sitesi",
+    },
+    {
+      val: "e-commerce",
+      title: "E-Ticaret",
+    },
+    {
+      val: "digital-marketing",
+      title: "Dijital Pazarlama",
+    },
+    {
+      val: "test-automation",
+      title: "Test Otomasyon",
+    },
+    {
+      val: "mobile-app",
+      title: "Mobil Uygulama",
+    },
+    {
+      val: "design",
+      title: "Tasarım",
+    },
+    {
+      val: "production",
+      title: "Prodüksiyon",
+    },
+  ];
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "portfolios",
+    defaultValue: options[0].val,
+    onChange: setSelectedCategory,
+  });
+
+  const group = getRootProps();
+  return (
+    <Container p={{ base: 9, md: 10 }} maxW="8xl">
+      <Flex
+        justifyContent={"center"}
+        direction={"columns"}
+        flexWrap={"wrap"}
+        gap={4}
+        {...group}
+      >
+        {options.map((value) => {
+          const radio = getRadioProps({ value: value.val });
+          return (
+            <RadioCard key={value} {...radio}>
+              {value.title}
+            </RadioCard>
+          );
+        })}
+      </Flex>
+      <Flex mt={"50px"}>
+        <SimpleGrid
+          columns={{ base: 1, sm: 1, md: 2, lg: 2 }}
+          alignSelf="start"
+          placeItems={"center"}
+          spacing={10}
+          mb={4}
+        >
+          {filteredData.map((p, index) => (
+            <Flex direction={"column"} key={p.id}>
+              <Flex direction={"column"} cursor={"pointer"} gap={3}>
+                <Image
+                  src={`${baseImagePath}/${p.portfolio}`}
+                  alt={p.name}
+                  height={p.portfolioSize.h * 2}
+                  width={p.portfolioSize.w * 2}
+                  style={{
+                    borderRadius: "15px",
+                  }}
+                />
+                <Text
+                  fontFamily={"monospace"}
+                  textAlign={"center"}
+                  fontWeight={"semibold"}
+                  fontSize={{
+                    base: 14,
+                    md: 16,
+                    lg: 18,
+                  }}
+                >
+                  {p.name}
+                </Text>
+              </Flex>
+              <Text>{p.description}</Text>
+            </Flex>
+          ))}
+        </SimpleGrid>
+      </Flex>
+    </Container>
   );
 };
 
 function OurPortfolioPage() {
   const publisher = `AppizSoft`;
-  const title = `Yaratıcı Çözümlerle İşinizi Destekliyoruz • AppizSoft`;
-  const desc = `AppizSoft olarak, müşterilerimize en iyi hizmeti sunmak için çalışıyoruz. Yazılım çözümleri, web geliştirme, mobil uygulama geliştirme ve daha fazlasını keşfedin.`;
+  const title = `Portfolyo • Appizsoft`;
+  const desc = `Yazılım, dijital prodüksiyon ve dijital pazarlama alanlarında yapılan çalışmaları sizinle paylaşıyoruz. Projelerimize göz atın ve yaratıcılığımızı keşfedin!`;
 
   return (
     <>
-      <Head>
-        <title>Portpolyo • Appizsoft</title>
-      </Head>
       <Head>
         <title>{title}</title>
         <meta itemprop="description" content={desc} />
