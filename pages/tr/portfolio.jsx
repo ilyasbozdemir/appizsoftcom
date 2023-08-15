@@ -122,7 +122,11 @@ function RadioCard(props) {
 }
 
 const PortfolioContent = () => {
-  const [selectedCategory, setSelectedCategory] = useState("products");
+  const [selectedCategory, setSelectedCategory] = useState("projects");
+
+  useEffect(() => {
+    setSelectedCategory('projects')
+  }, []);
 
   let filteredData = projects.filter((item) => {
     return item.category === selectedCategory;
