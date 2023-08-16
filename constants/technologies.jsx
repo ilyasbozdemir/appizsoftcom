@@ -24,7 +24,7 @@ export const technologies = [
     },
   },
   {
-    id: ".NETCore",
+    id: "NETCore",
     title: ".NET Core",
     category: "Backend",
     imageUrl: "/images/technologies/dot-net-6.0.svg",
@@ -45,6 +45,18 @@ export const technologies = [
     size: {
       width: 50,
       height: 50,
+    },
+  },
+  {
+    id: "MicrosoftSQL",
+    title: "Microsoft SQL",
+    category: "Veritabanı Yönetimi",
+    imageUrl: "/images/technologies/microsoft-sql.svg",
+    isMenuDisplay: true,
+    description: "Microsoft SQL Server, güçlü veritabanı yönetim sistemlerinden biridir. Veri depolama, işleme ve yönetiminde geniş yetenekler sunar. Büyük ölçekli ve karmaşık veritabanlarını kolayca yönetmenizi sağlar.",
+    size: {
+      width: 32,
+      height: 32,
     },
   },
   {
