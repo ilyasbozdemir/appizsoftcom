@@ -85,7 +85,7 @@ export const services = [
     content: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
     işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz. Size
     özel tasarımlar ve yaratıcı fikirlerle markanızı öne çıkarıyoruz.`,
-    serviceCategory: "graphic-design",
+    serviceCategory: "digital marketing",
     isServicesComponentDisplay: true,
   },
   {
@@ -187,4 +187,5 @@ export const services = [
     serviceCategory: "digital marketing",
     isServicesComponentDisplay: true,
   },
+  
 ];
