@@ -63,6 +63,7 @@ export default function Portfolio() {
         mb={20}
         textAlign="center"
         color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
+        fontFamily={'roboto'}
       >
         Portfolyo
       </chakra.h3>
@@ -122,9 +123,9 @@ export default function Portfolio() {
         textAlign="center"
         color={useColorModeValue("gray.800", "gray.800")}
       >
-        <Link href={"/portfolio"}>
+        <Link href={"/portfolio"} passHref>
           <Text fontSize={{ base: 16, md: 22 }} cursor={"pointer"}>
-            Tüm Çalışmaları Görüntüle
+            Tüm çalışmaları görüntüle
           </Text>
         </Link>
       </chakra.div>

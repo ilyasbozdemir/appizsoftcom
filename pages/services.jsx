@@ -347,7 +347,7 @@ const OurServicesContent = () => {
       </Box>
 
       <Flex direction="column" align="center">
-        <Link href="/tr/contact" passHref>
+        <Link href="/contact" passHref>
           <Button
             colorScheme="blue"
             size="lg"
