@@ -77,7 +77,6 @@ function OurReferences() {
             w={200}
             h={200}
             align={"center"}
-            bg={"#e7e7e7"}
             transition={"transform 0.3s ease"} /* Ekledik */
             _hover={{ transform: "scale(1.05)" }} /* Ekledik */
           >
