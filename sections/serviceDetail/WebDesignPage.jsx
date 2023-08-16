@@ -31,7 +31,6 @@ import {
 
 import Link from "next/link";
 import ThreeTiersPricing from "../../components/shared/ThreeTiersPricing";
-import OurTechnologies from "../../sections/OurTechnologies";
 import { technologies } from "../../constants/technologies";
 import SelectedTechnologiesComponent from "../../components/SelectedTechnologiesComponent";
 
@@ -66,7 +65,7 @@ const HeroSection = () => {
           w={{ base: "100%", sm: "auto" }}
           spacing={5}
         >
-          <Link href="/start-project?source=web-design-development" passHref>
+          <Link href="/#" passHref>
             <Button
               colorScheme="blue"
               variant="outline"
@@ -78,7 +77,7 @@ const HeroSection = () => {
               Hemen Başlayalım!
             </Button>
           </Link>
-          <Link href="/contact?source=web-design-development" passHref>
+          <Link href="/#" passHref>
             <Button
               colorScheme="gray"
               variant="outline"

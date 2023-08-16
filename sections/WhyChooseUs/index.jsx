@@ -134,7 +134,7 @@ function WhyChooseUs() {
           </Text>
           <Center>
             <Box display={{ base: "none", lg: "initial" }}>
-              <Link href={"/tr/about-appizsoft"}>
+              <Link href={"/about-appizsoft"}>
                 <Button
                   variant="solid"
                   w={{
@@ -167,7 +167,7 @@ function WhyChooseUs() {
 
       <Center>
         <Box display={{ base: "initial", lg: "none" }} mt={10}>
-          <Link href={"/tr/about-appizsoft"}>
+          <Link href={"/about-appizsoft"}>
             <Button
               variant="solid"
               w={{
