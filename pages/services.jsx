@@ -47,7 +47,7 @@ const ServicesCard = (props) => {
       <Card maxW="sm" role={"group"}>
         <CardBody
           onClick={() => {
-            router.push("/tr/service/[id]", `/tr/service/${href}`, {
+            router.push("/service/[id]", `/service/${href}`, {
               shallow: true,
             });
           }}
@@ -398,7 +398,7 @@ const StartProject = () => {
             Eşsiz projeleriniz için yanınızdayız. Dijital dünyanın kapılarını
             aralamak ve projenize hayat vermek için hemen başlayalım!
           </Text>
-          <Link href={"/tr/start-project"} passHref>
+          <Link href={"/start-project"} passHref>
             <Button size="lg">Proje Başlatın</Button>
           </Link>
         </Box>
@@ -430,7 +430,7 @@ function ServicesPage() {
         <meta name="twitter:image:alt" content={site.title} />
 
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr/services`} />
+        <meta property="og:url" content={`${site.baseUrl}/services`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
