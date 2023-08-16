@@ -17,8 +17,6 @@ import Link from "next/link";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
-
-
 const Reference = ({ title, description, logoSrc }) => {
   return (
     <Box p={4} borderWidth="1px" borderRadius="md" shadow="md">
@@ -30,15 +28,13 @@ const Reference = ({ title, description, logoSrc }) => {
 };
 
 function OurReferences() {
- 
-
   return (
     <>
       <chakra.h3
         fontSize={{ base: 19, md: 27 }}
         fontWeight="bold"
         textAlign="center"
-        fontFamily={'roboto'}
+        fontFamily={"roboto"}
         color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
       >
         Müşterilerimiz
@@ -49,7 +45,7 @@ function OurReferences() {
         mb={20}
         textAlign="center"
         color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
-        fontFamily={'Open Sans'}
+        fontFamily={"Open Sans"}
       >
         Bizi Tercih Edenler
       </chakra.h2>
@@ -71,25 +67,26 @@ function OurReferences() {
           )
           .map((p, index) => (
             <Flex
-            key={p.id}
-            cursor={"pointer"}
-            boxSizing="border-box"
-            w={200}
-            h={200}
-            align={"center"}
-            transition={"transform 0.3s ease"} /* Ekledik */
-            _hover={{ transform: "scale(1.05)" }} /* Ekledik */
-          >
-            <Image
-              src={`${baseImagePath}/${p.logo}`}
-              alt={p.name}
-              height={p.portfolioSize.h}
-              width={p.portfolioSize.w}
-              style={{
-                borderRadius: "15px",
-              }}
-            />
-          </Flex>
+              key={p.id}
+              cursor={"pointer"}
+              boxSizing="border-box"
+              w={200}
+              h={200}
+              align={"center"}
+              transition={"transform 0.3s ease"} /* Ekledik */
+              _hover={{ transform: "scale(1.05)", filter: "none" }} /* Ekledik */
+              filter="grayscale(100%)"
+            >
+              <Image
+                src={`${baseImagePath}/${p.logo}`}
+                alt={p.name}
+                height={p.portfolioSize.h}
+                width={p.portfolioSize.w}
+                style={{
+                  borderRadius: "15px",
+                }}
+              />
+            </Flex>
           ))}
       </SimpleGrid>
       <chakra.div
@@ -102,7 +99,6 @@ function OurReferences() {
           </Text>
         </Link>
       </chakra.div>
-
     </>
   );
 }
