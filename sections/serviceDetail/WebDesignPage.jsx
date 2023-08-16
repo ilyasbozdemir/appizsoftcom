@@ -32,7 +32,10 @@ import {
 import Link from "next/link";
 import ThreeTiersPricing from "../../components/shared/ThreeTiersPricing";
 import OurTechnologies from "../../sections/OurTechnologies";
+import { technologies } from "../../constants/technologies";
+import SelectedTechnologiesComponent from "../../components/SelectedTechnologiesComponent";
 
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 const HeroSection = () => {
   return (
     <>
@@ -195,6 +198,23 @@ const FeaturesComponent = () => {
 };
 
 function WebDesignPage() {
+  const selectedTechIds = [
+    "Kubernetes",
+    "Docker",
+    "NETCore",
+    "Redis",
+    "Wordpress",
+    "React.js",
+    "Angular",
+    "Figma",
+    "GoogleAds",
+    "MicrosoftSQL",
+  ];
+
+  const selectedTechnologies = technologies.filter((tech) =>
+    selectedTechIds.includes(tech.id)
+  );
+
   return (
     <Container p={{ base: 8, sm: 14 }} maxW={"8xl"}>
       <Flex direction={"column"} gap={15}>
@@ -205,20 +225,9 @@ function WebDesignPage() {
         <OurWorkProcessFeature />
         <ThreeTiersPricing />
 
-        <Box my={5}>
-          <Box p={8} bg="gray.50" borderRadius="md" boxShadow="lg">
-            <Text fontSize="xl" fontWeight="semibold" mb={4} color="blue.600">
-              Projede Kullandığımız Teknolojiler
-            </Text>
-
-            {"  <OurTechnologies /> "}
-
-            <Text mt={4} fontSize="sm" color="gray.600">
-              Projemizin geliştirilmesinde en güncel ve performans odaklı
-              teknolojileri kullanıyoruz. İnovasyon ve kalite için buradayız!
-            </Text>
-          </Box>
-        </Box>
+        <SelectedTechnologiesComponent
+          selectedTechnologies={selectedTechnologies}
+        />
       </Flex>
     </Container>
   );

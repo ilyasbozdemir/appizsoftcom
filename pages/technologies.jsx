@@ -27,6 +27,7 @@ import Image from "next/image";
 import Head from "next/head";
 import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
 import axios from "axios";
+import { site } from "../constants/site";
 
 const OurTechnologiesCTA = () => {
   return <></>;
@@ -93,114 +94,43 @@ const OurTechnologiesContent = () => {
 
   return (
     <Box h={"auto"} as={"article"} mt={100}>
-      <Flex direction={"row"} justifyContent={"flex-start"} gap={5} my={5}>
-        <Flex w={{ base: 0, md: 300 }}   p={3}>
-          {!isMobile && (
-            <>
-              <VStack justify={"start"} align={'start'}>
-                <>
-                  <>
-                    <Button onClick={() => handleCategoryAll()}>Tümü</Button>
-                  </>
-                  {uniqueCategories.map((category) => (
-                    <WrapItem key={category}>
-                      <Button onClick={() => handleCategoryFilter(category)}>
-                        {category}
-                      </Button>
-                    </WrapItem>
-                  ))}
-                </>
-              </VStack>
-            </>
-          )}
-        </Flex>
-
-        <Flex direction={"column"} justifyContent={"flex-start"}>
-          {isMobile && (
-            <Center my={10}>
-              <Select onChange={handleCategoryChange}>
-                {/*<option value="all">Tümü</option>*/}
-                {uniqueCategories.map((category) => (
-                  <>
-                    <option
-                      value={category}
-                      onClick={() => handleCategoryFilter(category)}
-                    >
-                      {category}
-                    </option>
-                  </>
-                ))}
-              </Select>
-            </Center>
-          )}
-
-          <Center>
-            <SimpleGrid
-              columns={{ sm: 2, md: 3, lg: 4, xl: 5, "2xl": 6 }}
-              spacing={2}
-              justify="center"
-              gap={5}
-            >
-              {filteredTechnologies.map((tech) => (
-                <Flex key={tech.id}>
-                  <Flex direction={{ base: "column", lg: "row" }} gap={4}>
-                    <Flex>
-                      <Box
-                        width="50%"
-                        bg={"#f3f4f6"}
-                        borderRadius={"4px"}
-                        p={".5rem"}
-                        gap={"1rem"}
-                        alignItems={"center"}
-                        boxSize={"50px"}
-                      >
-                        <Image
-                          id={tech.id}
-                          src={tech.imageUrl}
-                          alt={tech.id}
-                          width={200}
-                          height={200}
-                          mr={4}
-                        />
-                      </Box>
-                      <Flex mx={3} direction={"column"}>
-                        <Text
-                          mb={0}
-                          fontWeight={500}
-                          fontSize={"14px"}
-                          lineHeight={"20px"}
-                          isTruncated
-                        >
-                          {tech.title}
-                        </Text>
-                        <Text
-                          mb={0}
-                          fontWeight={400}
-                          fontSize={"14px"}
-                          lineHeight={"20px"}
-                          isTruncated
-                          color={"gray.600"}
-                        >
-                          {tech.category}
-                        </Text>
-                      </Flex>
-                    </Flex>
-                  </Flex>
-                </Flex>
-              ))}
-            </SimpleGrid>
-          </Center>
-        </Flex>
-      </Flex>
+    
     </Box>
   );
 };
 
 function OurTechnologiesPage() {
+  const publisher = `AppizSoft`;
+  const title = `Teknolojiler • AppizSoft`;
+  const desc = `İşimizde kullandığımız çeşitli teknolojileri keşfedin. Bulut bilişim, veritabanı yönetimi, konteyner teknolojileri gibi altyapı unsurlarının yanı sıra, geliştirme dilleri ve daha fazlası hakkında bilgi edinin. `;
+
   return (
     <>
       <Head>
-        <title>Teknolojiler • Appizsoft</title>
+        <title>{title}</title>
+        <meta itemprop="description" content={desc} />
+        <meta name="description" content={desc} />
+        <meta name="publisher" content={publisher} />
+        <meta name="robots" content={"index, follow"} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:site" content="@appizsoftcom" />
+        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:image" content={site.twImage} />
+        <meta name="twitter:image:alt" content={site.title} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={`${site.baseUrl}/technologies`} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.title} />
+        <meta property="og:image" content={site.ogImage} />
+        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image:width" content="1012" />
+        <meta property="og:image:height" content="506" />
+        <meta property="og:locale" content="tr_TR" />
       </Head>
 
       <main>

@@ -38,7 +38,6 @@ const plansList = [
       "4 Servers",
       "Push to deploy",
       "Collaborate with your team",
-      "Setup load balanced clusters",
     ],
   },
   {
@@ -50,7 +49,6 @@ const plansList = [
       "unlimited Servers",
       "Push to deploy",
       "Collaborate with your team",
-      "Setup load balanced clusters",
     ],
   },
 ];
@@ -88,7 +86,6 @@ const PricingCard = ({ title, price, icon, features }) => {
       p={6}
     >
       <Box textAlign="center">
-        <Icon as={icon} h={10} w={10} color="teal.500" />
         <chakra.h2 fontSize="2xl" fontWeight="bold">
           {title}
         </chakra.h2>
@@ -103,7 +100,7 @@ const PricingCard = ({ title, price, icon, features }) => {
           </HStack>
         ))}
       </VStack>
-      <Link href="/start-project" passHref>
+      <Link href="/contact" passHref>
         <Button
           colorScheme="teal"
           variant="solid"
