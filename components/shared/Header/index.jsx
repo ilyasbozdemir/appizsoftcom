@@ -60,7 +60,7 @@ const dropdownLinks = [
   },
 ];
 
-export default function Navbar() {
+ function Navbar() {
   const [isSticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -341,3 +341,4 @@ const MenuLink = ({ name, path, icon, onClose }) => {
     </Link>
   );
 };
+export default React.memo(Navbar) 

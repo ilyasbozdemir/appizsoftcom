@@ -13,7 +13,7 @@ export const whyChooseUsFeatures = [
         title: "Yüksek Hız",
         icon: FaRocket,
         content:
-          "Projelerinizi hızlı bir şekilde tamamlarız. İleri düzeyde verimlilikle çalışarak zamanınızı tasarruf ederiz.",
+          "Projelerinizi etkili bir şekilde ve hızlı bir şekilde tamamlama konusundaki uzmanlığımız sayesinde, zamanınızdan tasarruf etmenize yardımcı oluyoruz.",
       },
       {
         color: "blue",

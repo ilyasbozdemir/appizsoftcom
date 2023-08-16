@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { services } from "../../constants/services";
 import MetaHead from "../../configuration/MetaHead";
 import Head from "next/head";
-import { Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { site } from "../../constants/site";
+import WebDesignHero from "../../sections/serviceDetail/WebDesignPage";
+
 const DOurServiceDetailCTA = ({ currentService }) => {
   const router = useRouter();
 
@@ -56,7 +59,10 @@ const DOurServiceDetailCTA = ({ currentService }) => {
               <Flex direction={"column"}>
                 <Text fontSize={29}>{currentService.title}</Text>
                 <Center>
-                  <PagesBreadcrumb currentPage={currentService.title} isServiceDetail={true} />
+                  <PagesBreadcrumb
+                    currentPage={currentService.title}
+                    isServiceDetail={true}
+                  />
                 </Center>
               </Flex>
             </Center>
@@ -151,9 +157,6 @@ const DOurServiceDetailCTA = ({ currentService }) => {
     </>
   );
 };
-const DOurServiceDetailContent = () => {
-  return <>DOurServiceDetailContent</>;
-};
 
 function OurServiceDetailPage({ service }) {
   let serviceType = services.find((s) => s.id === service.id).serviceCategory;
@@ -165,18 +168,45 @@ function OurServiceDetailPage({ service }) {
       ? "Yazılım Hizmetleri"
       : "Dijital Pazarlama Hizmetleri";
 
+  const publisher = `AppizSoft`;
+  const title = `${service.title} | ${serviceType} • Appizsoft`;
+  const desc = services.find((s) => s.id === service.id).metaDesc;
+
   return (
     <>
       <Head>
-        <title>
-          {service.title} | {serviceType} • Appizsoft
-        </title>
+        <title>{title}</title>
+        <meta itemprop="description" content={desc} />
+        <meta name="description" content={desc} />
+        <meta name="publisher" content={publisher} />
+        <meta name="robots" content={"index, follow"} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:site" content="@appizsoftcom" />
+        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:image" content={site.twImage} />
+        <meta name="twitter:image:alt" content={site.title} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={`${site.baseUrl}/services`} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.title} />
+        <meta property="og:image" content={site.ogImage} />
+        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image:width" content="1012" />
+        <meta property="og:image:height" content="506" />
+        <meta property="og:locale" content="tr_TR" />
       </Head>
 
-      <main>
+      <Box>
         <DOurServiceDetailCTA currentService={service} />
-        <DOurServiceDetailContent />
-      </main>
+
+        <WebDesignHero />
+        
+      </Box>
     </>
   );
 }

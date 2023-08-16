@@ -80,4 +80,4 @@ function PagesBreadcrumb({ currentPage, isServiceDetail = false }) {
   );
 }
 
-export default PagesBreadcrumb;
+export default React.memo(PagesBreadcrumb) ;

@@ -100,7 +100,7 @@ function AlertDevMode() {
       <Box>
         <AlertDescription>
           Sitemiz şu an yapım aşamasındadır. Güncellemeler devam ediyor.
-          Son Güncelleme: <Text fontFamily={'verdana'}>15.08.2023</Text>
+          Son Güncelleme: <Text fontFamily={'verdana'}>16.08.2023</Text>
         </AlertDescription>
       </Box>
     </Alert>

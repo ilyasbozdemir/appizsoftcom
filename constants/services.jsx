@@ -1,3 +1,5 @@
+import WebDesignHero from "../sections/serviceDetail/WebDesignPage";
+
 /*
 
     id: number,
@@ -17,10 +19,13 @@ export const services = [
     href: "web-design-development", //[id].jsx
     title: "Web Tasarımı ve Geliştirme", //ortak
     img: "/images/special_software_development.png", //services componenti için
+    metaDesc:
+      "Bireysel, kurumsal ve e-ticaret gibi farklı alanlarda ihtiyaç duyduğunuz özel yazılımları geliştiriyoruz",
     content: `Bireysel, kurumsal ve e-ticaret gibi farklı alanlarda ihtiyaç duyduğunuz
     özel yazılımları geliştiriyoruz.Size özel çözümler sunarak
     işletmenizi dijital dünyada öne çıkarmanıza yardımcı oluyoruz.`, //services componenti için
     serviceCategory: "software",
+
     isServicesComponentDisplay: true,
   },
 
@@ -29,6 +34,8 @@ export const services = [
     href: "e-commerce-solutions",
     title: "E-ticaret Çözümleri",
     img: "/images/e_commerce.png",
+    metaDesc: `İnternet mağazanızın yazılım ve dijital pazarlama ihtiyaçları için
+    tecrübeli ekibimizle yanınızdayız.`,
     content: `İnternet mağazanızın yazılım ve dijital pazarlama ihtiyaçları için
     tecrübeli ekibimizle yanınızdayız. E-ticaretteki rekabet ve sorunları
     aşmanız için uzman kadromuz iş başında.`,
@@ -41,6 +48,7 @@ export const services = [
     href: "startup-solutions",
     title: "Start-Up Çözümleri",
     img: "/images/start_up.png",
+    metaDesc: `Start-up dünyasının zorluklarını anlıyoruz ve size özel çözümler sunarak rekabet avantajı elde etmenize yardımcı oluyoruz.`,
     content: `Start-up dünyasının zorluklarını anlıyoruz ve size özel çözümler sunarak rekabet avantajı elde etmenize yardımcı oluyoruz. Deneyimli ekibimiz, projenizin her aşamasında yanınızda yer alarak başarıya ulaşmanızı destekliyoruz.`,
     serviceCategory: "software",
     isServicesComponentDisplay: true,
@@ -50,6 +58,7 @@ export const services = [
     href: "mobile-app-development",
     title: "Mobil Uygulama Geliştirme",
     img: `/images/mobile__app.png`,
+    metaDesc: `Mobil cihazların popülaritesi hızla artarken, müşterilerinize kaliteli ve kullanıcı dostu mobil uygulamalar sunmak, işletmenizin dijital varlığını güçlendirmenin temel unsurlarından biridir.`,
     content: `Mobil cihazların popülaritesi hızla artarken, müşterilerinize kaliteli ve kullanıcı dostu mobil uygulamalar sunmak, işletmenizin dijital varlığını güçlendirmenin temel unsurlarından biridir.`,
     serviceCategory: "software",
     isServicesComponentDisplay: true,
@@ -59,6 +68,7 @@ export const services = [
     href: "game-design",
     title: "Oyun Tasarımı",
     img: "/images/game_design.png",
+    metaDesc: ``,
     content: `Oyun tasarımı konusunda uzman ekibimizle birlikte yazılım hizmetleri
     sunuyoruz. Yaratıcı fikirlerimiz ve oyun geliştirme konusundaki
     tecrübemizle sizin için en iyi oyun yazılımlarını tasarlıyoruz. `,
@@ -71,6 +81,7 @@ export const services = [
     href: "test-otomation", //[id].jsx
     title: "Test Otomasyonu",
     img: "/images/test_automation.png", //services componenti için
+    metaDesc: `Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin`,
     content:
       "Selenium ve Appium, günümüzde en popüler test otomasyon araçları arasında yer almaktadır. Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin",
     serviceCategory: "software",
@@ -82,6 +93,8 @@ export const services = [
     href: "production",
     title: "Prodüksiyon",
     img: "/images/production.png",
+    metaDesc: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
+    işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz.`,
     content: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
     işlerinizi sektörünüzdeki enerji ve vizyonla çözüme kavuşturuyoruz. Size
     özel tasarımlar ve yaratıcı fikirlerle markanızı öne çıkarıyoruz.`,
@@ -93,6 +106,7 @@ export const services = [
     href: "web-banner-design",
     title: "Web Banner Tasarımı",
     img: "",
+    metaDesc: `Çekici ve etkileyici web banner tasarımlarıyla online varlığınızı güçlendirin`,
     content:
       "Çekici ve etkileyici web banner tasarımlarıyla online varlığınızı güçlendirin. Web sitenizde veya dijital reklam kampanyalarınızda kullanabileceğiniz bannerlar oluşturuyoruz.",
     serviceCategory: "graphic-design",
@@ -103,6 +117,7 @@ export const services = [
     href: "business-card-design",
     title: "Kartvizit Tasarımı",
     img: "",
+    metaDesc: ``,
     content:
       "Profesyonel ve dikkat çekici kartvizitlerle kalıcı bir izlenim bırakın. Kurumsal kimliğinizi yansıtan kartvizit tasarımları sunuyoruz.",
     serviceCategory: "graphic-design",
@@ -113,6 +128,8 @@ export const services = [
     href: "poster-design",
     title: "Poster Tasarımı",
     img: "",
+    metaDesc: `Etkileyici ve dikkat çekici posterlerle etkinliklerinizi duyurun. Özel tasarlanmış posterler ile hedef kitlenizin ilgisini çekin.`,
+
     content:
       "Etkileyici ve dikkat çekici posterlerle etkinliklerinizi duyurun. Özel tasarlanmış posterler ile hedef kitlenizin ilgisini çekin.",
     serviceCategory: "graphic-design",
@@ -123,7 +140,10 @@ export const services = [
     href: "branding",
     title: "Kurumsal Kimlik Tasarımı",
     img: "",
-    content: "Markanızın karakterini yansıtan kurumsal kimlik tasarımlarıyla öne çıkın. Kartvizitlerden zarflara, broşürlerden dijital materyallere kadar geniş bir yelpazede hizmet sunuyoruz.",
+    metaDesc: `Markanızın karakterini yansıtan kurumsal kimlik tasarımlarıyla öne çıkın`,
+
+    content:
+      "Markanızın karakterini yansıtan kurumsal kimlik tasarımlarıyla öne çıkın. Kartvizitlerden zarflara, broşürlerden dijital materyallere kadar geniş bir yelpazede hizmet sunuyoruz.",
     serviceCategory: "graphic-design",
     isServicesComponentDisplay: true,
   },
@@ -132,6 +152,8 @@ export const services = [
     href: "logo-design",
     title: "Logo Tasarımı",
     img: "",
+    metaDesc: `Markanızı yansıtan özgün ve etkileyici logo tasarımlarıyla tanışın`,
+
     content:
       "Markanızı yansıtan özgün ve etkileyici logo tasarımlarıyla tanışın. Kurumsal kimliğinizi en iyi şekilde temsil edecek logoları sizin için oluşturuyoruz.",
     serviceCategory: "graphic-design",
@@ -142,6 +164,8 @@ export const services = [
     href: "social-media-management",
     title: "Sosyal Medya Yönetimi",
     img: "",
+    metaDesc: `Hedef kitlenizle etkileşim kurmak için sosyal medya platformlarını etkili bir şekilde yönetiyoruz.`,
+
     content:
       "Hedef kitlenizle etkileşim kurmak için sosyal medya platformlarını etkili bir şekilde yönetiyoruz. Stratejik içerik oluşturma, paylaşımların zamanlaması, etkileşim analizi ve büyüme hedeflerinize ulaşma konularında size yardımcı oluyoruz.",
     serviceCategory: "digital marketing",
@@ -152,6 +176,7 @@ export const services = [
     href: "seo",
     title: "Arama Motoru Optimizasyonu (SEO)",
     img: "",
+    metaDesc: `Web sitenizin organik arama sonuçlarında üst sıralarda görünmesini sağlamak için SEO hizmetleri sunuyoruz.`,
     content:
       "Web sitenizin organik arama sonuçlarında üst sıralarda görünmesini sağlamak için SEO hizmetleri sunuyoruz. Anahtar kelime analizi, teknik optimizasyon, içerik stratejileri ve bağlantı kurma gibi adımlarla çevrimiçi görünürlüğünüzü artırıyoruz.",
     serviceCategory: "digital marketing",
@@ -162,6 +187,8 @@ export const services = [
     href: "google-ads",
     title: "Google Reklamları Yönetimi (SEM)",
     img: "",
+    metaDesc: `Google Ads platformunu kullanarak hedeflenen reklamlar oluşturuyoruz.`,
+
     content:
       "Google Ads platformunu kullanarak hedeflenen reklamlar oluşturuyoruz. İlgili anahtar kelimelere dayalı reklam kampanyaları yöneterek, potansiyel müşterilerinizi çekmeyi ve dönüşümleri artırmayı hedefliyoruz.",
     serviceCategory: "digital marketing",
@@ -172,6 +199,8 @@ export const services = [
     href: "email-marketing",
     title: "E-Posta Pazarlama Kampanyaları",
     img: "",
+    metaDesc: `Etkili e-posta pazarlama kampanyaları oluşturarak, müşterilere özel içerikler, promosyonlar ve güncellemeler sunuyoruz.`,
+
     content:
       "Etkili e-posta pazarlama kampanyaları oluşturarak, müşterilere özel içerikler, promosyonlar ve güncellemeler sunuyoruz. Hedef kitlenizle kişisel bağlar kurmanıza yardımcı olarak, sadık müşteri tabanı oluşturmanızı sağlıyoruz.",
     serviceCategory: "digital marketing",
@@ -182,10 +211,11 @@ export const services = [
     href: "content-marketing",
     title: "İçerik Üretimi ve Pazarlama",
     img: "",
+    metaDesc: `İlgilendiğiniz sektöre özgü nitelikli içerikler üreterek, hedef kitlenizi bilgilendiriyor ve etkili bir şekilde etkileşim kurmanızı sağlıyoruz.`,
+
     content:
       "İlgilendiğiniz sektöre özgü nitelikli içerikler üreterek, hedef kitlenizi bilgilendiriyor ve etkili bir şekilde etkileşim kurmanızı sağlıyoruz. Blog yazıları, infografikler, videolar ve daha fazlasıyla markanızı güçlendiriyoruz.",
     serviceCategory: "digital marketing",
     isServicesComponentDisplay: true,
   },
-  
 ];

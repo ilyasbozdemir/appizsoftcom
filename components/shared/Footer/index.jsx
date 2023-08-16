@@ -24,6 +24,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { AddIcon, ChevronDownIcon, MinusIcon } from "@chakra-ui/icons";
 import SocialMediaIcon from "../SocialMediaIcon";
+import React from "react";
 
 const ListHeader = ({ children }) => {
   return (
@@ -50,9 +51,7 @@ const MetaBusinessPartner = () => {
           height={122}
           draggable="false"
           loader={({ src, width, quality }) => {
-            return `${baseImagePath}/${src}?w=${width}&q=${
-              quality || 75
-            }`;
+            return `${baseImagePath}/${src}?w=${width}&q=${quality || 75}`;
           }}
           style={{
             objectFit: "contain",
@@ -74,9 +73,7 @@ const GooglePartner = () => {
           height={122}
           draggable="false"
           loader={({ src, width, quality }) => {
-            return `${baseImagePath}/${src}?w=${width}&q=${
-              quality || 75
-            }`;
+            return `${baseImagePath}/${src}?w=${width}&q=${quality || 75}`;
           }}
           style={{
             objectFit: "contain",
@@ -228,7 +225,7 @@ const FooterAcordion = () => {
   );
 };
 
-export default function LargeWithLogoCentered() {
+function LargeWithLogoCentered() {
   return (
     <Flex direction={"column"}>
       <Box
@@ -312,8 +309,6 @@ export default function LargeWithLogoCentered() {
   );
 }
 
-
-
 const FooterData = () => {
   const startYear = 2023;
   const currentYear = new Date().getFullYear();
@@ -325,3 +320,5 @@ const FooterData = () => {
   }
   return <> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</>;
 };
+
+export default React.memo(LargeWithLogoCentered);

@@ -247,12 +247,12 @@ const PortfolioContent = () => {
         >
           {filteredData.map((p, index) => (
             <Flex direction={"column"} key={p.id}>
-              <Flex direction={"column"} cursor={"pointer"} gap={3}>
+              <Flex direction={"column"} cursor={"pointer"} gap={3} justify={'center'} align={'center'}>
                 <Image
                   src={`${baseImagePath}/${p.portfolio}`}
                   alt={p.name}
-                  height={p.portfolioSize.h * 2}
-                  width={p.portfolioSize.w * 2}
+                  height={p.portfolioSize.h }
+                  width={p.portfolioSize.w }
                   style={{
                     borderRadius: "15px",
                   }}
