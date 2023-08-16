@@ -2,7 +2,53 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
 import { site } from "../constants/site";
-import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Container,
+  Flex,
+  Icon,
+  Select,
+  SimpleGrid,
+  Text,
+  useRadio,
+  useRadioGroup,
+} from "@chakra-ui/react";
+import { projects } from "../constants/projects";
+import { PiArrowsDownUpLight } from "react-icons/pi";
+import Image from "next/image";
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
+function RadioCard(props) {
+  const { getInputProps, getRadioProps } = useRadio(props);
+
+  const input = getInputProps();
+  const checkbox = getRadioProps();
+
+  return (
+    <Box as="label" n userSelect={"none"}>
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor="pointer"
+        borderWidth="1px"
+        borderRadius="md"
+        boxShadow="md"
+        _hover={{
+          opacity: 0.9,
+        }}
+        _checked={{
+          bgGradient: "linear(to-l, #0ea5e9,#2563eb)",
+          color: "white",
+        }}
+    
+        px={5}
+        py={3}
+      >
+        {props.children}
+      </Box>
+    </Box>
+  );
+}
 
 const OurReferencesCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -73,7 +119,151 @@ const OurReferencesCTA = () => {
 };
 
 const OurReferencesContent = () => {
-  return <>OurReferencesContent</>;
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // İlk renderda ekran boyutuna göre kontrol yapılır
+    handleWindowSize();
+
+    // Ekran boyutu değiştiğinde kontrol yapılır
+    window.addEventListener("resize", handleWindowSize);
+
+    // Temizleme fonksiyonu
+    return () => {
+      window.removeEventListener("resize", handleWindowSize);
+    };
+  }, []);
+
+  const handleWindowSize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState("projects");
+  const options = [
+    {
+      val: "real-estate",
+      title: "Gayrimenkul",
+    },
+    {
+      val: "tourism",
+      title: "Turizm",
+    },
+    {
+      val: "education",
+      title: "Eğitim",
+    },
+    {
+      val: "food",
+      title: "Gıda",
+    },
+    {
+      val: "retail",
+      title: "Perakende",
+    },
+    {
+      val: "transportation",
+      title: "Ulaşım",
+    },
+    {
+      val: "health",
+      title: "Sağlık",
+    },
+    {
+      val: "technology",
+      title: "Teknoloji",
+    },
+    {
+      val: "finance",
+      title: "Finans ve Danışmanlık",
+    },
+    {
+      val: "other",
+      title: "Diğer",
+    },
+  ];
+
+  let filteredData = projects.filter((item) => {
+    return item.sector === selectedCategory;
+  });
+
+  useEffect(() => {
+    filteredData = projects.filter((item) => {
+      return item.sector === selectedCategory;
+    });
+  }, [selectedCategory]);
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "references",
+    defaultValue: options[0].val,
+    onChange: setSelectedCategory,
+  });
+
+  const onChangeHandled = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const group = getRootProps();
+  return (
+    <Container p={{ base: 9, md: 10 }} maxW="8xl" >
+      {isMobile && (
+        <Select
+          onChange={onChangeHandled}
+          icon={<Icon as={PiArrowsDownUpLight} />}
+        >
+          {options.map((category) => (
+            <>
+              <option key={category.val} value={category.val}>
+                {category.title}
+              </option>
+            </>
+          ))}
+        </Select>
+      )}
+      {!isMobile && (
+        <Flex
+          justifyContent={"center"}
+          direction={"columns"}
+          flexWrap={"wrap"}
+          gap={4}
+          {...group}
+        >
+          {options.map((value) => {
+            const radio = getRadioProps({ value: value.val });
+            return (
+              <RadioCard key={value} {...radio}>
+                {value.title}
+              </RadioCard>
+            );
+          })}
+        </Flex>
+      )}
+
+      <Flex mt={"50px"} flexWrap={"wrap"} gap={3}>
+        {filteredData.map((p, index) => (
+          <Flex
+            key={p.id}
+            cursor={"pointer"}
+            boxSizing="border-box"
+            w={200}
+            h={200}
+            align={"center"}
+            bg={"#e7e7e7"}
+            transition={"transform 0.3s ease"} /* Ekledik */
+            _hover={{ transform: "scale(1.05)" }} /* Ekledik */
+          >
+            <Image
+              src={`${baseImagePath}/${p.logo}`}
+              alt={p.name}
+              height={p.portfolioSize.h}
+              width={p.portfolioSize.w}
+              style={{
+                borderRadius: "15px",
+              }}
+            />
+          </Flex>
+        ))}
+      </Flex>
+    </Container>
+  );
 };
 
 function OurReferencesPage() {

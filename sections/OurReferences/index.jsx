@@ -71,35 +71,26 @@ function OurReferences() {
           )
           .map((p, index) => (
             <Flex
-              key={p.id}
-              direction={"column"}
-              cursor={"pointer"}
-              className="item"
-              gap={3}
-            >
-              <Image
-                src={`${baseImagePath}/${p.portfolio}`}
-                alt={p.name}
-                height={p.portfolioSize.h}
-                width={p.portfolioSize.w}
-                style={{
-                  borderRadius: "15px",
-                }}
-              />
-              <Text
-                fontFamily={"monospace"}
-                textAlign={"center"}
-                fontWeight={"semibold"}
-                fontSize={{
-                  base: 14,
-                  md: 16,
-                  lg: 18,
-                }}
-               
-              >
-                {p.name}
-              </Text>
-            </Flex>
+            key={p.id}
+            cursor={"pointer"}
+            boxSizing="border-box"
+            w={200}
+            h={200}
+            align={"center"}
+            bg={"#e7e7e7"}
+            transition={"transform 0.3s ease"} /* Ekledik */
+            _hover={{ transform: "scale(1.05)" }} /* Ekledik */
+          >
+            <Image
+              src={`${baseImagePath}/${p.logo}`}
+              alt={p.name}
+              height={p.portfolioSize.h}
+              width={p.portfolioSize.w}
+              style={{
+                borderRadius: "15px",
+              }}
+            />
+          </Flex>
           ))}
       </SimpleGrid>
       <chakra.div
