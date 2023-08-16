@@ -8,7 +8,15 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { site } from "../../constants/site";
+
+//sections
 import WebDesignHero from "../../sections/serviceDetail/WebDesignPage";
+import ECommerceSolutionsPage from "../../sections/serviceDetail/ECommerceSolutionsPage";
+import StartupSolutions from "../../sections/serviceDetail/StartupSolutionsPage";
+import MobileAppDevelopment from "../../sections/serviceDetail/MobileAppDevelopmentPage";
+import GameDesign from "../../sections/serviceDetail/GameDesignPage";
+import TestAutomation from "../../sections/serviceDetail/TestAutomationPage";
+import Production from "../../sections/serviceDetail/ProductionPage";
 
 const DOurServiceDetailCTA = ({ currentService }) => {
   const router = useRouter();
@@ -158,6 +166,30 @@ const DOurServiceDetailCTA = ({ currentService }) => {
   );
 };
 
+const RenderComponent = (props) => {
+  const { loc } = props;
+
+  switch (loc) {
+    case "web-design-development":
+      return <WebDesignHero />;
+    case "e-commerce-solutions":
+      return <ECommerceSolutionsPage />;
+    case "startup-solutions":
+      return <StartupSolutions />;
+    case "mobile-app-development":
+      return <MobileAppDevelopment />;
+    case "game-design":
+      return <GameDesign />;
+    case "test-automation":
+      return <TestAutomation />;
+      case "production":
+        return <Production />;
+      
+    default:
+      return null;
+  }
+};
+
 function OurServiceDetailPage({ service }) {
   let serviceType = services.find((s) => s.id === service.id).serviceCategory;
 
@@ -204,8 +236,7 @@ function OurServiceDetailPage({ service }) {
       <Box>
         <DOurServiceDetailCTA currentService={service} />
 
-        <WebDesignHero />
-        
+        <RenderComponent loc={service.href} />
       </Box>
     </>
   );

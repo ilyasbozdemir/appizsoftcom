@@ -78,7 +78,7 @@ export const services = [
 
   {
     id: 7006,
-    href: "test-otomation", //[id].jsx
+    href: "test-automation", //[id].jsx
     title: "Test Otomasyonu",
     img: "/images/test_automation.png", //services componenti için
     metaDesc: `Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin`,
