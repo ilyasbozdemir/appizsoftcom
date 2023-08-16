@@ -201,7 +201,7 @@ function RadioCard(props) {
 }
 
 const OurServicesContent = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("software");
 
   let filteredData = services.filter((item) => {
     if (selectedCategory === "all") {
@@ -231,49 +231,11 @@ const OurServicesContent = () => {
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-  const options = [
-    {
-      val: "technology",
-      title: "Teknoloji",
-    },
-    {
-      val: "news",
-      title: "Haberler",
-    },
-    {
-      val: "ux-ui-design",
-      title: "UX/UI Tasarım",
-    },
-    {
-      val: "test-automation",
-      title: "Test Otomasyon",
-    },
-    {
-      val: "frontend",
-      title: "Frontend",
-    },
-    {
-      val: "project-story",
-      title: "Proje Hikayesi",
-    },
-    {
-      val: "backend",
-      title: "Backend",
-    },
-
-    {
-      val: "marketing",
-      title: "Pazarlama",
-    },
-    {
-      val: "game-development",
-      title: "Oyun Geliştirme",
-    },
-  ];
+ 
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "services",
-    defaultValue: options[0].val,
+    defaultValue: selectedCategory,
     onChange: setSelectedCategory,
   });
 
