@@ -22,7 +22,7 @@ function SelectedTechnologiesComponent({selectedTechnologies}) {
                       width={50}
                       height={50}
                       style={{
-                        filter: "saturate(.2)",
+                        filter: "grayscale(100%)",
                       }}
                     />
 

@@ -202,12 +202,14 @@ function WebDesignPage() {
     "Kubernetes",
     "Docker",
     "NETCore",
+    "NodeJs",
+    "NextJs",
     "Redis",
-    "Wordpress",
     "React.js",
     "Angular",
     "Figma",
     "GoogleAds",
+    "GoogleAnalytics",
     "MicrosoftSQL",
   ];
 

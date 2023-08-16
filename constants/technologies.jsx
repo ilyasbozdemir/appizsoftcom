@@ -24,6 +24,18 @@ export const technologies = [
     },
   },
   {
+    id: "NextJs",
+    title: "Next.js",
+    category: "React Framework",
+    imageUrl: "/images/technologies/nextjs.svg",
+    isMenuDisplay: true,
+    description: "Next.js, modern ve gelişmiş bir React framework'üdür. İleri düzeyde özellikler sunan Next.js ile SSR (Sunucu Taraflı Render), CSR (İstemci Taraflı Render), veri ön yükleme gibi performans artırıcı teknikler kullanabilirsiniz. Yenilikçi yapısıyla React tabanlı projelerinizi hızlandırabilir, SEO dostu uygulamalar geliştirebilirsiniz.",
+    size: {
+      width: 32,
+      height: 32,
+    },
+  },
+  {
     id: "NETCore",
     title: ".NET Core",
     category: "Backend",
@@ -35,6 +47,7 @@ export const technologies = [
       height: 32,
     },
   },
+
   {
     id: "NodeJs",
     title: "NodeJs",
@@ -131,6 +144,7 @@ export const technologies = [
       height: 32,
     },
   },
+
   {
     id: "GoogleMyBusiness",
     title: "Google My Business",
@@ -143,6 +157,18 @@ export const technologies = [
       height: 32,
     },
   },
+  {
+    "id": "GoogleAnalytics",
+    "title": "Google Analytics",
+    "category": "Web Analitiği",
+    "imageUrl": "/images/technologies/google-analytics.svg",
+    "isMenuDisplay": true,
+    "description": "Google Analytics, web sitenizdeki kullanıcı etkileşimlerini izlemenize ve analiz etmenize yardımcı olan güçlü bir web analitiği hizmetidir. Kullanıcı davranışları, trafik kaynakları ve dönüşüm oranları konusunda değerli içgörüler sunar. Kullanıcı dostu arayüzü ve kapsamlı raporlama araçları ile Google Analytics, çevrimiçi varlığınızı optimize etmek için vazgeçilmez bir araçtır.",
+    "size": {
+        "width": 32,
+        "height": 32
+    }
+},
   {
     id: "GoogleMerchantCenter",
     title: "Google Merchant Center",
