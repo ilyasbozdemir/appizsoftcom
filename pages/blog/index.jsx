@@ -4,6 +4,8 @@ import {
   Container,
   Flex,
   HStack,
+  Icon,
+  Select,
   SimpleGrid,
   Text,
   useRadio,
@@ -25,6 +27,7 @@ import { site } from "../../constants/site";
 import { blogData } from "../../constants/blogData";
 import Image from "next/image";
 import Link from "next/link";
+import { PiArrowsDownUpLight } from "react-icons/pi";
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 function RadioCard(props) {
@@ -228,6 +231,24 @@ const BlogPageCTA = () => {
 };
 
 const BlogPageContent = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // İlk renderda ekran boyutuna göre kontrol yapılır
+    handleWindowSize();
+
+    // Ekran boyutu değiştiğinde kontrol yapılır
+    window.addEventListener("resize", handleWindowSize);
+
+    // Temizleme fonksiyonu
+    return () => {
+      window.removeEventListener("resize", handleWindowSize);
+    };
+  }, []);
+
+  const handleWindowSize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
   const [selectedCategory, setSelectedCategory] = useState("technology");
   const options = [
     {
@@ -273,26 +294,51 @@ const BlogPageContent = () => {
     defaultValue: options[0].val,
     onChange: setSelectedCategory,
   });
+  const onChangeHandled = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
   const group = getRootProps();
 
   return (
     <Container p={{ base: 9, md: 10 }} maxW="8xl">
-      <Flex
-        justifyContent={"center"}
-        direction={"columns"}
-        flexWrap={"wrap"}
-        gap={4}
-        {...group}
-      >
-        {options.map((value) => {
-          const radio = getRadioProps({ value: value.val });
-          return (
-            <RadioCard key={value} {...radio}>
-              {value.title}
-            </RadioCard>
-          );
-        })}
-      </Flex>
+      {isMobile && (
+        <>
+          <Select
+            onChange={onChangeHandled}
+            icon={<Icon as={PiArrowsDownUpLight} />}
+          >
+            {options.map((category) => (
+              <>
+                <option key={category.val} value={category.val}>
+                  {category.title}
+                </option>
+              </>
+            ))}
+          </Select>
+        </>
+      )}
+      {!isMobile && (
+        <>
+          <Flex
+            justifyContent={"center"}
+            direction={"columns"}
+            flexWrap={"wrap"}
+            gap={4}
+            {...group}
+          >
+            {options.map((value) => {
+              const radio = getRadioProps({ value: value.val });
+              return (
+                <RadioCard key={value} {...radio}>
+                  {value.title}
+                </RadioCard>
+              );
+            })}
+          </Flex>
+        </>
+      )}
+
       <Flex mt={10} gap={5} direction={"column"}>
         <BlogCards />
         <PaginationContainer />

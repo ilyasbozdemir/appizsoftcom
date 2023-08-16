@@ -21,6 +21,8 @@ import {
   useBreakpointValue,
   Select,
   Icon,
+  useRadio,
+  useRadioGroup,
 } from "@chakra-ui/react";
 
 import { BsArrowRight } from "react-icons/bs";
@@ -167,6 +169,37 @@ const OurServicesCTA = () => {
   );
 };
 
+function RadioCard(props) {
+  const { getInputProps, getRadioProps } = useRadio(props);
+
+  const input = getInputProps();
+  const checkbox = getRadioProps();
+
+  return (
+    <Box as="label" n userSelect={"none"}>
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor="pointer"
+        borderWidth="1px"
+        borderRadius="md"
+        boxShadow="md"
+        _hover={{
+          opacity: 0.9,
+        }}
+        _checked={{
+          bgGradient: "linear(to-l, #0ea5e9,#2563eb)",
+          color: "white",
+        }}
+        px={5}
+        py={3}
+      >
+        {props.children}
+      </Box>
+    </Box>
+  );
+}
+
 const OurServicesContent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -198,6 +231,53 @@ const OurServicesContent = () => {
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
+  const options = [
+    {
+      val: "technology",
+      title: "Teknoloji",
+    },
+    {
+      val: "news",
+      title: "Haberler",
+    },
+    {
+      val: "ux-ui-design",
+      title: "UX/UI Tasarım",
+    },
+    {
+      val: "test-automation",
+      title: "Test Otomasyon",
+    },
+    {
+      val: "frontend",
+      title: "Frontend",
+    },
+    {
+      val: "project-story",
+      title: "Proje Hikayesi",
+    },
+    {
+      val: "backend",
+      title: "Backend",
+    },
+
+    {
+      val: "marketing",
+      title: "Pazarlama",
+    },
+    {
+      val: "game-development",
+      title: "Oyun Geliştirme",
+    },
+  ];
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "services",
+    defaultValue: options[0].val,
+    onChange: setSelectedCategory,
+  });
+
+  const group = getRootProps();
 
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
@@ -212,39 +292,28 @@ const OurServicesContent = () => {
       {!isMobile && (
         <>
           <Flex
-            bg={"gray.200"}
             justifyContent={"center"}
-            h={50}
-            align={"center"}
-            w={"100%"}
+            direction={"columns"}
+            flexWrap={"wrap"}
+            gap={4}
+            {...group}
           >
-            <Button
-              variant="ghost"
-              onClick={() => {
-                setSelectedCategory("all");
-              }}
-            >
-              Tüm Hizmetler
-            </Button>
-            {[...uniqueCategories].map((category) => (
-              <Button
-                key={category}
-                variant="ghost"
-                onClick={() => {
-                  setSelectedCategory(category);
-                }}
-              >
-                {category === "software" ? (
-                  <>Yazılım Hizmetlerimiz</>
-                ) : category === "digital marketing" ? (
-                  <>Dijital Pazarlama Hizmetlerimiz</>
-                ) : category === "graphic-design" ? (
-                  <>Grafik Tasarım Hizmetlerimiz</>
-                ) : (
-                  <></>
-                )}
-              </Button>
-            ))}
+            {[...uniqueCategories].map((category) => {
+              const radio = getRadioProps({ value: category });
+              return (
+                <RadioCard key={category} {...radio}>
+                  {category === "software" ? (
+                    <>Yazılım Hizmetlerimiz</>
+                  ) : category === "digital marketing" ? (
+                    <>Dijital Pazarlama Hizmetlerimiz</>
+                  ) : category === "graphic-design" ? (
+                    <>Grafik Tasarım Hizmetlerimiz</>
+                  ) : (
+                    <></>
+                  )}
+                </RadioCard>
+              );
+            })}
           </Flex>
         </>
       )}
@@ -378,7 +447,7 @@ const StartProject = () => {
 
 function ServicesPage() {
   const publisher = `AppizSoft`;
-  const title = `Yaratıcı Çözümlerle İşinizi Destekliyoruz • AppizSoft`;
+  const title = `Hizmetler • AppizSoft`;
   const desc = `AppizSoft olarak, müşterilerimize en iyi hizmeti sunmak için çalışıyoruz. Yazılım çözümleri, web geliştirme, mobil uygulama geliştirme ve daha fazlasını keşfedin.`;
 
   return (
