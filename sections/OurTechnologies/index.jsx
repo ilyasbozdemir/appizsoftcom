@@ -52,7 +52,7 @@ function OurTechnologies() {
               <>
                 {technologies.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <Link href={`${lang}/technologies#${image.id}`} passHref>
+                    <Link href={`/technologies#${image.id}`} passHref>
                       <Flex direction={"column"}>
                         <Image
                           id={image.id}

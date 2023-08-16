@@ -60,8 +60,6 @@ const OurWorkProcessFeature = () => {
     );
   };
 
-
-
   return (
     <Flex
       p={{ md: 5, lg: 10 }}
