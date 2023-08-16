@@ -1,9 +1,10 @@
 module.exports = {
+  /*
   i18n: {
     locales: ["en", "tr"],
     defaultLocale: "tr",
   },
-
+*/
   env: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
   },
@@ -22,7 +23,6 @@ module.exports = {
     ];
   },
 
-
   images: {
     domains: [
       "https://appizsoft-static-api.vercel.app/",
@@ -40,5 +40,4 @@ module.exports = {
   },
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
-
 };
