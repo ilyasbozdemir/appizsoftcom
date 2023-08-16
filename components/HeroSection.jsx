@@ -71,7 +71,7 @@ const HeroSection = () => {
               mb={{ base: "3rem !important", sm: 0 }}
               flexWrap="wrap"
             >
-              <Link href="/tr/start-project" passHref>
+              <Link href="/start-project" passHref>
                 <Button
                   w={{ base: "100%", sm: "auto" }}
                   h={12}
@@ -92,7 +92,7 @@ const HeroSection = () => {
                 </Button>
               </Link>
 
-              <Link href="/tr/contact" passHref>
+              <Link href="/contact" passHref>
                 <Box
                   d="flex"
                   justifyContent="center"

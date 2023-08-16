@@ -36,7 +36,7 @@ import {
   InputRightAddon,
   FormErrorMessage,
 } from "@chakra-ui/react";
-import { BsFillRocketTakeoffFill } from "react-icons/bs";
+import { BsFillCameraFill, BsFillRocketTakeoffFill } from "react-icons/bs";
 import {
   MdWeb,
   MdOutlineProductionQuantityLimits,
@@ -763,7 +763,7 @@ const FirstStep = () => {
       id: 4,
       title: "Prodüksiyon",
       bg: "purple",
-      icon: MdOutlineProductionQuantityLimits,
+      icon: BsFillCameraFill,
       dependenciesComponent: [ProductionComponent],
     },
     {
