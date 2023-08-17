@@ -61,8 +61,19 @@ function ContactFormWithSocialButtons() {
 
     toast({
       title: "Email adresi kopyalandı",
+      status: "info",
+      position: "top",
+      duration: 1000,
+      isClosable: true,
+    });
+  }; 
+  const messageSendOnClickHandled = () => {
+    onCopy();
+
+    toast({
+      title: "Mesajınız başarıyla alındı",
       status: "success",
-      position: "top-right",
+      position: "top",
       duration: 1000,
       isClosable: true,
     });
@@ -235,6 +246,7 @@ function ContactFormWithSocialButtons() {
                       bg: "blue.500",
                     }}
                     width="full"
+                    onClick={messageSendOnClickHandled}
                   >
                     Mesajı Gönder
                   </Button>
