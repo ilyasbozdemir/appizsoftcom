@@ -24,8 +24,14 @@ import JoinTeam from "./JoinTeam";
 import Link from "next/link";
 
 const HeroSection = () => {
+ 
   return (
-    <Container maxW="7xl" px={{ base: 6, md: 3 }} py={20}>
+    <Container
+      maxW="7xl"
+      px={{ base: 6, md: 3 }}
+    
+      py={20}
+    >
       <Flex
         direction={{ base: "column", md: "row" }}
         justifyContent="center"
@@ -65,8 +71,7 @@ const HeroSection = () => {
 
           <Center>
             <Stack
-
-              direction={{ base: 'column', sm: 'row' }}
+              direction={{ base: "column", sm: "row" }}
               spacing={{ base: 3, sm: 5 }}
               mb={{ base: "3rem !important", sm: 0 }}
               flexWrap="wrap"

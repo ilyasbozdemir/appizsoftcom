@@ -51,6 +51,7 @@ const ProductsCTA = () => {
               w="100%"
               color="white"
               justify={"center"}
+              pos={"relative"}
             >
               <Center>
                 <Flex direction={"column"}>
@@ -110,7 +111,7 @@ const ProjectCard = ({ targetPlatform, targetTitle }) => {
     <>
       <Container maxW="4xl" p={{ base: 5, md: 10 }}>
         <Heading fontSize={{ base: 18, md: 20 }} my={3}>
-         {targetTitle}
+          {targetTitle}
         </Heading>
         <VStack spacing={4}>
           {projectsList.map(

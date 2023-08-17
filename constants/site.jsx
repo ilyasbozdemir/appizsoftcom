@@ -15,7 +15,7 @@ const baseUrl =
 //appizsoftcom.vercel.app
 
 export const site = {
-  title: `Appizsoft | Yazılım & Dijital Pazarlama`,
+  title: `Appizsoft | Yazılım & Tasarım & Dijital Pazarlama`,
   baseUrl: baseUrl,
   publisher: `Appizsoft`,
 
@@ -37,7 +37,7 @@ export const site = {
     postalCode: `06312`,
     addressCountry: `TR`,
   },
-  telephone: "+90 555 555 55 55",
+  telephone: "+90 505 367 63 35",
   sosyalMediaLinks: [
     {
       id: 1,

@@ -44,11 +44,11 @@ export default function HomePage() {
         <link
           rel="alternate"
           hreflang="x-default"
-          href={`${site.baseUrl}/tr`}
+          href={`${site.baseUrl}`}
         />
 
-        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr`} />
-        <link rel="alternate" hreflang="en" href={`${site.baseUrl}`} />
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}`} />
+        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
 
         <link rel="canonical" href="https://appizsoft.com" />
 
@@ -66,7 +66,7 @@ export default function HomePage() {
         <meta name="twitter:image:alt" content={site.title} />
 
         <meta property="og:title" content={site.title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr`} />
+        <meta property="og:url" content={`${site.baseUrl}`} />
         <meta property="og:description" content={site.description} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
