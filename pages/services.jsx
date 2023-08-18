@@ -416,6 +416,21 @@ function ServicesPage() {
     <>
       <Head>
         <title>{title}</title>
+
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/services`}
+        />
+
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/services`} />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/services`}
+        />
+        <link rel="canonical" href="https://appizsoft.com/services" />
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

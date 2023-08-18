@@ -62,7 +62,6 @@ const OurTechnologiesContent = () => {
       } else {
         setIsMobile(false);
       }
-
     };
     const fetchData = async () => {
       try {
@@ -80,7 +79,6 @@ const OurTechnologiesContent = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-
   }, []);
 
   const handleCategoryChange = (event) => {
@@ -92,11 +90,7 @@ const OurTechnologiesContent = () => {
     setFilteredTechnologies(filteredData);
   };
 
-  return (
-    <Box h={"auto"} as={"article"} mt={100}>
-    
-    </Box>
-  );
+  return <Box h={"auto"} as={"article"} mt={100}></Box>;
 };
 
 function OurTechnologiesPage() {
@@ -108,6 +102,23 @@ function OurTechnologiesPage() {
     <>
       <Head>
         <title>{title}</title>
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/technologies`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/technologies`}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/technologies`}
+        />
+        <link rel="canonical" href="https://appizsoft.com/technologies" />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

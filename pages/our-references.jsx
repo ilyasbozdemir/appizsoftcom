@@ -40,7 +40,6 @@ function RadioCard(props) {
           bgGradient: "linear(to-l, #0ea5e9,#2563eb)",
           color: "white",
         }}
-    
         px={5}
         py={3}
       >
@@ -203,7 +202,7 @@ const OurReferencesContent = () => {
 
   const group = getRootProps();
   return (
-    <Container p={{ base: 9, md: 10 }} maxW="8xl" >
+    <Container p={{ base: 9, md: 10 }} maxW="8xl">
       {isMobile && (
         <Select
           onChange={onChangeHandled}
@@ -275,6 +274,17 @@ function OurReferencesPage() {
     <>
       <Head>
         <title>{title}</title>
+
+        <link rel="alternate" hreflang="x-default" href={`${site.baseUrl}/our-references`} />
+
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/our-references`} />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/our-references`}
+        />
+        <link rel="canonical" href="https://appizsoft.com/our-references" />
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

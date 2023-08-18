@@ -91,15 +91,15 @@ function AboutUsPage() {
       <Head>
         <title>{title}</title>
 
-        <link rel="canonical" href="https://appizsoft.com/tr" />
         <link
           rel="alternate"
           hreflang="x-default"
-          href={`${site.baseUrl}/tr`}
+          href={`${site.baseUrl}`}
         />
 
-        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/tr/about-appizsoft`} />
-        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/about-appizsoft`} />
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/about-appizsoft`} />
+        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/about-appizsoft`} />
+        <link rel="canonical" href={`${site.baseUrl}/about-appizsoft`} />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -115,7 +115,7 @@ function AboutUsPage() {
         <meta name="twitter:image:alt" content={site.title} />
 
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr/about-appizsoft`} />
+        <meta property="og:url" content={`${site.baseUrl}/about-appizsoft`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />

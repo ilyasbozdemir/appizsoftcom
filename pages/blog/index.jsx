@@ -131,6 +131,25 @@ function BlogPage() {
     <>
       <Head>
         <title>{title}</title>
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/blog`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/blog`}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/blog`}
+        />
+        <link rel="canonical" href="https://appizsoft.com/blog" />
+
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

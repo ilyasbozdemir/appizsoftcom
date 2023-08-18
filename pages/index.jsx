@@ -50,7 +50,7 @@ export default function HomePage() {
         <link rel="alternate" hreflang="tr" href={`${site.baseUrl}`} />
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
 
-        <link rel="canonical" href="https://appizsoft.com" />
+        <link rel="canonical" href={`${site.baseUrl}`} />
 
         <meta itemprop="description" content={site.description} />
         <meta name="description" content={site.description} />

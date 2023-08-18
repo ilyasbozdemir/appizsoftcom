@@ -58,8 +58,14 @@ const MagicLinkForm = ({ title, isJoinUsPage }) => {
       <HStack py={4} margin="0 auto">
         <Icon as={HiOutlineArrowNarrowLeft} boxSize={35} />
 
-        <Link href={"/tr/careers"}>
-          <Text fontWeight={'semibold'}   _hover={{color:useColorModeValue('primary.100','primary.200')} }> Tüm Açık Projelere Geri Dön</Text>
+        <Link href={"/careers"}>
+          <Text
+            fontWeight={"semibold"}
+            _hover={{ color: useColorModeValue("primary.100", "primary.200") }}
+          >
+            {" "}
+            Tüm Açık Projelere Geri Dön
+          </Text>
         </Link>
       </HStack>
 
@@ -159,6 +165,24 @@ function PositionPage({ career }) {
     <>
       <Head>
         <title>{title}</title>
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/${career.pageLoc}`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/${career.pageLoc}`}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/${career.pageLoc}`}
+        />
+        <link rel="canonical" href={`https://appizsoft.com/${career.pageLoc}`} />
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

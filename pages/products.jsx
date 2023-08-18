@@ -252,16 +252,16 @@ function ProductsPage() {
         <link
           rel="alternate"
           hreflang="x-default"
-          href={`${site.baseUrl}/tr/products`}
+          href={`${site.baseUrl}/products`}
         />
 
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/products`} />
         <link
           rel="alternate"
-          hreflang="tr"
-          href={`${site.baseUrl}/tr/products`}
+          hreflang="en"
+          href={`${site.baseUrl}/en/products`}
         />
-        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/products`} />
-        <link rel="canonical" href="https://appizsoft.com/tr/products" />
+        <link rel="canonical" href="https://appizsoft.com/products" />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />

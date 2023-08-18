@@ -13,7 +13,7 @@ import { googleSiteVerification } from "../lib/googleSiteVerification";
 const themeColor = colors.primary[100];
 
 const GetAnalytics = () => {
-  const allowedDomain = " https://appizsoft.com";
+  const allowedDomain = site.baseUrl;
 
   const [domainStatus, setDomainStatus] = useState(false);
   useEffect(() => {

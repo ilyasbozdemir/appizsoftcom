@@ -112,7 +112,6 @@ function RadioCard(props) {
           bgGradient: "linear(to-l, #0ea5e9,#2563eb)",
           color: "white",
         }}
-       
         px={5}
         py={3}
       >
@@ -247,12 +246,18 @@ const PortfolioContent = () => {
         >
           {filteredData.map((p, index) => (
             <Flex direction={"column"} key={p.id}>
-              <Flex direction={"column"} cursor={"pointer"} gap={3} justify={'center'} align={'center'}>
+              <Flex
+                direction={"column"}
+                cursor={"pointer"}
+                gap={3}
+                justify={"center"}
+                align={"center"}
+              >
                 <Image
                   src={`${baseImagePath}/${p.portfolio}`}
                   alt={p.name}
-                  height={p.portfolioSize.h }
-                  width={p.portfolioSize.w }
+                  height={p.portfolioSize.h}
+                  width={p.portfolioSize.w}
                   style={{
                     borderRadius: "15px",
                   }}
@@ -288,6 +293,25 @@ function OurPortfolioPage() {
     <>
       <Head>
         <title>{title}</title>
+
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/portfolio`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/en/portfolio`}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/portfolio`}
+        />
+        <link rel="canonical" href="https://appizsoft.com/portfolio" />
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

@@ -4,15 +4,35 @@ import { Center, Container } from "@chakra-ui/react";
 import Head from "next/head";
 import { site } from "../../constants/site";
 
-function BlogDetailPage({ service }) {
+function BlogDetailPage({ blog }) {
   const publisher = `AppizSoft`;
   const title = service.title + ` • Appizsoft`;
   const desc = service.content.substring(0,125);
+
 
   return (
     <>
       <Head>
         <title>{title}</title>
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/${blog.slug}`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/${blog.slug}`}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/${blog.slug}`}
+        />
+        <link rel="canonical" href={`https://appizsoft.com/${blog.slug}`} />
+
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
@@ -103,10 +123,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  const service = blogData.find((service) => service.slug === slug);
+  const blog = blogData.find((blog) => blog.slug === slug);
   return {
     props: {
-      service,
+      blog,
     },
   };
 }

@@ -158,8 +158,8 @@ const CareerCard = ({
                   {index === requirements.length - 1 && (
                     <Center>
                       <Link
-                        href="/tr/careers/[position]"
-                        as={`/tr/careers/` + pageLoc}
+                        href="/careers/[position]"
+                        as={`/careers/` + pageLoc}
                         shallow={true}
                         passHref
                       >
@@ -451,10 +451,31 @@ const CareersContent = () => {
   const publisher = `AppizSoft`;
   const title = `Kariyer Fırsatları - Hayalinizdeki Pozisyon İçin Başvurun • AppizSoft`;
   const desc = `AppizSoft olarak, büyüyen ekibimize katılarak kariyerinizi şekillendirin. Backend geliştirici, frontend geliştirici, mobil uygulama geliştirici ve daha birçok pozisyon için fırsatları inceleyin.`;
+
+  
   return (
     <>
       <Head>
         <title>{title}</title>
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/careers`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/careers`}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/careers`}
+        />
+        <link rel="canonical" href="https://appizsoft.com/careers" />
+
+
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
