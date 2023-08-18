@@ -43,7 +43,6 @@ function MyApp({ Component, pageProps, statusCode }) {
         ) : (
           <ChakraProvider theme={theme} resetCSS>
             <Layout>
-
               <Component {...pageProps} />
             </Layout>
           </ChakraProvider>

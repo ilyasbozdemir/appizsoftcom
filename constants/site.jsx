@@ -11,8 +11,6 @@ const baseUrl =
     ? "https://appizsoft.com/"
     : "http://localhost:3000";
 
-//https://appizsoft.com
-//appizsoftcom.vercel.app
 
 export const site = {
   title: `Appizsoft | Yazılım & Tasarım & Dijital Pazarlama`,

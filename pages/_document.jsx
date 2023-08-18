@@ -4,16 +4,37 @@ import { colors } from "../src/foundations/colors";
 import { ColorModeScript } from "@chakra-ui/react";
 import GoogleTagManagerBody from "../plugins/GoogleTagManagerBody";
 import ExternalFonts from "../fonts/ExternalFonts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Analytics from "../configuration/Analytics";
 import { site } from "../constants/site";
 import { testimonialsData } from "../constants/testimonialsData";
 import { googleSiteVerification } from "../lib/googleSiteVerification";
 
 const themeColor = colors.primary[100];
+
+const GetAnalytics = () => {
+  const allowedDomain = " https://appizsoft.com";
+
+  const [domainStatus, setDomainStatus] = useState(false);
+  useEffect(() => {
+    setDomainStatus(window.location.hostname === allowedDomain);
+  }, []);
+
+  return (
+    <>
+      {domainStatus && (
+        <>
+          <Analytics />
+        </>
+      )}
+    </>
+  );
+};
+
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
+
     return (
       <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">
         <Head>
@@ -47,7 +68,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={themeColor} />
 
           <ExternalFonts />
-          <Analytics />
+          <GetAnalytics />
 
           <link href="/styles/globals.css" />
         </Head>
