@@ -65,7 +65,7 @@ const HeroSection = () => {
           w={{ base: "100%", sm: "auto" }}
           spacing={5}
         >
-          <Link href="/#" passHref>
+          <Link href="#" passHref>
             <Button
               colorScheme="blue"
               variant="outline"
@@ -77,7 +77,7 @@ const HeroSection = () => {
               Hemen Başlayalım!
             </Button>
           </Link>
-          <Link href="/#" passHref>
+          <Link href="#" passHref>
             <Button
               colorScheme="gray"
               variant="outline"
@@ -86,7 +86,7 @@ const HeroSection = () => {
               height="3.5rem"
               fontSize="1.2rem"
             >
-              Detaylı Bilgi Al
+             Demo Talep Et
             </Button>
           </Link>
         </Stack>
