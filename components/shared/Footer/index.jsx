@@ -227,7 +227,7 @@ const FooterAcordion = () => {
 
 function LargeWithLogoCentered() {
   return (
-    <Flex direction={"column"}>
+    <Flex direction={"column"}  pb={10}>
       <Box
         bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
         color={useColorModeValue("white", "gray.200")}
@@ -299,9 +299,9 @@ function LargeWithLogoCentered() {
             <Box pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
               <SocialMediaIcon />
             </Box>
-            <Text pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
+            <Box pt={{ base: 0, sm: 6 }} fontSize={"sm"} textAlign={"center"}>
               <FooterData />
-            </Text>
+            </Box>
           </Box>
         </Flex>
       </Box>
