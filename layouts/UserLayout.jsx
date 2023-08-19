@@ -19,6 +19,7 @@ import dynamic from "next/dynamic";
 const LazyReactJoyride = dynamic(() => import("react-joyride"));
 import { tourSteps } from "../components/TourSteps";
 import TawkToChat from "../components/TawkToChat";
+import FloatingContactButton  from "../components/Contact";
 
 function UserLayout({ children }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -111,6 +112,8 @@ function UserLayout({ children }) {
       <Box as="footer">
         <Footer />
       </Box>
+      <ScrollToTop />
+      <FloatingContactButton  />
 
       <TawkToChat />
     </Box>

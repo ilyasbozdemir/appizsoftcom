@@ -12,25 +12,6 @@ import { googleSiteVerification } from "../lib/googleSiteVerification";
 
 const themeColor = colors.primary[100];
 
-const GetAnalytics = () => {
-  const allowedDomain = site.baseUrl;
-
-  const [domainStatus, setDomainStatus] = useState(false);
-  useEffect(() => {
-    setDomainStatus(window.location.hostname === allowedDomain);
-  }, []);
-
-  return (
-    <>
-      {domainStatus && (
-        <>
-          <Analytics />
-        </>
-      )}
-    </>
-  );
-};
-
 export default class MyDocument extends Document {
   render() {
     const { langValue } = this.props;
@@ -68,7 +49,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={themeColor} />
 
           <ExternalFonts />
-          <GetAnalytics />
+          <Analytics />
 
           <link href="/styles/globals.css" />
         </Head>
