@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Box, Button, Input, Textarea, useMediaQuery } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  Textarea,
+  useMediaQuery,
+} from "@chakra-ui/react";
 
 const ContactForm = ({ onClose }) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -33,32 +40,40 @@ const ContactForm = ({ onClose }) => {
             justifyContent="center"
             alignItems="center"
           >
+            <Flex justifyContent="flex-end" p={5}>
+              <Button onClick={onClose}>Kapat</Button>
+            </Flex>
+
             <form
               onSubmit={handleSubmit}
               style={{ width: "100%", maxWidth: 350 }}
             >
               <Input
                 placeholder="Adınız"
+                size={"lg"}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 mb={2}
               />
               <Input
                 placeholder="E-posta"
+                size={"lg"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 mb={2}
               />
               <Textarea
                 placeholder="Mesajınız"
+                size={"lg"}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 mb={2}
               />
-              <Button colorScheme="blue" type="submit" mr={3}>
+
+              <Button colorScheme="blue" type="submit" mr={3} p={5}>
                 Gönder
               </Button>
-              <Button onClick={onClose}>Kapat</Button>
+              
             </form>
           </Box>
         </>
