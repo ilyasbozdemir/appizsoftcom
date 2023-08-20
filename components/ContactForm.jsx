@@ -5,6 +5,8 @@ import {
   Flex,
   Input,
   Textarea,
+  useColorMode,
+  useColorModeValue,
   useMediaQuery,
 } from "@chakra-ui/react";
 
@@ -13,6 +15,7 @@ const ContactForm = ({ onClose }) => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
@@ -24,73 +27,33 @@ const ContactForm = ({ onClose }) => {
   return (
     <>
       {isMobile && (
-        <>
-          <Box
-            position="fixed"
-            top={0}
-            right={0}
-            bottom={0}
-            left={0}
-            zIndex={999}
-            p={4}
-            bg="white"
-            boxShadow="lg"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Flex justifyContent="flex-end" p={5}>
-              <Button onClick={onClose}>Kapat</Button>
-            </Flex>
-
-            <form
-              onSubmit={handleSubmit}
-              style={{ width: "100%", maxWidth: 350 }}
+        <Box
+          position="fixed"
+          top={0}
+          right={0}
+          bottom={0}
+          left={0}
+          zIndex={999}
+          p={2}
+          bg="white"
+          w="full"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box w={350} p={6} borderTopLeftRadius="md" boxShadow="lg">
+            <Flex
+              as="span"
+              onClick={onClose}
+              justifyContent={"flex-end"}
+              my={2}
+              cursor={"pointer"}
+              _hover={{ color: "primary.200" }}
+              color={useColorModeValue("black", "black")}
             >
-              <Input
-                placeholder="Adınız"
-                size={"lg"}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                mb={2}
-              />
-              <Input
-                placeholder="E-posta"
-                size={"lg"}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                mb={2}
-              />
-              <Textarea
-                placeholder="Mesajınız"
-                size={"lg"}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                mb={2}
-              />
-
-              <Button colorScheme="blue" type="submit" mr={3} p={5}>
-                Gönder
-              </Button>
-              
-            </form>
-          </Box>
-        </>
-      )}
-      {!isMobile && (
-        <>
-          <Box
-            position="fixed"
-            top={"40%"}
-            right={0}
-            zIndex={999}
-            p={4}
-            bg="white"
-            borderTopLeftRadius="md"
-            boxShadow="lg"
-            maxW={350}
-          >
+              Kapat
+            </Flex>
             <form onSubmit={handleSubmit}>
               <Input
                 placeholder="Adınız"
@@ -104,19 +67,81 @@ const ContactForm = ({ onClose }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 mb={2}
               />
+              <Input
+                placeholder="Telefon"
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+                mb={2}
+              />
               <Textarea
                 placeholder="Mesajınız"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 mb={2}
               />
-              <Button colorScheme="blue" type="submit" mr={3}>
+
+              <Button colorScheme="blue" type="submit" mr={3} w={"100%"}>
                 Gönder
               </Button>
-              <Button onClick={onClose}>Kapat</Button>
             </form>
           </Box>
-        </>
+        </Box>
+      )}
+      {!isMobile && (
+        <Box
+          position="fixed"
+          w={350}
+          top={"40%"}
+          right={0}
+          zIndex={999}
+          p={6}
+          bg={useColorModeValue("gray.700", "gray.500")}
+          borderTopLeftRadius="md"
+          boxShadow="lg"
+          maxW={350}
+        >
+          <Flex
+            as="span"
+            onClick={onClose}
+            justifyContent={"flex-end"}
+            my={2}
+            cursor={"pointer"}
+            _hover={{ color: "primary.200" }}
+            color={useColorModeValue("white", "white")}
+          >
+            Kapat
+          </Flex>
+          <form onSubmit={handleSubmit}>
+            <Input
+              placeholder="Adınız"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              mb={2}
+            />
+            <Input
+              placeholder="E-posta"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              mb={2}
+            />
+            <Input
+              placeholder="Telefon"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+              mb={2}
+            />
+            <Textarea
+              placeholder="Mesajınız"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              mb={2}
+            />
+
+            <Button colorScheme="blue" type="submit" mr={3} w={"100%"}>
+              Gönder
+            </Button>
+          </form>
+        </Box>
       )}
     </>
   );

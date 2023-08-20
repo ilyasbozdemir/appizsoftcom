@@ -7,8 +7,7 @@ import { site } from "../../constants/site";
 function BlogDetailPage({ blog }) {
   const publisher = `AppizSoft`;
   const title = blog.title + ` • Appizsoft`;
-  const desc = blog.content.substring(0,125);
-
+  const desc = blog.content.substring(0, 125);
 
   return (
     <>
@@ -97,7 +96,7 @@ function BlogDetailPage({ blog }) {
       </Head>
 
       <Center my={10}>
-        <Container maxW="container.lg"  >
+        <Container maxW="container.lg">
           Blog Detail Page (Coming Soon)
         </Container>
       </Center>

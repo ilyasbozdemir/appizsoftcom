@@ -22,14 +22,7 @@ module.exports = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: '/careers',
-        destination: '/careers/index',
-      },
-    ];
-  },
+
   images: {
     domains: [
       "https://appizsoft-static-api.vercel.app/",

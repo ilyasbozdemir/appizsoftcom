@@ -88,6 +88,7 @@ const Partners = () => {
   const state = false;
   return (
     <>
+      {/*
       <Container as={Stack} maxW={"4xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"center"}>
@@ -109,11 +110,10 @@ const Partners = () => {
         </SimpleGrid>
         <Divider mt={3} display={{ base: "none", lg: "initial" }} />
       </Container>
+    */}
     </>
   );
 };
-
-
 
 const FooterAcordion = () => {
   return (
@@ -138,9 +138,9 @@ const FooterAcordion = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
-                      <Link href={"#"}>Hakkımızda</Link>
-                      <Link href={"#"}>Kariyer</Link>
-                      <Link href={"#"}>Bize Ulaşın</Link>
+                      <Link href={"/about-appizsoft"}>Hakkımızda</Link>
+                      <Link href={"/careers"}>Kariyer</Link>
+                      <Link href={"/contact"}>Bize Ulaşın</Link>
                     </Stack>
                   </AccordionPanel>
                 </>
@@ -164,9 +164,12 @@ const FooterAcordion = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
-                      <Link href={"#"}>Yazılım Hizmetlerimiz</Link>
-                      <Link href={"#"}>Dijital Hizmetlerimiz</Link>
-                      <Link href={"#"}>E-ticaret Çözümleri</Link>
+                      <Link href={"/services"}>Yazılım Hizmetlerimiz</Link>
+                      <Link href={"/services"}>Dijital Hizmetlerimiz</Link>
+                      <Link href={"/services"}>
+                        Grafik Tasarım Hizmetlerimiz
+                      </Link>
+                      <Link href={"/services"}>E-ticaret Çözümleri</Link>
                     </Stack>
                   </AccordionPanel>
                 </>
@@ -189,7 +192,7 @@ const FooterAcordion = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
-                      <Link href={"#"}>Blog</Link>
+                      <Link href={"/blog"}>Blog</Link>
                       <Link href={"/rss.xml"}>RSS</Link>
                     </Stack>
                   </AccordionPanel>
@@ -213,9 +216,9 @@ const FooterAcordion = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
-                      <Link href={"#"}>Çerez Politikası</Link>
-                      <Link href={"#"}>Gizlilik Politikası</Link>
-                      <Link href={"#"}>KVKK</Link>
+                      <Link href={"/cookie-policy"}>Çerez Politikası</Link>
+                      <Link href={"/privacy-policy"}>Gizlilik Politikası</Link>
+                      <Link href={"/kvkk"}>KVKK</Link>
                     </Stack>
                   </AccordionPanel>
                 </>
@@ -230,7 +233,7 @@ const FooterAcordion = () => {
 
 function LargeWithLogoCentered() {
   return (
-    <Flex direction={"column"} >
+    <Flex direction={"column"}>
       <Box
         bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
         color={useColorModeValue("white", "gray.200")}
@@ -246,27 +249,28 @@ function LargeWithLogoCentered() {
               <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
                 <Stack align={"flex-start"}>
                   <ListHeader>Kurumsal</ListHeader>
-                  <Link href={"#"}>Hakkımızda</Link>
-                  <Link href={"#"}>Kariyer</Link>
-                  <Link href={"#"}>Bize Ulaşın</Link>
+                  <Link href={"/about-appizsoft"}>Hakkımızda</Link>
+                  <Link href={"/careers"}>Kariyer</Link>
+                  <Link href={"/contact"}>Bize Ulaşın</Link>
                 </Stack>
                 <Stack align={"flex-start"}>
                   <ListHeader>Hizmetler</ListHeader>
-                  <Link href={"#"}>Yazılım Hizmetlerimiz</Link>
-                  <Link href={"#"}>Dijital Hizmetlerimiz</Link>
-                  <Link href={"#"}>E-ticaret Çözümleri</Link>
+                  <Link href={"/services"}>Yazılım Hizmetlerimiz</Link>
+                  <Link href={"/services"}>Dijital Hizmetlerimiz</Link>
+                  <Link href={"/services"}>Grafik Tasarım Hizmetlerimiz</Link>
+                  <Link href={"/services"}>E-ticaret Çözümleri</Link>
                 </Stack>
 
                 <Stack align={"flex-start"}>
                   <ListHeader>Blog / RSS</ListHeader>
-                  <Link href={"#"}>Blog</Link>
+                  <Link href={"/blog"}>Blog</Link>
                   <Link href={"/rss.xml"}>RSS</Link>
                 </Stack>
                 <Stack align={"flex-start"}>
                   <ListHeader>Legal</ListHeader>
-                  <Link href={"#"}>Çerez Politikası</Link>
-                  <Link href={"#"}>Gizlilik Politikası</Link>
-                  <Link href={"#"}>KVKK</Link>
+                  <Link href={"/cookie-policy"}>Çerez Politikası</Link>
+                  <Link href={"/privacy-policy"}>Gizlilik Politikası</Link>
+                  <Link href={"/kvkk"}>KVKK</Link>
                 </Stack>
               </SimpleGrid>
             </Box>

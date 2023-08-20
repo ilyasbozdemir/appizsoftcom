@@ -40,9 +40,7 @@ import { useRouter } from "next/router";
 const navLinks = [
   { name: "Ürünler", path: "/products" },
   { name: "Hizmetler", path: "/services" },
-
   { name: "Portfolyo", path: "/portfolio" },
-
   { name: "Blog", path: "/blog" },
   { name: "Bize Ulaşın", path: "/contact" },
 ];
@@ -60,7 +58,7 @@ const dropdownLinks = [
   },
 ];
 
- function Navbar() {
+function Navbar() {
   const [isSticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -341,4 +339,4 @@ const MenuLink = ({ name, path, icon, onClose }) => {
     </Link>
   );
 };
-export default React.memo(Navbar) 
+export default React.memo(Navbar);

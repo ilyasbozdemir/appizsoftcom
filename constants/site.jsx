@@ -84,6 +84,27 @@ export const site = {
       label: "pinterest",
       link: "https://tr.pinterest.com/appizsoftcom/",
     },
+    {
+      id: 9,
+      label: "dribbble",
+      link: "https://dribbble.com/appizsoftcom",
+    },
+    {
+      id: 10,
+      label: "behance",
+      link: "https://www.behance.net/appizsoftcom",
+    },
+    {
+      id: 11,
+      label: "vimeo",
+      link: "https://vimeo.com/appizsoftcom",
+    },
+    {
+      id: 11,
+      label: "devto",
+      link: "https://dev.to/appizsoftcom",
+    },
+    
   ],
   analyticsCodes: {
     pinterestAnalyticsCode,
