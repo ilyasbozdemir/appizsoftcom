@@ -26,6 +26,8 @@ import { AddIcon, ChevronDownIcon, MinusIcon } from "@chakra-ui/icons";
 import SocialMediaIcon from "../SocialMediaIcon";
 import React from "react";
 
+const baseImagePath = "https://appizsoft-static-api.vercel.app/";
+
 const ListHeader = ({ children }) => {
   return (
     <Text
@@ -38,7 +40,6 @@ const ListHeader = ({ children }) => {
     </Text>
   );
 };
-const baseImagePath = "https://appizsoft-static-api.vercel.app/";
 
 const MetaBusinessPartner = () => {
   return (
@@ -111,6 +112,8 @@ const Partners = () => {
     </>
   );
 };
+
+
 
 const FooterAcordion = () => {
   return (
