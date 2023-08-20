@@ -44,7 +44,7 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/manifest.json" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="revisit-after" content="3 days" />
+          <meta name="revisit-after" content="1 days" />
           <link rel="icon" href="/favicon.png" type="image/png" />
           <meta name="theme-color" content={themeColor} />
 
