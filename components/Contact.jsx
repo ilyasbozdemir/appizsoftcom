@@ -17,11 +17,12 @@ const FloatingContactButton = () => {
         <>
           <Box
             position="fixed"
-            top={"40%"}
+            top={"50%"}
             right={2}
             zIndex={1000}
             display="flex"
             justifyContent="flex-end"
+            
           >
             <Button
               onClick={onOpen}

@@ -103,7 +103,7 @@ const BlogCards = () => {
       </Swiper>
       <HStack fontFamily={"fantasy"} mt={15}>
         <Icon as={HiMiniArrowLongRight} boxSize={35} />
-        <Link href={"/tr/blog"}>
+        <Link href={"/blog"}>
           <Text fontSize={25} cursor={"pointer"}>
             Daha Fazla
           </Text>
