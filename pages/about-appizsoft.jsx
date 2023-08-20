@@ -100,7 +100,7 @@ function AboutUsPage() {
         <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/about-appizsoft`} />
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/about-appizsoft`} />
         <link rel="canonical" href={`${site.baseUrl}/about-appizsoft`} />
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

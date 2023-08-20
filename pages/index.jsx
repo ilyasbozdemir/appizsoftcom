@@ -56,7 +56,7 @@ export default function HomePage() {
         <meta name="description" content={site.description} />
         <meta name="publisher" content={"AppizSoft"} />
         <meta name="robots" content={"index, follow"} />
-
+        <meta name="robots" content={"index, follow"} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={site.title} />
         <meta name="twitter:description" content={site.description} />

@@ -284,7 +284,7 @@ function OurReferencesPage() {
           href={`${site.baseUrl}/en/our-references`}
         />
         <link rel="canonical" href="https://appizsoft.com/our-references" />
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

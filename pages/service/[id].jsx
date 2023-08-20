@@ -218,7 +218,7 @@ function OurServiceDetailPage({ service }) {
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/${service.href}`} />
 
         <link rel="canonical" href={`${site.baseUrl}/${service.href}`} />
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

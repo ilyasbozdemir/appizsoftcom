@@ -262,7 +262,7 @@ function ProductsPage() {
           href={`${site.baseUrl}/en/products`}
         />
         <link rel="canonical" href="https://appizsoft.com/products" />
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

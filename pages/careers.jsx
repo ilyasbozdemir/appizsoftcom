@@ -20,14 +20,14 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import PagesBreadcrumb from "../../components/shared/PagesBreadcrumb";
+import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
 import Head from "next/head";
-import { site } from "../../constants/site";
+import { site } from "../constants/site";
 import { ArrowForwardIcon, CheckCircleIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { careers } from "../../constants/careers";
-import { hiringProcessFAQ } from "../../constants/hiringProcessFAQ";
+import { careers } from "../constants/careers";
+import { hiringProcessFAQ } from "../constants/hiringProcessFAQ";
 
 function CareersPage() {
   return (
@@ -158,8 +158,8 @@ const CareerCard = ({
                   {index === requirements.length - 1 && (
                     <Center>
                       <Link
-                        href="/careers/[position]"
-                        as={`/careers/` + pageLoc}
+                        href="/career/[position]"
+                        as={`/career/` + pageLoc}
                         shallow={true}
                         passHref
                       >

@@ -356,12 +356,11 @@ function ContactPage() {
           href={`${site.baseUrl}/en/contact`}
         />
         <link rel="canonical" href="https://appizsoft.com/contact" />
-
+        <meta name="robots" content="follow" />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
         <meta name="robots" content={"index, follow"} />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={site.title} />
         <meta name="twitter:description" content={desc} />

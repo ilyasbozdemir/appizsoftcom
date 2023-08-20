@@ -182,7 +182,7 @@ function PositionPage({ career }) {
           href={`${site.baseUrl}/en/${career.pageLoc}`}
         />
         <link rel="canonical" href={`https://appizsoft.com/${career.pageLoc}`} />
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

@@ -106,7 +106,7 @@ function GetAQuote() {
           href={`${site.baseUrl}/en/start-project`}
         />
         <link rel="canonical" href="https://appizsoft.com/start-project" />
-
+        <meta name="robots" content={"index, follow"} />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />

@@ -227,7 +227,7 @@ const FooterAcordion = () => {
 
 function LargeWithLogoCentered() {
   return (
-    <Flex direction={"column"}  pb={10}>
+    <Flex direction={"column"} >
       <Box
         bgImage={"linear-gradient(220deg, #38435B 46%, #495368 100%)"}
         color={useColorModeValue("white", "gray.200")}

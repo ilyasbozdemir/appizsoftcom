@@ -311,7 +311,7 @@ function OurPortfolioPage() {
           href={`${site.baseUrl}/en/portfolio`}
         />
         <link rel="canonical" href="https://appizsoft.com/portfolio" />
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

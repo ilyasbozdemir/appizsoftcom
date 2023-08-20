@@ -123,7 +123,7 @@ function OurTechnologiesPage() {
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
         <meta name="robots" content={"index, follow"} />
-
+        <meta name="robots" content={"index, follow"} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />

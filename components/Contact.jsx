@@ -17,16 +17,16 @@ const FloatingContactButton = () => {
         <>
           <Box
             position="fixed"
-            top={"50%"}
-            right={2}
+            top={"calc(50% - 100px)"}
+            right="2px"
+            transform="translateY(-50%)"
             zIndex={1000}
             display="flex"
             justifyContent="flex-end"
-            
           >
             <Button
               onClick={onOpen}
-              size={"lg"}
+              w={200}
               color="white"
               bg="primary.100"
               _hover={{ bg: "primaryD.100" }}
@@ -44,15 +44,15 @@ const FloatingContactButton = () => {
         <>
           <Box
             position="fixed"
-            bottom={2}
-            right={"40%"}
+            bottom={5}
+            right={"calc(50% - 75px)"}
             zIndex={1000}
             display="flex"
             justifyContent="flex-end"
           >
             <Button
               onClick={onOpen}
-              size={"lg"}
+              w={150}
               color="white"
               bg="primary.100"
               _hover={{ bg: "primaryD.100" }}

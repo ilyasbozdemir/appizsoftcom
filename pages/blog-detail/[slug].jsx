@@ -32,7 +32,7 @@ function BlogDetailPage({ blog }) {
         />
         <link rel="canonical" href={`https://appizsoft.com/${blog.slug}`} />
 
-
+        <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />

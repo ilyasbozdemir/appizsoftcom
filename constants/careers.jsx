@@ -60,7 +60,7 @@ export const careers = [
   {
     type: ",Shared Services",
     title: "İnsan Kaynakları Uzmanı",
-    pageLoc: "insan-kaynaklari-uzmani",
+    pageLoc: "human-resources-specialist",
     description: `
       Ekip ruhuna sahip, insan kaynakları süreçlerini yönetebilecek bir uzmana ihtiyacımız var.
       İstanbul, Türkiye konumunda.

@@ -23,7 +23,7 @@ const LinkWrapper = (props) => {
       href={href}
       passHref
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow"
       {...rest}
     >
       {children}

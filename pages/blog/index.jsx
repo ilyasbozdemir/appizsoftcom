@@ -148,7 +148,7 @@ function BlogPage() {
           href={`${site.baseUrl}/en/blog`}
         />
         <link rel="canonical" href="https://appizsoft.com/blog" />
-
+        <meta name="robots" content="follow" />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
