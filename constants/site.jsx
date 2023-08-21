@@ -11,15 +11,14 @@ const baseUrl =
     ? "https://appizsoft.com"
     : "http://localhost:3000";
 
-
 export const site = {
   title: `Appizsoft | Yazılım & Tasarım & Dijital Pazarlama`,
   baseUrl: baseUrl,
-  publisher: `Appizsoft`,
+  publisher: `Appizsoft Yazılım`,
 
   ogImage: "https://appizsoft-static-api.vercel.app/images/og-image.png",
   twImage: "https://appizsoft-static-api.vercel.app/images/tw-image.png",
-  logoUrl:baseUrl+'/logo.png',
+  logoUrl: baseUrl + "/logo.png",
   imageAlt: "site-logo-png",
   description: `Dijital ve yazılım çözümleri ortağınız olarak, işletmenize özel stratejiler ve yazılım hizmetleri sunarak dijital ve yazılım alanlarında rekabet avantajı elde etmenizi sağlıyoruz.`,
   name: ``,
@@ -104,7 +103,6 @@ export const site = {
       label: "devto",
       link: "https://dev.to/appizsoftcom",
     },
-    
   ],
   analyticsCodes: {
     pinterestAnalyticsCode,

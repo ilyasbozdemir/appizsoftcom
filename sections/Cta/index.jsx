@@ -59,7 +59,7 @@ const RainbowText = ({ text }) => (
   </>
 );
 
-export default function CallToActionWithIllustration({ lang, targetId }) {
+export default function CallToActionWithIllustration({  targetId }) {
   const router = useRouter();
 
   return (

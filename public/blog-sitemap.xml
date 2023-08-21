@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://www.appizsoft.com/blog-detail/yazilim-gelistirme-devops-yaklasimi</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/blog-detail/yazilim-gelistirme-devops-yaklasimi"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/blog-detail/yazilim-gelistirme-devops-yaklasimi"/>
+        <lastmod>2023-08-20T12:00:00+03:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.appizsoft.com/blog-detail/gelecegin-yazilim-gelistirme-trendleri</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/blog-detail/gelecegin-yazilim-gelistirme-trendleri"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/blog-detail/gelecegin-yazilim-gelistirme-trendleri"/>
+        <lastmod>2023-08-20T12:00:00+03:00</lastmod>
+    </url>
+</urlset>

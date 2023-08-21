@@ -64,21 +64,21 @@ function BlogDetailPage({ blog }) {
               "@type": "Article",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": `${site.baseUrl}/${blogData.slug}`,
+                "@id": `${site.baseUrl}/${blog.slug}`,
               },
-              headline: blogData.title,
-              description: blogData.desc,
+              headline: blog.title,
+              description: blog.desc,
               image: {
                 "@type": "ImageObject",
-                url: blogData.imageUrl,
+                url: blog.imageUrl,
                 width: 1012,
                 height: 506,
               },
-              datePublished: blogData.publishDate,
-              dateModified: blogData.modifyDate,
+              datePublished: blog.publishDate,
+              dateModified: blog.modifyDate,
               author: {
                 "@type": "Person",
-                name: blogData.authorName,
+                name: blog.authorName,
               },
               publisher: {
                 "@type": "Organization",

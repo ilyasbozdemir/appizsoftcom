@@ -25,27 +25,22 @@ const LazyOurWorkProcess = dynamic(() => import("../sections/OurWorkProcess"));
 const LazyBlog = dynamic(() => import("../sections/Blog"));
 
 export default function HomePage() {
-  const [lang, setLang] = React.useState("");
   const [isMounted, setIsMounted] = useState(false);
 
   const router = useRouter();
 
+  let currentLang = "";
+
   useEffect(() => {
-    const supportedLanguages = ["tr", "en"];
-    const browserLanguage = detectBrowserLanguage(supportedLanguages);
-    setLang(browserLanguage);
     setIsMounted(true);
+    currentLang = document.documentElement.lang;
   }, []);
   return (
     <>
       <Head>
         <title>{site.title}</title>
 
-        <link
-          rel="alternate"
-          hreflang="x-default"
-          href={`${site.baseUrl}`}
-        />
+        <link rel="alternate" hreflang="x-default" href={`${site.baseUrl}`} />
 
         <link rel="alternate" hreflang="tr" href={`${site.baseUrl}`} />
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en`} />
@@ -54,7 +49,7 @@ export default function HomePage() {
 
         <meta itemprop="description" content={site.description} />
         <meta name="description" content={site.description} />
-        <meta name="publisher" content={"AppizSoft"} />
+        <meta name="publisher" content={site.publisher} />
         <meta name="robots" content={"index, follow"} />
         <meta name="robots" content={"index, follow"} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -85,47 +80,125 @@ export default function HomePage() {
         />
         <meta name="twitter:label1" content="Tahmini okuma süresi" />
         <meta name="twitter:data1" content="1 dakika" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebPage",
+                  "@id": site.baseUrl,
+                  url: site.baseUrl,
+                  name: site.title,
+                  isPartOf: { "@id": site.baseUrl + "/#website" },
+                  about: { "@id": site.baseUrl + "/#organization" },
+                  datePublished: "2023-08-21T10:48:38+03:00",
+                  dateModified: "2023-08-21T10:48:38+03:00",
+                  description: site.description,
+                  breadcrumb: { "@id": site.baseUrl + "/#breadcrumb" },
+                  inLanguage: currentLang,
+                  potentialAction: [
+                    {
+                      "@type": "ReadAction",
+                      target: [site.baseUrl],
+                    },
+                  ],
+                },
+                {
+                  "@type": "BreadcrumbList",
+                  "@id": site.baseUrl + "/#breadcrumb",
+                  itemListElement: [
+                    { "@type": "ListItem", position: 1, name: site.title },
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": site.baseUrl + "/#website",
+                  url: site.baseUrl,
+                  name: site.title,
+                  description: site.description,
+                  publisher: { "@id": site.baseUrl + "/#organization" },
+                  potentialAction: [
+                    {
+                      "@type": "SearchAction",
+                      target: {
+                        "@type": "EntryPoint",
+                        urlTemplate:
+                          site.baseUrl + "/search?s={search_term_string}",
+                      },
+                      "query-input": "required name=search_term_string",
+                    },
+                  ],
+                  inLanguage: currentLang,
+                },
+                {
+                  "@type": "Organization",
+                  "@id": site.baseUrl + "/#organization",
+                  name: site.title,
+                  url: site.baseUrl,
+                  logo: {
+                    "@type": "ImageObject",
+                    inLanguage: currentLang,
+                    "@id": site.baseUrl + "/#/schema/logo/image/",
+                    url: site.logoUrl,
+                    contentUrl: site.logoUrl,
+                    width: 458,
+                    height: 145,
+                    caption: site.title,
+                  },
+
+                  image: {
+                    "@id": site.baseUrl + "/#/schema/logo/image/",
+                  },
+                  contactPoint: {
+                    type: "ContactPoint",
+                    telephone: site.telephone,
+                    contactType: "customer service",
+                    areaServed: "TR",
+                    availableLanguage: "Turkish",
+                  },
+
+                  sameAs: site.sosyalMediaLinks.map((link) => link.link),
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
 
       <WindowTitleChanger />
       <Container maxW="8xl" p={{ base: 5, md: 10 }}>
         <Flex direction={"column"} gap={10}>
           <Box id={"Cta"} as="section">
-            <Cta lang={lang} targetId={"OurServices"} />
+            <Cta targetId={"OurServices"} />
           </Box>
           <Box id={"OurServices"} as="section">
             {isMounted && <LazyOurServices targetId={"Technologies"} />}
           </Box>
 
           <Box id={"Portfolio"} as="section">
-            {isMounted && <LazyPortfolio lang={lang} targetId={"Portfolio"} />}
+            {isMounted && <LazyPortfolio targetId={"Portfolio"} />}
           </Box>
-          <Box id={"Portfolio"} as="section">
-            {isMounted && (
-              <LazyOurReferences lang={lang} targetId={"WhyChooseUs"} />
-            )}
+          <Box id={"OurReference"} as="section">
+            {isMounted && <LazyOurReferences targetId={"WhyChooseUs"} />}
           </Box>
 
           <Box id={"WhyChooseUs"} as="section">
-            {isMounted && (
-              <LazyWhyChooseUs lang={lang} targetId={"OurWorkProcess"} />
-            )}
+            {isMounted && <LazyWhyChooseUs targetId={"OurWorkProcess"} />}
           </Box>
 
           <Box id={"OurWorkProcess"} as="section">
-            {isMounted && (
-              <LazyOurWorkProcess lang={lang} targetId={"OurReferences"} />
-            )}
+            {isMounted && <LazyOurWorkProcess targetId={"OurReferences"} />}
           </Box>
 
           <Box id={"Technologies"} as="section">
-            {false && (
-              <LazyOurTechnologies lang={lang} targetId={"TrustedByDev"} />
-            )}
+            {false && <LazyOurTechnologies targetId={"TrustedByDev"} />}
           </Box>
 
           <Box id={"Blog"} as="section">
-            {isMounted && <LazyBlog lang={lang} targetId={"SSS"} />}
+            {isMounted && <LazyBlog targetId={"SSS"} />}
           </Box>
         </Flex>
       </Container>

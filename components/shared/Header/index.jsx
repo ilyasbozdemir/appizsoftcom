@@ -22,16 +22,14 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose, AiTwotoneThunderbolt } from "react-icons/ai";
 import {
   BiChevronDown,
-  BiChevronRight,
-  BiChevronRightCircle,
 } from "react-icons/bi";
 import { MdTimeline } from "react-icons/md";
 import Logo from "../Logo";
 import { useEffect, useState } from "react";
 import React from "react";
-import { detectBrowserLanguage } from "../../../lib/detectBrowserLanguage";
 import ThemeSwitcher from "../../ThemeSwitcher";
-import OfferButton from "../../OfferButton";
+import SearchButton from "../../SearchButton";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import LanguageSwitcher from "../../LanguageSwitcher";
@@ -241,7 +239,9 @@ const HeaderNav = () => {
               </Link>
             </HStack>
           </HStack>
+          
 
+          <SearchButton />
           <ThemeSwitcher />
         </Flex>
 

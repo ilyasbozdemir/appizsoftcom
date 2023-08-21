@@ -22,6 +22,7 @@ import {
   ModalOverlay,
   ModalContent,
   ModalBody,
+  IconButton,
 } from "@chakra-ui/react";
 
 import {
@@ -75,11 +76,13 @@ function SearchButton() {
 
   return (
     <>
-      <Icon
-        as={FiSearch}
+      <IconButton
+        id={"search-button"}
+        aria-label="search button"
         onClick={handleIconClick}
-        cursor={"pointer"}
-        fontSize={"20px"}
+        icon={<Icon as={FiSearch} fontSize="20px" />}
+        p={3}
+        variant={"ghost"}
       />
 
       <>

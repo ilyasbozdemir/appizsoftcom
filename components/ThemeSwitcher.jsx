@@ -1,6 +1,7 @@
 import { Icon, IconButton, useColorMode } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
+import { FiSearch } from "react-icons/fi";
 
 function ThemeSwitcher() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -46,6 +47,7 @@ function ThemeSwitcher() {
         onClick={handleToggleColorMode}
         icon={<Icon as={icon === darkIcon ? BsMoon : BsSun} fontSize="lg" />}
         p={3}
+        variant={"ghost"}
       />
     </>
   );
