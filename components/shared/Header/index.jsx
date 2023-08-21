@@ -54,6 +54,12 @@ const dropdownLinks = [
     path: "/careers",
     icon: AiTwotoneThunderbolt,
   },
+  {
+    name: "Ekip",
+    path: "/team",
+    icon: AiTwotoneThunderbolt,
+  },
+  
 ];
 
 function Navbar() {
