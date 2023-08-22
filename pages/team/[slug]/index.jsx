@@ -1,6 +1,6 @@
 import React from "react";
 import { teamMembers } from "../../../constants/teamMembers";
-import { Center, Flex, HStack, Icon, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
@@ -40,8 +40,15 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
   );
 };
 
-const TeamMemberPageDescription = ({ name, role }) => {
-  return `Meet ${name}, our ${role}.`;
+const Experience = ({ title, company, duration, description }) => {
+  return (
+    <Box borderWidth="1px" borderRadius="lg" p="4">
+      <Text fontWeight="semibold">{title}</Text>
+      <Text color="gray.500">{company}</Text>
+      <Text color="gray.500">{duration}</Text>
+      <Text mt="2">{description}</Text>
+    </Box>
+  );
 };
 
 function TeamDetailPage({ member }) {
@@ -67,7 +74,7 @@ function TeamDetailPage({ member }) {
         <link
           rel="alternate"
           hreflang="en"
-          href={`${site.baseUrl}/en/`+ member.slug}
+          href={`${site.baseUrl}/en/` + member.slug}
         />
         <link rel="canonical" href={"https://appizsoft.com/" + member.slug} />
 
@@ -98,6 +105,15 @@ function TeamDetailPage({ member }) {
       <Center p={5}>
         <Flex direction={"column"} gap={5} justifyContent={"center"}>
           <TeamMember {...member} />
+          <VStack mt="4" spacing="4" align="start">
+            <Experience
+              title={member.role}
+              company="AppizSoft Yazılılm"
+              duration="June 2023 - Present"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor leo vel justo consectetur..."
+            />
+            {/* Diğer deneyimler buraya eklenebilir */}
+          </VStack>
           {"<Blog Post Component/>"}
         </Flex>
       </Center>
