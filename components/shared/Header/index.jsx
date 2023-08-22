@@ -20,9 +20,7 @@ import {
 // Here we have used react-icons package for the icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose, AiTwotoneThunderbolt } from "react-icons/ai";
-import {
-  BiChevronDown,
-} from "react-icons/bi";
+import { BiChevronDown } from "react-icons/bi";
 import { MdTimeline } from "react-icons/md";
 import Logo from "../Logo";
 import { useEffect, useState } from "react";
@@ -59,7 +57,6 @@ const dropdownLinks = [
     path: "/team",
     icon: AiTwotoneThunderbolt,
   },
-  
 ];
 
 function Navbar() {
@@ -245,9 +242,11 @@ const HeaderNav = () => {
               </Link>
             </HStack>
           </HStack>
-          
 
-          <SearchButton />
+          <Box display={{ base: 'none', md: "initial" }}>
+            <SearchButton />
+          </Box>
+
           <ThemeSwitcher />
         </Flex>
 

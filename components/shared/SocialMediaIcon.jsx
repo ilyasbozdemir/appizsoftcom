@@ -1,5 +1,6 @@
 import {
   ButtonGroup,
+  Flex,
   Icon,
   IconButton,
   VisuallyHidden,
@@ -18,8 +19,7 @@ import {
   FaVimeoV,
 } from "react-icons/fa";
 
-import {PiDevToLogoFill} from 'react-icons/pi'
-
+import { PiDevToLogoFill } from "react-icons/pi";
 
 import { site } from "../../constants/site";
 import Link from "next/link";
@@ -54,6 +54,8 @@ const xTwitter = () => {
 function SosyalMediaIcon() {
   return (
     <ButtonGroup
+      as={Flex}
+      flexWrap={"wrap"}
       itemScope="itemscope"
       itemType="https://schema.org/Organization"
     >
@@ -190,9 +192,7 @@ function SosyalMediaIcon() {
         />
       </LinkWrapper>
       <LinkWrapper
-        href={
-          site.sosyalMediaLinks.find((item) => item.label === "vimeo").link
-        }
+        href={site.sosyalMediaLinks.find((item) => item.label === "vimeo").link}
         itemProp="sameAs"
       >
         <IconButton
@@ -206,9 +206,7 @@ function SosyalMediaIcon() {
         />
       </LinkWrapper>
       <LinkWrapper
-        href={
-          site.sosyalMediaLinks.find((item) => item.label === "devto").link
-        }
+        href={site.sosyalMediaLinks.find((item) => item.label === "devto").link}
         itemProp="sameAs"
       >
         <IconButton
