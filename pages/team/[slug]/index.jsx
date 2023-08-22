@@ -5,6 +5,8 @@ import { FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
+import Head from "next/head";
+import { site } from "../../../constants/site";
 const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
   return (
     <Flex
@@ -16,7 +18,7 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
       w={250}
       p={2}
     >
-     <Image src={photoUrl} alt={`${name}'s photo`} width={150} height={100} />
+      <Image src={photoUrl} alt={`${name}'s photo`} width={150} height={100} />
 
       <Flex direction={"column"} align={"center"} p="6">
         <Text fontWeight="semibold" fontSize="lg" mb="2">
@@ -25,15 +27,12 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
         <Text color="gray.500">{role}</Text>
         <HStack mt="3" spacing="2">
           <Link
-            href={
-             `${socialMedia.find((s) => s.platform === "LinkedIn").url}`
-            }
+            href={`${socialMedia.find((s) => s.platform === "LinkedIn").url}`}
             passHref
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            <Icon as={FaLinkedin} boxSize={10} color={'#0A66C2'} />
-           
+            <Icon as={FaLinkedin} boxSize={10} color={"#0A66C2"} />
           </Link>
         </HStack>
       </Flex>
@@ -41,14 +40,68 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
   );
 };
 
+const TeamMemberPageDescription = ({ name, role }) => {
+  return `Meet ${name}, our ${role}.`;
+};
+
 function TeamDetailPage({ member }) {
+  const publisher = `AppizSoft`;
+  const title = `${member.name} • AppizSoft`;
+  const desc = `Meet ${member.name}, our ${member.role}.`;
+
   return (
-    <Center p={5}>
-      <Flex direction={"column"} gap={5} justifyContent={"center"}>
-        <TeamMember {...member} />
-        {"<Blog Post Component/>"}
-      </Flex>
-    </Center>
+    <>
+      <Head>
+        <title>{title}</title>
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={`${site.baseUrl}/careers`}
+        />
+
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/` + member.slug}
+        />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/`+ member.slug}
+        />
+        <link rel="canonical" href={"https://appizsoft.com/" + member.slug} />
+
+        <meta itemprop="description" content={desc} />
+        <meta name="description" content={desc} />
+        <meta name="publisher" content={publisher} />
+        <meta name="robots" content={"index, follow"} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:site" content="@appizsoftcom" />
+        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:image" content={site.twImage} />
+        <meta name="twitter:image:alt" content={site.title} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={`${site.baseUrl}`} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.title} />
+        <meta property="og:image" content={site.ogImage} />
+        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image:width" content="1012" />
+        <meta property="og:image:height" content="506" />
+        <meta property="og:locale" content="tr_TR" />
+      </Head>
+      <Center p={5}>
+        <Flex direction={"column"} gap={5} justifyContent={"center"}>
+          <TeamMember {...member} />
+          {"<Blog Post Component/>"}
+        </Flex>
+      </Center>
+    </>
   );
 }
 
