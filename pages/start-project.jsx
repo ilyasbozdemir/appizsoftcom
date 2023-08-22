@@ -122,7 +122,7 @@ function GetAQuote() {
         <meta name="twitter:image:alt" content={site.title} />
 
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr/start-project`} />
+        <meta property="og:url" content={`${site.baseUrl}/start-project`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />

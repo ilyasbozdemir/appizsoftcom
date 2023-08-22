@@ -277,7 +277,7 @@ function ProductsPage() {
         <meta name="twitter:image:alt" content={title} />
 
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={`${site.baseUrl}/tr/products`} />
+        <meta property="og:url" content={`${site.baseUrl}/products`} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
