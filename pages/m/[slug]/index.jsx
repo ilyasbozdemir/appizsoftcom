@@ -180,7 +180,6 @@ function TeamDetailPage({ member }) {
                 color: useColorModeValue("primary.100", "primary.200"),
               }}
             >
-              {" "}
               Ekipe Geri Dön
             </Text>
           </Link>
