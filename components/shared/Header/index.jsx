@@ -48,13 +48,13 @@ const dropdownLinks = [
     icon: MdTimeline,
   },
   {
-    name: "Kariyer",
-    path: "/careers",
+    name: "Ekip",
+    path: "/team",
     icon: AiTwotoneThunderbolt,
   },
   {
-    name: "Ekip",
-    path: "/team",
+    name: "Kariyer",
+    path: "/careers",
     icon: AiTwotoneThunderbolt,
   },
 ];
@@ -243,7 +243,7 @@ const HeaderNav = () => {
             </HStack>
           </HStack>
 
-          <Box display={{ base: 'none', md: "initial" }}>
+          <Box display={{ base: "none", md: "initial" }}>
             <SearchButton />
           </Box>
 

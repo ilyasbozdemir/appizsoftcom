@@ -1,11 +1,26 @@
 import React from "react";
 import { teamMembers } from "../../../constants/teamMembers";
-import { Box, Center, Flex, HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import {
+  Badge,
+  Box,
+  Center,
+  Flex,
+  HStack,
+  Heading,
+  Icon,
+  Progress,
+  Stack,
+  Tag,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import Head from "next/head";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { site } from "../../../constants/site";
 const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
   return (
@@ -17,6 +32,7 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
       align={"center"}
       w={250}
       p={2}
+      h={250}
     >
       <Image src={photoUrl} alt={`${name}'s photo`} width={150} height={100} />
 
@@ -40,21 +56,68 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
   );
 };
 
-const Experience = ({ title, company, duration, description }) => {
+const Card = ({ title, role, skills, period, logo, alt }) => {
   return (
-    <Box borderWidth="1px" borderRadius="lg" p="4">
-      <Text fontWeight="semibold">{title}</Text>
-      <Text color="gray.500">{company}</Text>
-      <Text color="gray.500">{duration}</Text>
-      <Text mt="2">{description}</Text>
+    <Box
+      paddingX={4}
+      paddingY={5}
+      shadow="md"
+      backgroundColor={useColorModeValue("gray.100", "gray.700")}
+      position="relative"
+      rounded="md"
+      width="100%"
+    >
+      <Flex justifyContent="space-between">
+        <Flex>
+          <Box
+            width={50}
+            height={50}
+            objectFit={"cover"}
+            rounded={"full"}
+            pos={"relative"}
+            bg={"gray.300"}
+          >
+            <Image style={{ objectFit: "cover" }} src={logo} alt={alt} fill />
+          </Box>
+
+          <Stack spacing={2} pl={3}>
+            <Heading fontSize="xl">{title}</Heading>
+            <Heading fontSize="sm">
+              {role}
+              <Text display={["block", "none", "none", "none"]} fontSize={14}>
+                {period}
+              </Text>
+            </Heading>
+          </Stack>
+        </Flex>
+        <Stack display={["none", "flex", "flex", "flex"]}>
+          <Text fontSize={14}>{period}</Text>
+        </Stack>
+      </Flex>
+      <Flex gap={2} mt={3} flexWrap={"wrap"} alignItems="center">
+        {skills.split(",").map((skill) => (
+          <Tag
+            size="sm"
+            padding="0 3px"
+            key={skill}
+            fontWeight="bold"
+            backgroundColor={useColorModeValue("teal.200", "teal.500")}
+            color={useColorModeValue("white.500", "blackAlpha.800")}
+          >
+            {skill}
+          </Tag>
+        ))}
+      </Flex>
     </Box>
   );
 };
 
+const baseImagePath = "https://appizsoft-static-api.vercel.app";
+
 function TeamDetailPage({ member }) {
   const publisher = `AppizSoft`;
   const title = `${member.name} • AppizSoft`;
-  const desc = `Meet ${member.name}, our ${member.role}.`;
+  const desc = `${member.name}, ekip üyemizdir ve profesyonel yetenekleriyle ekibimize katkı sağlamaktadır.`;
 
   return (
     <>
@@ -81,7 +144,10 @@ function TeamDetailPage({ member }) {
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
-        <meta name="robots" content={"index, follow"} />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
@@ -102,17 +168,45 @@ function TeamDetailPage({ member }) {
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
       </Head>
+
+      <Center>
+        <HStack py={4} margin="0 auto">
+          <Icon as={HiOutlineArrowNarrowLeft} boxSize={35} />
+
+          <Link href={"/team"}>
+            <Text
+              fontWeight={"semibold"}
+              _hover={{
+                color: useColorModeValue("primary.100", "primary.200"),
+              }}
+            >
+              {" "}
+              Ekipe Geri Dön
+            </Text>
+          </Link>
+        </HStack>
+      </Center>
+
       <Center p={5}>
         <Flex direction={"column"} gap={5} justifyContent={"center"}>
-          <TeamMember {...member} />
-          <VStack mt="4" spacing="4" align="start">
-            <Experience
-              title={member.role}
-              company="AppizSoft Yazılılm"
-              duration="June 2023 - Present"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor leo vel justo consectetur..."
-            />
-            {/* Diğer deneyimler buraya eklenebilir */}
+          <Center>
+            <TeamMember {...member} />
+          </Center>
+
+          <Text fontWeight={"semibold"} fontSize={22}>
+            Kariyer
+          </Text>
+          <VStack spacing={2}>
+            {member.companies.map((company, index) => (
+              <Card
+                key={index}
+                title={company.title}
+                role={company.role}
+                skills={company.skills}
+                period={company.period}
+                logo={company.logo}
+              />
+            ))}
           </VStack>
           {"<Blog Post Component/>"}
         </Flex>
