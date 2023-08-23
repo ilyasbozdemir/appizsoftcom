@@ -106,8 +106,8 @@ function TeamPage() {
               {teamMembers.map((member, index) => (
                 <Link
                   key={index}
-                  href={`/m/[slug]`}
-                  as={"/m/" + member.slug}
+                  href={`/u/[slug]`}
+                  as={"/u/" + member.slug}
                 >
                   <TeamMember {...member} />
                 </Link>
