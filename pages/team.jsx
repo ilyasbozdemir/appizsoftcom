@@ -1,4 +1,5 @@
 import {
+  chakra,
   Box,
   Center,
   Container,
@@ -6,16 +7,18 @@ import {
   HStack,
   Heading,
   Icon,
+  SimpleGrid,
   Text,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import { FaLinkedin, FaUserAlt } from "react-icons/fa";
-import { teamMembers } from "../../constants/teamMembers";
+import { teamMembers } from "../constants/teamMembers";
 import Link from "next/link";
 import Head from "next/head";
-import { site } from "../../constants/site";
+import { site } from "../constants/site";
 const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
   return (
     <Flex
@@ -23,7 +26,7 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
       borderWidth="1px"
       borderRadius="xl"
       align={"center"}
-      w={250}
+      w={{ md: 250 }}
       p={2}
       _hover={{
         boxShadow: "xl",
@@ -41,6 +44,7 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
     </Flex>
   );
 };
+
 function TeamPage() {
   const publisher = `AppizSoft`;
   const title = `Ekip • AppizSoft`;
@@ -48,7 +52,7 @@ function TeamPage() {
 
   return (
     <>
-     <Head>
+      <Head>
         <title>{title}</title>
         <link
           rel="alternate"
@@ -56,16 +60,8 @@ function TeamPage() {
           href={`${site.baseUrl}/team`}
         />
 
-        <link
-          rel="alternate"
-          hreflang="tr"
-          href={`${site.baseUrl}/team` }
-        />
-        <link
-          rel="alternate"
-          hreflang="en"
-          href={`${site.baseUrl}/en/team`}
-        />
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/team`} />
+        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/team`} />
         <link rel="canonical" href={"https://appizsoft.com/team"} />
 
         <meta itemprop="description" content={desc} />
@@ -95,28 +91,32 @@ function TeamPage() {
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
       </Head>
-    <Center p={5}>
-      <Flex alignItems="center" justifyContent="center" m={4} >
-        <Container maxW="6xl">
-          <VStack spacing={8} align="center">
-            <Heading as="h1" size="xl">
-              Ekip Üyeleri
-            </Heading>
-            <Flex gap={4} flexWrap="wrap">
-              {teamMembers.map((member, index) => (
-                <Link
-                  key={index}
-                  href={`/u/[slug]`}
-                  as={"/u/" + member.slug}
-                >
-                  <TeamMember {...member} />
-                </Link>
-              ))}
-            </Flex>
-          </VStack>
-        </Container>
-      </Flex>
-    </Center>
+      <>
+        <Flex alignItems="center" justifyContent="center">
+          <Container maxW="6xl" m={4}>
+            <VStack spacing={8} align="center">
+              <chakra.h3
+                fontSize={{ base: 19, md: 27 }}
+                fontWeight="bold"
+                mb={5}
+                textAlign="center"
+                color={useColorModeValue("blackAlpha.800", "blackAlpha.700")}
+                fontFamily={"roboto"}
+              >
+                Ekip Üyeleri
+              </chakra.h3>
+
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
+                {teamMembers.map((member, index) => (
+                  <Link key={index} href={`/u/[slug]`} as={"/u/" + member.slug}>
+                    <TeamMember {...member} />
+                  </Link>
+                ))}
+              </SimpleGrid>
+            </VStack>
+          </Container>
+        </Flex>
+      </>
     </>
   );
 }

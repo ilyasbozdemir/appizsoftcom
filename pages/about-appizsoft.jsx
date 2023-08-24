@@ -4,6 +4,9 @@ import { Box, Center, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
 import Head from "next/head";
 import { site } from "../constants/site";
+import AboutUs from "../sections/AboutUs";
+import PartnersSection from "../sections/Partners";
+import Portfolio from "../sections/Portfolio";
 
 const AboutUsCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -75,9 +78,12 @@ const AboutUsCTA = () => {
 
 const AboutUsContent = () => {
   return (
-    <>
-      <Box></Box>
-    </>
+    <Flex direction={"column"} gap={3}>
+      <AboutUs />
+      
+      <PartnersSection/>
+      <Portfolio/>
+    </Flex>
   );
 };
 
@@ -91,14 +97,18 @@ function AboutUsPage() {
       <Head>
         <title>{title}</title>
 
+        <link rel="alternate" hreflang="x-default" href={`${site.baseUrl}`} />
+
         <link
           rel="alternate"
-          hreflang="x-default"
-          href={`${site.baseUrl}`}
+          hreflang="tr"
+          href={`${site.baseUrl}/about-appizsoft`}
         />
-
-        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/about-appizsoft`} />
-        <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/about-appizsoft`} />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={`${site.baseUrl}/en/about-appizsoft`}
+        />
         <link rel="canonical" href={`${site.baseUrl}/about-appizsoft`} />
         <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />

@@ -1,103 +1,120 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Stack,
-  Text,
-  Container,
-  Button,
-  useColorMode,
-} from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import React from "react";
-import Logo from "../../components/shared/Logo";
-import ScrollToIdButton from "../../components/ScrollToIdButton ";
+import { FaLaptopCode, FaGlobe, FaPalette, FaGamepad } from "react-icons/fa";
 
-function AboutUs({ lang,targetId }) {
-  const router = useRouter();
-  const size = { h: 125, w: 400 };
-  const { colorMode } = useColorMode();
+import {
+  Container,
+  SimpleGrid,
+  Image,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  StackDivider,
+  Icon,
+  useColorModeValue,
+  Box,
+} from "@chakra-ui/react";
+import {
+  IoAnalyticsSharp,
+  IoLogoBitcoin,
+  IoSearchSharp,
+} from "react-icons/io5";
+
+const Feature = ({ text, icon, iconBg }) => {
+  return (
+    <Stack direction={"row"} align={"center"}>
+      <Flex
+        w={8}
+        h={8}
+        align={"center"}
+        justify={"center"}
+        rounded={"full"}
+        bg={iconBg}
+      >
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{text}</Text>
+    </Stack>
+  );
+};
+
+function SplitWithImage() {
+  return (
+    <Container maxW={"5xl"} py={12}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+        <Stack spacing={4}>
+          <Text
+            textTransform={"uppercase"}
+            color={"blue.400"}
+            fontWeight={600}
+            fontSize={"sm"}
+            bg={useColorModeValue("blue.50", "blue.900")}
+            p={2}
+            alignSelf={"flex-start"}
+            rounded={"md"}
+          >
+            Hikayemiz
+          </Text>
+          <Heading>Biz Kimiz?</Heading>
+          <Text color={"gray.500"} fontSize={"lg"}>
+            Yazılım hizmetleri, dijital çözümler ve grafik tasarım alanlarında
+            uzmanlaşmış bir firmayız. Müşterilerimize en iyi hizmeti sunabilmek
+            için özverili bir ekibiz.
+          </Text>
+          <Heading size="md" mb={2}>
+            Ne Yapıyoruz?
+          </Heading>
+          <Stack
+            spacing={4}
+            divider={
+              <StackDivider
+                borderColor={useColorModeValue("gray.100", "gray.700")}
+              />
+            }
+          >
+            <Feature
+              icon={<Icon as={FaLaptopCode} color={"yellow.500"} w={5} h={5} />}
+              iconBg={useColorModeValue("yellow.100", "yellow.900")}
+              text={"Yazılım Hizmetleri"}
+            />
+            <Feature
+              icon={<Icon as={FaGlobe} color={"green.500"} w={5} h={5} />}
+              iconBg={useColorModeValue("green.100", "green.900")}
+              text={"Dijital Çözümler"}
+            />
+            <Feature
+              icon={<Icon as={FaPalette} color={"purple.500"} w={5} h={5} />}
+              iconBg={useColorModeValue("purple.100", "purple.900")}
+              text={"Grafik Tasarım"}
+            />
+            <Feature
+              icon={<Icon as={FaGamepad} color={"teal.500"} w={5} h={5} />}
+              iconBg={useColorModeValue("teal.100", "teal.900")}
+              text={"Oyun Geliştirme"}
+            />
+          </Stack>
+        </Stack>
+        <Flex>
+          <Image
+            rounded={"md"}
+            alt={"feature image"}
+            src={
+              "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+            objectFit={"cover"}
+            borderRadius={'lg'}
+            draggable={false}
+          />
+        </Flex>
+      </SimpleGrid>
+    </Container>
+  );
+}
+
+function AboutUs({ lang, targetId }) {
   return (
     <>
-      <Flex
-        direction={"column"}
-        w="100vw" // Genişliği ekran genişliğine eşit
-        h="100vh" // Yüksekliği ekran yüksekliğine eşit
-        justifyContent="center" // Yatayda ortala
-        alignItems="center" // Dikeyde ortala
-      >
-        <Center as={Flex} direction={"Column"}>
-          <Logo isLink={false} s={size} />
-          <Box pt={".5rem"}>
-            <Text
-              fontSize={{ base: "20px", md: "30px" }}
-              fontFamily={"montserrat-extra-bold"}
-            >
-              Dijital Başarı İçin Appizsoft
-            </Text>
-          </Box>
-        </Center>
-        <Container maxW={"5xl"} textAlign={"center"} align={"center"}>
-          <Stack
-            spacing={{ base: 8, md: 10 }}
-            py={{ base: 10, md: 14 }}
-            _light={{ color: "gray.500" }}
-            _dark={{ color: "#fff" }}
-            data-aos="fade-up"
-            fontSize={{ base: "19px", md: "25px" }}
-          >
-            <Text>
-              Appizsoft, yüksek kalitede hizmet sağlama konusunda uzmanlaşmış
-              bir firma olarak, duyarlı web sitesi tasarımı, internet pazarlama,
-              arama motoru optimizasyonu, e-ticaret geliştirme, kimlik
-              markalama, mobil pazarlama, video üretimi, sosyal medya
-              pazarlaması, kurumsal bloglama ve tıklama başına ödeme yönetimi
-              alanlarında çözümler sunmaktadır.
-            </Text>
-          </Stack>
-        
-          <Flex direction={"row"} justifyContent={"space-between"} px={5}>
-            <Button
-              rounded={"full"}
-              colorScheme={colorMode === "light" ? "black" : "white"}
-              fontFamily={"Nunito Sans"}
-              _hover={{
-                boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
-              }}
-              p={7}
-              fontSize={{ base: 14, md: 15, lg: 16 }}
-              variant={"outline"}
-              onClick={() => {
-                router.push(lang + "/portfolio");
-
-              }}
-            >
-              Projelerimize Göz At
-            </Button>
-            <Button
-              rounded={"full"}
-              colorScheme={colorMode === "light" ? "black" : "white"}
-              fontFamily={"Nunito Sans"}
-              _hover={{
-                boxShadow: "0 4px 8px rgba(110, 190, 194, 0.6)",
-              }}
-              p={7}
-              fontSize={{ base: 14, md: 15, lg: 16 }}
-              variant={"outline"}
-              onClick={() => {
-                router.push(lang + "/about-appizsoft");
-              }}
-            >
-              Devamını Oku
-            </Button>
-          </Flex>
-        </Container>
-        <Box display={{ base: "none", lg: "initial" }}>
-          <Center>
-            <ScrollToIdButton targetId={targetId} />
-          </Center>
-        </Box>
-      </Flex>
+      <SplitWithImage />
     </>
   );
 }

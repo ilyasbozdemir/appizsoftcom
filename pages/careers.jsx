@@ -1,4 +1,5 @@
 import {
+  chakra,
   Button,
   Box,
   Center,
@@ -18,6 +19,7 @@ import {
   UnorderedList,
   Tag,
   HStack,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
@@ -28,15 +30,32 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { careers } from "../constants/careers";
 import { hiringProcessFAQ } from "../constants/hiringProcessFAQ";
+import { all } from "axios";
+
+import {
+  MdOutlinePersonPin,
+  MdPermDeviceInformation,
+  MdOutlineFlashlightOn,
+} from "react-icons/md";
+import { SiMinds } from "react-icons/si";
+
+import {
+  FaComments,
+  FaRegClock,
+  FaUsers,
+  FaBrain,
+  FaFileCode,
+  FaChartLine,
+  FaGraduationCap,
+  FaBullhorn,
+} from "react-icons/fa";
 
 function CareersPage() {
   return (
-    <>
-      <Flex direction={"column"} gap={3}>
-        <CareersCTA />
-        <CareersContent />
-      </Flex>
-    </>
+    <Flex direction={"column"} gap={3}>
+      <CareersCTA />
+      <CareersContent />
+    </Flex>
   );
 }
 
@@ -272,7 +291,7 @@ const JoinUsSection = () => {
         colorScheme="white"
         variant={"outline"}
         onClick={() => {
-          router.push("/tr/careers/[position]", "/tr/careers/join-us", {
+          router.push("/career/[position]", "/career/join-us", {
             shallow: true,
           });
         }}
@@ -447,12 +466,88 @@ const OpenPositions = () => {
   );
 };
 
+const features = [
+  {
+    heading: "Kuvvetli İletişim Becerileri",
+    content:
+      "Ekip içi iletişimde etkin olabilme ve proje detaylarını net bir şekilde ifade edebilme yeteneği.",
+    icon: FaComments,
+  },
+  {
+    heading: "Zaman Yönetimi Uzmanlığı",
+    content:
+      "Proje süreçlerini etkili bir şekilde planlama ve takip etme yeteneği.",
+    icon: FaRegClock,
+  },
+
+  {
+    heading: "Takım Çalışmasına Yatkınlık",
+    content:
+      "Farklı uzmanlık alanlarından gelen ekip üyeleriyle koordinasyon ve işbirliği yeteneği.",
+    icon: FaUsers,
+  },
+  {
+    heading: "Problem Çözme Kabiliyeti",
+    content:
+      "Karşılaşılan zorlukları analiz etme ve yaratıcı çözümler üretme yeteneği.",
+    icon: FaBrain,
+  },
+  {
+    heading: "Kod Kalitesine Odaklanma",
+    content:
+      "Temiz ve sürdürülebilir kod yazma prensipleri ve kalite standartlarına dikkat.",
+    icon: FaFileCode,
+  },
+  {
+    heading: "Güncel Teknoloji Trendlerine İlgi",
+    content:
+      "Yazılım dünyasındaki güncel gelişmeleri takip etme ve bu trendleri projelere entegre etme yeteneği.",
+    icon: FaChartLine,
+  },
+  {
+    heading: "Kendini Geliştirme Tutkusu",
+    content:
+      "Sürekli olarak yeni teknolojileri öğrenme isteği ve kişisel gelişime odaklanma.",
+    icon: FaGraduationCap,
+  },
+  {
+    heading: "Takipçi ve İstekli Yaklaşım",
+    content:
+      "Proaktif bir şekilde projelere dahil olma ve yeni fikirleri önerme isteği.",
+    icon: FaBullhorn,
+  },
+];
+
+const Features = () => {
+  return (
+    <Container maxW="6xl" p={{ base: 5, md: 10 }}>
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        placeItems="center"
+        spacing={16}
+        mt={12}
+        mb={4}
+      >
+        {features.map((feature, index) => (
+          <Box key={index} textAlign="center">
+            <Icon as={feature.icon} w={10} h={10} color="blue.400" />
+            <chakra.h3 fontWeight="semibold" fontSize="2xl">
+              {feature.heading}
+            </chakra.h3>
+            <Text fontSize="md">{feature.content}</Text>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </Container>
+  );
+};
+
 const CareersContent = () => {
+  all;
   const publisher = `AppizSoft`;
   const title = `Kariyer Fırsatları - Hayalinizdeki Pozisyon İçin Başvurun • AppizSoft`;
   const desc = `AppizSoft olarak, büyüyen ekibimize katılarak kariyerinizi şekillendirin. Backend geliştirici, frontend geliştirici, mobil uygulama geliştirici ve daha birçok pozisyon için fırsatları inceleyin.`;
 
-  
   return (
     <>
       <Head>
@@ -463,18 +558,13 @@ const CareersContent = () => {
           href={`${site.baseUrl}/careers`}
         />
 
-        <link
-          rel="alternate"
-          hreflang="tr"
-          href={`${site.baseUrl}/careers`}
-        />
+        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/careers`} />
         <link
           rel="alternate"
           hreflang="en"
           href={`${site.baseUrl}/en/careers`}
         />
         <link rel="canonical" href="https://appizsoft.com/careers" />
-
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -514,6 +604,7 @@ const CareersContent = () => {
 
       <Container maxW="8xl" p={{ base: 5, md: 10 }}>
         <JoinUsSection />
+        <Features />
 
         <OpenPositions />
 
