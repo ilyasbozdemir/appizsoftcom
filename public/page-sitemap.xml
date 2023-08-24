@@ -49,6 +49,10 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/career/join-us"/>
         <lastmod>2023-08-21T10:48:38+03:00</lastmod>
     </url>
+
+
+
+
     <url>
         <loc>https://www.appizsoft.com/career/frontend--developer</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/career/frontend--developer"/>
@@ -103,6 +107,13 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://www.appizsoft.com/contact"/>
         <lastmod>2023-08-21T10:48:38+03:00</lastmod>
     </url>
+
+<!--
+
+
+-->
+
+
     <url>
         <loc>https://www.appizsoft.com/service/web-design-development</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.appizsoft.com/en/service/web-design-development"/>
