@@ -80,7 +80,11 @@ const AboutUsContent = () => {
   return (
     <Flex direction={"column"} gap={3}>
       <AboutUs />
+      {/*
       
+buraya nextjs net core gibi yazılımlar hakkında bilgi alanı
+
+      */}
       <PartnersSection/>
       <Portfolio/>
     </Flex>
