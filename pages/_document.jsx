@@ -4,17 +4,15 @@ import { colors } from "../src/foundations/colors";
 import { ColorModeScript } from "@chakra-ui/react";
 import GoogleTagManagerBody from "../plugins/GoogleTagManagerBody";
 import ExternalFonts from "../fonts/ExternalFonts";
-import React, { useEffect, useState } from "react";
-import Analytics from "../configuration/Analytics";
+import React from "react";
+
 import { site } from "../constants/site";
-import { testimonialsData } from "../constants/testimonialsData";
-import { googleSiteVerification } from "../lib/googleSiteVerification";
 
 const themeColor = colors.primary[100];
 
 export default class MyDocument extends Document {
   render() {
-    const { langValue } = this.props;
+    const { langValue, pageContext } = this.props;
 
     return (
       <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">
@@ -28,28 +26,12 @@ export default class MyDocument extends Document {
             content="width=device-width,minimum-scale=1,initial-scale=1"
           />
 
-          <link
-            rel="alternate"
-            type="application/rss+xml"
-            href="/rss.xml"
-            title="Appizsoft Blog RSS Feed"
-          />
-
-          <meta name="copyright" content="AppizSoft" />
-          <meta name="mobile-web-app-capable" content="yes" />
-
-          <meta
-            name="google-site-verification"
-            content={googleSiteVerification}
-          />
-          <link rel="manifest" href="/manifest.json" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="revisit-after" content="1 days" />
           <link rel="icon" href="/favicon.png" type="image/png" />
           <meta name="theme-color" content={themeColor} />
 
           <ExternalFonts />
-          <Analytics />
 
           <link href="/styles/globals.css" />
         </Head>
@@ -77,6 +59,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   // URL'den dil bölümünü alın
   const { asPath } = ctx;
+
   const language = asPath.split("/")[1]; // İlk bölüm dil bölümü olacak
   let langValue = "tr";
 

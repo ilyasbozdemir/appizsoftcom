@@ -32,7 +32,7 @@ const Sidebar = () => {
           <DrawerContent>
             <DrawerHeader>
               <Image
-                src={"/logo.svg"}
+                src={"/logo.png"}
                 width={150}
                 height={30}
                 onClick={() => {

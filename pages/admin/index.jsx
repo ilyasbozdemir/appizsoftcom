@@ -1,17 +1,18 @@
-import Head from 'next/head'
-import React from 'react'
+import { Box, Text } from "@chakra-ui/react";
+import Head from "next/head";
+import React from "react";
+
 function MainPage() {
+
   return (
-    <>
+    <Box>
       <Head>
         <title>Appizsoft • Admin Paneli</title>
-        <meta name="robots" content="noindex" />
-        <link rel="icon" href="/favicon.ico" />
+      
       </Head>
-      <>
-      </>
-    </>
-  )
+
+    </Box>
+  );
 }
 
-export default MainPage
+export default MainPage;

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 const UserLayout = dynamic(() => import("../layouts/UserLayout"));
 const AdminLayout = dynamic(() => import("../layouts/AdminLayout"));
 const ErrorLayout = dynamic(() => import("../layouts/ErrorLayout"));
+const EmptyLayout = dynamic(() => import("../layouts/EmptyLayout"));
 
 import theme from "../src/theme";
 import "../styles/globals.css";
@@ -20,6 +21,8 @@ function MyApp({ Component, pageProps, statusCode }) {
     Layout = UserLayout;
   } else if (router.pathname.startsWith("/admin")) {
     Layout = AdminLayout;
+  } else if (router.pathname === "/login") {
+    Layout = EmptyLayout;
   } else {
     Layout = UserLayout;
   }

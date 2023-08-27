@@ -19,7 +19,11 @@ import dynamic from "next/dynamic";
 const LazyReactJoyride = dynamic(() => import("react-joyride"));
 import { tourSteps } from "../components/TourSteps";
 import TawkToChat from "../components/TawkToChat";
-import FloatingContactButton  from "../components/Contact";
+import FloatingContactButton from "../components/Contact";
+import Head from "next/head";
+
+import Analytics from "../configuration/Analytics";
+import { googleSiteVerification } from "../lib/googleSiteVerification";
 
 function UserLayout({ children }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -77,11 +81,31 @@ function UserLayout({ children }) {
     <Box
       as="main"
       scrollBehavior={"smooth"}
-      css={{
+      /*
+   
+         css={{
         backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
         backgroundAttachment: "fixed",
-      }}
+      }}*/
     >
+      <Head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          href="/rss.xml"
+          title="Appizsoft Blog RSS Feed"
+        />
+
+        <meta name="copyright" content="AppizSoft" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta
+          name="google-site-verification"
+          content={googleSiteVerification}
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <Analytics />
+      </Head>
+
       <Flex>
         <AlertDevMode />
       </Flex>
@@ -113,7 +137,7 @@ function UserLayout({ children }) {
         <Footer />
       </Box>
       <ScrollToTop />
-      <FloatingContactButton  />
+      <FloatingContactButton />
 
       <TawkToChat />
     </Box>
@@ -127,7 +151,7 @@ function AlertDevMode() {
       <Box>
         <AlertDescription>
           Sitemiz şu an yapım aşamasındadır. Güncellemeler devam ediyor. Son
-          Güncelleme: <Text fontFamily={"verdana"}>24.08.2023</Text>
+          Güncelleme: <Text fontFamily={"verdana"}>25.08.2023</Text>
         </AlertDescription>
       </Box>
     </Alert>

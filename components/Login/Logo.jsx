@@ -3,15 +3,16 @@ import { Image, chakra } from "@chakra-ui/react";
 export const Logo = (props) => (
   <>
     <Image
-      src={"/favicon_black.png"}
-      width={45}
+      src={"/logo.png"}
+      width={150}
       height={45}
       onClick={() => {
-        router.push(`/${lang}?ref=desktop-logo`);
+        router.push(`/`);
       }}
       style={{
         cursor: "pointer",
       }}
+      objectFit={'contain'}
     />
   </>
 );

@@ -20,7 +20,7 @@ import { PasswordField } from "./PasswordField";
 import React from "react";
 import Router from "next/router";
 
-function App() {
+function LoginPage() {
   return (
     <>
       <Container
@@ -46,7 +46,7 @@ function App() {
                 md: "sm",
               }}
             >
-              Appizsoft Admin Interface
+              Appizsoft Login Interface
             </Heading>
           </Stack>
           <Box
@@ -117,4 +117,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginPage;

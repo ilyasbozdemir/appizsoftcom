@@ -10,8 +10,8 @@ const Navbar = () => {
   };
 
   return (
-    <Flex align="center" justify="space-between" px={4} py={2} >
- Navbar
+    <Flex align="center" justify="space-between" px={4} py={2}>
+      Navbar
     </Flex>
   );
 };
