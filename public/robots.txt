@@ -4,6 +4,6 @@ User-agent: *
 Allow: /
 
 
-Sitemap: https://www.appizsoft.com/page-sitemap.xml
+Sitemap: https://www.appizsoft.com/sitemap_index.xml
 
 Disallow: /admin/

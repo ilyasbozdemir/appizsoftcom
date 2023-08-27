@@ -181,12 +181,13 @@ function PositionPage({ career }) {
           hreflang="en"
           href={`${site.baseUrl}/en/${career.pageLoc}`}
         />
-        <link rel="canonical" href={`https://appizsoft.com/${career.pageLoc}`} />
-        <meta name="robots" content={"index, follow"} />
+        <link
+          rel="canonical"
+          href={`https://appizsoft.com/${career.pageLoc}`}
+        />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
-        <meta name="robots" content={"index, follow"} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
