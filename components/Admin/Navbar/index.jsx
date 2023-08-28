@@ -1,19 +1,21 @@
-import { Box, Flex, IconButton } from "@chakra-ui/react";
-import { FiMenu } from "react-icons/fi";
+// components/Navbar.js
 import { useState } from "react";
-import Sidebar from "../Sidebar";
+import {
+  Box,
+  Flex,
+  Spacer,
+  Text,
+  Button,
+  VStack,
+  Divider,
+} from "@chakra-ui/react";
+import Link from "next/link";
+
 const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  return (
-    <Flex align="center" justify="space-between" px={4} py={2}>
-      Navbar
-    </Flex>
-  );
+  return <Box p="4" border={"1px solid #cdc"}>
+    <>{' - '}</>
+    <></>
+  </Box>;
 };
 
 export default Navbar;

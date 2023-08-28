@@ -3,8 +3,10 @@ import {
   Flex,
   Icon,
   IconButton,
+  SimpleGrid,
   VisuallyHidden,
   useColorModeValue,
+  Container
 } from "@chakra-ui/react";
 import React from "react";
 import {
@@ -23,6 +25,7 @@ import { PiDevToLogoFill } from "react-icons/pi";
 
 import { site } from "../../constants/site";
 import Link from "next/link";
+
 
 const LinkWrapper = (props) => {
   const { children, href, ...rest } = props;
@@ -53,9 +56,10 @@ const xTwitter = () => {
 
 function SosyalMediaIcon() {
   return (
-    <ButtonGroup
-      as={Flex}
-      flexWrap={"wrap"}
+   <Container>
+    <SimpleGrid
+      columns={{ base: 5 }}
+      spacing={2}
       itemScope="itemscope"
       itemType="https://schema.org/Organization"
     >
@@ -112,23 +116,6 @@ function SosyalMediaIcon() {
 
       <LinkWrapper
         href={
-          site.sosyalMediaLinks.find((item) => item.label === "youtube").link
-        }
-        itemProp="sameAs"
-      >
-        <IconButton
-          aria-label="Linkedin"
-          cursor={"pointer"}
-          icon={<Icon as={FaYoutube} fontSize="1.25rem" />}
-          bg={"transparent"}
-          children={<VisuallyHidden>Youtube</VisuallyHidden>}
-          color={useColorModeValue("white", "white")}
-          colorScheme="blue"
-        />
-      </LinkWrapper>
-
-      <LinkWrapper
-        href={
           site.sosyalMediaLinks.find((item) => item.label === "linkedin").link
         }
         itemProp="sameAs"
@@ -143,83 +130,25 @@ function SosyalMediaIcon() {
           colorScheme="blue"
         />
       </LinkWrapper>
+      
       <LinkWrapper
         href={
-          site.sosyalMediaLinks.find((item) => item.label === "pinterest").link
-        }
-        itemProp="sameAs"
-      >
-        <IconButton
-          aria-label="Pinterest"
-          cursor={"pointer"}
-          icon={<Icon as={FaPinterest} fontSize="1.25rem" />}
-          bg={"transparent"}
-          children={<VisuallyHidden>Pinterest</VisuallyHidden>}
-          color={useColorModeValue("white", "white")}
-          colorScheme="blue"
-        />
-      </LinkWrapper>
-      <LinkWrapper
-        href={
-          site.sosyalMediaLinks.find((item) => item.label === "dribbble").link
-        }
-        itemProp="sameAs"
-      >
-        <IconButton
-          aria-label="LinDribbblekedin"
-          cursor={"pointer"}
-          icon={<Icon as={FaDribbble} fontSize="1.25rem" />}
-          bg={"transparent"}
-          children={<VisuallyHidden>Dribbble</VisuallyHidden>}
-          color={useColorModeValue("white", "white")}
-          colorScheme="blue"
-        />
-      </LinkWrapper>
-      <LinkWrapper
-        href={
-          site.sosyalMediaLinks.find((item) => item.label === "behance").link
+          site.sosyalMediaLinks.find((item) => item.label === "youtube").link
         }
         itemProp="sameAs"
       >
         <IconButton
           aria-label="Linkedin"
           cursor={"pointer"}
-          icon={<Icon as={FaBehance} fontSize="1.25rem" />}
+          icon={<Icon as={FaYoutube} fontSize="1.25rem" />}
           bg={"transparent"}
-          children={<VisuallyHidden>Pinterest</VisuallyHidden>}
+          children={<VisuallyHidden>Youtube</VisuallyHidden>}
           color={useColorModeValue("white", "white")}
           colorScheme="blue"
         />
       </LinkWrapper>
-      <LinkWrapper
-        href={site.sosyalMediaLinks.find((item) => item.label === "vimeo").link}
-        itemProp="sameAs"
-      >
-        <IconButton
-          aria-label="Linkedin"
-          cursor={"pointer"}
-          icon={<Icon as={FaVimeoV} fontSize="1.25rem" />}
-          bg={"transparent"}
-          children={<VisuallyHidden>Vimeo</VisuallyHidden>}
-          color={useColorModeValue("white", "white")}
-          colorScheme="blue"
-        />
-      </LinkWrapper>
-      <LinkWrapper
-        href={site.sosyalMediaLinks.find((item) => item.label === "devto").link}
-        itemProp="sameAs"
-      >
-        <IconButton
-          aria-label="DevTo"
-          cursor={"pointer"}
-          icon={<Icon as={PiDevToLogoFill} fontSize="1.25rem" />}
-          bg={"transparent"}
-          children={<VisuallyHidden>DevTo</VisuallyHidden>}
-          color={useColorModeValue("white", "white")}
-          colorScheme="blue"
-        />
-      </LinkWrapper>
-    </ButtonGroup>
+    </SimpleGrid>
+   </Container>
   );
 }
 

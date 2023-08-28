@@ -255,7 +255,7 @@ function LargeWithLogoCentered() {
                   <Link href={"/about-appizsoft"}>Hakkımızda</Link>
                   <Link href={"/careers"}>Kariyer</Link>
                   <Link href={"/contact"}>Bize Ulaşın</Link>
-                  
+
                 </Stack>
                 <Stack align={"flex-start"}>
                   <ListHeader>Hizmetler</ListHeader>
@@ -329,7 +329,7 @@ const FooterData = () => {
   } else {
     yearText = `${startYear}`;
   }
-  return <> {currentYear} Appizsoft &copy; Tüm Hakları Saklıdır</>;
+  return <> {yearText} Appizsoft Yazılım &copy; Tüm Hakları Saklıdır.</>;
 };
 
 export default React.memo(LargeWithLogoCentered);
