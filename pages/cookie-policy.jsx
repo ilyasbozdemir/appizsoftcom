@@ -1,7 +1,9 @@
 import React from "react";
 
 function CookiePolicyPage() {
-  return <div>cookie-policy</div>;
+  return <>
+  cookie-policy
+  </>;
 }
 
 export default CookiePolicyPage;

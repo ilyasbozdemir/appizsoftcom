@@ -24,6 +24,10 @@ function CommercialInformationPage() {
             </Center>
 
             <Text>Firma ve banka hesap bilgileri aşağıdaki gibidir.</Text>
+
+            <>
+            [Coming Soon :))]
+            </>
           </Flex>
         </Center>
       </Container>

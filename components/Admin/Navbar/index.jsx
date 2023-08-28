@@ -12,10 +12,11 @@ import {
 import Link from "next/link";
 
 const Navbar = () => {
-  return <Box p="4" border={"1px solid #cdc"}>
-    <>{' - '}</>
-    <></>
-  </Box>;
+  return (
+    <Box p="4" border={"1px solid #cdc"}>
+      <></>
+    </Box>
+  );
 };
 
 export default Navbar;

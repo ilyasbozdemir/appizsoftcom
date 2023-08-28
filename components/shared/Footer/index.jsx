@@ -115,6 +115,8 @@ const Partners = () => {
   );
 };
 
+
+
 const FooterAcordion = () => {
   return (
     <>
@@ -138,12 +140,13 @@ const FooterAcordion = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
+                    <Link href={"/#"}>Müşteriler</Link>
                       <Link href={"/about-appizsoft"}>Hakkımızda</Link>
                       <Link href={"/commercial-information"}>
                         Ticari Bilgiler
                       </Link>
                       <Link href={"/careers"}>Kariyer</Link>
-                      <Link href={"/contact"}>Bize Ulaşın</Link>
+                      <Link href={"/contact"}>İletişim</Link>
                     </Stack>
                   </AccordionPanel>
                 </>
@@ -248,13 +251,17 @@ function LargeWithLogoCentered() {
             <Partners />
           </Box>
           <Container as={Stack} maxW={"8xl"} py={{ base: 5, sm: 10 }}>
-            <Box display={{ base: "none", sm: "initial" }}>
+            <Box display={{ base: "initial", sm: "initial" }}>
               <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
                 <Stack align={"flex-start"}>
                   <ListHeader>Kurumsal</ListHeader>
+                  <Link href={"/#"}>Müşteriler</Link>
                   <Link href={"/about-appizsoft"}>Hakkımızda</Link>
+                  <Link href={"/commercial-information"}>
+                        Ticari Bilgiler
+                      </Link>
                   <Link href={"/careers"}>Kariyer</Link>
-                  <Link href={"/contact"}>Bize Ulaşın</Link>
+                  <Link href={"/contact"}>İletişim</Link>
 
                 </Stack>
                 <Stack align={"flex-start"}>
@@ -279,7 +286,7 @@ function LargeWithLogoCentered() {
               </SimpleGrid>
             </Box>
 
-            <Box display={{ base: "initial", sm: "none" }}>
+            <Box display={{ base: "none", sm: "none" }}>
               <FooterAcordion />
             </Box>
           </Container>
