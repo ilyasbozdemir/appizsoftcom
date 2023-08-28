@@ -139,6 +139,9 @@ const FooterAcordion = () => {
                   <AccordionPanel pb={4}>
                     <Stack align={"flex-start"}>
                       <Link href={"/about-appizsoft"}>Hakkımızda</Link>
+                      <Link href={"/commercial-information"}>
+                        Ticari Bilgiler
+                      </Link>
                       <Link href={"/careers"}>Kariyer</Link>
                       <Link href={"/contact"}>Bize Ulaşın</Link>
                     </Stack>
@@ -252,6 +255,7 @@ function LargeWithLogoCentered() {
                   <Link href={"/about-appizsoft"}>Hakkımızda</Link>
                   <Link href={"/careers"}>Kariyer</Link>
                   <Link href={"/contact"}>Bize Ulaşın</Link>
+                  
                 </Stack>
                 <Stack align={"flex-start"}>
                   <ListHeader>Hizmetler</ListHeader>
