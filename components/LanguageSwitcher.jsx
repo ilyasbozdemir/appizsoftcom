@@ -1,6 +1,7 @@
 import { Box, Button, Stack, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { getRouteSource } from "../getRouteSource";
 
 function LangSwitcher() {
   const router = useRouter();
@@ -19,6 +20,7 @@ function LangSwitcher() {
     const newLocale = currentLocale === "en" ? "tr" : "en";
     setCurrentLocale(newLocale);
     localStorage.setItem("selectedLocale", newLocale);
+
     router.push(router.pathname, router.asPath, { locale: newLocale });
   };
 

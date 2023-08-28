@@ -1,14 +1,26 @@
 // components/Sidebar.js
-import { Box, Text, VStack, Divider } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  VStack,
+  Divider,
+  useColorMode,
+  useColorModeValue,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import Logo from ".././../shared/Logo";
 
 const Sidebar = () => {
   return (
-    <Box bg="gray.100" w="250px" h="100vh" p="4" boxShadow="md">
+    <Box
+    bg={useColorModeValue("gray.100", "gray.700")}
+      w="250px"
+      h="100vh"
+      p="4"
+      boxShadow="md"
+    >
       <VStack spacing="4" align="stretch">
-        <Divider />
-        <Text>Öğe 1</Text>
-        <Text>Öğe 2</Text>
-        <Text>Öğe 3</Text>
+        
       </VStack>
     </Box>
   );

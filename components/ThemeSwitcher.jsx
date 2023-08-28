@@ -43,11 +43,12 @@ function ThemeSwitcher() {
     <>
       <IconButton
         id={"theme-switcher"}
-        aria-label="Color Switcher"
+        aria-label="Color Switcher"  
+         variant={"ghost"}
         onClick={handleToggleColorMode}
         icon={<Icon as={icon === darkIcon ? BsMoon : BsSun} fontSize="lg" />}
         p={3}
-        variant={"ghost"}
+     
       />
     </>
   );

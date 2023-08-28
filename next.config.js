@@ -1,14 +1,24 @@
+const { i18n } = require("./next-i18next.config");
+
 module.exports = {
-  /*
-  i18n: {
-    locales: ["en", "tr"],
-    defaultLocale: "tr",
-  },
-*/
+  i18n,
   env: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
   },
 
+  /*  rewrites: async () => [
+ {
+      source: "/tr/hakkimizda",
+      destination: "/about-appizsoft",
+      locale: false,
+    },
+    {
+      source: "/about",
+      destination: "/about-appizsoft",
+      locale: false,
+    },
+  ],
+*/
   async headers() {
     return [
       {
