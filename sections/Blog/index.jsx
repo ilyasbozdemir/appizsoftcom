@@ -12,24 +12,29 @@ import {
   Icon,
   HStack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useRef } from "react";
 import { HiMiniArrowLongRight } from "react-icons/hi2";
+import {
+  HiOutlineArrowNarrowLeft,
+  HiOutlineArrowNarrowRight,
+} from "react-icons/hi";
 import Link from "next/link";
 import Image from "next/image";
 
 import { Autoplay } from "swiper/modules";
+import { Router, useRouter } from "next/router";
+import { blogData } from "../../constants/blogData";
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/autoplay";
-import { Router, useRouter } from "next/router";
-import { blogData } from "../../constants/blogData";
 
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 function Blog() {
   return (
-    <>
+    <Box bg={"blue.50"} borderRadius={"lg"} userSelect={"none"}>
       <Center>
         <Flex direction={"column"} justifyContent={"center"} gap={3}>
           <Heading
@@ -42,17 +47,39 @@ function Blog() {
         </Flex>
       </Center>
 
-      <>
+      <Box>
         <BlogCards />
-      </>
-    </>
+      </Box>
+    </Box>
   );
 }
 
 const BlogCards = () => {
   const router = useRouter();
+  const swiperRef = useRef();
   return (
     <Box mt={25} cursor={"grab"}>
+      <Center>
+        <HStack
+          fontFamily={"fantasy"}
+          mt={15}
+          p={3}
+          display={{ base: "initial", sm: "none" }}
+        >
+          <Icon
+            as={HiOutlineArrowNarrowLeft}
+            boxSize={38}
+            cursor={"pointer"}
+            onClick={() => swiperRef.current?.slidePrev()}
+          />
+          <Icon
+            as={HiOutlineArrowNarrowRight}
+            boxSize={38}
+            cursor={"pointer"}
+            onClick={() => swiperRef.current?.slideNext()}
+          />
+        </HStack>
+      </Center>
       <Swiper
         spaceBetween={30}
         slidesPerView={useBreakpointValue({
@@ -61,10 +88,17 @@ const BlogCards = () => {
           lg: 2,
           xl: 3,
         })}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        navigation={{
+          nextEl: ".review-swiper-button-next",
+          prevEl: ".review-swiper-button-prev",
+        }}
       >
         {blogData.map((blog) => {
           return (
-            <SwiperSlide key={blog.id}>
+            <SwiperSlide key={`slide-${blog.id}`}>
               <Flex
                 p={5}
                 w="full"
@@ -82,7 +116,6 @@ const BlogCards = () => {
                       objectFit: "cover",
                       borderRadius: "15px",
                     }}
-                  
                   />
                 </Flex>
                 <Flex
@@ -101,7 +134,30 @@ const BlogCards = () => {
           );
         })}
       </Swiper>
-      <HStack fontFamily={"fantasy"} mt={15}>
+
+      <Center>
+        <HStack
+          fontFamily={"fantasy"}
+          mt={15}
+          p={3}
+          display={{ base: "none", sm: "initial" }}
+        >
+          <Icon
+            as={HiOutlineArrowNarrowLeft}
+            boxSize={38}
+            cursor={"pointer"}
+            onClick={() => swiperRef.current?.slidePrev()}
+          />
+          <Icon
+            as={HiOutlineArrowNarrowRight}
+            boxSize={38}
+            cursor={"pointer"}
+            onClick={() => swiperRef.current?.slideNext()}
+          />
+        </HStack>
+      </Center>
+
+      <HStack fontFamily={"fantasy"} mt={15} p={3}>
         <Icon as={HiMiniArrowLongRight} boxSize={35} />
         <Link href={"/blog"}>
           <Text fontSize={25} cursor={"pointer"}>

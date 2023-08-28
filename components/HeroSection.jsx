@@ -97,7 +97,7 @@ const HeroSection = () => {
                 </Button>
               </Link>
 
-              <Link href="/contact" passHref>
+              <Link href="/#" passHref>
                 <Box
                   d="flex"
                   justifyContent="center"
@@ -110,7 +110,7 @@ const HeroSection = () => {
                   rounded="md"
                   boxShadow="md"
                 >
-                  Detaylı Bilgi Al
+                  Demo İste
                 </Box>
               </Link>
             </Stack>
