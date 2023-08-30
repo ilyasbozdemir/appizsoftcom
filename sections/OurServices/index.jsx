@@ -60,13 +60,8 @@ const features = [
 ];
 
 const Features = () => {
-
   return (
-    <Container
-      p={{ base: 9, md: 10 }}
-
-      maxW="7xl"
-    >
+    <Container p={{ base: 9, md: 10 }} maxW="7xl">
       <chakra.h3
         fontSize={{ base: 19, md: 27 }}
         fontWeight="bold"
@@ -133,7 +128,7 @@ const Features = () => {
         textAlign="center"
         color={useColorModeValue("gray.800", "gray.800")}
       >
-        <Link href={"/tr/services"}>
+        <Link href={"/services"}>
           <Text fontSize={{ base: 16, md: 22 }} cursor={"pointer"}>
             Tüm Hizmetleri Görüntüle
           </Text>
@@ -144,7 +139,11 @@ const Features = () => {
 };
 
 function OurServices({ targetId }) {
-  return <Features />;
+  return (
+    <>
+      <Features />
+    </>
+  );
 }
 
 export default OurServices;
