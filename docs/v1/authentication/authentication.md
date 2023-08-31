@@ -2,6 +2,8 @@
 
 - Auth kısmında sitede user login logout  vs  hakkında bilgi verilmiştir
 
+- Güncellenecektir [Veritabanı Şeması](../database.md) dosyasına göre
+
   
  ### Kullanıcı Girişi (Login)
 

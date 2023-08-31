@@ -1,5 +1,7 @@
 # Kullanıcı API Dokümantasyonu
 - Kullanıcılar kısmında sitede yönetici rolleri için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir.
+- Güncellenecektir [Veritabanı Şeması](database.md) dosyasına göre
+
 
  ### Kullanıcı Ekleme (Create User)
 

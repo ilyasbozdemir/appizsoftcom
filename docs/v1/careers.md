@@ -3,6 +3,9 @@
 
 Kariyer kısmında şirkete açılacak pozisyon için ekleme silme güncelleme ve listeleme hakkında bilgi verilmiştir
 
+- Güncellenecektir [Veritabanı Şeması](database.md) dosyasına göre
+
+
   <summary><h2>Kariyer</h2></summary>
   
 Kariyerlerle ilgili işlemler. Bu işlemler JWT yetkilendirmesi gerektirir.
