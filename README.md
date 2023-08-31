@@ -46,6 +46,13 @@ Eğer projemiz veya hizmetlerimiz hakkında daha fazla bilgi almak isterseniz, b
 - Telefon: 
 - Web Sitesi: [https://www.appizsoft.com](https://www.appizsoft.com)
 
+##  Kullanım
+
+Bu proje, dokümantasyonunuzu içeren "docs" klasöründe yer almaktadır. Projenizi yerel makinenizde incelemek için aşağıdaki adımları takip edebilirsiniz:
+
+
+1. `docs` klasörüne erişin ve belgeleri görüntülemeye başlayın.
+
 ## Lisans
 
 Bu proje [Appizsoft Yazılım](https://www.appizsoft.com) tarafından oluşturulmuştur. Daha fazla bilgi için lisans dosyasını inceleyebilirsiniz.

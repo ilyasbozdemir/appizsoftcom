@@ -1,4 +1,4 @@
-#### Bu dokümantasyon, Appizsoft Yazılım projesinin Web API'sinin kullanımını ve özelliklerini açıklar.
+#### Bu dökümantasyon, Appizsoft Yazılım projesinin Web API'sinin kullanımını ve özelliklerini açıklar.
 
 ## Genel Bilgiler
 
@@ -8,16 +8,27 @@
 
 API, sürümleme için ayrı klasörler kullanır. Şu anki API sürümü: `v1`
 
+## Dökümantasyon İçeriği
 
-<h2 align="center">İçerik</h2>
 
-#### Kimlik Doğrulama
+- ####  <span style="text-decoration: underline;">Veritabanı tablo ve sütunlar şeması</span>
+
+- [Veritabanı Şeması](database.md)
+
+
+ ####  <span style="text-decoration: underline;">API kullanımı</span>
+
+
+- ####  <span style="text-decoration: underline;">Kimlik Doğrulama API</span>
+
+
 - [Kimlik Doğrulama API](authentication/authentication.md)
 - [Harici Kimli Doğrulama API](authentication/OAuth.md)
 - [Kimlik Doğrulama için Bilgi](authentication/README.md)
-#### Kullanıcılar API
-- [Kullanıcılar API Belgeleri](user.md)
-#### Kariyer API
+- #### <span style="text-decoration: underline;">Kullanıcılar API</span>
+- [Kullanıcılar API ](user.md)
+- #### <span style="text-decoration: underline;">Kariyer API</span>
 
 - [Kariyer API](careers.md)
+
 
