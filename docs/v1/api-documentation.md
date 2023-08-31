@@ -10,7 +10,7 @@ API, sürümleme için ayrı klasörler kullanır. Şu anki API sürümü: `v1`
 
 ## İçerik
 
-- [Kullanıcılar API](v1/users.md)
-- [Kullanıcı Profili API](v1/user-profiles.md)
-- [Kimlik Doğrulama API](v1/authentication.md)
-- [Kariyer API](v1/careers.md)
+- [Kullanıcılar API](users.md)
+- [Kullanıcı Profili API](user-profiles.md)
+- [Kimlik Doğrulama API](authentication.md)
+- [Kariyer API](careers.md)
