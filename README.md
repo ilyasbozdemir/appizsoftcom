@@ -48,7 +48,9 @@ Eğer projemiz veya hizmetlerimiz hakkında daha fazla bilgi almak isterseniz, b
 
 ##  Kullanım
 
-Bu proje, dokümantasyonunuzu içeren "docs" klasöründe yer almaktadır. Projenizi yerel makinenizde incelemek için aşağıdaki adımları takip edebilirsiniz:
+Bu projenin Backend API  dokümantasyonu "docs" klasöründe yer almaktadır. 
+
+Projenizi yerel makinenizde incelemek için aşağıdaki adımları takip edebilirsiniz:
 
 
 1. `docs` klasörüne erişin ve belgeleri görüntülemeye başlayın.
