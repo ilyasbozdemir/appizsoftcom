@@ -9,44 +9,34 @@ Projemizin klasör yapısı şu şekildedir:
 - `index.md`: Ana proje dokümantasyonu
 - `ui/`: Klasörü içindeki dokümantasyonlarla ilgili
   - `ui-component.md`: UI bileşenleri hakkında dokümantasyon
-  - `ui-styling.md`: Stil rehberi ve UI tasarımı hakkında dokümantasyon
+   - ...
 - `api/`: Klasörü içindeki dokümantasyonlarla ilgili
   - `api-routes.md`: API rotaları ve bağlantıları hakkında dokümantasyon
   - `api-authentication.md`: Kimlik doğrulama ve güvenlikle ilgili dokümantasyon
+  - ...
 
-## UI Dokümantasyonu
+### UI Dokümantasyonu
 
-UI dokümantasyonu, kullanıcı arayüzü ve tasarım ile ilgilidir. Aşağıda bazı örnek başlıklar ve açıklamalar bulunur:
+UI dokümantasyonu, projenizin kullanıcı arayüzü ve tasarımı ile ilgilidir.
 
-### UI Bileşenleri
+#### UI Sayfaları
 
-Bu bölümde projede kullanılan UI bileşenleri ve nasıl kullanılacağı hakkında bilgi bulabilirsiniz.
+UI sayfaları, projenin kullanıcı arayüzünün temel yapı taşlarıdır. Her sayfa belirli bir işlevi yerine getirir ve kullanıcıların etkileşimde bulunduğu noktalardır.
 
-- [Butonlar](ui-component.md#butonlar)
-- [Form Alanları](ui-component.md#form-alanları)
+#### UI Bileşenleri
 
-### Stil Rehberi
+UI bileşenleri, sayfaları oluşturan parçalardır. Her bileşen belirli bir görevi yerine getirir ve projenin tutarlı bir görünüme sahip olmasını sağlar.
 
-Projenin stil rehberi, renkler, tipografi ve tasarım önerileri gibi stil unsurlarını içerir.
+---
 
-- [Renk Paleti](ui-styling.md#renk-paleti)
-- [Yazı Tipi Seçimi](ui-styling.md#yazı-tipi-seçimi)
+### API Dokümantasyonu
 
-## API Dokümantasyonu
+API dokümantasyonu, projenizin backend tarafı ve API rotaları ile ilgilidir.
 
-API dokümantasyonu, projenin backend tarafını ve API rotalarını içerir. İşte bazı örnek başlıklar:
+#### API Rotaları
 
-### API Rotası: /users
+API rotaları, projenin veri alışverişi ve işlemlerinin gerçekleştiği yerlerdir. Her rota belirli bir işlevi temsil eder ve istemcilerin verilere erişimini sağlar.
 
-Bu bölümde "/users" API rotasının nasıl kullanılacağı ve yanıt formatı hakkında bilgi bulabilirsiniz.
+#### Kimlik Doğrulama
 
-- [GET /users](api-routes.md#get-users)
-- [POST /users](api-routes.md#post-users)
-
-### Kimlik Doğrulama
-
-API kimlik doğrulama ve güvenlik ile ilgili önemli bilgileri içerir.
-
-- [JWT Kimlik Doğrulama](api-authentication.md#jwt-kimlik-doğrulama)
-
-Bu dokümanlar, projenin belirli bölümleri hakkında daha fazla bilgi içerebilir ve geliştiricilere kaynak sağlamak için kullanılabilir.
+Kimlik doğrulama, API'lerin güvenliği ve yetkilendirme ile ilgilidir. Kullanıcıların kimliklerini doğrulamak ve güvenli bir şekilde veriye erişmelerini sağlamak için kullanılır.
