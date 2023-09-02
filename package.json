@@ -8,7 +8,8 @@
     "start": "next start",
     "export": "next build && next export -o ./out",
     "lint": "next lint",
-    "storybook": "start-storybook"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.18",
@@ -52,8 +53,23 @@
   },
   "devDependencies": {
     "@chakra-ui/storybook-addon": "^5.0.1",
+    "@storybook/addon-essentials": "^7.4.0",
+    "@storybook/addon-interactions": "^7.4.0",
+    "@storybook/addon-links": "^7.4.0",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.0",
+    "@storybook/nextjs": "^7.4.0",
+    "@storybook/react": "^7.4.0",
+    "@storybook/testing-library": "^0.2.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
+    "eslint-plugin-storybook": "^0.6.13",
+    "storybook": "^7.4.0",
     "webpack-bundle-analyzer": "^4.8.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
