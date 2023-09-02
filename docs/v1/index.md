@@ -6,11 +6,9 @@ Bu doküman, projenin dosya yapısı ve içeriği hakkında genel bilgi sunar.
 
 Projemizin klasör yapısı şu şekildedir:
 
-- `index.md`: Ana proje dokümantasyonu
-- `ui/`: Klasörü içindeki dokümantasyonlarla ilgili
-  - `ui-component.md`: UI bileşenleri hakkında dokümantasyon
-   - ...
-- `api/`: Klasörü içindeki dokümantasyonlarla ilgili
-  - `data-fetching.md`: API rotaları ve bağlantıları hakkında dokümantasyon
-  - `authentication.md`: Kimlik doğrulama ve güvenlikle ilgili dokümantasyon
-  - ...
+- `ui/`: Klasörü içindeki dokümantasyonlar projenin kurulumu yayıja alınması gibi bilgiler verir.Ayrıca  projemizin [Appizsoft Storybook](https://storybook-appizsoftcom.vercel.app/?path=/docs/example-button--docs) adresi için buraya tıklayınız.
+- ...
+- `api/`: Klasörü içindeki dokümantasyonlarla ilgili olarak;
+  - `data-fetching/`: API rotaları ve bağlantıları hakkında dokümantasyon için bir rehber sunar.
+  - `authentication.md`: Kimlik doğrulama ve güvenlikle ilgili dokümantasyon için bir rehber sunar.
+  - `database/`: veritabanı tabloları için bir rehber sunar.
