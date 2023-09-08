@@ -37,3 +37,7 @@ yarn-error.log*
 
 # appizsoft file
 /appizsoft
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

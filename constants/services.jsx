@@ -1,22 +1,8 @@
-import WebDesignHero from "../sections/serviceDetail/WebDesignPage";
 
-/*
-
-    id: number,
-    href: string, //[id].jsx urlsi için
-    title: string, //ortak
-    img: string-image-path, //services componenti için
-    desc: string,////[id].jsx urlsi için detaylı açıklama
-    content: string, //services componenti için
-    serviceCategory: string,
-    isServicesComponentDisplay: boolean,
-
-    
-*/
 export const services = [
   {
     id: 7001,
-    href: "web-design-development", //[id].jsx
+    slug: "web-design-development", //[id].jsx
     title: "Web Tasarımı ve Geliştirme", //ortak
     img: "/images/special_software_development.png", //services componenti için
     metaDesc:
@@ -25,13 +11,12 @@ export const services = [
     özel yazılımları geliştiriyoruz.Size özel çözümler sunarak
     işletmenizi dijital dünyada öne çıkarmanıza yardımcı oluyoruz.`, //services componenti için
     serviceCategory: "software",
-
     isServicesComponentDisplay: true,
   },
 
   {
     id: 7002,
-    href: "e-commerce-solutions",
+    slug: "e-commerce-solutions",
     title: "E-ticaret Çözümleri",
     img: "/images/e_commerce.png",
     metaDesc: `İnternet mağazanızın yazılım ve dijital pazarlama ihtiyaçları için
@@ -45,7 +30,7 @@ export const services = [
 
   {
     id: 7003,
-    href: "startup-solutions",
+    slug: "startup-solutions",
     title: "Start-Up Çözümleri",
     img: "/images/start_up.png",
     metaDesc: `Start-up dünyasının zorluklarını anlıyoruz ve size özel çözümler sunarak rekabet avantajı elde etmenize yardımcı oluyoruz.`,
@@ -55,7 +40,7 @@ export const services = [
   },
   {
     id: 7004,
-    href: "mobile-app-development",
+    slug: "mobile-app-development",
     title: "Mobil Uygulama Geliştirme",
     img: `/images/mobile__app.png`,
     metaDesc: `Mobil cihazların popülaritesi hızla artarken, müşterilerinize kaliteli ve kullanıcı dostu mobil uygulamalar sunmak, işletmenizin dijital varlığını güçlendirmenin temel unsurlarından biridir.`,
@@ -65,7 +50,7 @@ export const services = [
   },
   {
     id: 7005,
-    href: "game-design",
+    slug: "game-design",
     title: "Oyun Tasarımı",
     img: "/images/game_design.png",
     metaDesc: ``,
@@ -78,7 +63,7 @@ export const services = [
 
   {
     id: 7006,
-    href: "test-automation", //[id].jsx
+    slug: "test-automation", //[id].jsx
     title: "Test Otomasyonu",
     img: "/images/test_automation.png", //services componenti için
     metaDesc: `Web ve mobil uygulamalarınızın uyumluluğunu ve performansını etkili bir şekilde test etmek için özel olarak tasarlanmış bu çözümlerle iş süreçlerinizi optimize edin`,
@@ -90,7 +75,7 @@ export const services = [
 
   {
     id: 7008,
-    href: "production",
+    slug: "production",
     title: "Prodüksiyon",
     img: "/images/production.png",
     metaDesc: `Markalaşma yolculuğunuzda logo, kurumsal kimlik, tanıtım filmi gibi tüm
@@ -103,7 +88,7 @@ export const services = [
   },
   {
     id: 1008,
-    href: "web-banner-design",
+    slug: "web-banner-design",
     title: "Web Banner Tasarımı",
     img: "",
     metaDesc: `Çekici ve etkileyici web banner tasarımlarıyla online varlığınızı güçlendirin`,
@@ -114,7 +99,7 @@ export const services = [
   },
   {
     id: 1007,
-    href: "business-card-design",
+    slug: "business-card-design",
     title: "Kartvizit Tasarımı",
     img: "",
     metaDesc: ``,
@@ -125,7 +110,7 @@ export const services = [
   },
   {
     id: 1003,
-    href: "poster-design",
+    slug: "poster-design",
     title: "Poster Tasarımı",
     img: "",
     metaDesc: `Etkileyici ve dikkat çekici posterlerle etkinliklerinizi duyurun. Özel tasarlanmış posterler ile hedef kitlenizin ilgisini çekin.`,
@@ -137,7 +122,7 @@ export const services = [
   },
   {
     id: 1002,
-    href: "branding",
+    slug: "branding",
     title: "Kurumsal Kimlik Tasarımı",
     img: "",
     metaDesc: `Markanızın karakterini yansıtan kurumsal kimlik tasarımlarıyla öne çıkın`,
@@ -149,7 +134,7 @@ export const services = [
   },
   {
     id: 1001,
-    href: "logo-design",
+    slug: "logo-design",
     title: "Logo Tasarımı",
     img: "",
     metaDesc: `Markanızı yansıtan özgün ve etkileyici logo tasarımlarıyla tanışın`,
@@ -161,7 +146,7 @@ export const services = [
   },
   {
     id: 7009,
-    href: "social-media-management",
+    slug: "social-media-management",
     title: "Sosyal Medya Yönetimi",
     img: "",
     metaDesc: `Hedef kitlenizle etkileşim kurmak için sosyal medya platformlarını etkili bir şekilde yönetiyoruz.`,
@@ -173,7 +158,7 @@ export const services = [
   },
   {
     id: 7010,
-    href: "seo",
+    slug: "seo",
     title: "Arama Motoru Optimizasyonu (SEO)",
     img: "",
     metaDesc: `Web sitenizin organik arama sonuçlarında üst sıralarda görünmesini sağlamak için SEO hizmetleri sunuyoruz.`,
@@ -184,7 +169,7 @@ export const services = [
   },
   {
     id: 7011,
-    href: "google-ads",
+    slug: "google-ads",
     title: "Google Reklamları Yönetimi (SEM)",
     img: "",
     metaDesc: `Google Ads platformunu kullanarak hedeflenen reklamlar oluşturuyoruz.`,
@@ -196,7 +181,7 @@ export const services = [
   },
   {
     id: 7012,
-    href: "email-marketing",
+    slug: "email-marketing",
     title: "E-Posta Pazarlama Kampanyaları",
     img: "",
     metaDesc: `Etkili e-posta pazarlama kampanyaları oluşturarak, müşterilere özel içerikler, promosyonlar ve güncellemeler sunuyoruz.`,
@@ -208,7 +193,7 @@ export const services = [
   },
   {
     id: 7013,
-    href: "content-marketing",
+    slug: "content-marketing",
     title: "İçerik Üretimi ve Pazarlama",
     img: "",
     metaDesc: `İlgilendiğiniz sektöre özgü nitelikli içerikler üreterek, hedef kitlenizi bilgilendiriyor ve etkili bir şekilde etkileşim kurmanızı sağlıyoruz.`,

@@ -257,7 +257,7 @@ export async function getStaticPaths() {
   const paths = services.map((service) => {
     return {
       params: {
-        id: service.href,
+        id: service.slug,
       },
     };
   });
@@ -270,7 +270,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { id } = params;
-  const service = services.find((service) => service.href === id);
+  const service = services.find((service) => service.slug === id);
 
   return {
     props: {

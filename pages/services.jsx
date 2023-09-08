@@ -39,7 +39,7 @@ const baseImagePath = "https://appizsoft-static-api.vercel.app";
 import OurTechnologies from "../sections/OurTechnologies";
 
 const ServicesCard = (props) => {
-  const { id, img, href, title, content } = props;
+  const { id, img, slug, title, content } = props;
   const router = useRouter();
 
   return (
@@ -76,7 +76,7 @@ const ServicesCard = (props) => {
             <Stack>
               <Link
                 href="/service/[id]"
-                as={`/service/${href}`}
+                as={`/service/${slug}`}
                 shallow={true}
                 passHref
               >
