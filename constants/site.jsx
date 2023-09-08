@@ -15,7 +15,6 @@ export const site = {
   title: `Appizsoft | Yazılım & Tasarım & Dijital Pazarlama`,
   baseUrl: baseUrl,
   publisher: `Appizsoft Yazılım`,
-
   ogImage: "https://appizsoft-static-api.vercel.app/images/og-image.png",
   twImage: "https://appizsoft-static-api.vercel.app/images/tw-image.png",
   logoUrl: baseUrl + "/logo.png",
