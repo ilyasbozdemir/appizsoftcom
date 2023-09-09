@@ -123,9 +123,9 @@ export const projects = [
       "Bu projede bir dizi video içeriği üreterek müşterimizin dijital varlığını güçlendirdik.",
   },
   {
-    id: "random=7",
-    portfolio: "/images/references/p - (7).jpg",
-    name: "Project G",
+    id: "sultan-bistro",
+    portfolio: "/images/sultan-bistro.png",
+    name: "Sultan Bistro",
     portfolioSize: {
       w: 300,
       h: 200,
@@ -135,8 +135,54 @@ export const projects = [
     sector: "technology",
     projectUrl: "",
     description:
-      "Bu projede dijital pazarlama stratejileri oluşturarak müşterimizin online görünürlüğünü artırdık.",
+      "Sultan Bistro adlı işletmenin sosyal medya hesaplarını yöneterek, marka bilinirliğini artırdık ve hedef kitleye ulaşma konusunda büyük başarı elde ettik.",
   },
+  {
+    id: "aksa-celik-yapi",
+    portfolio: "/images/aksa.png",
+    name: "Aksa Çelik Yapı",
+    portfolioSize: {
+      w: 300,
+      h: 200,
+    },
+    category: "digital-marketing",
+    logo: "/logo.png",
+    sector: "technology",
+    projectUrl: "",
+    description:
+      "Aksa Çelik Yapı adlı işletmenin sosyal medya hesaplarını yöneterek, marka bilinirliğini artırdık ve hedef kitleye ulaşma konusunda büyük başarı elde ettik.",
+  },
+  {
+    id: "modivu",
+    portfolio: "/images/modivu.png",
+    name: "Modivu",
+    portfolioSize: {
+      w: 300,
+      h: 200,
+    },
+    category: "digital-marketing",
+    logo: "/modivu-logo.png",
+    sector: "other",
+    projectUrl: "",
+    description:
+      "Modivu adlı işletmenin sosyal medya hesaplarını yöneterek, marka bilinirliğini artırdık ve hedef kitleye ulaşma konusunda büyük başarı elde ettik.",
+  },
+  {
+    id: "asker-abi",
+    portfolio: "/images/asker_abi.png",
+    name: "Asker Abinin Yeri Sivas",
+    portfolioSize: {
+      w: 300,
+      h: 200,
+    },
+    category: "digital-marketing",
+    logo: "/asker-abi-logo.png",
+    sector: "food",
+    projectUrl: "",
+    description:
+      "Asker Abinin Yeri adlı işletmenin sosyal medya hesaplarını yöneterek, marka bilinirliğini artırdık ve hedef kitleye ulaşma konusunda büyük başarı elde ettik.",
+  },
+  
   {
     id: "random=8",
     portfolio: "/images/references/p - (8).jpg",

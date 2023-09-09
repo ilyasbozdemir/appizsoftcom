@@ -142,6 +142,7 @@ const FooterAcordion = () => {
                     <Stack align={"flex-start"}>
                     <Link href={"/#"}>Müşteriler</Link>
                       <Link href={"/about-appizsoft"}>Hakkımızda</Link>
+                      <Link href={"/our-references"}>Referanslarımız</Link>
                       <Link href={"/commercial-information"}>
                         Ticari Bilgiler
                       </Link>
@@ -257,6 +258,7 @@ function LargeWithLogoCentered() {
                   <ListHeader>Kurumsal</ListHeader>
                   <Link href={"/#"}>Müşteriler</Link>
                   <Link href={"/about-appizsoft"}>Hakkımızda</Link>
+                  <Link href={"/our-references"}>Referanslarımız</Link>
                   <Link href={"/commercial-information"}>
                         Ticari Bilgiler
                       </Link>

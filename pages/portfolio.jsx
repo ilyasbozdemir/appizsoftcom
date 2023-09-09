@@ -5,12 +5,20 @@ import {
   Container,
   Flex,
   Icon,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Select,
   SimpleGrid,
   Stack,
   Text,
   Wrap,
   WrapItem,
+  useDisclosure,
   useRadio,
   useRadioGroup,
 } from "@chakra-ui/react";
@@ -198,6 +206,14 @@ const PortfolioContent = () => {
   };
 
   const group = getRootProps();
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const modalOverlay = {
+    bg: "none",
+    backdropFilter: "auto",
+    backdropBlur: "8px",
+  };
   return (
     <Container p={{ base: 9, md: 10 }} maxW="8xl">
       {isMobile && (
@@ -246,7 +262,17 @@ const PortfolioContent = () => {
           mb={4}
         >
           {filteredData.map((p, index) => (
-            <Flex direction={"column"} key={p.id}>
+            <Flex
+              direction={"column"}
+              key={p.id}
+              _hover={{
+                boxShadow:
+                  "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
+              }}
+              p={5}
+              boxShadow="xs"
+              userSelect={'none'}
+            >
               <Flex
                 direction={"column"}
                 cursor={"pointer"}
@@ -262,6 +288,7 @@ const PortfolioContent = () => {
                   style={{
                     borderRadius: "15px",
                   }}
+                  onClick={onOpen}
                 />
                 <Text
                   fontFamily={"monospace"}
@@ -277,6 +304,29 @@ const PortfolioContent = () => {
                 </Text>
               </Flex>
               <Text>{p.description}</Text>
+              <Modal
+                closeOnOverlayClick={false}
+                isOpen={isOpen}
+                onClose={onClose}
+                size={"4xl"}
+              >
+                <ModalOverlay {...modalOverlay} />
+                <ModalContent>
+                  <ModalCloseButton />
+                  <ModalBody p={5}>
+                    <Image
+                      src={`${baseImagePath}/${p.portfolio}`}
+                      alt={p.name}
+                      height={p.portfolioSize.h * 10}
+                      width={p.portfolioSize.w * 10}
+                      style={{
+                        borderRadius: "15px",
+                      }}
+                      onClick={onOpen}
+                    />
+                  </ModalBody>
+                </ModalContent>
+              </Modal>
             </Flex>
           ))}
         </SimpleGrid>

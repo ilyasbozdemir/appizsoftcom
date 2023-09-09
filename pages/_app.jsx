@@ -1,6 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-// Dynamic imports for layout components
+
 const UserLayout = dynamic(() => import("../layouts/UserLayout"));
 const AdminLayout = dynamic(() => import("../layouts/AdminLayout"));
 const ErrorLayout = dynamic(() => import("../layouts/ErrorLayout"));
