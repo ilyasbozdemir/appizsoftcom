@@ -27,8 +27,6 @@
     "dotenv": "^16.0.3",
     "framer-motion": "^6.5.1",
     "jsonwebtoken": "^9.0.1",
-    "leaflet": "^1.9.3",
-    "leaflet-defaulticon-compatibility": "^0.1.1",
     "next": "13.1.1",
     "next-i18next": "^13.3.0",
     "next-intl": "^2.19.0",
@@ -52,6 +50,8 @@
     "tailwindcss": "^3.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.17",
+    "@babel/eslint-parser": "^7.22.15",
     "@chakra-ui/storybook-addon": "^5.0.1",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
@@ -61,7 +61,7 @@
     "@storybook/nextjs": "^7.4.0",
     "@storybook/react": "^7.4.0",
     "@storybook/testing-library": "^0.2.0",
-    "eslint": "8.34.0",
+    "eslint": "^8.34.0",
     "eslint-config-next": "13.2.1",
     "eslint-plugin-storybook": "^0.6.13",
     "storybook": "^7.4.0",
