@@ -19,6 +19,7 @@ import React, { useEffect, useState } from "react";
 import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
 import { site } from "../constants/site";
 import Link from "next/link";
+import PagesCTA from "../components/PagesCTA";
 
 const ProductsCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -97,7 +98,7 @@ const projectsList = [
     //link: "https://bilibum.app",
     link: "/tr/products/",
     desc: `Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.`,
-    technologies: ["React Native", "Nextjs"],
+    technologies: ["React Native", "Nextjs", "Net Core"],
     platform: "Mobile",
   },
 ];
@@ -295,7 +296,7 @@ function ProductsPage() {
       </Head>
 
       <Box>
-        <ProductsCTA />
+        <PagesCTA imgSrc={"/products.png"} currentPage={"Ürünler"} />
         <ProductsContent />
       </Box>
     </>

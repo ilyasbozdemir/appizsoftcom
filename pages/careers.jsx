@@ -49,11 +49,12 @@ import {
   FaGraduationCap,
   FaBullhorn,
 } from "react-icons/fa";
+import PagesCTA from "../components/PagesCTA";
 
 function CareersPage() {
   return (
     <Flex direction={"column"} gap={3}>
-      <CareersCTA />
+      <PagesCTA imgSrc={"/careers.png"} currentPage={"Kariyer"} />
       <CareersContent />
     </Flex>
   );

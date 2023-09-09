@@ -11,13 +11,11 @@ import {
   Center,
   SimpleGrid,
   Button,
-  Divider,
   Stack,
   Card,
   CardBody,
   CardFooter,
   Container,
-  useMediaQuery,
   useBreakpointValue,
   Select,
   Icon,
@@ -37,6 +35,7 @@ import Image from "next/image";
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 import OurTechnologies from "../sections/OurTechnologies";
+import PagesCTA from "../components/PagesCTA";
 
 const ServicesCard = (props) => {
   const { id, img, slug, title, content } = props;
@@ -47,7 +46,7 @@ const ServicesCard = (props) => {
       <Card maxW="sm" role={"group"}>
         <CardBody
           onClick={() => {
-            router.push("/service/[id]", `/service/${href}`, {
+            router.push("/service/[id]", `/service/${slug}`, {
               shallow: true,
             });
           }}
@@ -97,74 +96,6 @@ const ServicesCard = (props) => {
           </Flex>
         </CardFooter>
       </Card>
-    </>
-  );
-};
-
-const OurServicesCTA = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    // İlk renderda ekran boyutuna göre kontrol yapılır
-    handleWindowSize();
-
-    // Ekran boyutu değiştiğinde kontrol yapılır
-    window.addEventListener("resize", handleWindowSize);
-
-    // Temizleme fonksiyonu
-    return () => {
-      window.removeEventListener("resize", handleWindowSize);
-    };
-  }, []);
-
-  const handleWindowSize = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
-
-  return (
-    <>
-      <Flex direction={"column"}>
-        {!isMobile && (
-          <>
-            <Flex
-              as="section"
-              h={"350px"}
-              bgGradient="linear(to-l, #667eea, #54BEC3)"
-              w="100%"
-              color="white"
-              justify={"center"}
-            >
-              <Center>
-                <Flex direction={"column"}>
-                  <Text fontSize={65}>Hizmetler</Text>
-                  <Center>
-                    <PagesBreadcrumb currentPage={"Hizmetler"} />
-                  </Center>
-                </Flex>
-              </Center>
-            </Flex>
-          </>
-        )}
-
-        {isMobile && (
-          <Flex
-            as="section"
-            h={180}
-            bgGradient="linear(to-l, #667eea, #54BEC3)"
-            w="100%"
-            color="white"
-            justify={"center"}
-          >
-            <Center>
-              <Flex direction={"column"}>
-                <Text fontSize={45}>Hizmetler</Text>
-                <Center>
-                  <PagesBreadcrumb currentPage={"Hizmetler"} />
-                </Center>
-              </Flex>
-            </Center>
-          </Flex>
-        )}
-      </Flex>
     </>
   );
 };
@@ -231,8 +162,6 @@ const OurServicesContent = () => {
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
- 
-
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "services",
     defaultValue: selectedCategory,
@@ -243,14 +172,6 @@ const OurServicesContent = () => {
 
   return (
     <Container maxW="8xl" p={{ base: 5, md: 10 }}>
-      <Center mb={5} mt={2}>
-        <Flex direction={"column"} justifyContent={"center"} gap={3}>
-          <Heading as="h2" fontSize={24} pos="relative">
-            Hizmetler
-          </Heading>
-        </Flex>
-      </Center>
-
       {!isMobile && (
         <>
           <Flex
@@ -457,7 +378,7 @@ function ServicesPage() {
       </Head>
 
       <Box>
-        <OurServicesCTA />
+        <PagesCTA imgSrc={"/services.png"} currentPage={"Hizmetler"} />
         <OurServicesContent />
       </Box>
     </>

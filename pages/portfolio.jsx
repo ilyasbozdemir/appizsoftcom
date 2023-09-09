@@ -21,6 +21,7 @@ import { site } from "../constants/site";
 import { projects } from "../constants/projects";
 import Image from "next/image";
 import { PiArrowsDownUpLight } from "react-icons/pi";
+import PagesCTA from "../components/PagesCTA";
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 const PortfolioCTA = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -338,7 +339,7 @@ function OurPortfolioPage() {
       </Head>
 
       <Box>
-        <PortfolioCTA />
+        <PagesCTA imgSrc={"/porfolio.png"} currentPage={"Portfolyo"} />
         <PortfolioContent />
       </Box>
     </>

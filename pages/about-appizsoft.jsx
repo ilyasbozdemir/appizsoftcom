@@ -1,80 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Box, Center, Flex, Heading, Text, VStack } from "@chakra-ui/react";
-import PagesBreadcrumb from "../components/shared/PagesBreadcrumb";
+import React from "react";
+import { Flex } from "@chakra-ui/react";
+
 import Head from "next/head";
 import { site } from "../constants/site";
 import AboutUs from "../sections/AboutUs";
 import PartnersSection from "../sections/Partners";
 import Portfolio from "../sections/Portfolio";
-
-const AboutUsCTA = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    // İlk renderda ekran boyutuna göre kontrol yapılır
-    handleWindowSize();
-
-    // Ekran boyutu değiştiğinde kontrol yapılır
-    window.addEventListener("resize", handleWindowSize);
-
-    // Temizleme fonksiyonu
-    return () => {
-      window.removeEventListener("resize", handleWindowSize);
-    };
-  }, []);
-
-  const handleWindowSize = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
-
-  return (
-    <>
-      <Flex mt={4} direction={"column"}>
-        {!isMobile && (
-          <>
-            <Flex
-              as="section"
-              h={"350px"}
-              bgGradient="linear(to-l, #667eea, #54BEC3)"
-              w="100%"
-              color="white"
-              justify={"center"}
-            >
-              <Center>
-                <Flex direction={"column"}>
-                  <Text fontSize={65}>Hakkımızda</Text>
-                  <Center>
-                    <PagesBreadcrumb currentPage={"Hakkımızda"} />
-                  </Center>
-                </Flex>
-              </Center>
-            </Flex>
-          </>
-        )}
-
-        {isMobile && (
-          <Flex
-            as="section"
-            h={180}
-            bgGradient="linear(to-l, #667eea, #54BEC3)"
-            w="100%"
-            color="white"
-            justify={"center"}
-          >
-            <Center>
-              <Flex direction={"column"}>
-                <Text fontSize={45}>Hakkımızda</Text>
-                <Center>
-                  <PagesBreadcrumb currentPage={"Hakkımızda"} />
-                </Center>
-              </Flex>
-            </Center>
-          </Flex>
-        )}
-      </Flex>
-    </>
-  );
-};
+import PagesCTA from "../components/PagesCTA";
 
 const AboutUsContent = () => {
   return (
@@ -85,8 +17,8 @@ const AboutUsContent = () => {
 buraya nextjs net core gibi yazılımlar hakkında bilgi alanı
 
       */}
-      <PartnersSection/>
-      <Portfolio/>
+      <PartnersSection />
+      <Portfolio />
     </Flex>
   );
 };
@@ -151,7 +83,7 @@ function AboutUsPage() {
       </Head>
 
       <main>
-        <AboutUsCTA />
+        <PagesCTA imgSrc={"/about-appizsoft.png"} currentPage={"Hakkımızda"} />
         <AboutUsContent />
       </main>
     </>

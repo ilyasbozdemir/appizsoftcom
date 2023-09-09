@@ -36,6 +36,7 @@ import {
 } from "react-icons/bs";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
 import Link from "next/link";
+import PagesCTA from "../components/PagesCTA";
 
 const confetti = {
   light: {
@@ -66,7 +67,7 @@ function ContactFormWithSocialButtons() {
       duration: 1000,
       isClosable: true,
     });
-  }; 
+  };
   const messageSendOnClickHandled = () => {
     onCopy();
 
@@ -388,7 +389,7 @@ function ContactPage() {
       </Head>
 
       <Box>
-        <ContactCTA />
+        <PagesCTA imgSrc={"/contact.png"} currentPage={"İletişim"} />
         <ContactContent />
       </Box>
     </Box>

@@ -252,7 +252,7 @@ const HeaderNav = () => {
 
         {/* Mobile Screen Links */}
         {isOpen ? (
-          <Box pb={4} display={["inherit", "inherit", "none"]}>
+          <Box pb={4} display={["inherit", "inherit", "none"]}       zIndex={1000}>
             <Stack as="nav" spacing={2}>
               <>
                 <Text fontWeight="semibold" color="gray.500">
@@ -327,15 +327,15 @@ const NavLink = ({ name, path, onClose }) => {
 
 const MenuLink = ({ name, path, icon, onClose }) => {
   const router = useRouter();
-  const currentPath = router.pathname;
 
   return (
-    <Link href={path} onClick={() => onClose()} locale={router.locale}>
+    <Link href={path} onClick={() => onClose()} locale={router.locale} > 
       <MenuItem
         _hover={{
           color: "blue.400",
           // bg: useColorModeValue("gray.200", "gray.700"),
         }}
+  
       >
         <HStack>
           <Text>{name}</Text>
