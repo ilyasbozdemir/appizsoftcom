@@ -161,7 +161,7 @@ export const projects = [
       h: 200,
     },
     category: "digital-marketing",
-    logo: "/modivu-logo.png",
+    logo: "/images/modivu-logo.png",
     sector: "other",
     projectUrl: "",
     description:
@@ -176,12 +176,28 @@ export const projects = [
       h: 200,
     },
     category: "digital-marketing",
-    logo: "/asker-abi-logo.png",
+    logo: "/images/asker-abi-logo.png",
     sector: "food",
     projectUrl: "",
     description:
       "Asker Abinin Yeri adlı işletmenin sosyal medya hesaplarını yöneterek, marka bilinirliğini artırdık ve hedef kitleye ulaşma konusunda büyük başarı elde ettik.",
   },
+  {
+    id: "  woodenreal",
+    portfolio: "/images/woodenreal.png",
+    name: "Woodenreal",
+    portfolioSize: {
+      w: 300,
+      h: 200,
+    },
+    category: "digital-marketing",
+    logo: "/images/woodenreal-logo.png",
+    sector: "food",
+    projectUrl: "",
+    description:
+      "Asker Abinin Yeri adlı işletmenin sosyal medya hesaplarını yöneterek, marka bilinirliğini artırdık ve hedef kitleye ulaşma konusunda büyük başarı elde ettik.",
+  },
+
   
   {
     id: "random=8",
