@@ -13,14 +13,29 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { Logo } from "./Logo";
-import { OAuthButtonGroup } from "./OAuthButtonGroup";
+import Logo from "./Logo";
 import { PasswordField } from "./PasswordField";
 
-import React from "react";
-import Router from "next/router";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function LoginPage() {
+  const { data: sessionData } = useSession();
+
+  const [email, setEMail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
+  const SıgnInHandler = () => {
+    signIn("credentials", {
+      email: email,
+      password: password,
+    });
+  };
+
   return (
     <>
       <Container
@@ -46,7 +61,7 @@ function LoginPage() {
                 md: "sm",
               }}
             >
-              Appizsoft Login Interface
+              Appizsoft Yazılım Giriş Paneli
             </Heading>
           </Stack>
           <Box
@@ -74,41 +89,50 @@ function LoginPage() {
             <Stack spacing="6">
               <Stack spacing="5">
                 <FormControl>
-                  <FormLabel htmlFor="email">Email</FormLabel>
-                  <Input id="email" type="email" />
+                  <FormLabel htmlFor="email">E-mail</FormLabel>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEMail(e.target.value);
+                    }}
+                  />
                 </FormControl>
-                <PasswordField />
+                <PasswordField value={password} setValue={setPassword} />
               </Stack>
               <HStack justify="space-between">
                 <Checkbox defaultChecked colorScheme="teal">
-                  Remember me
+                  Beni Hatırla
                 </Checkbox>
                 <Button variant="text" colorScheme="teal" size="sm">
-                  Forgot password?
+                  Şifremi Unuttum
                 </Button>
               </HStack>
-
               <Stack spacing="6">
-                <Button
-                  colorScheme="teal"
-                  _hover={{
-                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
-                  }}
-                  onClick={() => {
-                    Router.push("/admin");
-                  }}
-                >
-                  Sign in
-                </Button>
-                <HStack>
-                  <Divider />
-                  <Text fontSize="sm" whiteSpace="nowrap" color={"gray"}>
-                    or continue with
-                  </Text>
-                  <Divider />
-                </HStack>
-                <OAuthButtonGroup />
+                {!sessionData ? (
+                  <Button
+                    bg="primary.100"
+                    color="white"
+                    onClick={SıgnInHandler}
+                  >
+                    Giriş Yap Test
+                  </Button>
+                ) : (
+                  <Button
+                    bg="primary.100"
+                    color="white"
+                    onClick={() => signOut()}
+                  >
+                    Çıkış Yap Tes
+                  </Button>
+                )}
               </Stack>
+
+              <Text fontWeight={"semibold"}>
+                Giriş Yapan Kullanıcı Bilgileri:
+              </Text>
+              <pre>{JSON.stringify(sessionData, null, 2)}</pre>
             </Stack>
           </Box>
         </Stack>

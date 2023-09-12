@@ -12,8 +12,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps, statusCode }) {
+function MyApp({ Component, pageProps, session, statusCode }) {
   const data = {};
   let Layout;
   const router = useRouter();
@@ -44,11 +45,13 @@ function MyApp({ Component, pageProps, statusCode }) {
             <ErrorLayout statusCode={statusCode} />
           </>
         ) : (
-          <ChakraProvider theme={theme} resetCSS>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </ChakraProvider>
+          <SessionProvider session={session}>
+            <ChakraProvider theme={theme} resetCSS>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </ChakraProvider>
+          </SessionProvider>
         )}
       </>
 
@@ -60,15 +63,17 @@ function MyApp({ Component, pageProps, statusCode }) {
 MyApp.getInitialProps = async (appContext) => {
   const { Component, ctx } = appContext;
   let pageProps = {};
+  let session = {};
 
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
+    session = await Component.getInitialProps(ctx);
   }
 
   const { res, err } = ctx;
   const statusCode = res ? res.statusCode : err ? err.statusCode : null;
 
-  return { pageProps, statusCode };
+  return { pageProps, session, statusCode };
 };
 
 export default MyApp;
