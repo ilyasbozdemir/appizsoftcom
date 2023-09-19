@@ -19,21 +19,22 @@ import { PasswordField } from "./PasswordField";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+import { loginUser } from "../../services/userService";
 
 function LoginPage() {
-  const { data: sessionData } = useSession();
-
   const [email, setEMail] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
 
+  const SıgnUpHandler = () => {};
+
   const SıgnInHandler = () => {
-    signIn("credentials", {
-      email: email,
-      password: password,
-    });
+    const loginData = {
+      "userName": email,
+      "password": password
+    };
+    loginUser(loginData);
   };
 
   return (
@@ -110,29 +111,15 @@ function LoginPage() {
                 </Button>
               </HStack>
               <Stack spacing="6">
-                {!sessionData ? (
-                  <Button
-                    bg="primary.100"
-                    color="white"
-                    onClick={SıgnInHandler}
-                  >
-                    Giriş Yap Test
-                  </Button>
-                ) : (
-                  <Button
-                    bg="primary.100"
-                    color="white"
-                    onClick={() => signOut()}
-                  >
-                    Çıkış Yap Tes
-                  </Button>
-                )}
+                <Button
+                  bg="primary.100"
+                  _hover={{ bg: "primaryD.100" }}
+                  color="white"
+                  onClick={SıgnInHandler}
+                >
+                  Giriş Yap
+                </Button>
               </Stack>
-
-              <Text fontWeight={"semibold"}>
-                Giriş Yapan Kullanıcı Bilgileri:
-              </Text>
-              <pre>{JSON.stringify(sessionData, null, 2)}</pre>
             </Stack>
           </Box>
         </Stack>

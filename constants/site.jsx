@@ -6,6 +6,11 @@ import { pinterestAnalyticsCode } from "../lib/pinterestAnalyticsCode";
 import { googleAnalyticsCode } from "../lib/googleAnalyticsCode";
 import { facebookPixelCode } from "../lib/facebookPixelCode";
 
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.appizsoft.com/"
+    : "https://localhost:7143/";
+
 const baseUrl =
   process.env.NODE_ENV === "production"
     ? "https://appizsoft.com"
@@ -13,6 +18,7 @@ const baseUrl =
 
 export const site = {
   title: `Appizsoft | Yazılım & Tasarım & Dijital Pazarlama`,
+  API_BASE_URL: API_BASE_URL,
   baseUrl: baseUrl,
   publisher: `Appizsoft Yazılım`,
   ogImage: "https://appizsoft-static-api.vercel.app/images/og-image.png",

@@ -5,48 +5,31 @@ import axios from "axios";
 
 //http://localhost:5226/api/v1/users
 
-const API_BASE_URL = "http://localhost:5226/api/v1/"; // API'nin temel URL'si
-const createUserEP = `users/add`;
-const getAllUserEP = `users/all`;
+import { site } from "../constants/site";
 
-export const createUser = async (userData) => {
+const registerUserEP = `/auth/register`;
 
-    //const response = await axios.post(API_BASE_URL + createUserEP, userData);
+const loginUserEP = `/auth/login`;
 
-    console.table(userData)
+const BASE_URL_V1 = site.API_BASE_URL + "api/v1";
+
+export const loginUser = async (userData) => {
+
+  const jsonData = JSON.stringify(userData);
 
 
- /* try {
-    const response = await axios.post(API_BASE_URL + createUserEP, userData);
+  console.table(jsonData)
 
-    if (response.status === 201) {
-      // Başarılı oluşturma durumunda başka bir işlem yapabilirsiniz.
-      return "Kullanıcı başarıyla oluşturuldu.";
-    } else {
-      // Hata mesajını işleyebilirsiniz.
-      throw new Error("Kullanıcı oluşturma başarısız oldu.");
-    }
-  } catch (error) {
-    // İstek sırasında bir hata oluştu.
-    throw new Error("İstek yapılırken bir hata oluştu: " + error.message);
-  }
-  */
-};
-//http://localhost:5226/api/v1/users/all
-
-export const getAllUser = async (userData) => {
-  try {
-    const response = await axios.get(API_BASE_URL + getAllUserEP);
-
-    if (response.status === 200) {
-      // Başarılı oluşturma durumunda başka bir işlem yapabilirsiniz.
-      return response.data;
-    } else {
-      // Hata mesajını işleyebilirsiniz.
-      throw new Error("all user oluşturma başarısız oldu.");
-    }
-  } catch (error) {
-    // İstek sırasında bir hata oluştu.
-    throw new Error("İstek yapılırken bir hata oluştu: " + error.message);
-  }
+  axios
+    .post(BASE_URL_V1 + loginUserEP, jsonData,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      )
+    .then(function (response) {
+      // İstek başarılı olduğunda burası çalışır
+      console.log("Başarılı istek:", response.token);
+    })
 };
