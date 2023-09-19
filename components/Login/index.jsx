@@ -19,7 +19,7 @@ import { PasswordField } from "./PasswordField";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-import { loginUser } from "../../services/userService";
+import { loginUser } from "../../services/authService";
 
 function LoginPage() {
   const [email, setEMail] = useState("");
