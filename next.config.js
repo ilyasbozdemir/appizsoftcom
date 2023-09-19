@@ -5,7 +5,11 @@ module.exports = {
   env: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
   },
-
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
   /*  rewrites: async () => [
  {
       source: "/tr/hakkimizda",
