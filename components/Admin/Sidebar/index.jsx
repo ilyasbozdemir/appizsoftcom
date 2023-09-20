@@ -18,9 +18,9 @@ const Sidebar = () => {
       h="100vh"
       p="4"
       boxShadow="md"
-      display={{ base: "none", md: "initial" }}
+
     >
-      <VStack spacing="4" align="stretch"></VStack>
+   
     </Box>
   );
 };

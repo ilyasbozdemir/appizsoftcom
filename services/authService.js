@@ -21,13 +21,7 @@ export const loginUser = async (userData) => {
   console.table(jsonData)
 
   axios
-    .post(BASE_URL_V1 + loginUserEP, jsonData,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      }
-      )
+    .post(BASE_URL_V1 + loginUserEP, jsonData )
     .then(function (response) {
       // İstek başarılı olduğunda burası çalışır
       console.log("Başarılı istek:", response.token);

@@ -12,8 +12,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { SessionProvider } from "next-auth/react";
-
 function MyApp({ Component, pageProps, session, statusCode }) {
   const data = {};
   let Layout;
@@ -45,13 +43,13 @@ function MyApp({ Component, pageProps, session, statusCode }) {
             <ErrorLayout statusCode={statusCode} />
           </>
         ) : (
-          <SessionProvider session={session}>
+          <>
             <ChakraProvider theme={theme} resetCSS>
               <Layout>
                 <Component {...pageProps} />
               </Layout>
             </ChakraProvider>
-          </SessionProvider>
+          </>
         )}
       </>
 

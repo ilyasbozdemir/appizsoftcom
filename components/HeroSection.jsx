@@ -128,6 +128,7 @@ const HeroSection = () => {
             fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80`}
             rounded="md"
             fallback={<Skeleton />}
+            draggable={false}
           />
         </Box>
       </Flex>

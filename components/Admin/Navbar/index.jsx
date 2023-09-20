@@ -172,6 +172,7 @@ const NavItem = ({ isMaximized, handleMaximizeToggle }) => {
             </MenuItem>
           </MenuList>
         </Menu>
+        
       </HStack>
     </>
   );
