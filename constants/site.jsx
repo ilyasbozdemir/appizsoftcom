@@ -9,7 +9,7 @@ import { facebookPixelCode } from "../lib/facebookPixelCode";
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://api.appizsoft.com/"
-    : "https://localhost:7143/";
+    : "http://localhost:5226";
 
 const baseUrl =
   process.env.NODE_ENV === "production"

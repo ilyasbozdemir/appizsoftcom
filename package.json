@@ -21,6 +21,7 @@
     "@heroicons/react": "^2.0.17",
     "@next/bundle-analyzer": "^13.2.1",
     "@next/font": "^13.1.1",
+    "@react-oauth/google": "^0.11.1",
     "aos": "^2.3.4",
     "auth": "^0.0.9",
     "autoprefixer": "^10.4.14",

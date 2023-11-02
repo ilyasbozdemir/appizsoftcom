@@ -31,8 +31,8 @@ function LoginPage() {
 
   const SıgnInHandler = () => {
     const loginData = {
-      "userName": email,
-      "password": password
+      usernameOrEmail: email,
+      password: password
     };
     loginUser(loginData);
   };
