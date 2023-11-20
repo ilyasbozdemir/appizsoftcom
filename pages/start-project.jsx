@@ -54,22 +54,22 @@ const GetAQuoteCTA = () => {
 
       {isMobile && (
         <Flex
-        as="section"
-        h={180}
-        bgGradient="linear(to-l, #667eea, #54BEC3)"
-        w="100%"
-        color="white"
-        justify={"center"}
-      >
-        <Center>
-          <Flex direction={"column"}>
-            <Text fontSize={45}>Proje Başlat</Text>
-            <Center>
-              <PagesBreadcrumb currentPage={"Proje Başlat"} />
-            </Center>
-          </Flex>
-        </Center>
-      </Flex>
+          as="section"
+          h={180}
+          bgGradient="linear(to-l, #667eea, #54BEC3)"
+          w="100%"
+          color="white"
+          justify={"center"}
+        >
+          <Center>
+            <Flex direction={"column"}>
+              <Text fontSize={45}>Proje Başlat</Text>
+              <Center>
+                <PagesBreadcrumb currentPage={"Proje Başlat"} />
+              </Center>
+            </Flex>
+          </Center>
+        </Flex>
       )}
     </Flex>
   );
@@ -99,7 +99,11 @@ function GetAQuote() {
           href={`${site.baseUrl}/start-project`}
         />
 
-        <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/start-project`} />
+        <link
+          rel="alternate"
+          hreflang="tr"
+          href={`${site.baseUrl}/start-project`}
+        />
         <link
           rel="alternate"
           hreflang="en"
@@ -131,10 +135,16 @@ function GetAQuote() {
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
-        <meta property="article:publisher" content="https://www.facebook.com/appizsoftcom/" />
-        <meta property="article:modified_time" content="2023-08-10T19:18:34+00:00" />
+        <meta
+          property="article:publisher"
+          content="https://www.facebook.com/appizsoftcom/"
+        />
+        <meta
+          property="article:modified_time"
+          content="2023-08-10T19:18:34+00:00"
+        />
         <meta name="twitter:label1" content="Tahmini okuma süresi" />
-	<meta name="twitter:data1" content="1 dakika" />
+        <meta name="twitter:data1" content="1 dakika" />
       </Head>
 
       <Flex direction={"column"} gap={3}>

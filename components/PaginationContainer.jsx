@@ -1,5 +1,10 @@
-import React from 'react';
-import { Container, Flex, FlexProps, useColorModeValue } from '@chakra-ui/react';
+import React from "react";
+import {
+  Container,
+  Flex,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import BlogList from "./BlogList";
 
 const PaginationContainer = () => {
   return (
@@ -7,11 +12,14 @@ const PaginationContainer = () => {
       d="flex"
       maxWidth="7xl"
       w="full"
-      h="218px"
       alignItems="center"
       p={{ base: 5, sm: 10 }}
     >
-      <Pagination />
+      <Flex direction={'column'} gap={10}>
+
+        <BlogList />
+        <Pagination />
+      </Flex>
     </Container>
   );
 };
@@ -32,7 +40,7 @@ const Pagination = () => {
       </PaginationButton>
       <PaginationButton isActive>1</PaginationButton>
       <PaginationButton>2</PaginationButton>
-      <PaginationButton >3</PaginationButton>
+      <PaginationButton>3</PaginationButton>
       <PaginationButton>4</PaginationButton>
       <PaginationButton>5</PaginationButton>
       <PaginationButton borderTopRightRadius="md" borderBottomRightRadius="md">
@@ -42,11 +50,9 @@ const Pagination = () => {
   );
 };
 
-
-
 const PaginationButton = ({ children, isDisabled, isActive, ...props }) => {
   const activeStyle = {
-    bg: useColorModeValue('gray.300', 'gray.700')
+    bg: useColorModeValue("gray.300", "gray.700"),
   };
 
   return (
@@ -58,10 +64,10 @@ const PaginationButton = ({ children, isDisabled, isActive, ...props }) => {
       lineHeight={0.8}
       opacity={isDisabled && 0.7}
       _hover={!isDisabled && activeStyle}
-      cursor={isDisabled ? 'not-allowed' : 'pointer'}
+      cursor={isDisabled ? "not-allowed" : "pointer"}
       border="1px solid"
       mr="-1px"
-      borderColor={useColorModeValue('gray.300', 'gray.700')}
+      borderColor={useColorModeValue("gray.300", "gray.700")}
       {...(isActive && activeStyle)}
       {...props}
     >

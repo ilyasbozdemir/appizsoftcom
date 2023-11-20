@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Jenkins, projenizi GitHub reposundan çeker
-                checkout scm
+                checkout scm //Source Code Management
             }
         }
 
