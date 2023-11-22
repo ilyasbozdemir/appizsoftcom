@@ -35,6 +35,17 @@ export default function HomePage() {
     setIsMounted(true);
     currentLang = document.documentElement.lang;
   }, []);
+
+
+  const appizsoftOfficialDomainName = site.baseUrl;
+
+ 
+
+  useEffect(()=>{
+    console.table(router);
+  }
+  , [])
+
   return (
     <>
       <Head>
