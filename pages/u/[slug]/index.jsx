@@ -99,15 +99,15 @@ const Card = ({ title, role, skills, period, logo, alt }) => {
           <Text fontSize={14}>{period}</Text>
         </Stack>
       </Flex>
-      <Flex gap={2} mt={3} flexWrap={"wrap"} alignItems="center">
+      <Flex gap={2} mt={3} flexWrap={"wrap"} alignItems="center" maxW={'470'}>
         {skills.split(",").map((skill) => (
           <Tag
             size="sm"
             padding="0 3px"
             key={skill}
             fontWeight="bold"
-            backgroundColor={useColorModeValue("teal.200", "teal.500")}
-            color={useColorModeValue("white.500", "blackAlpha.800")}
+            backgroundColor={'teal.500'}
+            color={'#fff'}
           >
             {skill}
           </Tag>

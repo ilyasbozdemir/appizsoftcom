@@ -17,7 +17,7 @@ export const teamMembers = [
         alt: "PS image",
         role: "Co-Founder & Full Stack Developer",
         skills:
-          "HTML, CSS, JavaScript, React, Next.js, Node.js, Express.js, MongoDB, SQL, RESTful API Design, Git, Docker, Kubernetes",
+          "HTML, CSS, JavaScript, TypeScript, React.js, Next.js, PHP, Python, Node.js, Express.js, Django, Flask, ASP.NET, MongoDB, PostgreSQL, MySQL, SQL Server, Oracle, Firebase, RESTful API, GraphQL, SOAP, Git, GitHub, GitLab, Agile, Scrum, Kanban, Docker, Kubernetes, Jenkins, Nginx, Apache, Load Balancing, CDN, AWS,  Google Cloud",
         period: "June 2023 - Present",
         logo: "/favicon.png",
       },
