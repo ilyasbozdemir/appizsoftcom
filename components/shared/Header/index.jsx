@@ -135,6 +135,8 @@ const HeaderNav = () => {
         width="100%"
         py={3}
         backdropFilter="blur(9px)"
+
+        pos={"relative"}
       >
         <Flex
           h={16}
@@ -252,7 +254,7 @@ const HeaderNav = () => {
 
         {/* Mobile Screen Links */}
         {isOpen ? (
-          <Box pb={4} display={["inherit", "inherit", "none"]}       zIndex={1000}>
+          <Box pb={4} display={["inherit", "inherit", "none"]} zIndex={1000}>
             <Stack as="nav" spacing={2}>
               <>
                 <Text fontWeight="semibold" color="gray.500">
@@ -329,13 +331,12 @@ const MenuLink = ({ name, path, icon, onClose }) => {
   const router = useRouter();
 
   return (
-    <Link href={path} onClick={() => onClose()} locale={router.locale} > 
+    <Link href={path} onClick={() => onClose()} locale={router.locale}>
       <MenuItem
         _hover={{
           color: "blue.400",
           // bg: useColorModeValue("gray.200", "gray.700"),
         }}
-  
       >
         <HStack>
           <Text>{name}</Text>

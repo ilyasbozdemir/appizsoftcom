@@ -10,9 +10,25 @@ import { site } from "../constants/site";
 
 const themeColor = colors.primary[100];
 
+/*
+function AnalyticsIsVisible() {
+  const [isAnalyticsVisible, setIsAnalyticsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsAnalyticsVisible(
+      window.location.origin === appizsoftOfficialDomainName
+    );
+  }, []);
+
+  return isAnalyticsVisible;
+}
+*/
 export default class MyDocument extends Document {
   render() {
     const { langValue, pageContext } = this.props;
+    const appizsoftOfficialDomainName = site.baseUrl;
+
+    //const isAnalyticsVisible = AnalyticsIsVisible();
 
     return (
       <Html lang={langValue || site.lang} prefix="og: http://ogp.me/ns#">

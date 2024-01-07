@@ -8,7 +8,6 @@ import { fontWeights } from "./foundations/fontWeights";
 import { lineHeights } from "./foundations/lineHeights";
 import { letterSpacings } from "./foundations/letterSpacings";
 import { breakpoints } from "./foundations/breakpoints";
-import { shadows } from "./foundations/shadows";
 import { space } from "./foundations/space";
 import { sizes } from "./foundations/sizes";
 import { zIndices } from "./foundations/zIndices";

@@ -99,6 +99,11 @@ function UserLayout({ children }) {
       }}
     >
       <Head>
+        {isAnalyticsVisible === true && (
+          <>
+            <Analytics />
+          </>
+        )}
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -113,17 +118,9 @@ function UserLayout({ children }) {
           content={googleSiteVerification}
         />
         <link rel="manifest" href="/manifest.json" />
-
-        {isAnalyticsVisible === true && (
-          <>
-            <Analytics />
-          </>
-        )}
       </Head>
 
-      <Flex>
-        <AlertDevMode />
-      </Flex>
+     
 
       <Box as={"header"}>
         <Header
@@ -134,15 +131,16 @@ function UserLayout({ children }) {
         />
       </Box>
       <Box>
-        {isMounted && (
-          <LazyReactJoyride
+        {/*  {isMounted &&
+          
+        <LazyReactJoyride
             steps={tourSteps}
             run={isTourOpen}
             continuous={true}
             callback={handleJoyrideCallback}
             showProgress={true}
           />
-        )}
+           }*/}
 
         {children}
       </Box>

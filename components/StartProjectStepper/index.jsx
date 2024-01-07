@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -8,13 +8,11 @@ import {
   FormLabel,
   Icon,
   Step,
-  StepDescription,
   StepIcon,
   StepIndicator,
   StepNumber,
   StepSeparator,
   StepStatus,
-  StepTitle,
   Stepper,
   Text,
   Wrap,
@@ -23,34 +21,26 @@ import {
   useRadioGroup,
   useSteps,
   Input,
-  useColorModeValue,
-  chakra,
   useColorMode,
-  RadioGroup,
-  Stack,
-  Radio,
-  CheckboxGroup,
-  Checkbox,
-  InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
-  FormErrorMessage,
+  VStack,
+  Alert,
+  AlertIcon,
+  AlertDescription,
+  AlertTitle,
+  useToast,
 } from "@chakra-ui/react";
 import { BsFillCameraFill, BsFillRocketTakeoffFill } from "react-icons/bs";
-import {
-  MdWeb,
-  MdOutlineProductionQuantityLimits,
-  MdDesignServices,
-} from "react-icons/md";
+import { MdWeb, MdDesignServices } from "react-icons/md";
 import { TfiMobile } from "react-icons/tfi";
 import { SiPytest } from "react-icons/si";
 import FileUpload from "./components/FileUpload";
 import UrlInput from "./components/UrlInput";
-import RadioCard from "./components/RadioCard";
 import ServiceSelectionRadioCard from "./components/ServiceSelectionRadioCard";
 import CheckboxCard from "./components/CheckboxCard";
 
 import { FaBullhorn } from "react-icons/fa";
+import { CheckIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -103,6 +93,13 @@ function RadioServiceCard(props) {
     </Box>
   );
 }
+
+const scrollToElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const WebSiteComponent = () => {
   const [selectedOption, setSelectedOption] = useState("new-website");
@@ -809,6 +806,7 @@ const FirstStep = () => {
                 w={{ base: "100%", md: 250 }}
                 my={3}
                 mx={5}
+                onClick={() => scrollToElement("service-desc-content")}
               >
                 <RadioServiceCard {...radio} service={service}>
                   {service.title}
@@ -860,92 +858,150 @@ const SecondStep = () => {
 };
 
 const ThirdStep = () => {
-  return <>ThirdStep</>;
-};
-const FourthStep = () => {
-  return <>FourthStep</>;
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  return (
+    <>
+      <FormControl p={7} isRequired>
+        <FormLabel>Adınızı Girin</FormLabel>
+        <Input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </FormControl>
+
+      <FormControl p={7} isRequired>
+        <FormLabel>Şirketiniz / Organizasyon</FormLabel>
+        <Input
+          type="text"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
+      </FormControl>
+
+      <FormControl p={7} isRequired>
+        <FormLabel>E-posta Adresi</FormLabel>
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </FormControl>
+
+      <FormControl p={7} isRequired>
+        <FormLabel>Telefon Numarası</FormLabel>
+        <Input
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+      </FormControl>
+    </>
+  );
 };
 
 function StartProjectStepper() {
   const ref = useRef(null);
+
+  const toast = useToast();
+
+  const showToast = () => {
+    toast({
+      title: "Mesajınız alındı.",
+      description: "Mesajınız başarıyla gönderildi.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top",
+      onCloseComplete: () => {
+        router.push('/'); 
+      }
+    });
+  };
 
   const steps = [
     {
       id: 1,
       title: "Hizmet Seçimi",
       description: "Hangi alanda hizmet almak istiyorsunuz",
-      Component: FirstStep,
+      component: FirstStep,
     },
 
     {
       id: 2,
-      title: "İletişim Bilgileri",
-      description: "İletişime geçebileceğimiz bilgilerinizi bize iletin.",
-      Component: SecondStep,
+      title: "Proje Bilgileri",
+      description: "Bize projenizden / ihtiyaçlarınızdan bahseder misiniz?",
+      component: SecondStep,
     },
     {
       id: 3,
-      title: "Teşekkürler!",
-      description:
-        "Başvurunuz başarıyla alındı. Size en kısa sürede dönüş yapacağız..",
-      Component: FourthStep,
+      title: "İletişim Bilgileri",
+      description: "İletişime geçebileceğimiz bilgilerinizi bize iletin.",
+      component: ThirdStep,
     },
   ];
 
-  const {
-    activeStep,
-    goToNext,
-    goToPrevious,
-    getStatus,
-    isCompleteStep,
-    isIncompleteStep,
-    isActiveStep,
-  } = useSteps({
+  const { activeStep, goToNext, goToPrevious } = useSteps({
     index: 1,
     count: steps.length,
   });
 
   const step = steps.find((s) => activeStep === s.id) || null;
 
+  const router = useRouter();
+
   return (
-    <Box textAlign={"center"}>
-      <Box border={"1px solid #ded"} borderRadius={"15px"} p={6} m={3} gap={3}>
-        <Flex
-          direction={"column"}
-          justify={"center"}
-          justifyContent={"center"}
-          textAlign={"center"}
-          p={3}
+    <Box textAlign={"center"} id="content-project">
+      <>
+        <Box
+          border={"1px solid #ded"}
+          borderRadius={"15px"}
+          p={6}
+          m={3}
+          gap={3}
         >
-          <Text fontWeight={"bold"}>{step?.title}</Text>
-          <Text>{step?.description}</Text>
+          <Flex
+            direction={"column"}
+            justify={"center"}
+            justifyContent={"center"}
+            textAlign={"center"}
+            p={3}
+          >
+            <Text fontWeight={"bold"}>{step?.title}</Text>
+            <Text>{step?.description}</Text>
+            <Stepper index={activeStep} mt={4}>
+              {steps.map((step, index) => (
+                <Step key={index}>
+                  <StepIndicator>
+                    <StepStatus
+                      complete={<StepIcon />}
+                      incomplete={<StepNumber />}
+                      active={<StepNumber />}
+                    />
+                  </StepIndicator>
 
-          <Stepper index={activeStep} mt={4}>
-            {steps.map((step, index) => (
-              <Step key={index}>
-                <StepIndicator>
-                  <StepStatus
-                    complete={<StepIcon />}
-                    incomplete={<StepNumber />}
-                    active={<StepNumber />}
-                  />
-                </StepIndicator>
-
-                <StepSeparator />
-              </Step>
-            ))}
-          </Stepper>
+                  <StepSeparator />
+                </Step>
+              ))}
+            </Stepper>
+          </Flex>
+        </Box>
+        <Flex w={"full"} direction={"column"} m={4} borderRadius={"15px"}>
+          <step.component ref={ref} />
         </Flex>
-      </Box>
-      <Flex w={"full"} direction={"column"} m={4} borderRadius={"15px"}>
-        <step.Component ref={ref} />
-      </Flex>
+      </>
+
       <ButtonGroup p={3} m={3}>
         <Button
           p={6}
           colorScheme="gray"
           onClick={() => {
             goToPrevious();
+            scrollToElement("content-project");
           }}
           isDisabled={activeStep === 1}
         >
@@ -956,8 +1012,13 @@ function StartProjectStepper() {
           colorScheme="blue"
           onClick={() => {
             goToNext();
+            scrollToElement("content-project");
+            if (activeStep >= 3) {
+              showToast()
+            
+            }
           }}
-          isDisabled={activeStep === steps.length}
+          isDisabled={activeStep === steps.length + 1}
         >
           İleri
         </Button>
