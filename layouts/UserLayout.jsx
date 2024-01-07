@@ -93,10 +93,11 @@ function UserLayout({ children }) {
     <Box
       as="main"
       scrollBehavior={"smooth"}
-      css={{
+    /*  css={{
         backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
         backgroundAttachment: "fixed",
       }}
+      */
     >
       <Head>
         {isAnalyticsVisible === true && (
@@ -155,18 +156,6 @@ function UserLayout({ children }) {
   );
 }
 
-function AlertDevMode() {
-  return (
-    <Alert status="info">
-      <AlertIcon />
-      <Box>
-        <AlertDescription>
-          Sitemiz şu an yapım aşamasındadır. Güncellemeler devam ediyor.. Son
-          Güncelleme: <Text fontFamily={"verdana"}>06.11.2023</Text>
-        </AlertDescription>
-      </Box>
-    </Alert>
-  );
-}
+ 
 
 export default UserLayout;

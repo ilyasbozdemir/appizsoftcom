@@ -3,35 +3,26 @@ import {
   chakra,
   Container,
   Stack,
-  HStack,
   Text,
   useColorModeValue,
   Button,
   Image,
-  Skeleton,
   Box,
-  Icon,
-  useBreakpointValue,
-  Heading,
   Flex,
   Center,
+  Icon,
 } from "@chakra-ui/react";
-// Here we have used react-icons package for the icons
-import { GoChevronRight } from "react-icons/go";
-import { MdBolt } from "react-icons/md";
-import StartProjectButton from "./StartProjectButton";
-import JoinTeam from "./JoinTeam";
+
 import Link from "next/link";
 
+import { FaCss3Alt, FaHtml5, FaReact } from "react-icons/fa";
+import { SiNextdotjs, SiNginx, SiTailwindcss } from "react-icons/si";
+import { DiMongodb, DiPostgresql } from "react-icons/di";
+import { IoLogoJavascript } from "react-icons/io";
+
 const HeroSection = () => {
- 
   return (
-    <Container
-      maxW="7xl"
-      px={{ base: 6, md: 3 }}
-    
-      py={20}
-    >
+    <Container maxW="5xl" px={{ base: 6, md: 3 }} py={15}>
       <Flex
         direction={{ base: "column", md: "row" }}
         justifyContent="center"
@@ -48,7 +39,7 @@ const HeroSection = () => {
               fontSize="5xl"
               lineHeight={1}
               fontWeight="bold"
-              textAlign="left"
+              textAlign="center"
             >
               Markanızı öne çıkarmak için yaratıcılığı
               <chakra.span color="teal">{" Teknolojiyle"}</chakra.span>{" "}
@@ -57,10 +48,10 @@ const HeroSection = () => {
           </Box>
           <Text
             fontSize="1.2rem"
-            textAlign="left"
             lineHeight="1.375"
             fontWeight="400"
             color="gray.500"
+            textAlign="center"
           >
             Müşterilerimize özel yaklaşımla yaratıcılığı buluşturarak
             hedeflerine ulaşmalarına yardımcı oluyor, stratejik planlama ve
@@ -68,6 +59,8 @@ const HeroSection = () => {
             elde etmelerini sağlıyoruz ve estetik çözümlerimizle işinize güç
             katıyoruz!
           </Text>
+
+          <TechLogos />
 
           <Center>
             <Stack
@@ -115,26 +108,82 @@ const HeroSection = () => {
               </Link>
             </Stack>
           </Center>
-        </Stack>
 
-        <Box ml={{ base: 0, md: 5 }} pos="relative">
-          <DottedBox />
-          <Image
-            w="100%"
-            h="100%"
-            minW={{ base: "auto", md: "30rem" }}
-            objectFit="cover"
-            src={`https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&q=80&
-            fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80`}
-            rounded="md"
-            fallback={<Skeleton />}
-            draggable={false}
-          />
-        </Box>
+        </Stack>
       </Flex>
     </Container>
   );
 };
+
+
+const TechLogos = () => {
+
+  const logos = [
+    {
+      src: FaHtml5,
+      title: 'Html 5',
+      color: '#e34c26'
+    },
+    {
+      src: FaCss3Alt,
+      title: 'Css 3',
+      color: '#264de4'
+    },
+    {
+      src: IoLogoJavascript,
+      title: 'Javascript',
+      color: '#F0DB4F'
+    },
+    {
+      src: FaReact,
+      title: 'React.js',
+      color: '#61dbfb'
+    },
+    {
+      src: SiNextdotjs,
+      title: 'Next.js',
+      color: '#000'
+    },
+    {
+      src: DiMongodb,
+      title: 'Mongodb',
+      color: '#4DB33D'
+    },
+        {
+      src: DiPostgresql,
+      title: 'Postgresql',
+      color: '#336791'
+    },
+    {
+      src: SiNginx,
+      title: 'Nginx',
+      color: '#009900'
+    },
+    {
+      src: SiTailwindcss,
+      title: 'Tailwindcss',
+      color: '#38bdf8'
+    },
+  ]
+
+
+  return (
+    <Flex wrap="wrap" justify="center" align="center" gap={5}>
+      {logos.map((logo, index) => (
+        <Flex direction={'column'} justify="center" align="center">
+          <Icon key={index} as={logo.src} boxSize="50px" color={logo.color} />
+          <Text textAlign={'center'} fontWeight={'semibold'}>
+            {
+              logo.title
+            }
+          </Text>
+        </Flex>
+      ))}
+    </Flex>
+  );
+};
+
+
 
 function DottedBox() {
   return (

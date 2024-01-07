@@ -1,35 +1,12 @@
 import {
-  chakra,
-  Container,
-  Heading,
-  Stack,
-  Icon,
   Text,
-  Box,
   keyframes,
-  useColorModeValue,
-  useBreakpointValue,
-  Center,
-  Flex,
-  Button,
-  SimpleGrid,
-  Image,
-  HStack,
-  Wrap,
-  WrapItem,
-  Tag,
-  TagLabel,
 } from "@chakra-ui/react";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
-import StartProjectButton from "../../components/StartProjectButton";
-import ScrollToIdButton from "../../components/ScrollToIdButton ";
-import JoinTeam from "../../components/JoinTeam";
-import { FiExternalLink } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
 import HeroSection from "../../components/HeroSection";
 
-//import Image from "next/image";
+
 
 const rainbowAnimation = keyframes`
   0% {
@@ -59,7 +36,7 @@ const RainbowText = ({ text }) => (
   </>
 );
 
-export default function CallToActionWithIllustration({  targetId }) {
+export default function CallToActionWithIllustration({ targetId }) {
   const router = useRouter();
 
   return (

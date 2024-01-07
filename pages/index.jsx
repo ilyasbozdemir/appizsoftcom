@@ -9,7 +9,6 @@ import { Box, Container, Flex } from "@chakra-ui/react";
 import Cta from "../sections/Cta";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 
 const LazyOurServices = dynamic(() => import("../sections/OurServices"));
 
