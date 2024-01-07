@@ -14,7 +14,6 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import { FaLinkedin, FaUserAlt } from "react-icons/fa";
 import { teamMembers } from "../constants/teamMembers";
 import Link from "next/link";
 import Head from "next/head";
@@ -31,15 +30,22 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
       _hover={{
         boxShadow: "xl",
       }}
-      h={250}
     >
-      <Image src={photoUrl} alt={`${name}'s photo`} width={150} height={100} />
+      <Image
+        src={photoUrl}
+        alt={`${name}'s photo`}
+        width={150}
+        height={100}
+        style={{ borderRadius: "50%",border:'3px solid #54bec3' }}
+      />
 
       <Box p="6">
         <Text fontWeight="semibold" fontSize="lg" mb="2">
           {name}
         </Text>
-        <Text color="gray.500">{role}</Text>
+        <Text fontSize="sm" color="gray.500">
+          {role}
+        </Text>
       </Box>
     </Flex>
   );

@@ -30,17 +30,22 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
       borderRadius="xl"
       overflow="hidden"
       align={"center"}
-      w={250}
+      w={300}
       p={2}
-      h={250}
     >
-      <Image src={photoUrl} alt={`${name}'s photo`} width={150} height={100} />
+      <Image
+        src={photoUrl}
+        alt={`${name}'s photo`}
+        width={150}
+        height={100}
+        style={{ borderRadius: "50%" }}
+      />
 
       <Flex direction={"column"} align={"center"} p="6">
         <Text fontWeight="semibold" fontSize="lg" mb="2">
           {name}
         </Text>
-        <Text color="gray.500">{role}</Text>
+        <Text color="gray.500" fontSize="sm">{role}</Text>
         <HStack mt="3" spacing="2">
           <Link
             href={`${socialMedia.find((s) => s.platform === "LinkedIn").url}`}
@@ -170,20 +175,23 @@ function TeamDetailPage({ member }) {
       </Head>
 
       <Center>
-        <HStack py={4} margin="0 auto">
-          <Icon as={HiOutlineArrowNarrowLeft} boxSize={35} />
+        <Link href={"/team"}>
+          <HStack py={4} margin="0 auto" _hover={{
+            color: useColorModeValue("primary.100", "primary.200"),
+          }}>
+            <Icon as={HiOutlineArrowNarrowLeft} boxSize={35} />
 
-          <Link href={"/team"}>
+
+
             <Text
               fontWeight={"semibold"}
-              _hover={{
-                color: useColorModeValue("primary.100", "primary.200"),
-              }}
+
             >
               Ekipe Geri Dön
             </Text>
-          </Link>
-        </HStack>
+
+          </HStack>
+        </Link>
       </Center>
 
       <Center p={5}>
@@ -207,7 +215,6 @@ function TeamDetailPage({ member }) {
               />
             ))}
           </VStack>
-          {"<Blog Post Component/>"}
         </Flex>
       </Center>
     </>

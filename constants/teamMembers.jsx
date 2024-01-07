@@ -1,11 +1,9 @@
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
-
 export const teamMembers = [
   {
     name: "İlyas Bozdemir",
     slug: "ilyas-bozdemir",
     role: "Co-Founder & Full Stack Developer",
-    photoUrl: "/path/to/photo1.jpg",
+    photoUrl: "/team/ilyas-bozdemir.jpg",
     socialMedia: [
       {
         platform: "LinkedIn",
@@ -30,7 +28,7 @@ export const teamMembers = [
     name: "Murat Yiğitbaşı",
     slug: "murat-yigitbasi",
     role: "Co-Founder & Backend Developer",
-    photoUrl: "/path/to/photo2.jpg",
+    photoUrl: "/team/murat-yigitbasi.jpg",
     socialMedia: [
       {
         platform: "LinkedIn",
@@ -53,7 +51,7 @@ export const teamMembers = [
     name: "Kemal Gerçeker",
     slug: "kemal-gerceker",
     role: "Co-Founder & UI/UX Designer",
-    photoUrl: "/path/to/photo2.jpg",
+    photoUrl: "/team/kemal-gerceker.jpg",
     socialMedia: [
       {
         platform: "LinkedIn",
@@ -77,7 +75,7 @@ export const teamMembers = [
     name: "Kübra Üzümcü",
     slug: "kubra-uzumcu",
     role: "Modeling & Design",
-    photoUrl: "/path/to/photo2.jpg",
+    photoUrl: "/team/kubra-uzumcu.jpg",
     socialMedia: [
       {
         platform: "LinkedIn",
@@ -101,7 +99,7 @@ export const teamMembers = [
     name: "Özhan Demirel",
     slug: "ozhan-demirel",
     role: "Backend Developer",
-    photoUrl: "/path/to/photo2.jpg",
+    photoUrl: "/team/ozhan-demirel.jpg",
     socialMedia: [
       {
         platform: "LinkedIn",
