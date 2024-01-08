@@ -22,12 +22,8 @@ import {
   useSteps,
   Input,
   useColorMode,
-  VStack,
-  Alert,
-  AlertIcon,
-  AlertDescription,
-  AlertTitle,
   useToast,
+  Center,
 } from "@chakra-ui/react";
 import { BsFillCameraFill, BsFillRocketTakeoffFill } from "react-icons/bs";
 import { MdWeb, MdDesignServices } from "react-icons/md";
@@ -39,8 +35,8 @@ import ServiceSelectionRadioCard from "./components/ServiceSelectionRadioCard";
 import CheckboxCard from "./components/CheckboxCard";
 
 import { FaBullhorn } from "react-icons/fa";
-import { CheckIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import useServiceStore from "../../stores/useServiceStore";
 
 function RadioServiceCard(props) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -85,6 +81,7 @@ function RadioServiceCard(props) {
         align={"center"}
         p={5}
         w="full"
+        gap={6}
       >
         <Icon as={service.icon} boxSize={20} />
 
@@ -103,11 +100,9 @@ const scrollToElement = (id) => {
 
 const WebSiteComponent = () => {
   const [selectedOption, setSelectedOption] = useState("new-website");
-
   const [projectType, setProjectType] = useState("individual");
   const [checkedItems, setCheckedItems] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-
   const [modules, setModules] = React.useState([
     {
       val: "user-management",
@@ -225,7 +220,6 @@ const WebSiteComponent = () => {
       support: ["e-commerce"],
     },
   ]);
-
   const filteredModules = modules.filter((module) =>
     module.support.includes(projectType)
   );
@@ -279,11 +273,29 @@ const WebSiteComponent = () => {
     },
   ];
 
+  const webDesignDetailState = useServiceStore(
+    (state) => state.webDesignDetail
+  );
+  const setWebDesignDetailState = useServiceStore(
+    (state) => state.setWebDesignDetail
+  );
+
+  useEffect(() => {
+    setWebDesignDetailState({
+      siteType: selectedOption,
+      projectType: projectType,
+      modules: checkedItems,
+      files: ''
+    });
+  }, [selectedOption, projectType, checkedItems]);
+
   return (
     <Flex direction={"column"} gap={4} p={5}>
+      <p>{webDesignDetailState.siteType}</p>
+      <p>{webDesignDetailState.projectType}</p>
+      <p>{webDesignDetailState.modules.length}</p>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
-
         <ServiceSelectionRadioCard
           name="websiteServices"
           options={options}
@@ -303,16 +315,20 @@ const WebSiteComponent = () => {
             />
           </FormControl>
 
-          <FormControl>
-            <FormLabel>
-              Eğer varsa yeni web sitenizde modül ihityaçlarınız nelerdir?
-            </FormLabel>
+          {projectType !== "other" && (
+            <>
+              <FormControl>
+                <FormLabel>
+                  Eğer varsa yeni web sitenizde modül ihityaçlarınız nelerdir?
+                </FormLabel>
 
-            <CheckboxCard
-              options={filteredModules}
-              setCheckedItems={setCheckedItems}
-            />
-          </FormControl>
+                <CheckboxCard
+                  options={filteredModules}
+                  setCheckedItems={setCheckedItems}
+                />
+              </FormControl>
+            </>
+          )}
 
           <FileUpload
             selectedFile={selectedFile}
@@ -728,9 +744,17 @@ const FirstStep = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [service, setService] = useState(null);
 
+  const selectedServiceState = useServiceStore(
+    (state) => state.selectedService
+  );
+  const setSelectedServiceState = useServiceStore(
+    (state) => state.setSelectedService
+  );
+
   useEffect(() => {
     const service = services.find((s) => s.title === selectedService);
     setService(service);
+    setSelectedServiceState(selectedService);
   }, [selectedService]);
 
   const services = [
@@ -793,7 +817,6 @@ const FirstStep = () => {
   });
 
   const group = getRootProps();
-
   return (
     <>
       <Flex direction={"column"}>
@@ -838,6 +861,13 @@ const FirstStep = () => {
 
 const SecondStep = () => {
   const [messages, setMessages] = useState("");
+
+  const setProjectDescState = useServiceStore((state) => state.setProjectDesc);
+
+  useEffect(() => {
+    setProjectDescState(messages);
+  }, [messages]);
+
   return (
     <>
       <FormControl p={7}>
@@ -859,9 +889,22 @@ const SecondStep = () => {
 
 const ThirdStep = () => {
   const [name, setName] = useState("");
+  const [surname, setSurnaame] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
+  const setContactInfoState = useServiceStore((state) => state.setContactInfo);
+
+  useEffect(() => {
+    setContactInfoState({
+      name: name,
+      surname: surname,
+      companyName: company,
+      emailAddress: email,
+      telephoneNumber: phone,
+    });
+  }, [name, surname, company, email, phone]);
 
   return (
     <>
@@ -871,6 +914,14 @@ const ThirdStep = () => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
+        />
+      </FormControl>
+      <FormControl p={7} isRequired>
+        <FormLabel>Soyadınızı Girin</FormLabel>
+        <Input
+          type="text"
+          value={surname}
+          onChange={(e) => setSurnaame(e.target.value)}
         />
       </FormControl>
 
@@ -918,8 +969,8 @@ function StartProjectStepper() {
       isClosable: true,
       position: "top",
       onCloseComplete: () => {
-        router.push('/'); 
-      }
+        router.push("/");
+      },
     });
   };
 
@@ -957,6 +1008,13 @@ function StartProjectStepper() {
   return (
     <Box textAlign={"center"} id="content-project">
       <>
+
+        <Center>
+          <Text color={'red'}>
+            Beta Sürümüdür. Teklif almak için iletişime geçiniz.
+          </Text>
+        </Center>
+
         <Box
           border={"1px solid #ded"}
           borderRadius={"15px"}
@@ -1014,8 +1072,7 @@ function StartProjectStepper() {
             goToNext();
             scrollToElement("content-project");
             if (activeStep >= 3) {
-              showToast()
-            
+              showToast();
             }
           }}
           isDisabled={activeStep === steps.length + 1}

@@ -87,12 +87,10 @@ function CheckboxCard({ options, checkedItems, setCheckedItems }) {
       >
         {options.map((option) => {
           return (
-            <>
-              <CustomCheckbox
-                key={option.val}
-                {...getCheckboxProps({ value: option.title })}
-              />
-            </>
+            <CustomCheckbox
+            key={option.val}
+            {...getCheckboxProps({ value: option.title })}
+          />
           );
         })}
       </Flex>

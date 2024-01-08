@@ -17,9 +17,9 @@ import {
 
 import Link from "next/link";
 
-import { FaCss3Alt, FaHtml5, FaPhp, FaPython, FaReact } from "react-icons/fa";
-import { SiNextdotjs, SiNginx, SiTailwindcss } from "react-icons/si";
-import { DiMongodb, DiPostgresql } from "react-icons/di";
+import { FaCss3Alt, FaDocker, FaHtml5, FaJenkins, FaPhp, FaPython, FaReact } from "react-icons/fa";
+import { SiKubernetes, SiNextdotjs, SiNginx, SiTailwindcss } from "react-icons/si";
+import { DiJenkins, DiMongodb, DiPostgresql } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
 
 const rainbowAnimation = keyframes`
@@ -46,15 +46,13 @@ const RainbowText = ({ text }) => (
       w="fit-content"
       sx={{
         animation: `${rainbowAnimation} 2s linear infinite`,
-        backgroundSize: '300% 100%',
+        backgroundSize: "300% 100%",
       }}
     >
       {text}
     </Text>
   </>
 );
-
-
 
 const HeroSection = () => {
   return (
@@ -72,18 +70,18 @@ const HeroSection = () => {
             fontFamily={"Montserrat"}
           >
             <Heading
-              fontSize={{ base: '4xl', md: '5xl' }}
+              fontSize={{ base: "4xl", md: "5xl" }}
               lineHeight={1.2}
               fontWeight="bold"
               textAlign="center"
             >
               Markanızı öne çıkarmak için yaratıcılığı
-              <RainbowText text={' Teknolojiyle '} />
+              <RainbowText text={" Teknolojiyle "} />
               birleştiriyoruz.
             </Heading>
           </Box>
           <Text
-            fontSize={{ base: '1rem', md: '1.2rem' }}
+            fontSize={{ base: "1rem", md: "1.2rem" }}
             lineHeight="1.375"
             fontWeight="400"
             color="gray.500"
@@ -100,7 +98,7 @@ const HeroSection = () => {
 
           <Center>
             <Stack
-              direction={{ base: "row", sm: "row", md: 'row' }}
+              direction={{ base: "row", sm: "row", md: "row" }}
               spacing={{ base: 3, sm: 5 }}
               mb={{ base: "3rem !important", sm: 0 }}
               flexWrap="wrap"
@@ -144,215 +142,220 @@ const HeroSection = () => {
               </Link>
             </Stack>
           </Center>
-
         </Stack>
       </Flex>
     </Container>
   );
 };
 
-
 const TechLogos = () => {
-
   const logos = [
     {
       src: FaHtml5,
-      title: 'Html 5',
-      color: '#e34c26',
+      title: "Html 5",
+      color: "#e34c26",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
     {
       src: FaCss3Alt,
-      title: 'Css 3',
-      color: '#264de4',
+      title: "Css 3",
+      color: "#264de4",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
     {
       src: IoLogoJavascript,
-      title: 'Javascript',
-      color: '#F0DB4F',
+      title: "Javascript",
+      color: "#F0DB4F",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
     {
       src: FaReact,
-      title: 'React.js',
-      color: '#61dbfb',
+      title: "React.js",
+      color: "#61dbfb",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
-
     },
     {
       src: SiNextdotjs,
-      title: 'Next.js',
-      color: '#000',
+      title: "Next.js",
+      color: "#000",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
     {
       src: DiMongodb,
-      title: 'Mongodb',
-      color: '#4DB33D',
+      title: "Mongodb",
+      color: "#4DB33D",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
+    },
 
+    {
+      src: SiTailwindcss,
+      title: "Tailwindcss",
+      color: "#38bdf8",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
     },
     {
       src: DiPostgresql,
-      title: 'Postgresql',
-      color: '#336791',
+      title: "Postgresql",
+      color: "#336791",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
     {
       src: SiNginx,
-      title: 'Nginx',
-      color: '#009900',
+      title: "Nginx",
+      color: "#009900",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
     {
-      src: SiTailwindcss,
-      title: 'Tailwindcss',
-      color: '#38bdf8',
+      src: FaDocker ,
+      title: "Docker",
+      color: "#0db7ed",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
-    },
-
-    {
-      src: FaPhp,
-      title: 'PHP',
-      color: '#8993be',
-      boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
-      },
-      fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
-      },
-
     },
     {
-      src: FaPython,
-      title: 'Python',
-      color: '#306998',
+      src: SiKubernetes  ,
+      title: "Kubernetes",
+      color: "#3970e4",
       boxSize: {
-        base: '40px',
-        md: '45px',
-        lg: '50px'
+        base: "40px",
+        md: "45px",
+        lg: "50px",
       },
       fontSize: {
-        base: '12px',
-        md: '14px',
-        lg: '15px'
+        base: "12px",
+        md: "14px",
+        lg: "15px",
       },
-
     },
-  ]
-
+    {
+      src: DiJenkins  ,
+      title: "Jenkins",
+      color: "#676767",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+  ];
 
   return (
     <Flex wrap="wrap" justify="center" align="center" gap={5}>
       {logos.map((logo, index) => (
-        <Flex direction={'column'} justify="center" align="center">
-          <Icon key={index} as={logo.src} boxSize={logo.boxSize} color={logo.color} />
-          <Text textAlign={'center'} fontSize={logo.fontSize} fontWeight={'semibold'}>
-            {
-              logo.title
-            }
+        <Flex direction={"column"} justify="center" align="center" gap={2.5}>
+          <Icon
+            key={index}
+            as={logo.src}
+            boxSize={logo.boxSize}
+            color={logo.color}
+          />
+          <Text
+            textAlign={"center"}
+            fontSize={logo.fontSize}
+            fontWeight={"semibold"}
+            userSelect={'none'}
+          >
+            {logo.title}
           </Text>
         </Flex>
       ))}
     </Flex>
   );
 };
-
-
 
 function DottedBox() {
   return (

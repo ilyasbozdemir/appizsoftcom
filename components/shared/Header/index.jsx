@@ -36,10 +36,13 @@ import { useRouter } from "next/router";
 const navLinks = [
   { name: "Ürünler", path: "/products" },
   { name: "Hizmetler", path: "/services" },
+ // { name: "Teknolojiler", path: "/technologies" },
   { name: "Portfolyo", path: "/portfolio" },
   { name: "Blog", path: "/blog" },
-  { name: "Bize Ulaşın", path: "/contact" },
+  { name: "İletişim", path: "/contact" },
 ];
+
+//
 
 const dropdownLinks = [
   {
@@ -78,7 +81,7 @@ function Navbar() {
   const browserLocale = router.locale;
 
   return (
-    <Container maxW="8xl">
+    <Container maxW="9xl">
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
