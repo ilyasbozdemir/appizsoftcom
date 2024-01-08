@@ -11,6 +11,7 @@ import {
   Flex,
   Center,
   Icon,
+  Heading,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
@@ -35,8 +36,8 @@ const HeroSection = () => {
             as="article"
             fontFamily={"Montserrat"}
           >
-            <chakra.h1
-              fontSize="5xl"
+            <Heading
+              fontSize={{ base: '4xl', md: '5xl' }}
               lineHeight={1}
               fontWeight="bold"
               textAlign="center"
@@ -44,10 +45,10 @@ const HeroSection = () => {
               Markanızı öne çıkarmak için yaratıcılığı
               <chakra.span color="teal">{" Teknolojiyle"}</chakra.span>{" "}
               birleştiriyoruz.
-            </chakra.h1>
+            </Heading>
           </Box>
           <Text
-            fontSize="1.2rem"
+            fontSize={{ base: '1rem', md: '1.2rem' }}
             lineHeight="1.375"
             fontWeight="400"
             color="gray.500"
@@ -122,47 +123,147 @@ const TechLogos = () => {
     {
       src: FaHtml5,
       title: 'Html 5',
-      color: '#e34c26'
+      color: '#e34c26',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
     {
       src: FaCss3Alt,
       title: 'Css 3',
-      color: '#264de4'
+      color: '#264de4',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
     {
       src: IoLogoJavascript,
       title: 'Javascript',
-      color: '#F0DB4F'
+      color: '#F0DB4F',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
     {
       src: FaReact,
       title: 'React.js',
-      color: '#61dbfb'
+      color: '#61dbfb',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
+
     },
     {
       src: SiNextdotjs,
       title: 'Next.js',
-      color: '#000'
+      color: '#000',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
     {
       src: DiMongodb,
       title: 'Mongodb',
-      color: '#4DB33D'
+      color: '#4DB33D',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
-        {
+    {
       src: DiPostgresql,
       title: 'Postgresql',
-      color: '#336791'
+      color: '#336791',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
     {
       src: SiNginx,
       title: 'Nginx',
-      color: '#009900'
+      color: '#009900',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
     {
       src: SiTailwindcss,
       title: 'Tailwindcss',
-      color: '#38bdf8'
+      color: '#38bdf8',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
     },
   ]
 
@@ -171,8 +272,8 @@ const TechLogos = () => {
     <Flex wrap="wrap" justify="center" align="center" gap={5}>
       {logos.map((logo, index) => (
         <Flex direction={'column'} justify="center" align="center">
-          <Icon key={index} as={logo.src} boxSize="50px" color={logo.color} />
-          <Text textAlign={'center'} fontWeight={'semibold'}>
+          <Icon key={index} as={logo.src} boxSize={logo.boxSize} color={logo.color} />
+          <Text textAlign={'center'} fontSize={logo.fontSize} fontWeight={'semibold'}>
             {
               logo.title
             }
