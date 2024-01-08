@@ -12,14 +12,49 @@ import {
   Center,
   Icon,
   Heading,
+  keyframes,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
 
-import { FaCss3Alt, FaHtml5, FaReact } from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaPhp, FaPython, FaReact } from "react-icons/fa";
 import { SiNextdotjs, SiNginx, SiTailwindcss } from "react-icons/si";
 import { DiMongodb, DiPostgresql } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
+
+const rainbowAnimation = keyframes`
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+`;
+
+const RainbowText = ({ text }) => (
+  <>
+    <Text
+      as="span"
+      //bgGradient="linear(to left, #61A5C2, #00ff00, #61A5C2, #5874B7, #61A5C2, #5298AD)"
+      bgGradient="linear(to left, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff, #0099ff)"
+      bgClip="text"
+      color="transparent"
+      bgSize="300% 100%"
+      w="fit-content"
+      sx={{
+        animation: `${rainbowAnimation} 2s linear infinite`,
+        backgroundSize: '300% 100%',
+      }}
+    >
+      {text}
+    </Text>
+  </>
+);
+
+
 
 const HeroSection = () => {
   return (
@@ -38,12 +73,12 @@ const HeroSection = () => {
           >
             <Heading
               fontSize={{ base: '4xl', md: '5xl' }}
-              lineHeight={1}
+              lineHeight={1.2}
               fontWeight="bold"
               textAlign="center"
             >
               Markanızı öne çıkarmak için yaratıcılığı
-              <chakra.span color="teal">{" Teknolojiyle"}</chakra.span>{" "}
+              <RainbowText text={' Teknolojiyle '} />
               birleştiriyoruz.
             </Heading>
           </Box>
@@ -65,7 +100,7 @@ const HeroSection = () => {
 
           <Center>
             <Stack
-              direction={{ base: "column", sm: "row" }}
+              direction={{ base: "row", sm: "row", md: 'row' }}
               spacing={{ base: 3, sm: 5 }}
               mb={{ base: "3rem !important", sm: 0 }}
               flexWrap="wrap"
@@ -253,6 +288,39 @@ const TechLogos = () => {
       src: SiTailwindcss,
       title: 'Tailwindcss',
       color: '#38bdf8',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
+    },
+
+    {
+      src: FaPhp,
+      title: 'PHP',
+      color: '#8993be',
+      boxSize: {
+        base: '40px',
+        md: '45px',
+        lg: '50px'
+      },
+      fontSize: {
+        base: '12px',
+        md: '14px',
+        lg: '15px'
+      },
+
+    },
+    {
+      src: FaPython,
+      title: 'Python',
+      color: '#306998',
       boxSize: {
         base: '40px',
         md: '45px',

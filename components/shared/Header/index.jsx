@@ -135,7 +135,6 @@ const HeaderNav = () => {
         width="100%"
         py={3}
         backdropFilter="blur(9px)"
-
         pos={"relative"}
       >
         <Flex
