@@ -47,6 +47,7 @@ export const teamMembers = [
       },
     ],
   },
+  /*
   {
     name: "Kemal Gerçeker",
     slug: "kemal-gerceker",
@@ -71,6 +72,7 @@ export const teamMembers = [
       },
     ],
   },
+  */,
   {
     name: "Kübra Üzümcü",
     slug: "kubra-uzumcu",
