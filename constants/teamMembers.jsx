@@ -47,11 +47,11 @@ export const teamMembers = [
       },
     ],
   },
-  /*
+  
   {
     name: "Kemal Gerçeker",
     slug: "kemal-gerceker",
-    role: "Co-Founder & UI/UX Designer",
+    role: "Graphic Designer",
     photoUrl: "/team/kemal-gerceker.jpg",
     socialMedia: [
       {
@@ -64,7 +64,7 @@ export const teamMembers = [
       {
         title: "Appizsoft Yazılım",
         alt: "PS image",
-        role: "Co-Founder & UI/UX Designer",
+        role: "Graphic Designer",
         skills:
           "User-Centered Design, Wireframing, Prototyping, Usability Testing, Interaction Design, Visual Design, Adobe Creative Suite, Sketch, Figma, User Research",
         period: "June 2023 - Present",
@@ -72,7 +72,7 @@ export const teamMembers = [
       },
     ],
   },
-  */,
+  
   {
     name: "Kübra Üzümcü",
     slug: "kubra-uzumcu",

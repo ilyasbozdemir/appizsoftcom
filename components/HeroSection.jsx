@@ -17,8 +17,21 @@ import {
 
 import Link from "next/link";
 
-import { FaCss3Alt, FaDocker, FaHtml5, FaJenkins, FaPhp, FaPython, FaReact } from "react-icons/fa";
-import { SiKubernetes, SiNextdotjs, SiNginx, SiTailwindcss } from "react-icons/si";
+import {
+  FaCss3Alt,
+  FaDocker,
+  FaHtml5,
+  FaJenkins,
+  FaPhp,
+  FaPython,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiKubernetes,
+  SiNextdotjs,
+  SiNginx,
+  SiTailwindcss,
+} from "react-icons/si";
 import { DiJenkins, DiMongodb, DiPostgresql } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
 
@@ -84,7 +97,6 @@ const HeroSection = () => {
             fontSize={{ base: "1rem", md: "1.2rem" }}
             lineHeight="1.375"
             fontWeight="400"
-            color="gray.500"
             textAlign="center"
           >
             Müşterilerimize özel yaklaşımla yaratıcılığı buluşturarak
@@ -287,7 +299,7 @@ const TechLogos = () => {
       },
     },
     {
-      src: FaDocker ,
+      src: FaDocker,
       title: "Docker",
       color: "#0db7ed",
       boxSize: {
@@ -302,7 +314,7 @@ const TechLogos = () => {
       },
     },
     {
-      src: SiKubernetes  ,
+      src: SiKubernetes,
       title: "Kubernetes",
       color: "#3970e4",
       boxSize: {
@@ -317,7 +329,7 @@ const TechLogos = () => {
       },
     },
     {
-      src: DiJenkins  ,
+      src: DiJenkins,
       title: "Jenkins",
       color: "#676767",
       boxSize: {
@@ -347,7 +359,7 @@ const TechLogos = () => {
             textAlign={"center"}
             fontSize={logo.fontSize}
             fontWeight={"semibold"}
-            userSelect={'none'}
+            userSelect={"none"}
           >
             {logo.title}
           </Text>
@@ -357,20 +369,30 @@ const TechLogos = () => {
   );
 };
 
+function useWindowSize() {
+  const [size, setSize] = React.useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+  React.useEffect(() => {
+    const handleResize = () => {
+      setSize([window.innerWidth, window.innerHeight]);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return size;
+}
+
 function DottedBox() {
+  const [width, height] = useWindowSize();
+
   return (
-    <Box
-      position="absolute"
-      left="-45px"
-      top="-30px"
-      height="full"
-      maxW="700px"
-      zIndex={-1}
-    >
+    <Box position="absolute" height={`${height}px`} maxW="full" zIndex={-1}>
       <svg
         color={useColorModeValue("rgba(55,65,81, 0.1)", "rgba(55,65,81, 0.7)")}
-        width="350"
-        height="420"
+        width={`${width}px`}
+        height={`${height}px`}
         fill="none"
       >
         <defs>
@@ -386,8 +408,8 @@ function DottedBox() {
           </pattern>
         </defs>
         <rect
-          width="404"
-          height="404"
+          width="1000px"
+          height="420px"
           fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)"
         ></rect>
       </svg>
