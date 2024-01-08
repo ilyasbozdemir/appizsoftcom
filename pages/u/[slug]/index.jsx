@@ -15,14 +15,15 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import Head from "next/head";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { site } from "../../../constants/site";
+
 const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
+
   return (
     <Flex
       direction={"column"}
@@ -45,7 +46,9 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
         <Text fontWeight="semibold" fontSize="lg" mb="2">
           {name}
         </Text>
-        <Text color="gray.500" fontSize="sm">{role}</Text>
+        <Text color="gray.500" fontSize="sm">
+          {role}
+        </Text>
         <HStack mt="3" spacing="2">
           <Link
             href={`${socialMedia.find((s) => s.platform === "LinkedIn").url}`}
@@ -99,15 +102,15 @@ const Card = ({ title, role, skills, period, logo, alt }) => {
           <Text fontSize={14}>{period}</Text>
         </Stack>
       </Flex>
-      <Flex gap={2} mt={3} flexWrap={"wrap"} alignItems="center" maxW={'470'}>
+      <Flex gap={2} mt={3} flexWrap={"wrap"} alignItems="center" maxW={"470"}>
         {skills.split(",").map((skill) => (
           <Tag
             size="sm"
             padding="0 3px"
             key={skill}
             fontWeight="bold"
-            backgroundColor={'teal.500'}
-            color={'#fff'}
+            backgroundColor={"teal.500"}
+            color={"#fff"}
           >
             {skill}
           </Tag>
@@ -123,6 +126,8 @@ function TeamDetailPage({ member }) {
   const publisher = `AppizSoft`;
   const title = `${member.name} • AppizSoft`;
   const desc = `${member.name}, ekip üyemizdir ve profesyonel yetenekleriyle ekibimize katkı sağlamaktadır.`;
+
+
 
   return (
     <>
@@ -154,6 +159,8 @@ function TeamDetailPage({ member }) {
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
 
+
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
@@ -176,20 +183,16 @@ function TeamDetailPage({ member }) {
 
       <Center>
         <Link href={"/team"}>
-          <HStack py={4} margin="0 auto" _hover={{
-            color: useColorModeValue("primary.100", "primary.200"),
-          }}>
+          <HStack
+            py={4}
+            margin="0 auto"
+            _hover={{
+              color: useColorModeValue("primary.100", "primary.200"),
+            }}
+          >
             <Icon as={HiOutlineArrowNarrowLeft} boxSize={35} />
 
-
-
-            <Text
-              fontWeight={"semibold"}
-
-            >
-              Ekipe Geri Dön
-            </Text>
-
+            <Text fontWeight={"semibold"}>Ekipe Geri Dön</Text>
           </HStack>
         </Link>
       </Center>
