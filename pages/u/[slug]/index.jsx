@@ -174,8 +174,8 @@ function TeamDetailPage({ member }) {
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
-        <meta property="og:image" content={site.ogImage} />
-        <meta property="og:image:alt" content={site.title} />
+        <meta property="og:image" content={member.photoUrl} />
+        <meta property="og:image:alt" content={member.photoUrl} />
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
