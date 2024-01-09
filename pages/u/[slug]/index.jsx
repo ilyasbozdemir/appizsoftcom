@@ -123,7 +123,7 @@ const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
 function TeamDetailPage({ member }) {
   const publisher = `AppizSoft`;
-  const title = `${member.name} • AppizSoft`;
+  const title = `${member.name} • Appizsoft Yazılım`;
   const desc = `${member.name}, ekip üyemizdir ve profesyonel yetenekleriyle ekibimize katkı sağlamaktadır.`;
 
   return (
