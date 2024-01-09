@@ -23,7 +23,6 @@ import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { site } from "../../../constants/site";
 
 const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
-
   return (
     <Flex
       direction={"column"}
@@ -127,8 +126,6 @@ function TeamDetailPage({ member }) {
   const title = `${member.name} • AppizSoft`;
   const desc = `${member.name}, ekip üyemizdir ve profesyonel yetenekleriyle ekibimize katkı sağlamaktadır.`;
 
-
-
   return (
     <>
       <Head>
@@ -159,8 +156,6 @@ function TeamDetailPage({ member }) {
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
 
-
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
@@ -174,8 +169,11 @@ function TeamDetailPage({ member }) {
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.title} />
-        <meta property="og:image" content={member.photoUrl} />
-        <meta property="og:image:alt" content={member.photoUrl} />
+        <meta
+          property="og:image"
+          content={`${site.baseUrl}/${member.photoUrl}`}
+        />
+        <meta property="og:image:alt" content={`${site.baseUrl}/${member.photoUrl}`}/>
         <meta property="og:image:width" content="1012" />
         <meta property="og:image:height" content="506" />
         <meta property="og:locale" content="tr_TR" />
