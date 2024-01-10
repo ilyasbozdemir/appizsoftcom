@@ -161,7 +161,7 @@ function TeamDetailPage({ member }) {
         <meta name="twitter:description" content={desc} />
         <meta name="twitter:site" content="@appizsoftcom" />
         <meta name="twitter:creator" content="@appizsoftcom" />
-        <meta name="twitter:image" content={site.twImage} />
+        <meta name="twitter:image" content={`${site.baseUrl}/${member.photoUrl}`} />
         <meta name="twitter:image:alt" content={site.title} />
 
         <meta property="og:title" content={title} />
