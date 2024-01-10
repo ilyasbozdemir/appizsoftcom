@@ -47,7 +47,31 @@ export const teamMembers = [
       },
     ],
   },
-  
+  {
+    name: "Abdulkadir Apatay",
+    slug: "abdulkadir-apatay",
+    role: "Graphic Designer & Video Designer",
+    photoUrl: "/team/abdulkadir-apatay.jpg",
+    socialMedia: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/abdulkadirapatay/",
+      },
+    ],
+    companies: [
+      {
+        title: "Appizsoft Yazılım",
+        alt: "PS image",
+        role: "Graphic Designer & Video Designer",
+
+        skills:
+          "Adobe Photoshop, Illustrator, InDesign'da yetkinlik, baskı ve dijital medya için tasarım ilkeleri, video düzenleme ve post prodüksiyon becerileri, Adobe Premiere Pro, After Effects'te yetkinlik, ses düzenleme ve renk düzeltme, senaryo yazımı ve storyboard oluşturma, animasyon ve hareketli grafikler",
+
+        period: "June 2023 - Present",
+        logo: "/favicon.png",
+      },
+    ],
+  },
   {
     name: "Kemal Gerçeker",
     slug: "kemal-gerceker",
@@ -72,7 +96,7 @@ export const teamMembers = [
       },
     ],
   },
-  
+
   {
     name: "Kübra Üzümcü",
     slug: "kubra-uzumcu",

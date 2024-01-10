@@ -348,7 +348,7 @@ const TechLogos = () => {
   return (
     <Flex wrap="wrap" justify="center" align="center" gap={5}>
       {logos.map((logo, index) => (
-        <Flex direction={"column"} justify="center" align="center" gap={2.5}>
+        <Flex key={logo.src + index} direction={"column"} justify="center" align="center" gap={2.5}>
           <Icon
             key={index}
             as={logo.src}
