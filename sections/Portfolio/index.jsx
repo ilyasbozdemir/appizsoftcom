@@ -1,31 +1,20 @@
 import {
   chakra,
-  Box,
   Flex,
   SimpleGrid,
-  Divider,
-  Heading,
-  Center,
-  Button,
   Text,
   useBreakpointValue,
   useColorModeValue,
-  HStack,
-  Icon,
   Container,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { projects } from "../../constants/projects";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { HiMiniArrowLongRight } from "react-icons/hi2";
 const defaultWidth = 675; //1000
 const defaultHeight = 386; //667
 const baseImagePath = "https://appizsoft-static-api.vercel.app";
 
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/autoplay";

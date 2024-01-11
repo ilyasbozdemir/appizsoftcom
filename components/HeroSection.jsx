@@ -12,10 +12,11 @@ import {
   Icon,
   Heading,
   keyframes,
+  HStack,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
-
+import { GoChevronRight } from "react-icons/go";
 import { FaCss3Alt, FaDocker, FaHtml5, FaReact } from "react-icons/fa";
 import {
   SiKubernetes,
@@ -97,16 +98,14 @@ const HeroSection = () => {
             textAlign="center"
             color="gray.500"
           >
-            Müşterilerimize özel yaklaşımla yaratıcılığı buluşturarak
-            hedeflerine ulaşmalarına yardımcı oluyor, stratejik planlama ve
-            kapsamlı araştırmalarımızla sektörde öne çıkarak rekabet avantajı
-            elde etmelerini sağlıyoruz ve estetik çözümlerimizle işinize güç
-            katıyoruz!
+            Dijital dünyada sıyrılıp öne çıkmanız için yenilikçi ve özgün
+            stratejiler sunuyoruz. İşinizi, rakiplerinizden farklı ve benzersiz
+            kılan yaklaşımlarla dijital alanda güçlendiriyoruz!
           </Text>
 
           <TechLogos />
 
-          <Center>
+          <Flex justifyContent={"center"}>
             <Stack
               direction={{ base: "row", sm: "row", md: "row" }}
               spacing={{ base: 3, sm: 5 }}
@@ -151,7 +150,7 @@ const HeroSection = () => {
                 </Box>
               </Link>
             </Stack>
-          </Center>
+          </Flex>
         </Stack>
       </Flex>
     </Container>
