@@ -31,7 +31,21 @@ export const projects = [
     description:
       "Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.",
   },
-
+  {
+    id: "akkanlarplatformcom",
+    portfolio: "images/akkanlarplatformcom.png",
+    name: "Akkanlar Platform",
+    portfolioSize: {
+      w: 300,
+      h: 200,
+    },
+    category: "web-site",
+    logo: "/images/products/bilibum.png",
+    sector: "technology",
+    projectUrl: "https://www.akkanlarplatform.com/?utm_source=appizsoft.com&utm_medium=referral&utm_campaign=appizsoft-promo",
+    description:
+      "Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.",
+  },
   {
     id: "sultan-bistro",
     portfolio: "/images/sultan-bistro.png",
