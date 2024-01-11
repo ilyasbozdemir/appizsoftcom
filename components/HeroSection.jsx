@@ -6,7 +6,6 @@ import {
   Text,
   useColorModeValue,
   Button,
-  Image,
   Box,
   Flex,
   Center,
@@ -17,15 +16,7 @@ import {
 
 import Link from "next/link";
 
-import {
-  FaCss3Alt,
-  FaDocker,
-  FaHtml5,
-  FaJenkins,
-  FaPhp,
-  FaPython,
-  FaReact,
-} from "react-icons/fa";
+import { FaCss3Alt, FaDocker, FaHtml5, FaReact } from "react-icons/fa";
 import {
   SiKubernetes,
   SiNextdotjs,
@@ -34,6 +25,8 @@ import {
 } from "react-icons/si";
 import { DiJenkins, DiMongodb, DiPostgresql } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
+import Dotnet7Icon from "../icons/technologies/Dotnet7Icon";
+import RedisIcon from "../icons/technologies/RedisIcon";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -88,16 +81,21 @@ const HeroSection = () => {
               fontWeight="bold"
               textAlign="center"
             >
+              <chakra.span
+                color="teal"
+                bg="linear-gradient(transparent 55%, #83e9e7 50%)"
+              />
               Markanızı öne çıkarmak için yaratıcılığı
               <RainbowText text={" Teknolojiyle "} />
               birleştiriyoruz.
             </Heading>
           </Box>
           <Text
-            fontSize={{ base: "1rem", md: "1.2rem" }}
             lineHeight="1.375"
             fontWeight="400"
+            fontSize="xl"
             textAlign="center"
+            color="gray.500"
           >
             Müşterilerimize özel yaklaşımla yaratıcılığı buluşturarak
             hedeflerine ulaşmalarına yardımcı oluyor, stratejik planlama ve
@@ -238,6 +236,36 @@ const TechLogos = () => {
       },
     },
     {
+      src: Dotnet7Icon,
+      title: ".Net Core 7.0",
+      color: "#6D429C",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+    {
+      src: RedisIcon,
+      title: "Redis",
+      color: "#AD2115",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+    {
       src: DiMongodb,
       title: "Mongodb",
       color: "#4DB33D",
@@ -348,13 +376,20 @@ const TechLogos = () => {
   return (
     <Flex wrap="wrap" justify="center" align="center" gap={5}>
       {logos.map((logo, index) => (
-        <Flex key={logo.src + index} direction={"column"} justify="center" align="center" gap={2.5}>
+        <Flex
+          key={logo.src + index}
+          direction={"column"}
+          justify="center"
+          align="center"
+          gap={2.5}
+        >
           <Icon
             key={index}
             as={logo.src}
             boxSize={logo.boxSize}
             color={logo.color}
           />
+
           <Text
             textAlign={"center"}
             fontSize={logo.fontSize}
