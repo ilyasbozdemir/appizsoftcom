@@ -44,7 +44,7 @@ export const projects = [
     sector: "technology",
     projectUrl: "https://www.akkanlarplatform.com/?utm_source=appizsoft.com&utm_medium=referral&utm_campaign=appizsoft-promo",
     description:
-      "Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.",
+      "Profesyonel oto kurtarıcı, manlift, sepetli vinç ve vinç kiralama hizmetleri sunan Akkanlar Platform, güvenli ve sorunsuz bir deneyim için burada. Günlük ve aylık esnek kiralama seçenekleriyle, her projenize uygun çözümler sağlıyoruz. Kaliteli hizmet, düzenli bakım ve müşteri memnuniyeti bizim önceliğimiz.",
   },
   {
     id: "sultan-bistro",
