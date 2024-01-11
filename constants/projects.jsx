@@ -40,7 +40,7 @@ export const projects = [
       h: 200,
     },
     category: "web-site",
-    logo: "/images/products/bilibum.png",
+    logo: "/images/akkanlarplatformcom-logo.svg",
     sector: "technology",
     projectUrl: "https://www.akkanlarplatform.com/?utm_source=appizsoft.com&utm_medium=referral&utm_campaign=appizsoft-promo",
     description:
