@@ -8,26 +8,25 @@ import {
   Button,
   Box,
   Flex,
-  Center,
   Icon,
   Heading,
   keyframes,
-  HStack,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
-import { GoChevronRight } from "react-icons/go";
 import { FaCss3Alt, FaDocker, FaHtml5, FaReact } from "react-icons/fa";
 import {
+  SiJavascript,
   SiKubernetes,
   SiNextdotjs,
   SiNginx,
   SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
 import { DiJenkins, DiMongodb, DiPostgresql } from "react-icons/di";
-import { IoLogoJavascript } from "react-icons/io";
 import Dotnet7Icon from "../icons/technologies/Dotnet7Icon";
 import RedisIcon from "../icons/technologies/RedisIcon";
+import StyleX from "../icons/technologies/StyleX";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -190,9 +189,24 @@ const TechLogos = () => {
       },
     },
     {
-      src: IoLogoJavascript,
+      src: SiJavascript ,
       title: "Javascript",
       color: "#F0DB4F",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+    {
+      src: SiTypescript ,
+      title: "Typescript",
+      color: "#007acc",
       boxSize: {
         base: "40px",
         md: "45px",
@@ -280,6 +294,21 @@ const TechLogos = () => {
       },
     },
 
+    {
+      src: StyleX,
+      title: "StyleXjs",
+      color: "#000",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
     {
       src: SiTailwindcss,
       title: "Tailwindcss",
