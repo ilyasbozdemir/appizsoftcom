@@ -1,7 +1,7 @@
 import { Icon } from "@chakra-ui/react";
 
 const StyleX = (props) => (
-    <Icon viewBox="0 0 644 435" {...props} fill="#A41E11">
+    <Icon viewBox="0 0 644 435" {...props} fill="black">
         <defs>
             <linearGradient
                 id="logo-small-a"

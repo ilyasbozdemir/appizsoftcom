@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 import Link from "next/link";
-import { FaCss3Alt, FaDocker, FaHtml5, FaReact } from "react-icons/fa";
+import { FaCss3Alt, FaDocker, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import {
   SiJavascript,
   SiKubernetes,
@@ -235,8 +235,23 @@ const TechLogos = () => {
     },
     {
       src: SiNextdotjs,
-      title: "Next.js",
+      title: "Nextjs",
       color: "#000",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+    {
+      src: FaNodeJs ,
+      title: "Nodejs",
+      color: "#8cc84b",
       boxSize: {
         base: "40px",
         md: "45px",
