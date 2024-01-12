@@ -398,6 +398,7 @@ const TechLogos = () => {
         md: "45px",
         lg: "50px",
       },
+      
       fontSize: {
         base: "12px",
         md: "14px",
