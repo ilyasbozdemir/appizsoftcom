@@ -20,6 +20,7 @@ import {
   SiKubernetes,
   SiNextdotjs,
   SiNginx,
+  SiNuxtdotjs,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -27,6 +28,9 @@ import { DiJenkins, DiMongodb, DiPostgresql } from "react-icons/di";
 import Dotnet7Icon from "../icons/technologies/Dotnet7Icon";
 import RedisIcon from "../icons/technologies/RedisIcon";
 import StyleX from "../icons/technologies/StyleX";
+import NextjsIcon from "../icons/technologies/NextjsIcon";
+import VueIcon from "../icons/technologies/VueIcon";
+import NuxtJsIcon from "../icons/technologies/NuxtJsIcon";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -189,7 +193,7 @@ const TechLogos = () => {
       },
     },
     {
-      src: SiJavascript ,
+      src: SiJavascript,
       title: "Javascript",
       color: "#F0DB4F",
       boxSize: {
@@ -204,7 +208,7 @@ const TechLogos = () => {
       },
     },
     {
-      src: SiTypescript ,
+      src: SiTypescript,
       title: "Typescript",
       color: "#007acc",
       boxSize: {
@@ -234,9 +238,9 @@ const TechLogos = () => {
       },
     },
     {
-      src: SiNextdotjs,
-      title: "Nextjs",
-      color: "#000",
+      src: VueIcon,
+      title: "Vue.js",
+      color: "#42b883",
       boxSize: {
         base: "40px",
         md: "45px",
@@ -249,7 +253,38 @@ const TechLogos = () => {
       },
     },
     {
-      src: FaNodeJs ,
+      src: SiNuxtdotjs ,
+      title: "NuxtJs",
+      color: "#00DC82",
+      boxSize: {
+        base: "45px",
+        md: "50px",
+        lg: "55px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+    {
+      src: NextjsIcon,
+      title: "Nextjs",
+      color: "#000",
+      boxSize: {
+        base: "45px",
+        md: "50px",
+        lg: "55px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+
+    {
+      src: FaNodeJs,
       title: "Nodejs",
       color: "#8cc84b",
       boxSize: {
