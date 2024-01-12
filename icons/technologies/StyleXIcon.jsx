@@ -1,6 +1,6 @@
 import { Icon } from "@chakra-ui/react";
 
-const StyleX = (props) => (
+const StyleXIcon = (props) => (
     <Icon viewBox="0 0 644 435" {...props} fill="black">
         <defs>
             <linearGradient
@@ -41,4 +41,4 @@ const StyleX = (props) => (
     </Icon>
 );
 
-export default StyleX;
+export default StyleXIcon;

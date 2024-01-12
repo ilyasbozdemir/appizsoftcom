@@ -27,10 +27,10 @@ import {
 import { DiJenkins, DiMongodb, DiPostgresql } from "react-icons/di";
 import Dotnet7Icon from "../icons/technologies/Dotnet7Icon";
 import RedisIcon from "../icons/technologies/RedisIcon";
-import StyleX from "../icons/technologies/StyleX";
 import NextjsIcon from "../icons/technologies/NextjsIcon";
 import VueIcon from "../icons/technologies/VueIcon";
-import NuxtJsIcon from "../icons/technologies/NuxtJsIcon";
+import StyleXIcon from "../icons/technologies/StyleXIcon";
+import RabbitMQIcon from "../icons/technologies/RabbitMQIcon";
 
 const rainbowAnimation = keyframes`
   0% {
@@ -345,7 +345,7 @@ const TechLogos = () => {
     },
 
     {
-      src: StyleX,
+      src: StyleXIcon,
       title: "StyleXjs",
       color: "#000",
       boxSize: {
@@ -439,6 +439,21 @@ const TechLogos = () => {
       src: DiJenkins,
       title: "Jenkins",
       color: "#676767",
+      boxSize: {
+        base: "40px",
+        md: "45px",
+        lg: "50px",
+      },
+      fontSize: {
+        base: "12px",
+        md: "14px",
+        lg: "15px",
+      },
+    },
+    {
+      src: RabbitMQIcon,
+      title: "RabbitMQ",
+      color: null,
       boxSize: {
         base: "40px",
         md: "45px",
