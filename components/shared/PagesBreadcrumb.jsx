@@ -36,18 +36,12 @@ function PagesBreadcrumb({ currentPage, isServiceDetail = false }) {
           <Icon
             as={ChevronRightIcon}
             color={useBreakpointValue({ base: "black", md: "white" })}
-            boxShadow={useBreakpointValue({ base: "sm", md: "md" })}
           />
         }
         fontSize={{ base: 15, md: 20 }}
         itemScope
         itemType="https://schema.org/BreadcrumbList"
-        textShadow={useBreakpointValue({
-          base: ``,
-          md: `0 2px 1px #000, 
-        -1px 3px 1px #000, 
-        -2px 5px 1px #000;`,
-        })}
+   
       >
         <BreadcrumbItem
           itemProp="itemListElement"

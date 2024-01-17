@@ -1,8 +1,6 @@
 import axios from "axios";
 
-//https://api.appizsoft.com/api/v1/
 
-//http://localhost:5226/api/v1/users
 
 import { site } from "../constants/site";
 
