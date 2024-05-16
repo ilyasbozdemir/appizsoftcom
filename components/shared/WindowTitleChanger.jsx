@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 
 function WindowTitleChanger() {
   const titles = [
-    "Appizsoft • Özel Yazılım Geliştirme",
-    "Appizsoft • Dijital Pazarlama",
-    "Appizsoft • E-ticaret Çözümleri",
-    "Appizsoft • Prodüksiyon & Tasarım",
-    "Appizsoft • Oyun Tasarım",
+    "Fake Company Name • Özel Yazılım Geliştirme",
+    "Fake Company Name • Dijital Pazarlama",
+    "Fake Company Name • E-ticaret Çözümleri",
+    "Fake Company Name • Prodüksiyon & Tasarım",
+    "Fake Company Name • Oyun Tasarım",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
