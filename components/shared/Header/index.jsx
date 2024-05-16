@@ -47,7 +47,7 @@ const navLinks = [
 const dropdownLinks = [
   {
     name: "Hakkımızda",
-    path: "/about-appizsoft",
+    path: "/about",
     icon: MdTimeline,
   },
   {

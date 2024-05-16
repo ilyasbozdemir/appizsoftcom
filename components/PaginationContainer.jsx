@@ -17,7 +17,6 @@ const PaginationContainer = () => {
     >
       <Flex direction={'column'} gap={10}>
 
-        <BlogList />
         <Pagination />
       </Flex>
     </Container>

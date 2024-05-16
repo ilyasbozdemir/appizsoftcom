@@ -13,7 +13,7 @@ export const menuList = [
       },
       {
         title: "Hakkımızda",
-        href: "/about-appizsoft",
+        href: "/about",
         children: null,
       },
       {

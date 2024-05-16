@@ -151,8 +151,8 @@ function BlogPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@twitterusername" />
+        <meta name="twitter:creator" content="@twitterusername" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 

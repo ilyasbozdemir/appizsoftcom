@@ -8,7 +8,7 @@ import { facebookPixelCode } from "../lib/facebookPixelCode";
 
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://api.appizsoft.com/"
+    ? "https://api.domain.com/"
     : "http://localhost:5226";
 
 const baseUrl =
@@ -17,10 +17,10 @@ const baseUrl =
     : "http://localhost:3000";
 
 export const site = {
-  title: `Appizsoft | Yazılım & Tasarım & Dijital Pazarlama`,
+  title: `SiteAdi | Yazılım & Tasarım & Dijital Pazarlama`,
   API_BASE_URL: API_BASE_URL,
   baseUrl: baseUrl,
-  publisher: `Appizsoft Yazılım`,
+  publisher: `ilyasbozdemir Yazılım`,
   ogImage: "https://appizsoft-static-api.vercel.app/images/og-image.png",
   twImage: "https://appizsoft-static-api.vercel.app/images/tw-image.png",
   logoUrl: baseUrl + "/logo.png",
