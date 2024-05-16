@@ -1,6 +1,6 @@
 {
-    "name": "Appizsoft",
-    "short_name": "Appizsoft App",
+    "name": "Company",
+    "short_name": "Company App",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
