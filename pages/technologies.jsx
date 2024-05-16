@@ -94,8 +94,8 @@ const OurTechnologiesContent = () => {
 };
 
 function OurTechnologiesPage() {
-  const publisher = `AppizSoft`;
-  const title = `Teknolojiler • AppizSoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Teknolojiler • Fake Company Name`;
   const desc = `İşimizde kullandığımız çeşitli teknolojileri keşfedin. Bulut bilişim, veritabanı yönetimi, konteyner teknolojileri gibi altyapı unsurlarının yanı sıra, geliştirme dilleri ve daha fazlası hakkında bilgi edinin. `;
 
   return (
@@ -118,7 +118,7 @@ function OurTechnologiesPage() {
           hreflang="en"
           href={`${site.baseUrl}/en/technologies`}
         />
-        <link rel="canonical" href="https://appizsoft.com/technologies" />
+        <link rel="canonical" href="https://domain.com/technologies" />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
         <meta name="publisher" content={publisher} />
@@ -127,8 +127,8 @@ function OurTechnologiesPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 

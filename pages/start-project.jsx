@@ -84,8 +84,8 @@ const GetAQuoteContent = () => {
 };
 
 function GetAQuote() {
-  const publisher = `AppizSoft`;
-  const title = `Yenilikçi Projeleri Hayata Geçirin  • AppizSoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Yenilikçi Projeleri Hayata Geçirin  • Fake Company Name`;
   const desc = `Teknoloji dünyasında sınırları zorlayan, inovasyonu destekleyen ve yaratıcı projelere öncülük eden bir ortak arıyorsanız, projeyi başlat sayfamızla tanışın. İhtiyaçlarınıza özel çözümler sunarak işinizin dijital dönüşümünü gerçekleştiriyoruz. Hemen iletişime geçin ve projelerinizi hayata geçirin.`;
 
   return (
@@ -109,7 +109,7 @@ function GetAQuote() {
           hreflang="en"
           href={`${site.baseUrl}/en/start-project`}
         />
-        <link rel="canonical" href="https://appizsoft.com/start-project" />
+        <link rel="canonical" href="https://domain.com/start-project" />
         <meta name="robots" content={"index, follow"} />
 
         <meta itemprop="description" content={desc} />
@@ -120,8 +120,8 @@ function GetAQuote() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 
@@ -137,7 +137,7 @@ function GetAQuote() {
         <meta property="og:locale" content="tr_TR" />
         <meta
           property="article:publisher"
-          content="https://www.facebook.com/appizsoftcom/"
+          content="https://www.facebook.com//"
         />
         <meta
           property="article:modified_time"

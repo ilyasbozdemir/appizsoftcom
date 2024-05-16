@@ -329,9 +329,9 @@ const StartProject = () => {
 };
 
 function ServicesPage() {
-  const publisher = `AppizSoft`;
-  const title = `Hizmetler • AppizSoft`;
-  const desc = `AppizSoft olarak, müşterilerimize en iyi hizmeti sunmak için çalışıyoruz. Yazılım çözümleri, web geliştirme, mobil uygulama geliştirme ve daha fazlasını keşfedin.`;
+  const publisher = `Fake Company Name`;
+  const title = `Hizmetler • Fake Company Name`;
+  const desc = `Fake Company Name olarak, müşterilerimize en iyi hizmeti sunmak için çalışıyoruz. Yazılım çözümleri, web geliştirme, mobil uygulama geliştirme ve daha fazlasını keşfedin.`;
 
   return (
     <>
@@ -350,7 +350,7 @@ function ServicesPage() {
           hreflang="en"
           href={`${site.baseUrl}/en/services`}
         />
-        <link rel="canonical" href="https://appizsoft.com/services" />
+        <link rel="canonical" href="https://domain.com/services" />
         <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -360,8 +360,8 @@ function ServicesPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 

@@ -52,8 +52,8 @@ const TeamMember = ({ name, role, photoUrl, socialMedia }) => {
 };
 
 function TeamPage() {
-  const publisher = `AppizSoft`;
-  const title = `Ekip • AppizSoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Ekip • Fake Company Name`;
   const desc = `Ekip üyelerimizle projelerinizi hayata geçirin. Teknoloji ve tasarımın gücüyle çözümler sunuyoruz`;
 
   return (
@@ -68,7 +68,7 @@ function TeamPage() {
 
         <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/team`} />
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/team`} />
-        <link rel="canonical" href={"https://appizsoft.com/team"} />
+        <link rel="canonical" href={"https://domain.com/team"} />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
