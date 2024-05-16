@@ -24,4 +24,31 @@ export const teamMembers = [
     ],
   },
 
+
+ 
+  {
+    name: "Kemal Gerçeker",
+    slug: "kemal-gerceker",
+    role: "Graphic Designer",
+    photoUrl: "/team/kemal-gerceker.jpg",
+    socialMedia: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/mustafa-kemal-ger%C3%A7eker-35681423a/",
+      },
+    ],
+
+    companies: [
+      {
+        title: "Fake Company Name",
+        alt: "Fake Company Name Image",
+        role: "Graphic Designer",
+        skills:
+          "User-Centered Design, Wireframing, Prototyping, Usability Testing, Interaction Design, Visual Design, Adobe Creative Suite, Sketch, Figma, User Research",
+        period: "June 2023 - Present",
+        logo: "/favicon.png",
+      },
+    ],
+  },
+
 ];
