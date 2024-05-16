@@ -338,7 +338,7 @@ const FooterData = () => {
   } else {
     yearText = `${startYear}`;
   }
-  return <> {yearText} Appizsoft Yazılım &copy; Tüm Hakları Saklıdır.</>;
+  return <> {yearText} Fake Company Name Yazılım &copy; Tüm Hakları Saklıdır.</>;
 };
 
 export default React.memo(LargeWithLogoCentered);
