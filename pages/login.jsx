@@ -5,7 +5,7 @@ function LoginPage() {
   return (
     <>
       <Head>
-        <title>Appizsoft • Giriş Paneli </title>
+        <title>Fake Company Name • Giriş Paneli </title>
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

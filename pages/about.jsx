@@ -24,9 +24,9 @@ buraya nextjs net core gibi yazılımlar hakkında bilgi alanı
 };
 
 function AboutUsPage() {
-  const publisher = `AppizSoft`;
-  const title = `AppizSoft Hakkında • AppizSoft`;
-  const desc = `AppizSoft olarak, teknoloji ve yaratıcılığı bir araya getiriyoruz. Müşterilerimize en iyi çözümleri sunarak işlerini büyütmelerine yardımcı oluyoruz.`;
+  const publisher = `Fake Company Name`;
+  const title = `Fake Company Name Hakkında • Fake Company Name`;
+  const desc = `Fake Company Name olarak, teknoloji ve yaratıcılığı bir araya getiriyoruz. Müşterilerimize en iyi çözümleri sunarak işlerini büyütmelerine yardımcı oluyoruz.`;
 
   return (
     <>

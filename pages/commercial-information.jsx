@@ -4,8 +4,8 @@ import { site } from "../constants/site";
 import { Center, Container, Flex, Heading, Text } from "@chakra-ui/react";
 
 function CommercialInformationPage() {
-  const publisher = `AppizSoft`;
-  const title = `Ticari Bilgiler | Şirket ve Banka Bilgileri • Appizsoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Ticari Bilgiler | Şirket ve Banka Bilgileri • Fake Company Name`;
   const desc = `Müşterilerimizin deneyimleriyle gurur duyuyoruz. Sizler için sunduğumuz hizmetlerimiz hakkındaki referanslarımızı keşfedin.`;
 
   return (

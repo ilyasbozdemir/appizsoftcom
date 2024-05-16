@@ -17,7 +17,7 @@ export const blogData = [
     id: 2,
     slug: "gelecegin-yazilim-gelistirme-trendleri",
     title: "Geleceğin Yazılım Geliştirme Trendleri",
-    authorName: "murat",
+    authorName: "ilyas",
     content: `Bu blog yazısı, yazılım geliştirme dünyasında hızla yayılan yapay zeka ve blokzincir teknolojilerinin gelecekteki rolüne odaklanmaktadır. Yapay zekanın, yazılım süreçlerini otomatikleştirmek, veri analizi ve öngörü yeteneklerini artırmak için nasıl kullanıldığını öğreneceksiniz. Aynı şekilde, blokzincirin verilerin güvenliği, şeffaflığı ve merkezi olmayan uygulamaların geliştirilmesi üzerindeki etkisi incelenecektir. Bu yazıda, geleceğin yazılım geliştirme trendlerini anlayarak, teknoloji dünyasında bir adım önde olmanız için bilgi edineceksiniz.`,
     imageUrl: "https://appizsoft-static-api.vercel.app//images/blog/blog-2.webp",
     category: "",

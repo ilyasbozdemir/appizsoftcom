@@ -211,7 +211,7 @@ const ProductSupport = () => {
         Ürün Desteği ve Güncellemeler
       </Text>
       <Text fontSize="md" color="gray.600" mb={4}>
-        Ürünlerimiz AppizSoft platformu tarafından desteklenmektedir
+        Ürünlerimiz Fake Company Name platformu tarafından desteklenmektedir
       </Text>
       <Stack direction="row" spacing={4} justify="center">
         <Link href={"/tr/contact"} passHref>
@@ -239,9 +239,9 @@ const ProductsContent = () => {
 };
 
 function ProductsPage() {
-  const publisher = `AppizSoft`;
+  const publisher = `Fake Company Name`;
 
-  const title = "Ürünler  | AppizSoft";
+  const title = "Ürünler  | Fake Company Name";
   const desc =
     "En son teknolojilerle geliştirilmiş yazılım ürünlerimizi inceleyin ve ihtiyaçlarınıza özel çözümleri keşfedin.";
 
@@ -262,7 +262,7 @@ function ProductsPage() {
           hreflang="en"
           href={`${site.baseUrl}/en/products`}
         />
-        <link rel="canonical" href="https://appizsoft.com/products" />
+        <link rel="canonical" href="https://domain.com/products" />
         <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -272,8 +272,8 @@ function ProductsPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={site.title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={title} />
 

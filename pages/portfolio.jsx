@@ -336,8 +336,8 @@ const PortfolioContent = () => {
 };
 
 function OurPortfolioPage() {
-  const publisher = `AppizSoft`;
-  const title = `Portfolyo • Appizsoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Portfolyo • Fake Company Name`;
   const desc = `Yazılım, dijital prodüksiyon ve dijital pazarlama alanlarında yapılan çalışmaları sizinle paylaşıyoruz. Projelerimize göz atın ve yaratıcılığımızı keşfedin!`;
 
   return (
@@ -371,8 +371,8 @@ function OurPortfolioPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 

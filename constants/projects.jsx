@@ -1,51 +1,7 @@
-/*
-    id: "bilibum.app",
-    portfolio: "images/products/bilibum.png",
-    name: "Bilibum",
-    portfolioSize: {
-      w: 300,
-      h: 200,
-    },
-    category: "projects",  portfolio sayfası için
-    logo: "/images/products/bilibum.png",
-    sector: "technology", references sayfası için
-    projectUrl: "bilibum.app",
-    description:
-      "Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.",
- 
 
-*/
 export const projects = [
-  {
-    id: "bilibum.app",
-    portfolio: "images/products/bilibum.png",
-    name: "Bilibum",
-    portfolioSize: {
-      w: 300,
-      h: 200,
-    },
-    category: "projects",
-    logo: "/images/products/bilibum.png",
-    sector: "technology",
-    projectUrl: "bilibum.app",
-    description:
-      "Merhaba! Size, çocuklarınızın uykusu için en özel ve eğlenceli arkadağı sunmaktan heyecan duyuyoruz. Bilibum olarak, çocuklarınızın rüyalarını renklendiren ve uykularını daha huzurlu hale getiren bir uygulama yaratıyoruz.",
-  },
-  {
-    id: "akkanlarplatformcom",
-    portfolio: "images/akkanlarplatformcom.png",
-    name: "Akkanlar Platform",
-    portfolioSize: {
-      w: 300,
-      h: 200,
-    },
-    category: "web-site",
-    logo: "/images/akkanlarplatformcom-logo.svg",
-    sector: "technology",
-    projectUrl: "https://www.akkanlarplatform.com/?utm_source=appizsoft.com&utm_medium=referral&utm_campaign=appizsoft-promo",
-    description:
-      "Profesyonel oto kurtarıcı, manlift, sepetli vinç ve vinç kiralama hizmetleri sunan Akkanlar Platform, güvenli ve sorunsuz bir deneyim için burada. Günlük ve aylık esnek kiralama seçenekleriyle, her projenize uygun çözümler sağlıyoruz. Kaliteli hizmet, düzenli bakım ve müşteri memnuniyeti bizim önceliğimiz.",
-  },
+
+
   {
     id: "sultan-bistro",
     portfolio: "/images/sultan-bistro.png",

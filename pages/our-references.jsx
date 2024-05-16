@@ -267,8 +267,8 @@ const OurReferencesContent = () => {
 };
 
 function OurReferencesPage() {
-  const publisher = `AppizSoft`;
-  const title = `Referanslarımız • Appizsoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Referanslarımız • Fake Company Name`;
   const desc = `Müşterilerimizin deneyimleriyle gurur duyuyoruz. Sizler için sunduğumuz hizmetlerimiz hakkındaki referanslarımızı keşfedin.`;
 
   return (
@@ -284,7 +284,7 @@ function OurReferencesPage() {
           hreflang="en"
           href={`${site.baseUrl}/en/our-references`}
         />
-        <link rel="canonical" href="https://appizsoft.com/our-references" />
+        <link rel="canonical" href="https://domain.com/our-references" />
         <meta name="robots" content={"index, follow"} />
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -294,8 +294,8 @@ function OurReferencesPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 

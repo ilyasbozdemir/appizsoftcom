@@ -65,8 +65,8 @@ export default function HomePage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={site.title} />
         <meta name="twitter:description" content={site.description} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Fake Company Name Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 
@@ -82,7 +82,7 @@ export default function HomePage() {
         <meta property="og:locale" content="tr_TR" />
         <meta
           property="article:publisher"
-          content="https://www.facebook.com/appizsoftcom/"
+          content="https://www.facebook.com//"
         />
         <meta
           property="article:modified_time"

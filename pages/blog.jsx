@@ -124,8 +124,8 @@ const BlogCards = () => {
 };
 
 function BlogPage() {
-  const publisher = `AppizSoft`;
-  const title = `Blog • Appizsoft`;
+  const publisher = `Fake Company Name`;
+  const title = `Blog • Fake Company Name`;
   const desc = `En güncel teknoloji haberleri ve gelişmeleri. Teknoloji dünyasındaki yenilikleri yakından takip edin.`;
 
   return (
@@ -140,7 +140,7 @@ function BlogPage() {
 
         <link rel="alternate" hreflang="tr" href={`${site.baseUrl}/blog`} />
         <link rel="alternate" hreflang="en" href={`${site.baseUrl}/en/blog`} />
-        <link rel="canonical" href="https://appizsoft.com/blog" />
+        <link rel="canonical" href="https://domain.com/blog" />
         <meta name="robots" content="follow" />
 
         <meta itemprop="description" content={desc} />

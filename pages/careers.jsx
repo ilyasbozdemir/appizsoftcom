@@ -545,9 +545,9 @@ const Features = () => {
 
 const CareersContent = () => {
   all;
-  const publisher = `AppizSoft`;
-  const title = `Kariyer Fırsatları - Hayalinizdeki Pozisyon İçin Başvurun • AppizSoft`;
-  const desc = `AppizSoft olarak, büyüyen ekibimize katılarak kariyerinizi şekillendirin. Backend geliştirici, frontend geliştirici, mobil uygulama geliştirici ve daha birçok pozisyon için fırsatları inceleyin.`;
+  const publisher = `Fake Company Name`;
+  const title = `Kariyer Fırsatları - Hayalinizdeki Pozisyon İçin Başvurun • Fake Company Name`;
+  const desc = `Fake Company Name olarak, büyüyen ekibimize katılarak kariyerinizi şekillendirin. Backend geliştirici, frontend geliştirici, mobil uygulama geliştirici ve daha birçok pozisyon için fırsatları inceleyin.`;
 
   return (
     <>
@@ -565,7 +565,7 @@ const CareersContent = () => {
           hreflang="en"
           href={`${site.baseUrl}/en/careers`}
         />
-        <link rel="canonical" href="https://appizsoft.com/careers" />
+        <link rel="canonical" href="https://domain.com/careers" />
 
         <meta itemprop="description" content={desc} />
         <meta name="description" content={desc} />
@@ -575,8 +575,8 @@ const CareersContent = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <meta name="twitter:site" content="@appizsoftcom" />
-        <meta name="twitter:creator" content="@appizsoftcom" />
+        <meta name="twitter:site" content="@Fake Company Name" />
+        <meta name="twitter:creator" content="@Fake Company Name" />
         <meta name="twitter:image" content={site.twImage} />
         <meta name="twitter:image:alt" content={site.title} />
 
