@@ -330,7 +330,7 @@ function LargeWithLogoCentered() {
 }
 
 const FooterData = () => {
-  const startYear = 2023;
+  const startYear = 2024;
   const currentYear = new Date().getFullYear();
   let yearText;
   if (currentYear > startYear) {
@@ -338,7 +338,16 @@ const FooterData = () => {
   } else {
     yearText = `${startYear}`;
   }
-  return <> {yearText} Fake Company Name Yazılım &copy; Tüm Hakları Saklıdır.</>;
+
+  const utmParameters = '?utm_source=enterprisesoftware&utm_medium=footer&utm_campaign=yourcampaign';
+
+  return (
+    <>
+      <Link href={`https://ilyasbozdemir.dev/${utmParameters}`} target={'_blank'}>
+        <>{yearText} İlyas Bozdemir &copy; Tüm Hakları Saklıdır.</>
+      </Link>
+    </>
+  );
 };
 
 export default React.memo(LargeWithLogoCentered);
