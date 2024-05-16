@@ -14,11 +14,11 @@ function Logo() {
               <Text
                 bgGradient="linear(to-r, #005f65,#61DAFB,#007997)"
                 bgClip="text"
-                fontSize="3xl"
+                fontSize="2xl"
                 fontWeight="extrabold"
                 userSelect={"none"}
               >
-                enterprisesoftware
+                domainname
               </Text>
               <Text
                 fontSize="3xl"
