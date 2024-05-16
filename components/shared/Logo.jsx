@@ -21,7 +21,7 @@ function Logo() {
                 domainname
               </Text>
               <Text
-                fontSize="3xl"
+                fontSize="2xl"
                 fontWeight='hairline'
 
               >
