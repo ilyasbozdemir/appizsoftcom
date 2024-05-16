@@ -293,7 +293,7 @@ const WebSiteComponent = () => {
     <Flex direction={"column"} gap={4} p={5}>
       <p>{webDesignDetailState.siteType}</p>
       <p>{webDesignDetailState.projectType}</p>
-      <p>{webDesignDetailState.modules.length}</p>
+      <p>{webDesignDetailState.modules?.length}</p>
       <FormControl isRequired>
         <FormLabel>İhtiyacınızı hangisi karşılıyor?</FormLabel>
         <ServiceSelectionRadioCard
